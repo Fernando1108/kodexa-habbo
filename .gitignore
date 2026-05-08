@@ -1,0 +1,51 @@
+# === Dependencies ===
+node_modules/
+.pnpm-store/
+
+# === Build outputs ===
+dist/
+.next/
+out/
+build/
+.turbo/
+
+# === Environment ===
+.env
+.env.local
+.env.production
+.env.staging
+
+# === Assets (se descargan/generan, no van en el repo) ===
+assets/swf/
+assets/nitro/
+
+# === Database ===
+prisma/migrations/
+*.db
+*.sqlite
+
+# === IDE ===
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# === OS ===
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# === Logs ===
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# === Testing ===
+coverage/
+
+# === Docker volumes (locales) ===
+docker/data/
+
+# === Misc ===
+*.tgz
+.cache/
