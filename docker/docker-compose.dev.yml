@@ -1,0 +1,30 @@
+include:
+  - docker-compose.yml
+
+services:
+  adminer:
+    image: adminer:latest
+    container_name: kodexa-adminer
+    restart: unless-stopped
+    ports:
+      - "${ADMINER_PORT:-8080}:8080"
+    environment:
+      ADMINER_DEFAULT_SERVER: db
+      ADMINER_DESIGN: dracula
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - kodexa
+
+  redis-insight:
+    image: redis/redisinsight:latest
+    container_name: kodexa-redis-insight
+    restart: unless-stopped
+    ports:
+      - "${REDIS_INSIGHT_PORT:-8001}:5540"
+    depends_on:
+      redis:
+        condition: service_healthy
+    networks:
+      - kodexa

@@ -1,0 +1,984 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kodexa Hotel — Panel de Administración</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: {
+  colors: {
+    primary:'#00D4AA','primary-dim':'#00B894', secondary:'#7C3AED', accent:'#F59E0B',
+    bg:'#0F172A', surface:'#1E293B','surface-2':'#334155',
+    muted:'#94A3B8', danger:'#EF4444', success:'#10B981',
+  },
+  fontFamily:{ sans:['Sora','ui-sans-serif','system-ui'], mono:['JetBrains Mono','ui-monospace'] },
+}}};
+</script>
+<style>
+  body{ background:#0B1322; color:#F8FAFC; font-family:'Sora',sans-serif; min-height:100vh; }
+
+  /* logo */
+  .logo-k{ width:30px; height:30px; border-radius:9px;
+    background:conic-gradient(from 220deg at 50% 50%,#00D4AA,#7C3AED,#F59E0B,#00D4AA);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 1px rgba(0,212,170,.3),0 6px 18px -6px rgba(0,212,170,.6); flex:none;}
+  .logo-k span{ width:calc(100% - 4px); height:calc(100% - 4px); border-radius:7px;
+    background:#0F172A; display:flex; align-items:center; justify-content:center;
+    color:#F8FAFC; font-weight:800; font-size:.85rem;}
+
+  .text-gradient{ background:linear-gradient(110deg,#5BFFD7 0%,#00D4AA 35%,#7C3AED 80%,#F59E0B 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;}
+
+  /* sidebar */
+  .sb{ width:260px; background:#0e1627; border-right:1px solid #1f2b41; }
+  .nav-item{ display:flex; align-items:center; gap:.7rem; padding:.6rem .85rem; border-radius:10px;
+    color:#94A3B8; font-size:.92rem; font-weight:500; cursor:pointer; transition:.15s; position:relative; }
+  .nav-item:hover{ background:rgba(51,65,85,.4); color:#F8FAFC; }
+  .nav-item.active{ background:linear-gradient(90deg, rgba(0,212,170,.18), rgba(0,212,170,.04));
+    color:#5BFFD7; }
+  .nav-item.active::before{ content:""; position:absolute; left:-13px; top:8px; bottom:8px; width:3px;
+    border-radius:0 3px 3px 0; background:#00D4AA; box-shadow:0 0 12px rgba(0,212,170,.7);}
+  .nav-section{ font-size:.65rem; letter-spacing:.2em; text-transform:uppercase; color:#475569;
+    padding:0 .85rem; margin:1.25rem 0 .5rem; font-family:'JetBrains Mono'; }
+
+  /* topbar */
+  .topbar{ height:64px; background:rgba(14,22,39,.85); border-bottom:1px solid #1f2b41; backdrop-filter: blur(10px); }
+
+  /* badge */
+  .badge{ display:inline-flex; align-items:center; gap:.3rem; padding:.18rem .55rem; border-radius:999px;
+    font-size:.7rem; font-weight:600; font-family:'JetBrains Mono'; letter-spacing:.05em;}
+  .badge-ok{ background:rgba(16,185,129,.15); color:#34d399; border:1px solid rgba(16,185,129,.35); }
+  .badge-warn{ background:rgba(245,158,11,.15); color:#fbbf24; border:1px solid rgba(245,158,11,.35); }
+  .badge-danger{ background:rgba(239,68,68,.15); color:#f87171; border:1px solid rgba(239,68,68,.35); }
+  .badge-info{ background:rgba(124,58,237,.15); color:#c4b5fd; border:1px solid rgba(124,58,237,.35); }
+  .badge-mono{ background:rgba(148,163,184,.12); color:#cbd5e1; border:1px solid rgba(51,65,85,.6); }
+
+  /* card */
+  .card{ background:#131e36; border:1px solid #1f2b41; border-radius:14px; }
+
+  /* metric */
+  .metric{ padding:1.25rem 1.4rem; position:relative; overflow:hidden; }
+  .metric::after{ content:""; position:absolute; right:-30px; bottom:-30px; width:130px; height:130px;
+    border-radius:50%; opacity:.08; filter:blur(20px); }
+  .metric.m1::after{ background:#00D4AA; }
+  .metric.m2::after{ background:#7C3AED; }
+  .metric.m3::after{ background:#F59E0B; }
+  .metric.m4::after{ background:#10B981; }
+
+  /* pulse dot */
+  .pulse-dot{ position:relative; width:8px; height:8px; border-radius:50%; background:#10B981; flex:none; }
+  .pulse-dot::after{ content:""; position:absolute; inset:-4px; border-radius:50%; background:#10B981; opacity:.4;
+    animation: pulse 1.6s ease-out infinite; }
+  @keyframes pulse{0%{transform:scale(.6); opacity:.6} 100%{transform:scale(2); opacity:0}}
+
+  /* avatar */
+  .avt{ width:32px; height:32px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+    color:#0B1322; font-weight:700; font-size:.78rem; flex:none; box-shadow: inset 0 1px 0 rgba(255,255,255,.4); }
+
+  /* table */
+  table.kx{ width:100%; border-collapse:separate; border-spacing:0; }
+  table.kx th{ text-align:left; font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+    color:#64748B; font-weight:600; padding:.85rem 1rem; border-bottom:1px solid #1f2b41;
+    background:#0f1828; position:sticky; top:0; }
+  table.kx td{ padding:.95rem 1rem; border-bottom:1px solid rgba(31,43,65,.7); font-size:.9rem; }
+  table.kx tbody tr:hover{ background:rgba(51,65,85,.2); }
+  table.kx tbody tr:nth-child(even){ background:rgba(15,23,42,.35); }
+  table.kx tbody tr:nth-child(even):hover{ background:rgba(51,65,85,.25); }
+
+  /* inputs */
+  .inp{ background:#0e1730; border:1px solid #2a3b5b; border-radius:10px; padding:.55rem .8rem;
+    color:#F8FAFC; font-size:.88rem; outline:none; transition:.15s; width:100%; }
+  .inp:focus{ border-color:#00D4AA; box-shadow:0 0 0 3px rgba(0,212,170,.18);}
+  .inp-ic{ position:relative; }
+  .inp-ic input{ padding-left:2.3rem; }
+  .inp-ic i{ position:absolute; left:.7rem; top:50%; transform:translateY(-50%); color:#64748B; }
+
+  /* btn */
+  .btn{ display:inline-flex; align-items:center; gap:.45rem; padding:.55rem .95rem; border-radius:10px;
+    font-weight:600; font-size:.85rem; transition:.15s; border:1px solid transparent; cursor:pointer; }
+  .btn-primary{ background:linear-gradient(180deg,#14E4BB,#00D4AA); color:#062A22;
+    box-shadow:0 0 0 1px rgba(0,212,170,.35),0 6px 18px -6px rgba(0,212,170,.55);}
+  .btn-primary:hover{ transform:translateY(-1px);}
+  .btn-outline{ border-color:#334155; color:#CBD5E1; background:rgba(15,23,42,.4);}
+  .btn-outline:hover{ border-color:#00D4AA; color:#5BFFD7; }
+  .btn-ghost{ color:#94A3B8; }
+  .btn-ghost:hover{ color:#F8FAFC; background:rgba(51,65,85,.3); }
+  .btn-danger{ background:rgba(239,68,68,.12); color:#fca5a5; border-color:rgba(239,68,68,.35); }
+  .btn-danger:hover{ background:#EF4444; color:#fff; }
+
+  .icon-btn{ width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center;
+    border-radius:9px; color:#94A3B8; transition:.15s; cursor:pointer; }
+  .icon-btn:hover{ color:#F8FAFC; background:rgba(51,65,85,.5); }
+
+  /* modal */
+  .overlay{ position:fixed; inset:0; background:rgba(8,12,24,.7); backdrop-filter: blur(6px); z-index:50;
+    display:flex; align-items:center; justify-content:center; padding:1.5rem;
+    animation: fadeIn .2s ease both; }
+  @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
+  .modal{ background:#131e36; border:1px solid #243149; border-radius:18px; max-width:520px; width:100%;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,.6), 0 0 0 1px rgba(0,212,170,.08);
+    animation: scaleIn .25s cubic-bezier(.2,.7,.3,1.2) both; max-height: 90vh; overflow:auto; }
+  @keyframes scaleIn{ from{opacity:0; transform:scale(.94)} to{opacity:1; transform:none} }
+
+  /* tab pill (rooms filter) */
+  .pill{ padding:.4rem .85rem; border-radius:999px; font-size:.8rem; color:#94A3B8;
+    border:1px solid transparent; cursor:pointer; transition:.15s; }
+  .pill:hover{ color:#F8FAFC; }
+  .pill.active{ background:rgba(0,212,170,.15); color:#5BFFD7; border-color:rgba(0,212,170,.35); }
+
+  /* breadcrumb */
+  .crumb{ font-size:.85rem; color:#94A3B8; }
+  .crumb b{ color:#F8FAFC; font-weight:500; }
+
+  /* news card */
+  .news-card{ display:grid; grid-template-columns: 130px 1fr auto; gap:1.2rem; padding:1.1rem;
+    background:#131e36; border:1px solid #1f2b41; border-radius:14px; align-items:center; }
+  .news-thumb{ width:130px; height:90px; border-radius:10px; position:relative; overflow:hidden;
+    background:linear-gradient(135deg,#1f2b41,#0F172A); display:flex; align-items:center; justify-content:center;}
+
+  /* sparkline (simple bars) */
+  .sparkbars{ display:flex; align-items:flex-end; gap:3px; height:60px; }
+  .sparkbars > div{ flex:1; background:linear-gradient(180deg,#00D4AA,#0F766E); border-radius:2px 2px 0 0;
+    min-width:6px; opacity:.85; }
+
+  /* checkbox small */
+  .chk{ width:16px; height:16px; border:1.5px solid #475569; background:#0e1730; border-radius:4px;
+    display:inline-flex; align-items:center; justify-content:center; cursor:pointer; flex:none; }
+  .chk.on{ background:#00D4AA; border-color:#00D4AA; }
+  .chk.on::after{ content:""; width:8px; height:5px; border:2px solid #062A22; border-top:0; border-right:0;
+    transform:rotate(-45deg) translate(0,-1px); }
+
+  /* views fade */
+  .view{ display:none; }
+  .view.active{ display:block; animation: viewIn .3s ease both; }
+  @keyframes viewIn{ from{opacity:0; transform: translateY(8px);} to{opacity:1; transform:none} }
+
+  /* status dot */
+  .dot{ width:7px; height:7px; border-radius:50%; display:inline-block; }
+
+  /* mobile sidebar */
+  @media (max-width: 1024px){ .sb{ position:fixed; inset:0 auto 0 0; z-index:60; transform: translateX(-100%); transition: transform .25s; }
+    .sb.open{ transform: translateX(0); box-shadow: 0 0 60px rgba(0,0,0,.6); } }
+
+  /* select */
+  select.inp{ appearance:none; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat:no-repeat; background-position: right .7rem center; padding-right:2rem; }
+
+  /* dropdown row actions */
+  .menu{ position:absolute; right:0; top:calc(100% + 6px); background:#131e36; border:1px solid #243149;
+    border-radius:10px; min-width:170px; padding:.35rem; z-index:30; box-shadow:0 18px 40px -12px rgba(0,0,0,.6);
+    animation: menuIn .15s ease both; }
+  @keyframes menuIn{ from{opacity:0; transform: translateY(-4px)} to{opacity:1; transform:none} }
+  .menu button{ width:100%; text-align:left; padding:.5rem .65rem; border-radius:7px;
+    display:flex; align-items:center; gap:.5rem; color:#CBD5E1; font-size:.85rem; }
+  .menu button:hover{ background:rgba(51,65,85,.5); color:#F8FAFC; }
+  .menu button.danger{ color:#fca5a5; }
+  .menu button.danger:hover{ background:rgba(239,68,68,.15); color:#fff; }
+</style>
+</head>
+<body class="flex">
+
+<!-- ===================== SIDEBAR ===================== -->
+<aside id="sidebar" class="sb shrink-0 flex flex-col">
+  <!-- brand -->
+  <div class="px-5 py-5 border-b border-[#1f2b41] flex items-center gap-2.5">
+    <div class="logo-k"><span>K</span></div>
+    <div class="leading-tight">
+      <div class="font-bold tracking-tight">Kodexa<span class="text-primary">.</span></div>
+      <div class="text-[10px] uppercase tracking-[.22em] text-muted font-mono">Hotel</div>
+    </div>
+    <span class="badge badge-info ml-auto">Admin</span>
+  </div>
+
+  <!-- admin profile -->
+  <div class="px-4 pt-4 pb-3">
+    <div class="flex items-center gap-3 p-2.5 rounded-xl bg-[#0a1224] border border-[#1f2b41]">
+      <div class="avt" style="background:linear-gradient(135deg,#5BFFD7,#7C3AED);">SA</div>
+      <div class="min-w-0">
+        <div class="font-semibold text-sm truncate">Sofia_Admin</div>
+        <div class="text-[10px] font-mono uppercase tracking-[.14em] text-accent flex items-center gap-1">
+          <i data-lucide="crown" class="w-3 h-3"></i> superadmin
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- nav -->
+  <nav class="flex-1 px-3 overflow-y-auto pb-4">
+    <div class="nav-section">Operación</div>
+    <div class="nav-item active" data-view="dashboard"><i data-lucide="layout-dashboard" class="w-4 h-4"></i>Dashboard</div>
+    <div class="nav-item" data-view="users"><i data-lucide="users-round" class="w-4 h-4"></i>Usuarios <span class="ml-auto badge badge-mono">12.3K</span></div>
+    <div class="nav-item" data-view="rooms"><i data-lucide="home" class="w-4 h-4"></i>Salas</div>
+    <div class="nav-item"><i data-lucide="shopping-bag" class="w-4 h-4"></i>Catálogo</div>
+    <div class="nav-item" data-view="news"><i data-lucide="newspaper" class="w-4 h-4"></i>Noticias <span class="ml-auto badge badge-warn">3</span></div>
+    <div class="nav-item"><i data-lucide="store" class="w-4 h-4"></i>Marketplace</div>
+
+    <div class="nav-section">Sistema</div>
+    <div class="nav-item"><i data-lucide="settings" class="w-4 h-4"></i>Configuración</div>
+    <div class="nav-item"><i data-lucide="shield-alert" class="w-4 h-4"></i>Reportes <span class="ml-auto badge badge-danger">7</span></div>
+    <div class="nav-item"><i data-lucide="terminal" class="w-4 h-4"></i>Logs</div>
+
+    <div class="nav-section">&nbsp;</div>
+    <div class="nav-item" onclick="location.href='01-landing.html'"><i data-lucide="log-out" class="w-4 h-4"></i>Volver al Hotel</div>
+  </nav>
+
+  <!-- server status -->
+  <div class="m-3 p-3 rounded-xl bg-[#0a1224] border border-[#1f2b41] text-xs">
+    <div class="flex items-center justify-between">
+      <span class="text-muted uppercase tracking-[.16em] font-mono text-[10px]">Servidor</span>
+      <span class="flex items-center gap-1.5"><span class="pulse-dot"></span><span class="text-success font-medium">Estable</span></span>
+    </div>
+    <div class="mt-2 flex items-center gap-3 text-muted">
+      <span class="font-mono">CPU 24%</span>
+      <span class="font-mono">RAM 3.2G</span>
+    </div>
+  </div>
+</aside>
+
+
+<!-- ===================== MAIN ===================== -->
+<div class="flex-1 min-w-0 flex flex-col">
+
+  <!-- TOPBAR -->
+  <header class="topbar sticky top-0 z-30 px-5 lg:px-7 flex items-center gap-4">
+    <button class="lg:hidden icon-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">
+      <i data-lucide="menu" class="w-5 h-5"></i>
+    </button>
+
+    <div class="crumb hidden md:flex items-center gap-2">
+      <i data-lucide="layout-grid" class="w-3.5 h-3.5 text-muted"></i>
+      <span>Admin</span>
+      <i data-lucide="chevron-right" class="w-3 h-3 text-muted/60"></i>
+      <b id="crumbCurrent">Dashboard</b>
+    </div>
+
+    <div class="ml-auto flex items-center gap-2">
+      <div class="hidden md:block inp-ic max-w-[280px]">
+        <i data-lucide="search" class="w-4 h-4"></i>
+        <input class="inp" placeholder="Buscar usuarios, salas, items…" />
+        <span class="absolute right-2 top-1/2 -translate-y-1/2 text-[10px] font-mono text-muted/70 px-1.5 py-0.5 rounded border border-surface-2/50">⌘ K</span>
+      </div>
+
+      <button class="icon-btn relative">
+        <i data-lucide="bell" class="w-4.5 h-4.5"></i>
+        <span class="absolute top-1 right-1 w-2 h-2 rounded-full bg-danger ring-2 ring-[#0e1627]"></span>
+      </button>
+      <button class="icon-btn"><i data-lucide="message-square" class="w-4.5 h-4.5"></i></button>
+
+      <div class="ml-2 flex items-center gap-2.5 pl-3 border-l border-[#1f2b41] cursor-pointer">
+        <div class="avt" style="background:linear-gradient(135deg,#5BFFD7,#7C3AED);">SA</div>
+        <div class="hidden md:block leading-tight">
+          <div class="text-sm font-medium">Sofia_Admin</div>
+          <div class="text-[10px] font-mono uppercase tracking-[.14em] text-muted">en línea</div>
+        </div>
+        <i data-lucide="chevron-down" class="w-3.5 h-3.5 text-muted"></i>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ===================== VIEWS ===================== -->
+  <main class="flex-1 px-5 lg:px-7 py-6 max-w-[1400px] w-full mx-auto">
+
+
+    <!-- ─────────── 1. DASHBOARD ─────────── -->
+    <section class="view active" data-view="dashboard">
+
+      <div class="flex items-end justify-between flex-wrap gap-3 mb-6">
+        <div>
+          <div class="text-xs uppercase font-mono tracking-[.2em] text-muted">Vista general</div>
+          <h1 class="mt-1 text-3xl font-bold">Buenas tardes, <span class="text-gradient">Sofia</span></h1>
+          <p class="text-muted text-sm mt-1">El hotel está en buen estado · 127 jugadores online ahora mismo.</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <button class="btn btn-outline"><i data-lucide="download" class="w-4 h-4"></i>Exportar</button>
+          <button class="btn btn-primary"><i data-lucide="plus" class="w-4 h-4"></i>Acción rápida</button>
+        </div>
+      </div>
+
+      <!-- metric cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div class="card metric m1">
+          <div class="flex items-center justify-between">
+            <div class="w-10 h-10 rounded-lg bg-primary/15 border border-primary/30 flex items-center justify-center">
+              <i data-lucide="users-round" class="w-5 h-5 text-primary"></i>
+            </div>
+            <span class="pulse-dot"></span>
+          </div>
+          <div class="mt-4 text-3xl font-bold tracking-tight">127</div>
+          <div class="text-xs text-muted mt-0.5 uppercase tracking-wider">Usuarios online</div>
+          <div class="mt-3 flex items-center gap-1 text-xs"><i data-lucide="trending-up" class="w-3 h-3 text-success"></i><span class="text-success font-mono">+12%</span><span class="text-muted">vs ayer</span></div>
+        </div>
+        <div class="card metric m2">
+          <div class="flex items-center justify-between">
+            <div class="w-10 h-10 rounded-lg bg-secondary/15 border border-secondary/30 flex items-center justify-center">
+              <i data-lucide="user-plus" class="w-5 h-5 text-secondary"></i>
+            </div>
+          </div>
+          <div class="mt-4 text-3xl font-bold tracking-tight">12,345</div>
+          <div class="text-xs text-muted mt-0.5 uppercase tracking-wider">Registrados</div>
+          <div class="mt-3 flex items-center gap-1 text-xs"><i data-lucide="trending-up" class="w-3 h-3 text-success"></i><span class="text-success font-mono">+38</span><span class="text-muted">esta semana</span></div>
+        </div>
+        <div class="card metric m3">
+          <div class="flex items-center justify-between">
+            <div class="w-10 h-10 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center">
+              <i data-lucide="home" class="w-5 h-5 text-accent"></i>
+            </div>
+          </div>
+          <div class="mt-4 text-3xl font-bold tracking-tight">89</div>
+          <div class="text-xs text-muted mt-0.5 uppercase tracking-wider">Salas activas</div>
+          <div class="mt-3 flex items-center gap-1 text-xs"><i data-lucide="trending-up" class="w-3 h-3 text-success"></i><span class="text-success font-mono">+4</span><span class="text-muted">vs ayer</span></div>
+        </div>
+        <div class="card metric m4">
+          <div class="flex items-center justify-between">
+            <div class="w-10 h-10 rounded-lg bg-success/15 border border-success/30 flex items-center justify-center">
+              <i data-lucide="coins" class="w-5 h-5 text-accent"></i>
+            </div>
+          </div>
+          <div class="mt-4 text-3xl font-bold tracking-tight">1,234,567</div>
+          <div class="text-xs text-muted mt-0.5 uppercase tracking-wider">Créditos en circulación</div>
+          <div class="mt-3 flex items-center gap-1 text-xs"><i data-lucide="trending-down" class="w-3 h-3 text-danger"></i><span class="text-danger font-mono">-2.1%</span><span class="text-muted">inflación</span></div>
+        </div>
+      </div>
+
+      <!-- chart + activity -->
+      <div class="mt-5 grid grid-cols-1 xl:grid-cols-[1.6fr_1fr] gap-4">
+
+        <!-- chart -->
+        <div class="card p-5">
+          <div class="flex items-center justify-between flex-wrap gap-2">
+            <div>
+              <div class="text-sm font-semibold">Actividad — últimas 24h</div>
+              <div class="text-xs text-muted mt-0.5">Usuarios online por hora</div>
+            </div>
+            <div class="flex gap-1.5">
+              <button class="pill active">24h</button>
+              <button class="pill">7d</button>
+              <button class="pill">30d</button>
+            </div>
+          </div>
+
+          <!-- mock chart -->
+          <div class="mt-5 relative">
+            <div class="sparkbars" id="chartBars"></div>
+            <div class="absolute inset-x-0 top-0 grid grid-cols-4 text-[10px] font-mono text-muted/60 -mt-1">
+              <div></div><div class="text-center">06:00</div><div class="text-center">12:00</div><div class="text-right">18:00</div>
+            </div>
+            <!-- hover marker -->
+            <div class="absolute" style="left:62%; top:-8px;">
+              <div class="px-2 py-1 rounded bg-bg/95 border border-surface-2 text-[10px] font-mono">
+                <span class="text-primary">●</span> 142 online
+              </div>
+              <div class="w-px h-[60px] bg-primary/50 mx-auto"></div>
+            </div>
+          </div>
+
+          <!-- legend -->
+          <div class="mt-4 pt-4 border-t border-surface-2/40 grid grid-cols-3 gap-4 text-xs">
+            <div><div class="text-muted">Pico</div><div class="font-bold text-lg">187</div><div class="text-muted text-[10px] font-mono">14:32</div></div>
+            <div><div class="text-muted">Promedio</div><div class="font-bold text-lg">98</div><div class="text-success text-[10px] font-mono">↑ +14% vs ayer</div></div>
+            <div><div class="text-muted">Sesión media</div><div class="font-bold text-lg">42m</div><div class="text-muted text-[10px] font-mono">por usuario</div></div>
+          </div>
+        </div>
+
+        <!-- activity feed -->
+        <div class="card p-5">
+          <div class="flex items-center justify-between mb-4">
+            <div class="text-sm font-semibold">Actividad reciente</div>
+            <button class="btn btn-ghost text-xs">Ver todo</button>
+          </div>
+          <ul class="space-y-3">
+            <li class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-lg bg-success/15 border border-success/30 text-success flex items-center justify-center"><i data-lucide="user-plus" class="w-3.5 h-3.5"></i></div>
+              <div class="text-sm flex-1"><b>NuevoUser123</b> se registró<div class="text-[11px] text-muted/80 mt-0.5">hace 2 min</div></div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-lg bg-danger/15 border border-danger/30 text-danger flex items-center justify-center"><i data-lucide="ban" class="w-3.5 h-3.5"></i></div>
+              <div class="text-sm flex-1"><b>Admin Sofia</b> baneó a <b>ToxicPlayer</b><div class="text-[11px] text-muted/80 mt-0.5">hace 8 min · razón: spam</div></div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-lg bg-primary/15 border border-primary/30 text-primary flex items-center justify-center"><i data-lucide="home" class="w-3.5 h-3.5"></i></div>
+              <div class="text-sm flex-1">Se creó la sala <b>Club Kodexa</b><div class="text-[11px] text-muted/80 mt-0.5">hace 22 min</div></div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-lg bg-secondary/15 border border-secondary/30 text-secondary flex items-center justify-center"><i data-lucide="package" class="w-3.5 h-3.5"></i></div>
+              <div class="text-sm flex-1">Se actualizó el <b>catálogo</b><div class="text-[11px] text-muted/80 mt-0.5">hace 1h · 12 ítems añadidos</div></div>
+            </li>
+            <li class="flex items-start gap-3">
+              <div class="w-7 h-7 rounded-lg bg-accent/15 border border-accent/30 text-accent flex items-center justify-center"><i data-lucide="gavel" class="w-3.5 h-3.5"></i></div>
+              <div class="text-sm flex-1"><b>Trono Raro</b> vendido por <span class="text-accent font-mono">5,000 c</span><div class="text-[11px] text-muted/80 mt-0.5">hace 1h · marketplace</div></div>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- recent users + reports -->
+      <div class="mt-5 grid grid-cols-1 xl:grid-cols-[1.6fr_1fr] gap-4">
+        <div class="card overflow-hidden">
+          <div class="flex items-center justify-between p-5 pb-3">
+            <div class="text-sm font-semibold">Últimos registros</div>
+            <button class="btn btn-ghost text-xs" onclick="goView('users')">Ver todos →</button>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="kx">
+              <thead><tr>
+                <th>Usuario</th><th>Email</th><th>Fecha</th><th class="text-right">Acciones</th>
+              </tr></thead>
+              <tbody id="recentUsers"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="card p-5">
+          <div class="flex items-center justify-between mb-4">
+            <div class="text-sm font-semibold">Salud del hotel</div>
+            <span class="badge badge-ok"><span class="dot bg-success"></span> Todo OK</span>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1.5"><span class="text-muted">CPU</span><span class="font-mono">24%</span></div>
+              <div class="h-1.5 rounded-full bg-bg/70 overflow-hidden"><div class="h-full bg-success rounded-full" style="width:24%"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1.5"><span class="text-muted">Memoria</span><span class="font-mono">3.2 GB / 8 GB</span></div>
+              <div class="h-1.5 rounded-full bg-bg/70 overflow-hidden"><div class="h-full bg-primary rounded-full" style="width:40%"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1.5"><span class="text-muted">Latencia</span><span class="font-mono">42 ms</span></div>
+              <div class="h-1.5 rounded-full bg-bg/70 overflow-hidden"><div class="h-full bg-success rounded-full" style="width:15%"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1.5"><span class="text-muted">Cola de moderación</span><span class="font-mono text-warn text-accent">7 reportes</span></div>
+              <div class="h-1.5 rounded-full bg-bg/70 overflow-hidden"><div class="h-full bg-accent rounded-full" style="width:35%"></div></div>
+            </div>
+          </div>
+          <button class="btn btn-outline w-full mt-5 justify-center"><i data-lucide="activity" class="w-4 h-4"></i>Ver telemetría completa</button>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────── 2. USERS ─────────── -->
+    <section class="view" data-view="users">
+      <div class="flex items-end justify-between flex-wrap gap-3 mb-6">
+        <div>
+          <div class="text-xs uppercase font-mono tracking-[.2em] text-muted">Gestión</div>
+          <h1 class="mt-1 text-3xl font-bold">Usuarios <span class="text-muted text-lg font-mono">/ 12,345</span></h1>
+        </div>
+        <button class="btn btn-primary" onclick="openModal('mEditUser')"><i data-lucide="user-plus" class="w-4 h-4"></i>Crear usuario</button>
+      </div>
+
+      <!-- filters bar -->
+      <div class="card p-3 flex flex-wrap items-center gap-2">
+        <div class="inp-ic flex-1 min-w-[220px]">
+          <i data-lucide="search" class="w-4 h-4"></i>
+          <input class="inp" placeholder="Buscar por username, email o ID…" />
+        </div>
+        <select class="inp w-auto min-w-[140px]">
+          <option>Todos los ranks</option><option>Normal</option><option>VIP</option><option>Mod</option><option>Admin</option>
+        </select>
+        <select class="inp w-auto min-w-[140px]">
+          <option>Cualquier estado</option><option>Online</option><option>Offline</option><option>Baneado</option>
+        </select>
+        <button class="btn btn-outline"><i data-lucide="filter-x" class="w-4 h-4"></i>Limpiar</button>
+      </div>
+
+      <!-- bulk actions hint -->
+      <div id="bulkBar" class="mt-3 hidden card p-3 px-4 flex items-center justify-between border-primary/40 bg-[#0d2b27]">
+        <div class="text-sm flex items-center gap-2"><span class="font-bold text-primary"><span id="bulkCount">0</span></span><span>seleccionados</span></div>
+        <div class="flex gap-2">
+          <button class="btn btn-outline"><i data-lucide="mail" class="w-4 h-4"></i>Mensaje</button>
+          <button class="btn btn-outline"><i data-lucide="coins" class="w-4 h-4"></i>Créditos</button>
+          <button class="btn btn-danger"><i data-lucide="ban" class="w-4 h-4"></i>Banear</button>
+        </div>
+      </div>
+
+      <!-- table -->
+      <div class="card mt-3 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="kx">
+            <thead>
+              <tr>
+                <th class="w-8"><div class="chk" onclick="toggleAll(this)"></div></th>
+                <th>Usuario</th>
+                <th class="hidden md:table-cell">Email</th>
+                <th>Rank</th>
+                <th class="hidden lg:table-cell">Créditos</th>
+                <th>Estado</th>
+                <th class="hidden lg:table-cell">Última conexión</th>
+                <th class="text-right">Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="usersBody"></tbody>
+          </table>
+        </div>
+
+        <!-- pagination -->
+        <div class="px-4 py-3 border-t border-[#1f2b41] flex items-center justify-between flex-wrap gap-2 text-sm">
+          <div class="text-muted">Mostrando <b class="text-white">1–10</b> de <b class="text-white">12,345</b> usuarios</div>
+          <div class="flex items-center gap-2">
+            <select class="inp w-auto"><option>10 / página</option><option>25 / página</option><option>50 / página</option></select>
+            <div class="flex gap-1">
+              <button class="icon-btn" disabled style="opacity:.4"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
+              <button class="icon-btn" style="background:rgba(0,212,170,.15); color:#5BFFD7;">1</button>
+              <button class="icon-btn">2</button>
+              <button class="icon-btn">3</button>
+              <span class="px-2 text-muted text-xs">…</span>
+              <button class="icon-btn">1235</button>
+              <button class="icon-btn"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ─────────── 3. ROOMS ─────────── -->
+    <section class="view" data-view="rooms">
+      <div class="flex items-end justify-between flex-wrap gap-3 mb-6">
+        <div>
+          <div class="text-xs uppercase font-mono tracking-[.2em] text-muted">Gestión</div>
+          <h1 class="mt-1 text-3xl font-bold">Salas del hotel</h1>
+          <p class="text-muted text-sm mt-1">89 salas activas · 12 reportadas en las últimas 24h.</p>
+        </div>
+      </div>
+
+      <div class="card p-3 flex flex-wrap items-center gap-2">
+        <div class="inp-ic flex-1 min-w-[220px]">
+          <i data-lucide="search" class="w-4 h-4"></i>
+          <input class="inp" placeholder="Buscar sala por nombre o ID…" />
+        </div>
+        <div class="flex gap-1.5">
+          <button class="pill active">Todas</button>
+          <button class="pill">Públicas</button>
+          <button class="pill">Privadas</button>
+          <button class="pill">Con contraseña</button>
+        </div>
+      </div>
+
+      <div class="card mt-3 overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="kx">
+            <thead><tr>
+              <th class="w-12">ID</th>
+              <th>Sala</th>
+              <th class="hidden md:table-cell">Dueño</th>
+              <th>Aforo</th>
+              <th class="hidden lg:table-cell">Categoría</th>
+              <th>Estado</th>
+              <th class="hidden lg:table-cell">Score</th>
+              <th class="text-right">Acciones</th>
+            </tr></thead>
+            <tbody id="roomsBody"></tbody>
+          </table>
+        </div>
+        <div class="px-4 py-3 border-t border-[#1f2b41] text-sm text-muted">Mostrando 1–8 de 89 salas</div>
+      </div>
+    </section>
+
+
+    <!-- ─────────── 4. NEWS ─────────── -->
+    <section class="view" data-view="news">
+      <div class="flex items-end justify-between flex-wrap gap-3 mb-6">
+        <div>
+          <div class="text-xs uppercase font-mono tracking-[.2em] text-muted">Comunicación</div>
+          <h1 class="mt-1 text-3xl font-bold">Noticias del hotel</h1>
+        </div>
+        <button class="btn btn-primary" onclick="openModal('mNews')"><i data-lucide="plus" class="w-4 h-4"></i>Nueva noticia</button>
+      </div>
+
+      <div class="grid grid-cols-1 gap-3" id="newsList"></div>
+    </section>
+
+  </main>
+
+  <footer class="px-7 py-4 text-xs text-muted/60 border-t border-[#1f2b41] flex items-center justify-between font-mono">
+    <span>© 2025 Kodexa Hotel · admin v0.9.0-beta</span>
+    <span class="flex items-center gap-1.5"><span class="pulse-dot"></span> servers operational</span>
+  </footer>
+</div>
+
+
+<!-- ===================== MODALS ===================== -->
+
+<!-- edit user -->
+<div id="mEditUser" class="overlay hidden">
+  <div class="modal p-6">
+    <div class="flex items-start justify-between">
+      <div>
+        <div class="text-xs uppercase font-mono tracking-[.18em] text-muted">Gestión de usuario</div>
+        <h3 class="text-xl font-bold mt-1">Editar usuario</h3>
+      </div>
+      <button class="icon-btn" onclick="closeModals()"><i data-lucide="x" class="w-5 h-5"></i></button>
+    </div>
+    <div class="mt-5 flex items-center gap-3 p-3 bg-bg/40 rounded-xl border border-[#1f2b41]">
+      <div class="avt" style="width:42px; height:42px; font-size:1rem; background:linear-gradient(135deg,#F59E0B,#EF4444);">XR</div>
+      <div>
+        <div class="font-semibold">XRiku_Mc</div>
+        <div class="text-xs font-mono text-muted">id #4823 · creado ene 2024</div>
+      </div>
+      <span class="badge badge-info ml-auto">Mod</span>
+    </div>
+    <div class="mt-5 grid grid-cols-2 gap-4">
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Username</label>
+        <input class="inp mt-1.5" value="XRiku_Mc" disabled style="opacity:.6" />
+      </div>
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Email</label>
+        <input class="inp mt-1.5" value="riku@kodexa.io" />
+      </div>
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Rank</label>
+        <select class="inp mt-1.5"><option>Normal</option><option selected>Mod</option><option>Admin</option></select>
+      </div>
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Créditos</label>
+        <input class="inp mt-1.5" value="48,200" />
+      </div>
+      <div class="col-span-2">
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Motto</label>
+        <input class="inp mt-1.5" value="builder · level 24 · NPC whisperer" />
+      </div>
+    </div>
+    <div class="mt-6 flex justify-end gap-2">
+      <button class="btn btn-outline" onclick="closeModals()">Cancelar</button>
+      <button class="btn btn-primary" onclick="closeModals()"><i data-lucide="save" class="w-4 h-4"></i>Guardar cambios</button>
+    </div>
+  </div>
+</div>
+
+<!-- give credits -->
+<div id="mCredits" class="overlay hidden">
+  <div class="modal p-6 max-w-[420px]">
+    <div class="flex items-start justify-between">
+      <h3 class="text-xl font-bold flex items-center gap-2"><i data-lucide="coins" class="w-5 h-5 text-accent"></i>Dar créditos</h3>
+      <button class="icon-btn" onclick="closeModals()"><i data-lucide="x" class="w-5 h-5"></i></button>
+    </div>
+    <p class="text-sm text-muted mt-1">Otorga moneda a <b class="text-white">XRiku_Mc</b>.</p>
+    <div class="mt-5 space-y-4">
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Cantidad</label>
+        <input class="inp mt-1.5" placeholder="0" type="number" />
+      </div>
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Tipo</label>
+        <select class="inp mt-1.5"><option>💰 Créditos</option><option>🦆 Duckets</option><option>💎 Diamantes</option></select>
+      </div>
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Motivo (opcional)</label>
+        <input class="inp mt-1.5" placeholder="Compensación por evento, premio…" />
+      </div>
+    </div>
+    <div class="mt-6 flex justify-end gap-2">
+      <button class="btn btn-outline" onclick="closeModals()">Cancelar</button>
+      <button class="btn btn-primary" onclick="closeModals()"><i data-lucide="send" class="w-4 h-4"></i>Otorgar</button>
+    </div>
+  </div>
+</div>
+
+<!-- delete confirm -->
+<div id="mDelete" class="overlay hidden">
+  <div class="modal p-6 max-w-[420px]">
+    <div class="w-12 h-12 mx-auto rounded-xl bg-danger/15 border border-danger/40 flex items-center justify-center">
+      <i data-lucide="trash-2" class="w-5 h-5 text-danger"></i>
+    </div>
+    <h3 class="text-xl font-bold text-center mt-4">¿Eliminar a <span class="text-danger" id="delName">XRiku_Mc</span>?</h3>
+    <p class="text-sm text-muted text-center mt-2">Esta acción es <b>permanente</b>. Se borrará el avatar, salas, inventario y mensajes. No se puede deshacer.</p>
+    <div class="mt-6 flex gap-2">
+      <button class="btn btn-outline flex-1 justify-center" onclick="closeModals()">Cancelar</button>
+      <button class="btn btn-danger flex-1 justify-center" onclick="closeModals()"><i data-lucide="trash-2" class="w-4 h-4"></i>Eliminar</button>
+    </div>
+  </div>
+</div>
+
+<!-- edit room -->
+<div id="mRoom" class="overlay hidden">
+  <div class="modal p-6">
+    <div class="flex items-start justify-between">
+      <h3 class="text-xl font-bold flex items-center gap-2"><i data-lucide="home" class="w-5 h-5 text-primary"></i>Editar sala</h3>
+      <button class="icon-btn" onclick="closeModals()"><i data-lucide="x" class="w-5 h-5"></i></button>
+    </div>
+    <div class="mt-5 grid grid-cols-2 gap-4">
+      <div class="col-span-2">
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Nombre</label>
+        <input class="inp mt-1.5" value="Club Kodexa" />
+      </div>
+      <div class="col-span-2">
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Descripción</label>
+        <textarea class="inp mt-1.5" rows="3">Discoteca con minijuego de wired. Premios cada hora.</textarea>
+      </div>
+      <div class="col-span-2">
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted flex items-center justify-between">
+          <span>Aforo máximo</span><span class="font-bold text-white" id="capLbl">25</span>
+        </label>
+        <input type="range" min="1" max="50" value="25" class="w-full mt-2 accent-primary" oninput="document.getElementById('capLbl').textContent=this.value" />
+      </div>
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Estado</label>
+        <select class="inp mt-1.5"><option>🔓 Pública</option><option>🔒 Privada</option><option>🔑 Contraseña</option></select>
+      </div>
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Categoría</label>
+        <select class="inp mt-1.5"><option>Discoteca</option><option>Juegos</option><option>Casino</option><option>Charla</option><option>Casa</option></select>
+      </div>
+    </div>
+    <div class="mt-6 flex justify-end gap-2">
+      <button class="btn btn-outline" onclick="closeModals()">Cancelar</button>
+      <button class="btn btn-primary" onclick="closeModals()"><i data-lucide="save" class="w-4 h-4"></i>Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- news -->
+<div id="mNews" class="overlay hidden">
+  <div class="modal p-6 max-w-[640px]">
+    <div class="flex items-start justify-between">
+      <h3 class="text-xl font-bold flex items-center gap-2"><i data-lucide="newspaper" class="w-5 h-5 text-secondary"></i>Nueva noticia</h3>
+      <button class="icon-btn" onclick="closeModals()"><i data-lucide="x" class="w-5 h-5"></i></button>
+    </div>
+    <div class="mt-5 grid grid-cols-1 gap-4">
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Título</label>
+        <input class="inp mt-1.5" placeholder="Ej: Llega la temporada 2 de Wired Visual" />
+      </div>
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Imagen URL</label>
+        <input class="inp mt-1.5" placeholder="https://…" />
+      </div>
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Contenido</label>
+        <textarea class="inp mt-1.5" rows="6" placeholder="Soporta Markdown."></textarea>
+      </div>
+      <label class="flex items-center gap-3 text-sm">
+        <span class="chk on" onclick="this.classList.toggle('on')"></span>
+        Publicar inmediatamente
+      </label>
+    </div>
+    <div class="mt-6 flex justify-end gap-2">
+      <button class="btn btn-outline" onclick="closeModals()">Cancelar</button>
+      <button class="btn btn-outline"><i data-lucide="file" class="w-4 h-4"></i>Guardar borrador</button>
+      <button class="btn btn-primary" onclick="closeModals()"><i data-lucide="send" class="w-4 h-4"></i>Publicar</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  lucide.createIcons();
+
+  // ───── nav / view switching ─────
+  const crumbs = { dashboard:'Dashboard', users:'Usuarios', rooms:'Salas', news:'Noticias' };
+  function goView(v){
+    document.querySelectorAll('.view').forEach(e => e.classList.toggle('active', e.dataset.view===v));
+    document.querySelectorAll('.nav-item').forEach(e => e.classList.toggle('active', e.dataset.view===v));
+    document.getElementById('crumbCurrent').textContent = crumbs[v] || v;
+    document.getElementById('sidebar').classList.remove('open');
+    window.scrollTo({top:0});
+  }
+  document.querySelectorAll('.nav-item[data-view]').forEach(el => {
+    el.addEventListener('click', () => goView(el.dataset.view));
+  });
+
+  // ───── modal helpers ─────
+  function openModal(id){ document.getElementById(id).classList.remove('hidden'); }
+  function closeModals(){ document.querySelectorAll('.overlay').forEach(o => o.classList.add('hidden')); }
+  document.querySelectorAll('.overlay').forEach(o => {
+    o.addEventListener('click', e => { if (e.target === o) closeModals(); });
+  });
+  document.addEventListener('keydown', e => { if (e.key==='Escape') closeModals(); });
+
+  // ───── chart bars ─────
+  (() => {
+    const heights = [22,18,15,12,10,14,18,28,42,55,68,72,78,82,88,92,98,87,75,82,90,76,58,46];
+    const wrap = document.getElementById('chartBars');
+    heights.forEach((h,i) => {
+      const d = document.createElement('div');
+      d.style.height = h + '%';
+      if (i === 14) d.style.background = 'linear-gradient(180deg,#F59E0B,#7C3AED)';
+      wrap.appendChild(d);
+    });
+  })();
+
+  // ───── data ─────
+  const seed = (s, m) => Math.abs((s*9301+49297)%233280) % m;
+  const colors = ['#5BFFD7,#7C3AED','#F59E0B,#EF4444','#10B981,#00D4AA','#7C3AED,#F472B6','#3B82F6,#06B6D4','#EF4444,#F59E0B','#34D399,#3B82F6'];
+  const initials = u => u.replace(/[^A-Za-z0-9]/g,'').slice(0,2).toUpperCase();
+  const avtHtml = (u, i=0) => `<div class="avt" style="background:linear-gradient(135deg,${colors[i%colors.length]});">${initials(u)}</div>`;
+
+  const users = [
+    { u:'NovaPilot',  e:'nova@kodexa.io',  rank:'Admin', rb:'badge-danger', cred:'1,250,000', st:'online', last:'ahora' },
+    { u:'XRiku_Mc',   e:'riku@kodexa.io',  rank:'Mod',   rb:'badge-warn',   cred:'48,200',    st:'online', last:'hace 2 min' },
+    { u:'EchoZyrx',   e:'echo@kodexa.io',  rank:'VIP',   rb:'badge-info',   cred:'12,840',    st:'online', last:'hace 5 min' },
+    { u:'PixelDoll',  e:'doll@kodexa.io',  rank:'Normal',rb:'badge-mono',   cred:'3,420',     st:'offline',last:'hace 2h' },
+    { u:'Casinero99', e:'cas@kodexa.io',   rank:'Normal',rb:'badge-mono',   cred:'89,000',    st:'online', last:'hace 12 min' },
+    { u:'ToxicPlayer',e:'tox@kodexa.io',   rank:'Normal',rb:'badge-mono',   cred:'120',       st:'banned', last:'baneado · ayer' },
+    { u:'BluRise',    e:'blu@kodexa.io',   rank:'Mod',   rb:'badge-warn',   cred:'66,330',    st:'offline',last:'hace 1d' },
+    { u:'NewbieKid',  e:'newb@kodexa.io',  rank:'Normal',rb:'badge-mono',   cred:'500',       st:'online', last:'hace 30 min' },
+    { u:'Glitchy',    e:'g@kodexa.io',     rank:'VIP',   rb:'badge-info',   cred:'24,800',    st:'offline',last:'hace 3h' },
+    { u:'NuevoUser123',e:'nu@kodexa.io',   rank:'Normal',rb:'badge-mono',   cred:'0',         st:'online', last:'hace 2 min' },
+  ];
+
+  const stMap = {
+    online: '<span class="dot bg-success"></span><span class="text-success font-medium text-xs">Online</span>',
+    offline:'<span class="dot bg-slate-500"></span><span class="text-muted text-xs">Offline</span>',
+    banned: '<span class="dot bg-danger"></span><span class="text-danger text-xs font-medium">Baneado</span>',
+  };
+
+  const ub = document.getElementById('usersBody');
+  users.forEach((u,i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><div class="chk" onclick="toggleRow(this)"></div></td>
+      <td><div class="flex items-center gap-3">${avtHtml(u.u,i)}<div class="font-medium">${u.u}</div></div></td>
+      <td class="hidden md:table-cell text-muted">${u.e}</td>
+      <td><span class="badge ${u.rb}">${u.rank}</span></td>
+      <td class="hidden lg:table-cell font-mono"><span class="text-accent">${u.cred}</span> <span class="text-muted text-xs">c</span></td>
+      <td><span class="inline-flex items-center gap-1.5">${stMap[u.st]}</span></td>
+      <td class="hidden lg:table-cell text-muted text-xs font-mono">${u.last}</td>
+      <td class="text-right">
+        <div class="inline-flex gap-0.5 relative">
+          <button class="icon-btn" onclick="openModal('mEditUser')" title="Editar"><i data-lucide="pencil" class="w-4 h-4"></i></button>
+          <button class="icon-btn" onclick="openModal('mCredits')" title="Créditos"><i data-lucide="coins" class="w-4 h-4"></i></button>
+          <button class="icon-btn" onclick="rowMenu(event,this)" title="Más"><i data-lucide="more-horizontal" class="w-4 h-4"></i></button>
+        </div>
+      </td>`;
+    ub.appendChild(tr);
+  });
+
+  // recent users (dashboard)
+  const ru = document.getElementById('recentUsers');
+  users.slice(0,5).forEach((u,i) => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td><div class="flex items-center gap-3">${avtHtml(u.u,i)}<div class="font-medium">${u.u}</div></div></td>
+      <td class="text-muted">${u.e}</td>
+      <td class="text-muted text-xs font-mono">${u.last}</td>
+      <td class="text-right"><button class="icon-btn"><i data-lucide="arrow-right" class="w-4 h-4"></i></button></td>`;
+    ru.appendChild(tr);
+  });
+
+  // ───── rooms data ─────
+  const rooms = [
+    { id:'#001', n:'Lobby Principal',     o:'NovaPilot',  cur:42, max:50, cat:'Lobby',     st:'public',  s:4.9 },
+    { id:'#012', n:'Club Kodexa',         o:'XRiku_Mc',   cur:18, max:25, cat:'Discoteca', st:'public',  s:4.7 },
+    { id:'#034', n:'Casino Real',         o:'Casinero99', cur:9,  max:20, cat:'Casino',    st:'pwd',     s:4.5 },
+    { id:'#048', n:'Mi Casita 🏠',        o:'PixelDoll',  cur:2,  max:15, cat:'Casa',      st:'private', s:3.8 },
+    { id:'#067', n:'Wired Tutorial',      o:'EchoZyrx',   cur:6,  max:12, cat:'Juegos',    st:'public',  s:4.6 },
+    { id:'#089', n:'Café Aurora',         o:'BluRise',    cur:12, max:30, cat:'Charla',    st:'public',  s:4.2 },
+    { id:'#102', n:'Zona Trade',          o:'Glitchy',   cur:24, max:40, cat:'Marketplace',st:'public', s:4.8 },
+    { id:'#118', n:'Sala secreta',        o:'NovaPilot',  cur:1,  max:5,  cat:'Casa',      st:'pwd',     s:5.0 },
+  ];
+  const stRoom = {
+    public:  '<span class="badge badge-ok"><i data-lucide="lock-open" class="w-3 h-3"></i>Pública</span>',
+    private: '<span class="badge badge-mono"><i data-lucide="lock" class="w-3 h-3"></i>Privada</span>',
+    pwd:     '<span class="badge badge-warn"><i data-lucide="key-round" class="w-3 h-3"></i>Contraseña</span>',
+  };
+  const stars = s => {
+    const full = Math.floor(s); let html='';
+    for(let i=0;i<5;i++){ html += `<i data-lucide="star" class="w-3 h-3" style="color:${i<full?'#F59E0B':'#334155'}; fill:${i<full?'#F59E0B':'none'}"></i>`; }
+    return html;
+  };
+  const rb = document.getElementById('roomsBody');
+  rooms.forEach((r,i) => {
+    const fill = (r.cur/r.max)*100;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="font-mono text-muted">${r.id}</td>
+      <td><div class="font-medium">${r.n}</div></td>
+      <td class="hidden md:table-cell text-muted">@${r.o}</td>
+      <td>
+        <div class="flex items-center gap-2">
+          <div class="font-mono text-xs whitespace-nowrap">${r.cur}/${r.max}</div>
+          <div class="w-16 h-1.5 rounded-full bg-bg/70 overflow-hidden hidden sm:block">
+            <div class="h-full ${fill>80?'bg-danger':fill>50?'bg-accent':'bg-primary'} rounded-full" style="width:${fill}%"></div>
+          </div>
+        </div>
+      </td>
+      <td class="hidden lg:table-cell text-muted">${r.cat}</td>
+      <td>${stRoom[r.st]}</td>
+      <td class="hidden lg:table-cell"><div class="flex items-center gap-1.5"><div class="flex gap-0.5">${stars(r.s)}</div><span class="text-xs font-mono text-muted">${r.s}</span></div></td>
+      <td class="text-right">
+        <div class="inline-flex gap-0.5">
+          <button class="icon-btn" title="Entrar"><i data-lucide="log-in" class="w-4 h-4"></i></button>
+          <button class="icon-btn" onclick="openModal('mRoom')" title="Editar"><i data-lucide="pencil" class="w-4 h-4"></i></button>
+          <button class="icon-btn" onclick="openModal('mDelete')" title="Eliminar"><i data-lucide="trash-2" class="w-4 h-4"></i></button>
+        </div>
+      </td>`;
+    rb.appendChild(tr);
+  });
+
+  // ───── news data ─────
+  const news = [
+    { t:'Llega la Temporada 2 de Wired Visual', preview:'Nuevos nodos, plantillas y un editor más rápido. Estrena los triggers AI para crear NPCs reactivos.', author:'Sofia_Admin', date:'hace 2h', state:'pub', tag:'#FEATURE', grad:'135deg,#7C3AED,#00D4AA' },
+    { t:'Mantenimiento programado: domingo 3am UTC', preview:'Migración a la nueva infraestructura. Tiempo estimado: 45 minutos. Tus datos están a salvo.', author:'Tech_Team', date:'hace 6h', state:'pub', tag:'#ANUNCIO', grad:'135deg,#F59E0B,#EF4444' },
+    { t:'Subasta especial — Tronos Doradossss', preview:'Solo 5 unidades disponibles. La subasta empieza el viernes a las 21:00. Puja desde 50,000 c.', author:'NovaPilot', date:'hace 1d', state:'draft', tag:'#EVENTO', grad:'135deg,#5BFFD7,#7C3AED' },
+    { t:'Top 10 builders del mes — Marzo 2026', preview:'Felicitaciones a todos los que hicieron del hotel un lugar más bonito. Recompensas enviadas.', author:'Sofia_Admin', date:'hace 3d', state:'pub', tag:'#COMUNIDAD', grad:'135deg,#F472B6,#7C3AED' },
+  ];
+  const nl = document.getElementById('newsList');
+  news.forEach(n => {
+    const card = document.createElement('div');
+    card.className = 'news-card';
+    const stb = n.state==='pub' ? '<span class="badge badge-ok">Publicado</span>' : '<span class="badge badge-warn">Borrador</span>';
+    card.innerHTML = `
+      <div class="news-thumb" style="background:linear-gradient(${n.grad})">
+        <span class="font-mono text-[11px] tracking-[.18em] text-white/80 px-2 py-0.5 rounded bg-black/30 backdrop-blur">${n.tag}</span>
+      </div>
+      <div class="min-w-0">
+        <div class="flex items-center gap-2 flex-wrap">
+          ${stb}
+          <span class="text-[11px] font-mono text-muted">${n.date}</span>
+        </div>
+        <h3 class="mt-2 text-base font-semibold truncate">${n.t}</h3>
+        <p class="text-sm text-muted line-clamp-2 mt-0.5">${n.preview}</p>
+        <div class="mt-2 text-xs text-muted/80 flex items-center gap-2">
+          <i data-lucide="user-round" class="w-3 h-3"></i> ${n.author}
+        </div>
+      </div>
+      <div class="hidden sm:flex flex-col gap-1.5 items-stretch">
+        <button class="btn btn-outline" onclick="openModal('mNews')"><i data-lucide="pencil" class="w-3.5 h-3.5"></i>Editar</button>
+        <button class="btn btn-ghost text-xs">${n.state==='pub'?'Despublicar':'Publicar'}</button>
+        <button class="btn btn-ghost text-xs text-danger" onclick="openModal('mDelete')">Eliminar</button>
+      </div>`;
+    nl.appendChild(card);
+  });
+
+  lucide.createIcons();
+
+  // ───── selection ─────
+  function toggleRow(el){
+    el.classList.toggle('on');
+    const n = document.querySelectorAll('#usersBody .chk.on').length;
+    document.getElementById('bulkCount').textContent = n;
+    document.getElementById('bulkBar').classList.toggle('hidden', n===0);
+  }
+  function toggleAll(el){
+    const turn = !el.classList.contains('on');
+    el.classList.toggle('on', turn);
+    document.querySelectorAll('#usersBody .chk').forEach(c => c.classList.toggle('on', turn));
+    const n = turn ? users.length : 0;
+    document.getElementById('bulkCount').textContent = n;
+    document.getElementById('bulkBar').classList.toggle('hidden', n===0);
+  }
+
+  // ───── row menu ─────
+  function rowMenu(e, btn){
+    e.stopPropagation();
+    document.querySelectorAll('.menu').forEach(m => m.remove());
+    const m = document.createElement('div');
+    m.className = 'menu';
+    m.innerHTML = `
+      <button onclick="openModal('mEditUser'); this.closest('.menu').remove()"><i data-lucide="pencil" class="w-3.5 h-3.5"></i>Editar</button>
+      <button onclick="openModal('mCredits'); this.closest('.menu').remove()"><i data-lucide="coins" class="w-3.5 h-3.5"></i>Dar créditos</button>
+      <button><i data-lucide="ban" class="w-3.5 h-3.5"></i>Banear</button>
+      <button class="danger" onclick="openModal('mDelete'); this.closest('.menu').remove()"><i data-lucide="trash-2" class="w-3.5 h-3.5"></i>Eliminar</button>`;
+    btn.parentElement.appendChild(m);
+    lucide.createIcons();
+    setTimeout(() => document.addEventListener('click', () => m.remove(), {once:true}), 0);
+  }
+</script>
+</body>
+</html>

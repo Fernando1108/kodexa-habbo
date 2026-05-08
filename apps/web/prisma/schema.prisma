@@ -1,0 +1,422 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── ARCTURUS BASE ───
+
+model User {
+  id          Int      @id @default(autoincrement())
+  username    String   @unique @db.VarChar(25)
+  password    String   @db.VarChar(128)
+  email       String   @unique @db.VarChar(100)
+  rank        Int      @default(1)
+  look        String   @default("hr-115-61.hd-180-1.ch-215-62.lg-270-62.sh-290-62") @db.VarChar(256)
+  motto       String   @default("Bienvenido a Kodexa Hotel!") @db.VarChar(127)
+  credits     Int      @default(5000)
+  pixels      Int      @default(10000)
+  points      Int      @default(0)
+  online      Boolean  @default(false)
+  authTicket  String   @default("") @db.VarChar(64)  @map("auth_ticket")
+  ipRegister  String   @default("") @db.VarChar(45)  @map("ip_register")
+  ipCurrent   String   @default("") @db.VarChar(45)  @map("ip_current")
+  lastLogin   DateTime @default(now())               @map("last_login")
+  createdAt   DateTime @default(now())               @map("created_at")
+
+  ownedRooms          Room[]
+  items               Item[]
+  currencies          UserCurrency[]
+  badges              UserBadge[]
+  reputation          KxReputation?
+  marketplaceListings KxMarketplaceListing[]
+  auctionsSelling     KxAuction[]            @relation("AuctionSeller")
+  auctionsBidding     KxAuction[]            @relation("AuctionBidder")
+  marketplacePurchases KxMarketplaceListing[] @relation("ListingBuyer")
+  wiredScripts        KxWiredScript[]
+  userLevel           KxUserLevel?
+  activityLogs        KxActivityLog[]
+  news                News[]
+  passwordResets      PasswordReset[]
+  staffTokens         KxStaffToken[]
+  bansReceived        Ban[]                  @relation("BannedUser")
+  bansGiven           Ban[]                  @relation("BanAdmin")
+  sentMessages        Message[]              @relation("SentMessages")
+  receivedMessages    Message[]              @relation("ReceivedMessages")
+
+  @@map("users")
+}
+
+model UserCurrency {
+  userId Int  @map("user_id")
+  type   Int
+  amount Int  @default(0)
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId, type])
+  @@map("users_currency")
+}
+
+model UserBadge {
+  id         Int    @id @default(autoincrement())
+  userId     Int    @map("user_id")
+  badgeCode  String @db.VarChar(12) @map("badge_code")
+  slotNumber Int    @default(0)     @map("slot_number")
+  user       User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("users_badges")
+}
+
+model Room {
+  id             Int    @id @default(autoincrement())
+  ownerId        Int    @map("owner_id")
+  ownerName      String @db.VarChar(25)  @map("owner_name")
+  name           String @db.VarChar(64)
+  description    String @default("") @db.VarChar(128)
+  model          String @db.VarChar(32)
+  maxUsers       Int    @default(25)     @map("max_users")
+  score          Int    @default(0)
+  category       Int    @default(0)
+  state          String @default("open") @db.VarChar(10)
+  password       String @default("") @db.VarChar(64)
+  wallHeight     Int    @default(-1)     @map("wall_height")
+  floorThickness Int    @default(0)      @map("floor_thickness")
+  wallThickness  Int    @default(0)      @map("wall_thickness")
+  tags           String @default("") @db.VarChar(256)
+  owner          User   @relation(fields: [ownerId], references: [id])
+  items          Item[]
+  wiredScripts   KxWiredScript[]
+
+  @@map("rooms")
+}
+
+model RoomModel {
+  id        String @id @db.VarChar(32)
+  name      String @db.VarChar(32)
+  doorX     Int    @map("door_x")
+  doorY     Int    @map("door_y")
+  doorDir   Int    @map("door_dir")
+  heightmap String @db.Text
+
+  @@map("room_models")
+}
+
+model ItemBase {
+  id               Int     @id @default(autoincrement())
+  spriteId         String  @db.VarChar(64) @map("sprite_id")
+  publicName       String  @db.VarChar(64) @map("public_name")
+  type             String  @db.VarChar(1)
+  width            Int     @default(1)
+  length           Int     @default(1)
+  stackHeight      Float   @default(1.0)   @map("stack_height")
+  allowStack       Boolean @default(true)  @map("allow_stack")
+  allowSit         Boolean @default(false) @map("allow_sit")
+  allowWalk        Boolean @default(false) @map("allow_walk")
+  interactionType  String  @default("default") @db.VarChar(32) @map("interaction_type")
+  interactionCount Int     @default(1) @map("interaction_count")
+  items           Item[]
+  catalogItems    CatalogItem[]
+  kxAuctions      KxAuction[]
+  craftingResults KxCraftingRecipe[] @relation("RecipeResult")
+
+  @@map("items_base")
+}
+
+model Item {
+  id         Int    @id @default(autoincrement())
+  userId     Int    @map("user_id")
+  roomId     Int?   @map("room_id")
+  itemBaseId Int    @map("item_base_id")
+  wallPos    String @default("") @db.VarChar(32)  @map("wall_pos")
+  x          Int    @default(0)
+  y          Int    @default(0)
+  z          Float  @default(0)
+  rotation   Int    @default(0)
+  extraData  String @default("") @db.VarChar(512) @map("extra_data")
+  user       User     @relation(fields: [userId],     references: [id])
+  room       Room?    @relation(fields: [roomId],     references: [id])
+  itemBase   ItemBase              @relation(fields: [itemBaseId], references: [id])
+  kxListings KxMarketplaceListing[]
+
+  @@map("items")
+}
+
+model CatalogPage {
+  id         Int     @id @default(autoincrement())
+  parentId   Int     @default(-1) @map("parent_id")
+  caption    String  @db.VarChar(64)
+  iconImage  String  @default("") @db.VarChar(32) @map("icon_image")
+  visible    Boolean @default(true)
+  enabled    Boolean @default(true)
+  minRank    Int     @default(1) @map("min_rank")
+  orderNum   Int     @default(0) @map("order_num")
+  pageLayout String  @default("default_3x3") @db.VarChar(32) @map("page_layout")
+  items      CatalogItem[]
+
+  @@map("catalog_pages")
+}
+
+model CatalogItem {
+  id           Int    @id @default(autoincrement())
+  pageId       Int    @map("page_id")
+  itemId       Int    @map("item_id")
+  catalogName  String @db.VarChar(64) @map("catalog_name")
+  costCredits  Int    @default(0)     @map("cost_credits")
+  costPixels   Int    @default(0)     @map("cost_pixels")
+  costDiamonds Int    @default(0)     @map("cost_diamonds")
+  amount       Int    @default(1)
+  page         CatalogPage @relation(fields: [pageId], references: [id])
+  itemBase     ItemBase    @relation(fields: [itemId], references: [id])
+
+  @@map("catalog_items")
+}
+
+model Permission {
+  id             Int    @id @default(autoincrement())
+  rankName       String @db.VarChar(32) @map("rank_name")
+  badge          String @default("") @db.VarChar(12)
+  level          Int    @default(1)
+  roomEffect     Int    @default(0) @map("room_effect")
+  prefix         String @default("") @db.VarChar(16)
+  prefixColor    String @default("") @db.VarChar(7) @map("prefix_color")
+
+  // Comandos
+  cmdAlert             Int @default(0) @map("cmd_alert")
+  cmdBan               Int @default(0) @map("cmd_ban")
+  cmdKick              Int @default(0) @map("cmd_kick")
+  cmdMute              Int @default(0) @map("cmd_mute")
+  cmdUnmute            Int @default(0) @map("cmd_unmute")
+  cmdTeleport          Int @default(0) @map("cmd_teleport")
+  cmdSuperban          Int @default(0) @map("cmd_superban")
+  cmdIpban             Int @default(0) @map("cmd_ipban")
+  cmdDisconnect        Int @default(0) @map("cmd_disconnect")
+  cmdRoomalert         Int @default(0) @map("cmd_roomalert")
+  cmdRoomkick          Int @default(0) @map("cmd_roomkick")
+  cmdGiveCredits       Int @default(0) @map("cmd_give_credits")
+  cmdGivePixels        Int @default(0) @map("cmd_give_pixels")
+  cmdGivePoints        Int @default(0) @map("cmd_give_points")
+  cmdGiveBadge         Int @default(0) @map("cmd_give_badge")
+  cmdChangeName        Int @default(0) @map("cmd_change_name")
+  cmdUpdateHotel       Int @default(0) @map("cmd_update_hotel")
+  cmdUpdateWordfilter  Int @default(0) @map("cmd_update_wordfilter")
+  cmdUpdateNavigator   Int @default(0) @map("cmd_update_navigator")
+  cmdUpdatePermissions Int @default(0) @map("cmd_update_permissions")
+  cmdUpdateCatalog     Int @default(0) @map("cmd_update_catalog")
+  cmdUpdateTexts       Int @default(0) @map("cmd_update_texts")
+  cmdUpdateConfig      Int @default(0) @map("cmd_update_config")
+  cmdEmptyBots         Int @default(0) @map("cmd_empty_bots")
+  cmdEmptyPets         Int @default(0) @map("cmd_empty_pets")
+  cmdEnable            Int @default(0) @map("cmd_enable")
+  cmdRoomItem          Int @default(0) @map("cmd_room_item")
+  cmdSay               Int @default(0) @map("cmd_say")
+  cmdShout             Int @default(0) @map("cmd_shout")
+
+  // Accesos
+  accAnyRoomOwner  Int @default(0) @map("acc_any_room_owner")
+  accAnyroomrights Int @default(0) @map("acc_anyroomrights")
+  accFullaccess    Int @default(0) @map("acc_fullaccess")
+  accSupporttool   Int @default(0) @map("acc_supporttool")
+  accCatalogadmin  Int @default(0) @map("acc_catalogadmin")
+  accMoverotate    Int @default(0) @map("acc_moverotate")
+  accTrade         Int @default(0) @map("acc_trade")
+  accUnlimitedBots Int @default(0) @map("acc_unlimited_bots")
+  accUnlimitedPets Int @default(0) @map("acc_unlimited_pets")
+  accHideOnline    Int @default(0) @map("acc_hide_online")
+  accHideIp        Int @default(0) @map("acc_hide_ip")
+  accNotBannable   Int @default(0) @map("acc_not_bannable")
+  accAmbassador    Int @default(0) @map("acc_ambassador")
+  accGuide         Int @default(0) @map("acc_guide")
+  accHelperTool    Int @default(0) @map("acc_helper_tool")
+
+  @@map("permissions")
+}
+
+model EmulatorSetting {
+  key   String @id @db.VarChar(64)
+  value String @db.VarChar(256)
+
+  @@map("emulator_settings")
+}
+
+// ─── CUSTOM KODEXA (kx_) ───
+
+model KxReputation {
+  userId      Int  @id @map("user_id")
+  score       Int  @default(0)
+  helpScore   Int  @default(0) @map("help_score")
+  buildScore  Int  @default(0) @map("build_score")
+  socialScore Int  @default(0) @map("social_score")
+  user        User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("kx_reputation")
+}
+
+model KxMarketplaceListing {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  itemId    Int      @map("item_id")
+  buyerId   Int?     @map("buyer_id")
+  price     Int
+  status    String   @default("active") @db.VarChar(16)
+  createdAt DateTime @default(now())    @map("created_at")
+  expiresAt DateTime                    @map("expires_at")
+  user      User     @relation(fields: [userId], references: [id])
+  item      Item     @relation(fields: [itemId], references: [id])
+  buyer     User?    @relation("ListingBuyer", fields: [buyerId], references: [id])
+
+  @@map("kx_marketplace_listings")
+}
+
+model KxAuction {
+  id         Int      @id @default(autoincrement())
+  itemId     Int      @map("item_id")
+  sellerId   Int      @map("seller_id")
+  startPrice Int      @map("start_price")
+  currentBid Int      @default(0) @map("current_bid")
+  bidderId   Int?     @map("bidder_id")
+  status     String   @default("active") @db.VarChar(16)
+  endsAt     DateTime @map("ends_at")
+  itemBase   ItemBase @relation(fields: [itemId], references: [id])
+  seller     User     @relation("AuctionSeller", fields: [sellerId], references: [id])
+  bidder     User?    @relation("AuctionBidder", fields: [bidderId], references: [id])
+
+  @@map("kx_auctions")
+}
+
+model KxCraftingRecipe {
+  id            Int      @id @default(autoincrement())
+  name          String   @db.VarChar(64)
+  resultItemId  Int      @map("result_item_id")
+  ingredients   Json
+  levelRequired Int      @default(1) @map("level_required")
+  resultItem    ItemBase @relation("RecipeResult", fields: [resultItemId], references: [id])
+
+  @@map("kx_crafting_recipes")
+}
+
+model KxWiredScript {
+  id         Int      @id @default(autoincrement())
+  roomId     Int      @map("room_id")
+  userId     Int      @map("user_id")
+  name       String   @db.VarChar(64)
+  scriptData Json     @map("script_data")
+  enabled    Boolean  @default(true)
+  createdAt  DateTime @default(now()) @map("created_at")
+  room       Room     @relation(fields: [roomId], references: [id], onDelete: Cascade)
+  user       User     @relation(fields: [userId], references: [id])
+
+  @@map("kx_wired_scripts")
+}
+
+model KxUserLevel {
+  userId     Int  @id @map("user_id")
+  level      Int  @default(1)
+  experience Int  @default(0)
+  user       User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("kx_user_levels")
+}
+
+model KxActivityLog {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  action    String   @db.VarChar(64)
+  details   String   @default("") @db.VarChar(512)
+  createdAt DateTime @default(now()) @map("created_at")
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("kx_activity_log")
+}
+
+model News {
+  id        Int      @id @default(autoincrement())
+  title     String   @db.VarChar(128)
+  content   String   @db.Text
+  imageUrl  String   @default("") @db.VarChar(256) @map("image_url")
+  authorId  Int      @map("author_id")
+  published Boolean  @default(false)
+  createdAt DateTime @default(now())               @map("created_at")
+  author    User     @relation(fields: [authorId], references: [id])
+}
+
+
+model PasswordReset {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  token     String   @unique @db.VarChar(128)
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("password_resets")
+}
+
+model WebsiteSetting {
+  id    Int    @id @default(autoincrement())
+  key   String @unique @db.VarChar(64)
+  value String @db.Text
+
+  @@map("website_settings")
+}
+
+model Wordfilter {
+  id          Int    @id @default(autoincrement())
+  word        String @unique @db.VarChar(64)
+  replacement String @default("****") @db.VarChar(64)
+  type        String @default("block") @db.VarChar(16)
+
+  @@map("wordfilter")
+}
+
+model Ban {
+  id        Int       @id @default(autoincrement())
+  userId    Int       @map("user_id")
+  ip        String    @default("") @db.VarChar(45)
+  type      String    @default("ban") @db.VarChar(16)
+  reason    String    @default("") @db.VarChar(256)
+  bannedBy  Int       @map("banned_by")
+  expiresAt DateTime? @map("expires_at")
+  createdAt DateTime  @default(now()) @map("created_at")
+  active    Boolean   @default(true)
+  user      User      @relation("BannedUser", fields: [userId], references: [id])
+  admin     User      @relation("BanAdmin", fields: [bannedBy], references: [id])
+
+  @@map("bans")
+}
+
+model Message {
+  id        Int       @id @default(autoincrement())
+  fromId    Int       @map("from_id")
+  toId      Int       @map("to_id")
+  body      String    @db.VarChar(1000)
+  read      Boolean   @default(false)
+  parentId  Int?      @map("parent_id")
+  createdAt DateTime  @default(now()) @map("created_at")
+  deletedBy String    @default("") @db.VarChar(16) @map("deleted_by") // "from","to","both"
+
+  from    User      @relation("SentMessages",     fields: [fromId],   references: [id])
+  to      User      @relation("ReceivedMessages", fields: [toId],     references: [id])
+  parent  Message?  @relation("MessageThread",    fields: [parentId], references: [id])
+  replies Message[] @relation("MessageThread")
+
+  @@map("messages")
+}
+
+// ─── 2FA STAFF TOKENS ───
+
+model KxStaffToken {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  token     String   @db.VarChar(6)
+  ip        String   @default("") @db.VarChar(45)
+  used      Boolean  @default(false)
+  expiresAt DateTime @map("expires_at")
+  createdAt DateTime @default(now()) @map("created_at")
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, token])
+  @@map("kx_staff_tokens")
+}

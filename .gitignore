@@ -1,3 +1,8 @@
+# =============================================
+# KODEXA HOTEL — .gitignore
+# Última revisión de seguridad: 2026-05-08
+# =============================================
+
 # === Dependencies ===
 node_modules/
 .pnpm-store/
@@ -8,44 +13,161 @@ dist/
 out/
 build/
 .turbo/
+*.tsbuildinfo
 
-# === Environment ===
+# =============================================
+# 🔒 SEGURIDAD — Variables de entorno y secretos
+# =============================================
+# Captura CUALQUIER archivo .env sin importar
+# la ubicación o el sufijo
 .env
-.env.local
-.env.production
-.env.staging
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
 
-# === Assets (se descargan/generan, no van en el repo) ===
-assets/swf/
-assets/nitro/
+# === Claves privadas y certificados SSL ===
+*.pem
+*.key
+*.crt
+*.cert
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.der
+*.ca-bundle
 
-# === Database ===
+# === SSH keys ===
+id_rsa
+id_rsa.*
+id_ed25519
+id_ed25519.*
+id_ecdsa
+id_ecdsa.*
+*.ppk
+known_hosts
+authorized_keys
+
+# === Tokens / secrets / credentials sueltos ===
+*secret*
+*secrets*
+*credential*
+*credentials*
+!**/src/**
+!**/*.ts
+!**/*.tsx
+!**/*.md
+!**/*.json
+
+# === API keys que se puedan guardar en archivos ===
+**/serviceAccountKey*.json
+**/firebase-adminsdk*.json
+**/google-credentials*.json
+*.keyfile.json
+
+# === Claude / AI agent configs (contienen API keys) ===
+.claude/
+.gemini/
+
+# =============================================
+# 🗄️ BASE DE DATOS
+# =============================================
 prisma/migrations/
 *.db
 *.sqlite
+*.sqlite3
+*.sql
+*.sql.gz
+*.dump
+*.bak
+*.backup
 
-# === IDE ===
+# =============================================
+# 🐳 DOCKER
+# =============================================
+docker/data/
+docker/volumes/
+# Los compose files SÍ van en el repo (no tienen secrets)
+# Los .env de docker se capturan arriba con **/.env*
+
+# =============================================
+# 📦 ASSETS (se descargan/generan, no van en el repo)
+# =============================================
+assets/swf/
+assets/nitro/
+
+# =============================================
+# 🧪 TESTING
+# =============================================
+coverage/
+.nyc_output/
+*.lcov
+
+# =============================================
+# 🔧 IDE / EDITOR
+# =============================================
 .idea/
 .vscode/
 *.swp
 *.swo
+*.sublime-workspace
+*.sublime-project
 
-# === OS ===
+# =============================================
+# 💻 OS
+# =============================================
 .DS_Store
 Thumbs.db
 desktop.ini
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
 
-# === Logs ===
+# =============================================
+# 📋 LOGS
+# =============================================
 *.log
 npm-debug.log*
 pnpm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
 
-# === Testing ===
-coverage/
+# =============================================
+# 📝 DOCS INTERNOS (arquitectura + credenciales embebidas)
+# =============================================
+CLAUDE.md
+AGENTS.md
+FASE-0-MICROPROCESOS.md
+INTEGRATIONS-CLAUDE-CODE.md
+00-INDICE-MAESTRO.md
 
-# === Docker volumes (locales) ===
-docker/data/
-
-# === Misc ===
+# =============================================
+# 📦 MISC
+# =============================================
 *.tgz
+*.tar.gz
+*.zip
 .cache/
+tmp/
+temp/
+# =============================================
+# 🔧 HERRAMIENTAS DE ASSETS
+# =============================================
+tools/imager/cache/
+tools/imager/node_modules/
+tools/converter/node_modules/
+tools/converter/assets/
+apps/client/src/lib/nitro-renderer/
+assets/gamedata/*.json
+assets/gamedata/*.xml
+assets/gamedata/*.txt
+assets/nitro/**/*.nitro
+assets/nitro/furniture/
+assets/nitro/clothes/
+assets/nitro/effects/
+assets/nitro/pets/
+assets/nitro/icons/

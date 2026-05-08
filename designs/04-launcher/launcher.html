@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kodexa Hotel — Cliente</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: {
+  colors:{
+    primary:'#00D4AA','primary-dim':'#00B894', secondary:'#7C3AED', accent:'#F59E0B',
+    bg:'#0F172A', surface:'#1E293B','surface-2':'#334155',
+    muted:'#94A3B8', danger:'#EF4444', success:'#10B981',
+  },
+  fontFamily:{ sans:['Sora','ui-sans-serif','system-ui'], mono:['JetBrains Mono','ui-monospace'] },
+}}};
+</script>
+<style>
+  html, body{ height:100%; }
+  body{ background:#070d1c; color:#F8FAFC; font-family:'Sora',sans-serif; overflow:hidden; }
+
+  /* logo */
+  .logo-k{ width:38px; height:38px; border-radius:11px;
+    background:conic-gradient(from 220deg at 50% 50%,#00D4AA,#7C3AED,#F59E0B,#00D4AA);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 1px rgba(0,212,170,.3),0 6px 22px -6px rgba(0,212,170,.6); flex:none;}
+  .logo-k span{ width:calc(100% - 5px); height:calc(100% - 5px); border-radius:8px;
+    background:#0F172A; display:flex; align-items:center; justify-content:center;
+    color:#F8FAFC; font-weight:800; font-size:1.05rem;}
+
+  .text-gradient{ background:linear-gradient(110deg,#5BFFD7 0%,#00D4AA 35%,#7C3AED 80%,#F59E0B 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+  /* aurora bg shared */
+  .aurora{ position:absolute; pointer-events:none; filter:blur(80px); border-radius:50%; }
+  .aurora.a{ width:680px; height:680px; top:-220px; left:-220px; background:radial-gradient(circle,#00D4AA 0%, transparent 60%); opacity:.45;}
+  .aurora.b{ width:600px; height:600px; bottom:-260px; right:-220px; background:radial-gradient(circle,#7C3AED 0%, transparent 60%); opacity:.5;}
+  .aurora.c{ width:420px; height:420px; top:30%; right:30%; background:radial-gradient(circle,#F59E0B 0%, transparent 60%); opacity:.18;}
+
+  /* particles */
+  .stars{ position:absolute; inset:0; pointer-events:none;
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,.7) 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 52% 22%, rgba(0,212,170,.7) 50%, transparent 51%),
+      radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,.6) 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 82% 35%, rgba(124,58,237,.65) 50%, transparent 51%),
+      radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,.45) 50%, transparent 51%),
+      radial-gradient(1px 1px at 18% 88%, rgba(245,158,11,.5) 50%, transparent 51%),
+      radial-gradient(1px 1px at 33% 50%, rgba(255,255,255,.4) 50%, transparent 51%);
+    animation: twinkle 6s ease-in-out infinite alternate;
+  }
+  @keyframes twinkle{0%{opacity:.4}100%{opacity:1}}
+
+  .grid-floor{
+    position:absolute; inset:auto 0 -10% 0; height:55vh;
+    background:
+      linear-gradient(180deg, transparent 0%, #070d1c 92%),
+      repeating-linear-gradient(90deg, rgba(0,212,170,.16) 0 1px, transparent 1px 80px),
+      repeating-linear-gradient(0deg, rgba(124,58,237,.14) 0 1px, transparent 1px 80px);
+    transform: perspective(900px) rotateX(62deg); transform-origin: top center;
+    mask-image: radial-gradient(ellipse at center top, black 30%, transparent 75%);
+    pointer-events:none;
+  }
+
+  /* state container */
+  .state{ position:fixed; inset:0; display:none; }
+  .state.active{ display:block; animation: stateIn .45s cubic-bezier(.2,.7,.3,1) both; }
+  @keyframes stateIn{ from{ opacity:0; transform: scale(.99);} to{ opacity:1; transform:none;} }
+
+  /* ===== LOADING ===== */
+  .loading-wrap{ height:100%; display:flex; flex-direction:column; align-items:center; justify-content:center; padding:2rem; position:relative; z-index:2; }
+
+  .logo-pulse{
+    width:128px; height:128px; border-radius:32px;
+    background:conic-gradient(from 220deg at 50% 50%,#00D4AA,#7C3AED,#F59E0B,#00D4AA);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 1px rgba(0,212,170,.3), 0 0 80px -10px rgba(0,212,170,.7), 0 0 160px -20px rgba(124,58,237,.5);
+    animation: logoBreathe 2.4s ease-in-out infinite;
+    position:relative;
+  }
+  .logo-pulse span{ width:calc(100% - 8px); height:calc(100% - 8px); border-radius:24px;
+    background:#0F172A; display:flex; align-items:center; justify-content:center;
+    color:#F8FAFC; font-weight:800; font-size:3.2rem; letter-spacing:-.04em;}
+  .logo-pulse::before, .logo-pulse::after{ content:""; position:absolute; inset:-12px; border-radius:36px; border:1.5px solid rgba(0,212,170,.4); animation: ring 2.5s ease-out infinite; }
+  .logo-pulse::after{ animation-delay: 1.25s; }
+  @keyframes logoBreathe{ 0%,100%{ transform: scale(1);} 50%{ transform: scale(1.04);} }
+  @keyframes ring{ 0%{ opacity:.7; transform: scale(.95);} 100%{ opacity:0; transform: scale(1.6);} }
+
+  /* progress bar */
+  .progress-wrap{ width: min(440px, 90vw); }
+  .progress-track{ height:6px; background:rgba(255,255,255,.06); border-radius:999px; overflow:hidden;
+    position:relative; box-shadow: inset 0 1px 0 rgba(0,0,0,.3); }
+  .progress-fill{ height:100%; width:0%;
+    background:linear-gradient(90deg, #00D4AA 0%, #5BFFD7 40%, #7C3AED 80%, #F59E0B 100%);
+    border-radius:999px; transition: width .25s ease; position:relative;
+    box-shadow:0 0 14px rgba(0,212,170,.55);
+  }
+  .progress-fill::after{
+    content:""; position:absolute; inset:0; border-radius:999px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.55), transparent);
+    background-size: 200% 100%; animation: shine 1.4s linear infinite;
+  }
+  @keyframes shine{ from{ background-position: -200% 0;} to{ background-position: 200% 0;} }
+
+  /* tip card */
+  .tip-card{
+    margin-top: clamp(2rem, 6vh, 3.5rem); max-width: 520px; padding: 1rem 1.25rem;
+    background: linear-gradient(180deg, rgba(30,41,59,.7), rgba(15,23,42,.7));
+    border:1px solid rgba(51,65,85,.6); border-radius:14px; backdrop-filter: blur(8px);
+    display:flex; align-items:center; gap:.85rem;
+  }
+  .tip-icon{ width:38px; height:38px; border-radius:10px;
+    background: linear-gradient(135deg, rgba(0,212,170,.2), rgba(124,58,237,.2));
+    border:1px solid rgba(0,212,170,.3); display:flex; align-items:center; justify-content:center; color:#5BFFD7; flex:none;}
+
+  /* phase steps (vertical) */
+  .phases{ margin-top:1.5rem; display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; justify-content:center; font-mono; }
+
+  .phase{ display:inline-flex; align-items:center; gap:.45rem; padding:.4rem .8rem; border-radius:999px;
+    border:1px solid rgba(51,65,85,.7); background:rgba(15,23,42,.4); font-size:.72rem;
+    font-family:'JetBrains Mono'; letter-spacing:.06em; color:#94A3B8; transition:.25s;}
+  .phase.done{ border-color: rgba(16,185,129,.4); color:#34d399; background: rgba(16,185,129,.08); }
+  .phase.cur{ border-color: rgba(0,212,170,.6); color:#5BFFD7; background: rgba(0,212,170,.1); box-shadow:0 0 0 4px rgba(0,212,170,.08); }
+  .phase i{ width:14px; height:14px; }
+
+  /* ===== READY ===== */
+  .topbar-game{
+    height:48px; background: rgba(7,13,28,.85); backdrop-filter: blur(14px);
+    border-bottom:1px solid rgba(51,65,85,.5);
+    display:flex; align-items:center; gap:1rem; padding:0 1rem; position:relative; z-index:30;
+  }
+  .topbar-game .pill{ display:inline-flex; align-items:center; gap:.45rem; padding:.3rem .65rem;
+    border-radius:8px; background:rgba(255,255,255,.05); border:1px solid rgba(51,65,85,.5); font-size:.78rem; }
+  .gameview{
+    height: calc(100vh - 48px); background:#0a0a0a; position:relative; overflow:hidden;
+    background-image:
+      radial-gradient(circle at 30% 30%, rgba(0,212,170,.08), transparent 40%),
+      radial-gradient(circle at 70% 70%, rgba(124,58,237,.08), transparent 40%);
+  }
+  .gameview .iso{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  }
+  .iso-grid{
+    display:grid; grid-template-columns: repeat(8, 1fr); gap:2px;
+    transform: perspective(1100px) rotateX(58deg) rotateZ(45deg);
+    width: min(620px, 70vw); aspect-ratio: 1;
+  }
+  .iso-tile{ background: linear-gradient(180deg, #1f2b41, #0a1224); border:1px solid #2a3b5b; }
+  .avatar-3d{
+    position:absolute; width:48px; height:64px; border-radius:8px 8px 16px 16px;
+    box-shadow:0 0 24px -4px rgba(0,212,170,.5);
+    transition: transform .3s;
+  }
+  .gv-hint{ position:absolute; left:50%; top:14px; transform:translateX(-50%);
+    display:inline-flex; align-items:center; gap:.5rem; padding:.4rem .85rem; border-radius:999px;
+    background:rgba(7,13,28,.6); border:1px solid rgba(51,65,85,.5); backdrop-filter:blur(10px);
+    font-size:.72rem; font-family:'JetBrains Mono'; letter-spacing:.16em; text-transform:uppercase; color:#94A3B8; }
+
+  /* error / disconnect cards */
+  .alert-card{
+    background: linear-gradient(180deg, rgba(30,41,59,.95) 0%, rgba(20,28,49,.95) 100%);
+    border:1px solid #243149; border-radius:22px; padding:2.4rem 2rem; max-width:440px; width:100%;
+    box-shadow: 0 30px 80px -25px rgba(0,0,0,.7), inset 0 1px 0 rgba(255,255,255,.05);
+    backdrop-filter: blur(12px); position:relative;
+  }
+  .alert-card::before{
+    content:""; position:absolute; inset:-1px; border-radius:22px; pointer-events:none; z-index:-1;
+    background: linear-gradient(140deg, rgba(239,68,68,.45), transparent 35%, transparent 65%, rgba(124,58,237,.45));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; padding:1px; opacity:.65;
+  }
+  .alert-icon{ width:72px; height:72px; border-radius:20px; display:flex; align-items:center; justify-content:center;
+    background: radial-gradient(circle, rgba(239,68,68,.25) 0%, rgba(239,68,68,.05) 70%);
+    border:1px solid rgba(239,68,68,.4); color:#fca5a5; margin: 0 auto;
+    animation: pulseAlert 2s ease-in-out infinite;
+  }
+  @keyframes pulseAlert{ 0%,100%{ box-shadow:0 0 0 0 rgba(239,68,68,.4);} 50%{ box-shadow:0 0 0 12px rgba(239,68,68,0);} }
+
+  /* buttons */
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+    padding:.85rem 1.3rem; border-radius:11px; font-weight:600; font-size:.92rem;
+    transition:.18s ease; border:1px solid transparent; cursor:pointer; user-select:none; }
+  .btn-primary{ background:linear-gradient(180deg,#14E4BB 0%,#00D4AA 100%); color:#062A22;
+    box-shadow:0 0 0 1px rgba(0,212,170,.35), 0 8px 24px -6px rgba(0,212,170,.55), inset 0 1px 0 rgba(255,255,255,.45); }
+  .btn-primary:hover{ transform: translateY(-1px); }
+  .btn-primary:active{ transform: scale(.985); }
+  .btn-outline{ background: rgba(15,23,42,.5); color:#F8FAFC; border-color:#334155; }
+  .btn-outline:hover{ border-color:#00D4AA; color:#5BFFD7; }
+  .btn-sm{ padding:.45rem .8rem; font-size:.8rem; border-radius:9px; }
+
+  .icon-btn{ width:32px; height:32px; display:inline-flex; align-items:center; justify-content:center;
+    border-radius:8px; color:#94A3B8; transition:.15s; cursor:pointer; }
+  .icon-btn:hover{ color:#F8FAFC; background:rgba(51,65,85,.4); }
+
+  /* state switcher (designer-only) */
+  .switch{
+    position: fixed; right: 16px; bottom: 16px; z-index: 100;
+    display:flex; align-items:center; gap:.4rem;
+    padding:.5rem; background: rgba(7,13,28,.85); backdrop-filter: blur(12px);
+    border:1px solid rgba(51,65,85,.6); border-radius:14px; box-shadow: 0 16px 40px -10px rgba(0,0,0,.6);
+    font-size:.72rem; font-family:'JetBrains Mono';
+  }
+  .switch button{ padding:.4rem .65rem; border-radius:8px; color:#94A3B8; transition:.15s; cursor:pointer; }
+  .switch button:hover{ color:#F8FAFC; background:rgba(51,65,85,.4); }
+  .switch button.on{ color:#5BFFD7; background:rgba(0,212,170,.15); }
+  .switch .lbl{ padding:0 .5rem; color:#475569; letter-spacing:.16em; text-transform:uppercase; font-size:.62rem; }
+
+  .pulse-dot{ position:relative; width:7px; height:7px; border-radius:50%; background:#10B981; flex:none; }
+  .pulse-dot::after{ content:""; position:absolute; inset:-4px; border-radius:50%; background:#10B981; opacity:.4;
+    animation: pulse 1.6s ease-out infinite; }
+  @keyframes pulse{0%{transform:scale(.6); opacity:.6} 100%{transform:scale(2); opacity:0}}
+
+  /* float anim */
+  .float-y{ animation: floatY 3.2s ease-in-out infinite; }
+  .float-y.b{ animation-delay: -1.2s; animation-duration: 3.8s; }
+  .float-y.c{ animation-delay: -2s; animation-duration: 3.4s; }
+  @keyframes floatY{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-10px);} }
+
+  /* eyebrow */
+  .eyebrow{ display:inline-flex; align-items:center; gap:.5rem; padding:.34rem .8rem;
+    border-radius:999px; border:1px solid rgba(0,212,170,.3); background:rgba(0,212,170,.07);
+    color:#5BFFD7; font-family:'JetBrains Mono'; font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;}
+
+  /* avatar dropdown shape */
+  .toon-head{ width:14px; height:14px; border-radius:50%; background: rgba(255,255,255,.85); position:absolute; top:8px; left:50%; transform:translateX(-50%);}
+  .toon-eyes{ position:absolute; top:11px; left:50%; transform:translateX(-50%); display:flex; gap:3px; }
+  .toon-eyes::before, .toon-eyes::after{ content:""; width:2px; height:2px; border-radius:50%; background:#0F172A; display:inline-block; }
+</style>
+</head>
+<body>
+
+
+<!-- ============================================================
+     STATE 1 — LOADING
+============================================================ -->
+<section id="state-loading" class="state active">
+  <div class="aurora a"></div>
+  <div class="aurora b"></div>
+  <div class="aurora c"></div>
+  <div class="stars"></div>
+  <div class="grid-floor"></div>
+
+  <div class="loading-wrap">
+
+    <div class="eyebrow"><span class="pulse-dot"></span> Conectando · v0.9.0-beta</div>
+
+    <!-- big logo -->
+    <div class="logo-pulse mt-10"><span>K</span></div>
+
+    <!-- title -->
+    <h1 class="mt-10 text-4xl md:text-5xl font-extrabold tracking-tight text-center">
+      <span class="text-gradient">Kodexa Hotel</span>
+    </h1>
+
+    <!-- status text -->
+    <p id="loadStatus" class="mt-3 text-muted text-base text-center max-w-md transition-opacity duration-300">
+      Conectando al servidor…
+    </p>
+
+    <!-- progress -->
+    <div class="progress-wrap mt-8">
+      <div class="progress-track">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+      <div class="mt-3 flex items-center justify-between text-xs font-mono">
+        <span class="text-muted/70" id="loadDetail">latencia · 42 ms</span>
+        <span class="text-primary"><span id="progressPct">0</span>%</span>
+      </div>
+    </div>
+
+    <!-- phase pills -->
+    <div class="phases">
+      <div class="phase cur" data-phase="0"><i data-lucide="plug" class="w-3.5 h-3.5"></i>Servidor</div>
+      <div class="phase" data-phase="1"><i data-lucide="package" class="w-3.5 h-3.5"></i>Assets</div>
+      <div class="phase" data-phase="2"><i data-lucide="home" class="w-3.5 h-3.5"></i>Habitación</div>
+      <div class="phase" data-phase="3"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i>Listo</div>
+    </div>
+
+    <!-- tip -->
+    <div class="tip-card">
+      <div class="tip-icon"><i data-lucide="lightbulb" class="w-4 h-4"></i></div>
+      <div class="text-sm">
+        <div class="text-[10px] uppercase font-mono tracking-[.2em] text-muted">Tip del día</div>
+        <div id="tipText" class="text-white/90 mt-0.5">¿Sabías que puedes crear minijuegos con <b class="text-primary">Wired Visual</b>? Arrastra triggers, conecta nodos, listo.</div>
+      </div>
+    </div>
+
+    <!-- footer note -->
+    <div class="absolute bottom-5 left-0 right-0 flex items-center justify-center gap-3 text-[11px] font-mono text-muted/60">
+      <span class="flex items-center gap-1.5"><i data-lucide="shield-check" class="w-3 h-3 text-success"></i>tls cifrado</span>
+      <span class="opacity-50">·</span>
+      <span>region: latam-1</span>
+      <span class="opacity-50">·</span>
+      <span>ping: <span id="pingVal">42</span>ms</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     STATE 2 — READY (game loaded)
+============================================================ -->
+<section id="state-ready" class="state">
+
+  <!-- TOP BAR (40-48px, ultra-mini) -->
+  <header class="topbar-game">
+    <a href="01-landing.html" class="logo-k" style="width:30px; height:30px; border-radius:8px;"><span style="font-size:.8rem;">K</span></a>
+
+    <div class="hidden md:flex items-center gap-1.5 text-[11px] font-mono text-muted">
+      <span class="text-white/80">/sala</span><span class="opacity-50">/</span><span class="text-primary">club-kodexa</span>
+    </div>
+
+    <div class="ml-auto flex items-center gap-2">
+      <div class="pill">
+        <i data-lucide="user-round" class="w-3.5 h-3.5 text-primary"></i>
+        <span class="text-white">NovaPilot</span>
+      </div>
+      <div class="pill">
+        <i data-lucide="coins" class="w-3.5 h-3.5 text-accent"></i>
+        <span class="text-accent font-bold tabular-nums">5,000</span>
+      </div>
+      <div class="pill hidden sm:inline-flex">
+        <i data-lucide="gem" class="w-3.5 h-3.5 text-secondary"></i>
+        <span class="text-secondary font-bold">42</span>
+      </div>
+      <div class="pill hidden md:inline-flex">
+        <span class="pulse-dot"></span>
+        <span class="text-success text-xs">24 en sala</span>
+      </div>
+
+      <span class="hidden md:inline-block w-px h-5 bg-surface-2/60 mx-1"></span>
+
+      <button class="icon-btn" title="Pantalla completa" onclick="document.documentElement.requestFullscreen?.()"><i data-lucide="maximize-2" class="w-4 h-4"></i></button>
+      <button class="icon-btn" title="Configuración"><i data-lucide="settings" class="w-4 h-4"></i></button>
+      <button class="icon-btn hover:!text-danger" title="Cerrar sesión" onclick="setState('disconnected')"><i data-lucide="log-out" class="w-4 h-4"></i></button>
+    </div>
+  </header>
+
+  <!-- GAME CANVAS -->
+  <div class="gameview">
+    <div class="gv-hint">
+      <i data-lucide="gamepad-2" class="w-3 h-3"></i> placeholder · cliente PixiJS
+    </div>
+
+    <div class="iso">
+      <div class="iso-grid" id="isoGrid"></div>
+    </div>
+
+    <!-- floating avatars on grid -->
+    <div class="absolute" style="left: 44%; top: 42%;">
+      <div class="avatar-3d float-y" style="background: linear-gradient(180deg, #5BFFD7, #00B894);">
+        <div class="toon-head"></div><div class="toon-eyes"></div>
+      </div>
+      <div class="text-[10px] mt-1 px-1.5 py-0.5 rounded bg-bg/90 border border-surface-2 text-center font-mono">Nova</div>
+    </div>
+    <div class="absolute" style="left: 56%; top: 48%;">
+      <div class="avatar-3d float-y b" style="background: linear-gradient(180deg, #C4B5FD, #7C3AED); box-shadow:0 0 24px -4px rgba(124,58,237,.6);">
+        <div class="toon-head"></div><div class="toon-eyes"></div>
+      </div>
+      <div class="text-[10px] mt-1 px-1.5 py-0.5 rounded bg-bg/90 border border-surface-2 text-center font-mono">Zyrx</div>
+    </div>
+    <div class="absolute" style="left: 38%; top: 56%;">
+      <div class="avatar-3d float-y c" style="background: linear-gradient(180deg, #FCD34D, #F59E0B); box-shadow:0 0 24px -4px rgba(245,158,11,.6);">
+        <div class="toon-head"></div><div class="toon-eyes"></div>
+      </div>
+      <div class="text-[10px] mt-1 px-1.5 py-0.5 rounded bg-bg/90 border border-surface-2 text-center font-mono">Echo</div>
+    </div>
+
+    <!-- chat bubble -->
+    <div class="absolute right-4 top-16 max-w-[260px] bg-bg/85 backdrop-blur border border-surface-2 rounded-xl p-3 text-xs shadow-2xl">
+      <div class="flex items-center gap-2 mb-1">
+        <div class="w-5 h-5 rounded-full" style="background:linear-gradient(180deg,#5BFFD7,#00B894);"></div>
+        <span class="font-bold text-primary">Nova</span>
+        <span class="text-muted/70 font-mono text-[10px] ml-auto">14:32</span>
+      </div>
+      <p class="text-white/90 leading-relaxed">¿alguien quiere construir un casino con wired? 🎰</p>
+    </div>
+
+    <!-- bottom left HUD -->
+    <div class="absolute left-4 bottom-4 flex items-center gap-2">
+      <button class="icon-btn bg-bg/80 backdrop-blur border border-surface-2/60 !w-10 !h-10"><i data-lucide="message-circle" class="w-4 h-4"></i></button>
+      <button class="icon-btn bg-bg/80 backdrop-blur border border-surface-2/60 !w-10 !h-10"><i data-lucide="users-round" class="w-4 h-4"></i></button>
+      <button class="icon-btn bg-bg/80 backdrop-blur border border-surface-2/60 !w-10 !h-10"><i data-lucide="map" class="w-4 h-4"></i></button>
+      <button class="icon-btn bg-bg/80 backdrop-blur border border-surface-2/60 !w-10 !h-10"><i data-lucide="package" class="w-4 h-4"></i></button>
+    </div>
+
+    <!-- bottom right HUD -->
+    <div class="absolute right-4 bottom-4 flex items-center gap-2 px-3 py-1.5 rounded-lg bg-bg/80 backdrop-blur border border-surface-2/60 text-xs font-mono">
+      <span class="pulse-dot"></span>
+      <span class="text-success">conectado</span>
+      <span class="opacity-40">·</span>
+      <span class="text-muted">42ms</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     STATE 3 — CONNECTION ERROR
+============================================================ -->
+<section id="state-error" class="state">
+  <div class="aurora a" style="opacity:.25"></div>
+  <div class="aurora b" style="background:radial-gradient(circle,#EF4444 0%, transparent 60%); opacity:.4"></div>
+  <div class="stars"></div>
+
+  <div class="h-full flex items-center justify-center px-5">
+    <div class="alert-card">
+      <div class="alert-icon"><i data-lucide="server-crash" class="w-7 h-7"></i></div>
+      <h2 class="mt-5 text-2xl font-bold text-center">No se pudo conectar al servidor</h2>
+      <p class="mt-2 text-sm text-muted text-center leading-relaxed">
+        Verifica tu conexión a internet. Si el problema persiste, el servicio podría estar en mantenimiento.
+      </p>
+
+      <div class="mt-5 p-3 rounded-lg bg-bg/40 border border-surface-2/50 text-xs font-mono text-muted">
+        <div class="flex items-center justify-between"><span>error_code</span><span class="text-danger">ECONNREFUSED</span></div>
+        <div class="flex items-center justify-between mt-1"><span>endpoint</span><span class="text-white/70 truncate">wss://hotel.kodexa.io/ws</span></div>
+        <div class="flex items-center justify-between mt-1"><span>retry_in</span><span class="text-accent" id="retryIn">5s</span></div>
+      </div>
+
+      <div class="mt-5 flex flex-col sm:flex-row gap-2">
+        <button class="btn btn-primary flex-1" onclick="setState('loading'); startLoad();">
+          <i data-lucide="rotate-cw" class="w-4 h-4"></i> Reintentar
+        </button>
+        <a class="btn btn-outline flex-1" href="01-landing.html">
+          <i data-lucide="home" class="w-4 h-4"></i> Volver al inicio
+        </a>
+      </div>
+
+      <button class="mt-3 w-full text-xs text-muted/70 hover:text-white transition flex items-center justify-center gap-1.5">
+        <i data-lucide="activity" class="w-3 h-3"></i> Ver estado del servidor
+      </button>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     STATE 4 — DISCONNECTED (overlay sobre el juego)
+============================================================ -->
+<section id="state-disconnected" class="state">
+  <!-- ghost gameview underneath, frozen -->
+  <header class="topbar-game" style="filter: grayscale(.4) brightness(.6); pointer-events:none;">
+    <div class="logo-k" style="width:30px; height:30px; border-radius:8px;"><span style="font-size:.8rem;">K</span></div>
+    <div class="hidden md:flex items-center gap-1.5 text-[11px] font-mono text-muted">
+      <span class="text-white/80">/sala</span><span class="opacity-50">/</span><span class="text-primary">club-kodexa</span>
+    </div>
+    <div class="ml-auto flex items-center gap-2">
+      <div class="pill"><i data-lucide="user-round" class="w-3.5 h-3.5"></i><span>NovaPilot</span></div>
+      <div class="pill"><i data-lucide="coins" class="w-3.5 h-3.5 text-accent"></i><span class="text-accent">5,000</span></div>
+    </div>
+  </header>
+  <div class="gameview" style="filter: blur(6px) grayscale(.5) brightness(.5); pointer-events:none;">
+    <div class="iso"><div class="iso-grid" id="isoGrid2"></div></div>
+  </div>
+
+  <!-- overlay -->
+  <div class="absolute inset-0 flex items-center justify-center bg-black/70 backdrop-blur-sm px-5">
+    <div class="alert-card">
+      <div class="alert-icon" style="background: radial-gradient(circle, rgba(245,158,11,.25) 0%, transparent 70%); border-color: rgba(245,158,11,.4); color:#fbbf24;">
+        <i data-lucide="wifi-off" class="w-7 h-7"></i>
+      </div>
+      <h2 class="mt-5 text-2xl font-bold text-center">Se perdió la conexión</h2>
+      <p class="mt-2 text-sm text-muted text-center leading-relaxed">
+        Tu sesión sigue activa. Estamos intentando reconectar automáticamente — tu personaje quedó en su lugar.
+      </p>
+
+      <!-- countdown bar -->
+      <div class="mt-5">
+        <div class="flex items-center justify-between text-xs font-mono mb-1.5">
+          <span class="text-muted">Reconectando…</span>
+          <span class="text-accent" id="reconnIn">8s</span>
+        </div>
+        <div class="h-1 rounded-full bg-bg/70 overflow-hidden">
+          <div id="reconnFill" class="h-full bg-gradient-to-r from-accent to-primary rounded-full" style="width:30%; transition: width .4s linear"></div>
+        </div>
+      </div>
+
+      <div class="mt-5 flex flex-col sm:flex-row gap-2">
+        <button class="btn btn-primary flex-1" onclick="setState('loading'); startLoad();">
+          <i data-lucide="zap" class="w-4 h-4"></i> Reconectar ahora
+        </button>
+        <a class="btn btn-outline flex-1" href="01-landing.html">
+          <i data-lucide="door-open" class="w-4 h-4"></i> Salir al lobby
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     STATE SWITCHER (designer preview only)
+============================================================ -->
+<div class="switch">
+  <span class="lbl">estado</span>
+  <button data-st="loading" class="on">Loading</button>
+  <button data-st="ready">Ready</button>
+  <button data-st="error">Error</button>
+  <button data-st="disconnected">Lost</button>
+</div>
+
+
+<script>
+  lucide.createIcons();
+
+  /* ───── iso grid generator ───── */
+  function fillIsoGrid(id){
+    const g = document.getElementById(id);
+    if (!g) return;
+    const total = 64;
+    let h = '';
+    for(let i=0;i<total;i++) h += '<div class="iso-tile"></div>';
+    g.innerHTML = h;
+  }
+  fillIsoGrid('isoGrid');
+  fillIsoGrid('isoGrid2');
+
+  /* ───── state switcher ───── */
+  function setState(name){
+    document.querySelectorAll('.state').forEach(s => s.classList.remove('active'));
+    const next = document.getElementById('state-' + name);
+    if (next) next.classList.add('active');
+    document.querySelectorAll('.switch button').forEach(b => b.classList.toggle('on', b.dataset.st === name));
+    if (name === 'disconnected') startReconnCountdown();
+    if (name === 'error') startRetryCountdown();
+  }
+  document.querySelectorAll('.switch button').forEach(b => {
+    b.addEventListener('click', () => setState(b.dataset.st));
+  });
+
+  /* ───── loading sequence ───── */
+  const tips = [
+    '¿Sabías que puedes crear minijuegos con <b class="text-primary">Wired Visual</b>? Arrastra triggers, conecta nodos, listo.',
+    'Pulsa <span class="font-mono px-1.5 py-0.5 rounded bg-bg/60 border border-surface-2 text-primary">M</span> en sala para abrir el mapa.',
+    'Los <b class="text-accent">muebles raros</b> suben de precio si los tienes mucho tiempo. Paciencia paga.',
+    'Activa el <b class="text-secondary">modo IA</b> en tu NPC para que recuerde a tus amigos.',
+    'Las salas con <b class="text-primary">score &gt; 4.5</b> aparecen en la portada del hotel.',
+  ];
+
+  let progress = 0, loadTimer = null;
+  function startLoad(){
+    clearInterval(loadTimer);
+    progress = 0;
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('progressPct').textContent = '0';
+    document.getElementById('tipText').innerHTML = tips[Math.floor(Math.random()*tips.length)];
+    setPhases(0);
+    document.getElementById('loadStatus').textContent = 'Conectando al servidor…';
+
+    loadTimer = setInterval(() => {
+      // step magnitude shrinks toward end
+      const step = progress < 80 ? (1 + Math.random()*3) : (.4 + Math.random()*.8);
+      progress = Math.min(100, progress + step);
+
+      document.getElementById('progressFill').style.width = progress + '%';
+      document.getElementById('progressPct').textContent = Math.floor(progress);
+
+      // status text by phase
+      const status = document.getElementById('loadStatus');
+      const detail = document.getElementById('loadDetail');
+      const ping = document.getElementById('pingVal');
+      const p = Math.floor(38 + Math.random()*8); ping.textContent = p;
+
+      if (progress < 20){ status.textContent = 'Conectando al servidor…'; detail.textContent = 'handshake · tls 1.3'; setPhases(0); }
+      else if (progress < 50){ status.textContent = 'Cargando assets…'; detail.textContent = 'sprites · 2,340 / 4,800'; setPhases(1); }
+      else if (progress < 80){ status.textContent = 'Preparando tu habitación…'; detail.textContent = 'spawn · /sala/club-kodexa'; setPhases(2); }
+      else if (progress < 100){ status.textContent = '¡Bienvenido!'; detail.textContent = 'optimizando renderer…'; setPhases(3); }
+
+      if (progress >= 100){
+        clearInterval(loadTimer);
+        setTimeout(() => setState('ready'), 500);
+      }
+    }, 110);
+  }
+
+  function setPhases(idx){
+    document.querySelectorAll('.phase').forEach((el, i) => {
+      el.classList.toggle('done', i < idx);
+      el.classList.toggle('cur', i === idx);
+    });
+  }
+
+  // start loading once
+  startLoad();
+
+  /* ───── error retry countdown ───── */
+  let retryTimer = null;
+  function startRetryCountdown(){
+    clearInterval(retryTimer);
+    let s = 5;
+    document.getElementById('retryIn').textContent = s + 's';
+    retryTimer = setInterval(() => {
+      s--;
+      if (s <= 0){ clearInterval(retryTimer); document.getElementById('retryIn').textContent = 'reintentando…'; return; }
+      document.getElementById('retryIn').textContent = s + 's';
+    }, 1000);
+  }
+
+  /* ───── reconnect countdown ───── */
+  let reconnTimer = null;
+  function startReconnCountdown(){
+    clearInterval(reconnTimer);
+    let s = 8;
+    document.getElementById('reconnIn').textContent = s + 's';
+    document.getElementById('reconnFill').style.width = '100%';
+    reconnTimer = setInterval(() => {
+      s--;
+      const fill = document.getElementById('reconnFill');
+      if (fill) fill.style.width = (s/8 * 100) + '%';
+      if (s <= 0){
+        clearInterval(reconnTimer);
+        document.getElementById('reconnIn').textContent = 'reintentando…';
+        return;
+      }
+      document.getElementById('reconnIn').textContent = s + 's';
+    }, 1000);
+  }
+</script>
+
+</body>
+</html>

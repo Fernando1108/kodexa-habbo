@@ -1,0 +1,1027 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kodexa Hotel — Marketplace</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: {
+  colors:{
+    primary:'#00D4AA','primary-dim':'#00B894', secondary:'#7C3AED', accent:'#F59E0B',
+    bg:'#0F172A', surface:'#1E293B','surface-2':'#334155',
+    muted:'#94A3B8', danger:'#EF4444', success:'#10B981',
+  },
+  fontFamily:{ sans:['Sora','ui-sans-serif','system-ui'], mono:['JetBrains Mono','ui-monospace'] },
+}}};
+</script>
+<style>
+  body{ background:#0B1322; color:#F8FAFC; font-family:'Sora',sans-serif; min-height:100vh; }
+
+  .logo-k{ width:30px; height:30px; border-radius:9px;
+    background:conic-gradient(from 220deg at 50% 50%,#00D4AA,#7C3AED,#F59E0B,#00D4AA);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 1px rgba(0,212,170,.3),0 6px 18px -6px rgba(0,212,170,.6); flex:none;}
+  .logo-k span{ width:calc(100% - 4px); height:calc(100% - 4px); border-radius:7px;
+    background:#0F172A; display:flex; align-items:center; justify-content:center;
+    color:#F8FAFC; font-weight:800; font-size:.85rem;}
+
+  .text-gradient{ background:linear-gradient(110deg,#5BFFD7,#00D4AA 35%,#7C3AED 80%,#F59E0B);
+    -webkit-background-clip:text; background-clip:text; color:transparent;}
+
+  .topbar{ background:rgba(11,19,34,.85); backdrop-filter:blur(14px); border-bottom:1px solid #1f2b41; }
+  .nav-link{ font-size:.92rem; color:#CBD5E1; padding:.4rem .85rem; border-radius:8px; transition:.15s; }
+  .nav-link.active{ color:#5BFFD7; background:rgba(0,212,170,.12); }
+  .nav-link:hover{ color:#fff; }
+
+  .card{ background:#131e36; border:1px solid #1f2b41; border-radius:14px; }
+
+  .badge{ display:inline-flex; align-items:center; gap:.3rem; padding:.18rem .55rem; border-radius:999px;
+    font-size:.7rem; font-weight:600; font-family:'JetBrains Mono'; letter-spacing:.05em;}
+  .b-mod{ background:rgba(245,158,11,.15); color:#fbbf24; border:1px solid rgba(245,158,11,.4);}
+  .b-rare{ background:linear-gradient(135deg, rgba(245,158,11,.25), rgba(245,158,11,.1)); color:#FCD34D; border:1px solid rgba(245,158,11,.5); box-shadow:0 0 12px -2px rgba(245,158,11,.4); }
+  .b-limit{ background:rgba(239,68,68,.18); color:#fca5a5; border:1px solid rgba(239,68,68,.4); }
+  .b-ok{ background:rgba(16,185,129,.15); color:#34d399; border:1px solid rgba(16,185,129,.35); }
+  .b-info{ background:rgba(124,58,237,.15); color:#c4b5fd; border:1px solid rgba(124,58,237,.4); }
+  .b-mono{ background:rgba(148,163,184,.12); color:#cbd5e1; border:1px solid rgba(51,65,85,.6); }
+
+  .pulse-dot{ position:relative; width:8px; height:8px; border-radius:50%; background:#10B981; flex:none; }
+  .pulse-dot::after{ content:""; position:absolute; inset:-4px; border-radius:50%; background:#10B981; opacity:.4; animation: pulse 1.6s ease-out infinite; }
+  @keyframes pulse{0%{transform:scale(.6); opacity:.6} 100%{transform:scale(2); opacity:0}}
+
+  /* btn */
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:.45rem; padding:.55rem .95rem;
+    border-radius:10px; font-weight:600; font-size:.85rem; transition:.15s; border:1px solid transparent; cursor:pointer; }
+  .btn-primary{ background:linear-gradient(180deg,#14E4BB,#00D4AA); color:#062A22;
+    box-shadow:0 0 0 1px rgba(0,212,170,.35),0 6px 18px -6px rgba(0,212,170,.55);}
+  .btn-primary:hover{ transform:translateY(-1px);}
+  .btn-secondary{ background:linear-gradient(180deg, #A78BFA, #7C3AED); color:#fff;
+    box-shadow:0 0 0 1px rgba(124,58,237,.35),0 6px 18px -6px rgba(124,58,237,.55);}
+  .btn-outline{ border-color:#334155; color:#CBD5E1; background:rgba(15,23,42,.4);}
+  .btn-outline:hover{ border-color:#00D4AA; color:#5BFFD7;}
+  .btn-ghost{ color:#94A3B8;}
+  .btn-ghost:hover{ color:#F8FAFC; background:rgba(51,65,85,.3);}
+  .btn-sm{ padding:.4rem .75rem; font-size:.78rem; border-radius:8px; }
+  .btn-lg{ padding:.85rem 1.4rem; font-size:.95rem; border-radius:12px;}
+
+  .icon-btn{ width:34px; height:34px; display:inline-flex; align-items:center; justify-content:center;
+    border-radius:9px; color:#94A3B8; transition:.15s; cursor:pointer;}
+  .icon-btn:hover{ color:#F8FAFC; background:rgba(51,65,85,.5); }
+
+  .inp{ background:#0e1730; border:1px solid #2a3b5b; border-radius:10px; padding:.55rem .8rem;
+    color:#F8FAFC; font-size:.88rem; outline:none; transition:.15s; width:100%;}
+  .inp:focus{ border-color:#00D4AA; box-shadow:0 0 0 3px rgba(0,212,170,.18);}
+  .inp-ic{ position:relative;}
+  .inp-ic input{ padding-left:2.3rem; }
+  .inp-ic i{ position:absolute; left:.7rem; top:50%; transform:translateY(-50%); color:#64748B;}
+  select.inp{ appearance:none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2'><polyline points='6 9 12 15 18 9'/></svg>");
+    background-repeat:no-repeat; background-position: right .7rem center; padding-right:2rem; }
+
+  /* avatar */
+  .avt{ display:flex; align-items:center; justify-content:center; color:#0B1322; font-weight:700; box-shadow: inset 0 1px 0 rgba(255,255,255,.4);}
+
+  /* tabs */
+  .tabs{ display:flex; gap:2px; padding:4px; background:#0e1627; border:1px solid #1f2b41; border-radius:12px; }
+  .tab{ flex:1; padding:.65rem 1rem; border-radius:9px; font-size:.85rem; font-weight:500; color:#94A3B8; cursor:pointer; transition:.15s; text-align:center; display:inline-flex; align-items:center; justify-content:center; gap:.4rem; white-space:nowrap; }
+  .tab:hover{ color:#fff; }
+  .tab.active{ background:linear-gradient(180deg, rgba(0,212,170,.18), rgba(0,212,170,.06)); color:#5BFFD7;
+    box-shadow: inset 0 0 0 1px rgba(0,212,170,.3); }
+
+  /* tab views */
+  .tabview{ display:none; animation: fadeIn .25s ease both;}
+  .tabview.active{ display:block; }
+  @keyframes fadeIn{ from{opacity:0; transform: translateY(6px);} to{opacity:1; transform:none;}}
+
+  /* page swap */
+  .pageView{ display:none; }
+  .pageView.active{ display:block; animation: fadeIn .3s ease both; }
+
+  /* product card */
+  .prod{ position:relative; transition: transform .2s, border-color .2s; }
+  .prod:hover{ transform: translateY(-3px); border-color:#2a3b5b; }
+  .prod-img{ position:relative; height:180px; border-radius:10px 10px 0 0; overflow:hidden;
+    background: radial-gradient(circle at 50% 40%, #1f2b41 0%, #0a1224 80%); display:flex; align-items:center; justify-content:center;}
+  .prod-img::before{ content:""; position:absolute; inset:auto 0 -40% 0; height:80%;
+    background: repeating-linear-gradient(45deg, rgba(0,212,170,.07) 0 8px, transparent 8px 16px);
+    transform: perspective(400px) rotateX(50deg); transform-origin: top center; }
+
+  /* badge furni */
+  .badge-tile{ width:64px; height:64px; border-radius:12px; display:flex; align-items:center; justify-content:center;
+    border:1px solid #2a3b5b; background:#0a1224; position:relative; cursor:help; transition:.15s;}
+  .badge-tile:hover{ transform: translateY(-2px); border-color:#5BFFD7; }
+  .badge-tile.equipped{ border-color: rgba(245,158,11,.6); background: linear-gradient(135deg, rgba(245,158,11,.15), rgba(245,158,11,.04)); box-shadow: 0 0 16px -4px rgba(245,158,11,.4); }
+  .badge-tile.equipped::after{ content:""; position:absolute; top:-4px; right:-4px; width:14px; height:14px; border-radius:50%;
+    background:#F59E0B; border:2px solid #131e36; }
+
+  /* level bar */
+  .lv-bar{ height:8px; border-radius:999px; background:#0a1224; overflow:hidden; box-shadow: inset 0 1px 0 rgba(0,0,0,.3); }
+  .lv-fill{ height:100%; background:linear-gradient(90deg, #00D4AA, #7C3AED); border-radius:999px; position:relative; }
+  .lv-fill::after{ content:""; position:absolute; inset:0; border-radius:999px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+    background-size: 200% 100%; animation: shine 2s linear infinite;}
+  @keyframes shine{ from{background-position:-200% 0} to{background-position:200% 0}}
+
+  /* room item */
+  .room-row{ display:grid; grid-template-columns: 80px 1fr auto; gap:1rem; padding:1rem; align-items:center; }
+  .room-thumb{ width:80px; height:64px; border-radius:10px; background:linear-gradient(135deg,#1f2b41,#0F172A); position:relative; overflow:hidden;}
+
+  /* achievement */
+  .ach-row{ display:flex; gap:1rem; padding:1.1rem; align-items:center; }
+  .ach-ic{ width:48px; height:48px; border-radius:12px; flex:none; display:flex; align-items:center; justify-content:center; }
+
+  /* table */
+  table.kx{ width:100%; border-collapse:separate; border-spacing:0; }
+  table.kx th{ text-align:left; font-size:.7rem; letter-spacing:.16em; text-transform:uppercase;
+    color:#64748B; font-weight:600; padding:.85rem 1rem; border-bottom:1px solid #1f2b41; background:#0f1828;}
+  table.kx td{ padding:.95rem 1rem; border-bottom:1px solid rgba(31,43,65,.7); font-size:.9rem;}
+  table.kx tbody tr:hover{ background:rgba(51,65,85,.2);}
+  table.kx tbody tr:nth-child(even){ background:rgba(15,23,42,.35);}
+
+  /* modal */
+  .overlay{ position:fixed; inset:0; background:rgba(8,12,24,.7); backdrop-filter: blur(6px); z-index:50;
+    display:flex; align-items:center; justify-content:center; padding:1.5rem; animation: fadeIn .2s both;}
+  .modal{ background:#131e36; border:1px solid #243149; border-radius:18px; max-width:520px; width:100%;
+    box-shadow: 0 30px 80px -20px rgba(0,0,0,.6), 0 0 0 1px rgba(0,212,170,.08);
+    animation: scaleIn .25s cubic-bezier(.2,.7,.3,1.2) both; max-height: 90vh; overflow:auto; }
+  @keyframes scaleIn{ from{opacity:0; transform:scale(.94)} to{opacity:1; transform:none}}
+
+  /* ribbon (top of profile banner) */
+  .ribbon-bg{
+    background:
+      radial-gradient(circle at 18% 25%, rgba(0,212,170,.6), transparent 50%),
+      radial-gradient(circle at 75% 60%, rgba(124,58,237,.55), transparent 55%),
+      radial-gradient(circle at 50% 100%, rgba(245,158,11,.35), transparent 55%),
+      linear-gradient(135deg, #1d3555 0%, #2a1d55 100%);
+    position:relative;
+  }
+  .ribbon-bg::after{ content:""; position:absolute; inset:0; pointer-events:none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.05) 1px, transparent 1px);
+    background-size: 32px 32px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+  .ribbon-bg::before{ content:""; position:absolute; inset:0;
+    background: repeating-linear-gradient(45deg, rgba(255,255,255,.02) 0 2px, transparent 2px 8px);
+    pointer-events:none;
+  }
+
+  /* avatar 3d-ish */
+  .avt-3d{ width:128px; height:128px; border-radius:24px;
+    background: linear-gradient(180deg, #5BFFD7 0%, #00B894 100%);
+    box-shadow: 0 24px 48px -16px rgba(0,212,170,.6), inset 0 2px 0 rgba(255,255,255,.5);
+    position:relative; overflow:hidden; flex:none;
+  }
+  .avt-3d::before{ content:""; position:absolute; top:18px; left:50%; transform:translateX(-50%);
+    width:54px; height:54px; border-radius:50%; background:#fff; box-shadow: inset 0 -4px 0 rgba(0,0,0,.08);
+  }
+  .avt-3d::after{ content:""; position:absolute; bottom:0; left:50%; transform:translateX(-50%);
+    width:74px; height:48px; border-radius:14px 14px 0 0;
+    background: linear-gradient(180deg, #7C3AED, #5b21b6);
+  }
+
+  /* count up live */
+  .live-pill{ display:inline-flex; align-items:center; gap:.35rem; padding:.2rem .55rem;
+    border-radius:999px; background:rgba(16,185,129,.12); border:1px solid rgba(16,185,129,.3);
+    color:#34d399; font-size:.7rem; font-family:'JetBrains Mono';}
+
+  /* eyebrow */
+  .eyebrow{ display:inline-flex; align-items:center; gap:.5rem; padding:.34rem .8rem;
+    border-radius:999px; border:1px solid rgba(0,212,170,.3); background:rgba(0,212,170,.07);
+    color:#5BFFD7; font-family:'JetBrains Mono'; font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;}
+
+  /* tooltip */
+  .tip{ position:absolute; bottom: calc(100% + 8px); left:50%; transform: translateX(-50%);
+    background:#0a1224; border:1px solid #243149; padding:.5rem .7rem; border-radius:8px;
+    font-size:.72rem; white-space:nowrap; opacity:0; pointer-events:none; transition:.15s; z-index:5;}
+  .badge-tile:hover .tip{ opacity:1; transform: translateX(-50%) translateY(-4px); }
+
+  /* page-toggle (top right) */
+  .page-toggle{ display:inline-flex; padding:4px; background:rgba(15,23,42,.6); border:1px solid #243149;
+    border-radius:999px; backdrop-filter:blur(8px); }
+  .page-toggle button{ padding:.4rem 1rem; border-radius:999px; font-size:.82rem; font-weight:500; color:#94A3B8; transition:.15s;}
+  .page-toggle button.active{ background:linear-gradient(180deg, rgba(0,212,170,.18), rgba(0,212,170,.08)); color:#5BFFD7;
+    box-shadow: inset 0 0 0 1px rgba(0,212,170,.3);}
+
+  /* furni icon (placeholder) */
+  .furni{ width:80px; height:80px; border-radius:10px; display:flex; align-items:center; justify-content:center; position:relative; flex:none;
+    background: radial-gradient(circle at 50% 35%, #1f2b41 0%, #0a1224 80%);}
+
+  /* countdown */
+  .countdown{ display:inline-flex; gap:4px; font-family:'JetBrains Mono'; }
+  .countdown span{ padding:.25rem .45rem; background:#0a1224; border:1px solid #2a3b5b; border-radius:6px;
+    font-size:.85rem; font-weight:700; min-width:32px; text-align:center; }
+  .countdown.urgent span{ color:#fca5a5; border-color: rgba(239,68,68,.4); background: rgba(239,68,68,.12); }
+
+  /* checkbox */
+  .chk{ width:18px; height:18px; border:1.5px solid #475569; background:#0e1730; border-radius:5px;
+    display:inline-flex; align-items:center; justify-content:center; cursor:pointer; flex:none; transition:.15s;}
+  .chk.on{ background:#00D4AA; border-color:#00D4AA;}
+  .chk.on::after{ content:""; width:9px; height:5px; border:2px solid #062A22; border-top:0; border-right:0; transform:rotate(-45deg) translate(0,-1px);}
+
+  /* segmented (radio) */
+  .seg{ display:inline-flex; padding:3px; background:#0e1730; border:1px solid #2a3b5b; border-radius:9px;}
+  .seg button{ padding:.4rem .8rem; border-radius:6px; font-size:.78rem; color:#94A3B8; cursor:pointer; transition:.15s;}
+  .seg button.on{ background: rgba(0,212,170,.15); color:#5BFFD7; box-shadow: inset 0 0 0 1px rgba(0,212,170,.3);}
+</style>
+</head>
+<body>
+
+<!-- ============ TOPBAR ============ -->
+<header class="topbar sticky top-0 z-30">
+  <div class="max-w-7xl mx-auto px-5 lg:px-7 h-16 flex items-center gap-5">
+    <a href="01-landing.html" class="flex items-center gap-2">
+      <div class="logo-k"><span>K</span></div>
+      <div class="leading-tight">
+        <div class="font-bold tracking-tight text-sm">Kodexa<span class="text-primary">.</span></div>
+        <div class="text-[10px] uppercase tracking-[.22em] text-muted font-mono">Hotel</div>
+      </div>
+    </a>
+    <nav class="hidden md:flex items-center gap-1 ml-4">
+      <a class="nav-link" href="04-launcher.html">Hotel</a>
+      <a class="nav-link active" href="#">Comunidad</a>
+      <a class="nav-link" href="#">Noticias</a>
+      <a class="nav-link" href="#">Rankings</a>
+    </nav>
+
+    <div class="ml-auto flex items-center gap-3">
+      <div class="page-toggle">
+        <button id="pgProfile" class="active" onclick="showPage('profile')"><i data-lucide="user-round" class="w-3.5 h-3.5 inline"></i> Perfil</button>
+        <button id="pgMarket" onclick="showPage('market')"><i data-lucide="store" class="w-3.5 h-3.5 inline"></i> Marketplace</button>
+      </div>
+
+      <div class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-lg bg-bg/50 border border-surface-2/60">
+        <i data-lucide="coins" class="w-3.5 h-3.5 text-accent"></i>
+        <span class="text-accent font-bold text-sm tabular-nums">12,840</span>
+      </div>
+
+      <div class="avt rounded-full" style="width:34px; height:34px; background:linear-gradient(135deg,#5BFFD7,#7C3AED); font-size:.75rem;">NP</div>
+    </div>
+  </div>
+</header>
+
+
+<!-- ============================================================
+     PAGE 1 — USER PROFILE
+============================================================ -->
+<main id="profilePage" class="pageView active">
+
+  <!-- breadcrumb -->
+  <div class="max-w-7xl mx-auto px-5 lg:px-7 py-4 text-sm text-muted flex items-center gap-2">
+    <a href="#" class="hover:text-white">Comunidad</a>
+    <i data-lucide="chevron-right" class="w-3 h-3 opacity-50"></i>
+    <a href="#" class="hover:text-white">Perfiles</a>
+    <i data-lucide="chevron-right" class="w-3 h-3 opacity-50"></i>
+    <span class="text-white">@NovaPilot</span>
+  </div>
+
+  <!-- BANNER + AVATAR -->
+  <section class="max-w-7xl mx-auto px-5 lg:px-7">
+    <div class="ribbon-bg h-[220px] rounded-2xl border border-surface-2/60 relative overflow-hidden">
+      <!-- floating accolades -->
+      <div class="absolute right-6 top-6 flex items-center gap-2">
+        <span class="badge b-mod"><i data-lucide="crown" class="w-3 h-3"></i>MOD</span>
+        <span class="badge b-rare"><i data-lucide="sparkles" class="w-3 h-3"></i>FOUNDER</span>
+        <span class="badge b-info"><i data-lucide="diamond" class="w-3 h-3"></i>VIP</span>
+      </div>
+      <button class="absolute right-6 bottom-6 btn btn-outline btn-sm bg-bg/40 backdrop-blur"><i data-lucide="image" class="w-3.5 h-3.5"></i>Cambiar banner</button>
+    </div>
+
+    <!-- avatar overlap -->
+    <div class="px-5 -mt-16 relative z-10 flex items-end gap-5 flex-wrap">
+      <div class="relative">
+        <div class="avt-3d border-4 border-[#0B1322]"></div>
+        <span class="absolute bottom-2 right-2 w-5 h-5 rounded-full bg-success ring-4 ring-[#0B1322] flex items-center justify-center">
+          <span class="w-2 h-2 rounded-full bg-white"></span>
+        </span>
+      </div>
+
+      <div class="pb-2 min-w-0 flex-1">
+        <div class="flex items-center gap-2 flex-wrap">
+          <h1 class="text-3xl font-bold tracking-tight">NovaPilot</h1>
+          <span class="badge b-mod"><i data-lucide="shield-check" class="w-3 h-3"></i>Mod</span>
+          <span class="live-pill"><span class="pulse-dot"></span>En línea</span>
+        </div>
+        <p class="text-muted italic mt-1">"builder · level 24 · NPC whisperer"</p>
+        <div class="text-xs font-mono text-muted/70 mt-1.5 flex items-center gap-3 flex-wrap">
+          <span class="flex items-center gap-1"><i data-lucide="calendar" class="w-3 h-3"></i>Miembro desde Enero 2024</span>
+          <span class="opacity-50">·</span>
+          <span class="flex items-center gap-1"><i data-lucide="map-pin" class="w-3 h-3"></i>Sala /club-kodexa</span>
+        </div>
+      </div>
+
+      <div class="pb-2 flex items-center gap-2 flex-wrap">
+        <button class="btn btn-primary"><i data-lucide="user-plus" class="w-4 h-4"></i>Agregar amigo</button>
+        <button class="btn btn-outline"><i data-lucide="message-circle" class="w-4 h-4"></i>Mensaje</button>
+        <button class="btn btn-ghost btn-sm"><i data-lucide="flag" class="w-4 h-4"></i>Reportar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TABS -->
+  <section class="max-w-7xl mx-auto px-5 lg:px-7 mt-6">
+    <div class="tabs max-w-2xl">
+      <button class="tab active" data-tab="stats"><i data-lucide="bar-chart-3" class="w-4 h-4"></i>Estadísticas</button>
+      <button class="tab" data-tab="badges"><i data-lucide="shield" class="w-4 h-4"></i>Badges <span class="text-[10px] font-mono opacity-60">23</span></button>
+      <button class="tab" data-tab="rooms"><i data-lucide="home" class="w-4 h-4"></i>Salas <span class="text-[10px] font-mono opacity-60">12</span></button>
+      <button class="tab" data-tab="ach"><i data-lucide="trophy" class="w-4 h-4"></i>Logros</button>
+    </div>
+  </section>
+
+  <!-- TAB CONTENT -->
+  <section class="max-w-7xl mx-auto px-5 lg:px-7 py-6 pb-20">
+
+    <!-- STATS -->
+    <div class="tabview active" data-tab="stats">
+      <!-- level + reputation -->
+      <div class="grid grid-cols-1 lg:grid-cols-[1.1fr_1fr] gap-4">
+
+        <!-- LEVEL -->
+        <div class="card p-6">
+          <div class="flex items-center justify-between">
+            <div>
+              <div class="text-xs uppercase font-mono tracking-[.18em] text-muted">Nivel actual</div>
+              <div class="flex items-baseline gap-2 mt-1">
+                <span class="text-5xl font-extrabold text-gradient">24</span>
+                <span class="text-muted text-sm">/ 50</span>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="text-xs text-muted">Próximo nivel</div>
+              <div class="font-bold text-lg mt-0.5">Lv 25 · <span class="text-primary">Architect</span></div>
+              <div class="text-xs font-mono text-muted/70 mt-0.5">faltan 1,840 XP</div>
+            </div>
+          </div>
+          <div class="mt-5">
+            <div class="lv-bar"><div class="lv-fill" style="width:62%"></div></div>
+            <div class="mt-2 flex items-center justify-between text-xs font-mono text-muted">
+              <span>14,160 XP</span>
+              <span class="text-primary">62%</span>
+              <span>16,000 XP</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- REPUTATION -->
+        <div class="card p-6">
+          <div class="flex items-center justify-between mb-4">
+            <div>
+              <div class="text-xs uppercase font-mono tracking-[.18em] text-muted">Reputación</div>
+              <div class="text-4xl font-extrabold tracking-tight mt-1">1,234</div>
+            </div>
+            <i data-lucide="heart" class="w-8 h-8 text-secondary"></i>
+          </div>
+          <div class="space-y-3">
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1.5">
+                <span class="flex items-center gap-1.5"><span>❤️</span><span>Social</span></span>
+                <span class="font-mono">400</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-bg/70 overflow-hidden"><div class="h-full bg-secondary rounded-full" style="width:32%"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1.5">
+                <span class="flex items-center gap-1.5"><span>🔨</span><span>Constructor</span></span>
+                <span class="font-mono">500</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-bg/70 overflow-hidden"><div class="h-full bg-primary rounded-full" style="width:40%"></div></div>
+            </div>
+            <div>
+              <div class="flex items-center justify-between text-xs mb-1.5">
+                <span class="flex items-center gap-1.5"><span>🤝</span><span>Ayuda</span></span>
+                <span class="font-mono">334</span>
+              </div>
+              <div class="h-1.5 rounded-full bg-bg/70 overflow-hidden"><div class="h-full bg-accent rounded-full" style="width:27%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- stat grid -->
+      <div class="mt-4 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
+        <div class="card p-4"><div class="flex items-center justify-between"><i data-lucide="coins" class="w-5 h-5 text-accent"></i></div><div class="mt-2 text-2xl font-bold tabular-nums">45,678</div><div class="text-[11px] text-muted uppercase tracking-wider">Créditos ganados</div></div>
+        <div class="card p-4"><div class="flex items-center justify-between"><i data-lucide="home" class="w-5 h-5 text-primary"></i></div><div class="mt-2 text-2xl font-bold tabular-nums">12</div><div class="text-[11px] text-muted uppercase tracking-wider">Salas creadas</div></div>
+        <div class="card p-4"><div class="flex items-center justify-between"><i data-lucide="users-round" class="w-5 h-5 text-secondary"></i></div><div class="mt-2 text-2xl font-bold tabular-nums">89</div><div class="text-[11px] text-muted uppercase tracking-wider">Amigos</div></div>
+        <div class="card p-4"><div class="flex items-center justify-between"><i data-lucide="calendar" class="w-5 h-5 text-success"></i></div><div class="mt-2 text-2xl font-bold tabular-nums">156</div><div class="text-[11px] text-muted uppercase tracking-wider">Días jugados</div></div>
+        <div class="card p-4"><div class="flex items-center justify-between"><i data-lucide="package" class="w-5 h-5 text-primary"></i></div><div class="mt-2 text-2xl font-bold tabular-nums">2,345</div><div class="text-[11px] text-muted uppercase tracking-wider">Muebles</div></div>
+        <div class="card p-4"><div class="flex items-center justify-between"><i data-lucide="repeat" class="w-5 h-5 text-accent"></i></div><div class="mt-2 text-2xl font-bold tabular-nums">67</div><div class="text-[11px] text-muted uppercase tracking-wider">Trades</div></div>
+      </div>
+
+      <!-- friends preview -->
+      <div class="mt-4 card p-5">
+        <div class="flex items-center justify-between mb-4">
+          <div class="text-sm font-semibold">Amigos cercanos · 89</div>
+          <button class="btn btn-ghost text-xs">Ver todos →</button>
+        </div>
+        <div class="flex flex-wrap gap-3">
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-bg/40 border border-surface-2/60"><div class="w-7 h-7 rounded-full" style="background:linear-gradient(135deg,#F59E0B,#EF4444);"></div><span class="text-sm">XRiku_Mc</span><span class="pulse-dot"></span></div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-bg/40 border border-surface-2/60"><div class="w-7 h-7 rounded-full" style="background:linear-gradient(135deg,#7C3AED,#F472B6);"></div><span class="text-sm">EchoZyrx</span><span class="pulse-dot"></span></div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-bg/40 border border-surface-2/60"><div class="w-7 h-7 rounded-full" style="background:linear-gradient(135deg,#3B82F6,#06B6D4);"></div><span class="text-sm">PixelDoll</span></div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-bg/40 border border-surface-2/60"><div class="w-7 h-7 rounded-full" style="background:linear-gradient(135deg,#10B981,#00D4AA);"></div><span class="text-sm">BluRise</span></div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-bg/40 border border-surface-2/60"><div class="w-7 h-7 rounded-full" style="background:linear-gradient(135deg,#A78BFA,#7C3AED);"></div><span class="text-sm">Glitchy</span><span class="pulse-dot"></span></div>
+          <div class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-bg/40 border border-surface-2/60 text-muted">+84 más</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BADGES -->
+    <div class="tabview" data-tab="badges">
+      <div class="card p-6">
+        <div class="flex items-center justify-between flex-wrap gap-3 mb-5">
+          <div>
+            <div class="text-sm font-semibold">Insignias</div>
+            <div class="text-xs text-muted mt-0.5">23 badges coleccionados · 5 equipados</div>
+          </div>
+          <div class="flex items-center gap-2 text-xs font-mono">
+            <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-sm" style="background:rgba(245,158,11,.6); border:1px solid rgba(245,158,11,.6)"></span>Equipado</span>
+            <span class="flex items-center gap-1"><span class="w-3 h-3 rounded-sm bg-bg border border-surface-2"></span>Coleccionado</span>
+          </div>
+        </div>
+        <div class="grid grid-cols-3 sm:grid-cols-6 md:grid-cols-8 gap-3" id="badgesGrid"></div>
+      </div>
+    </div>
+
+    <!-- ROOMS -->
+    <div class="tabview" data-tab="rooms">
+      <div class="card overflow-hidden">
+        <div class="px-5 py-4 border-b border-[#1f2b41] flex items-center justify-between flex-wrap gap-2">
+          <div class="text-sm font-semibold">Salas públicas · 12</div>
+          <div class="seg">
+            <button class="on">Más visitadas</button>
+            <button>Más recientes</button>
+          </div>
+        </div>
+        <div class="divide-y divide-[#1f2b41]" id="roomsList"></div>
+      </div>
+    </div>
+
+    <!-- ACHIEVEMENTS -->
+    <div class="tabview" data-tab="ach">
+      <div class="card p-1.5">
+        <div class="divide-y divide-[#1f2b41]" id="achList"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+
+<!-- ============================================================
+     PAGE 2 — MARKETPLACE
+============================================================ -->
+<main id="marketPage" class="pageView">
+
+  <!-- header -->
+  <section class="max-w-7xl mx-auto px-5 lg:px-7 pt-6">
+    <div class="flex items-end justify-between flex-wrap gap-4">
+      <div>
+        <div class="eyebrow"><i data-lucide="store" class="w-3 h-3"></i>Beta · Marketplace</div>
+        <h1 class="mt-3 text-4xl font-extrabold tracking-tight"><span class="text-gradient">Marketplace</span></h1>
+        <p class="text-muted mt-2 max-w-xl">Compra, vende y subasta muebles raros. Precios dinámicos. Subastas 24/7.</p>
+      </div>
+      <div class="flex items-center gap-2">
+        <div class="px-4 py-2 rounded-xl bg-bg/50 border border-surface-2/60 flex items-center gap-2">
+          <i data-lucide="coins" class="w-4 h-4 text-accent"></i>
+          <span class="text-xs text-muted">Saldo</span>
+          <span class="text-accent font-bold text-lg tabular-nums">12,840</span>
+        </div>
+        <button class="btn btn-primary btn-lg" onclick="openModal('mList')"><i data-lucide="plus" class="w-4 h-4"></i>Listar item</button>
+      </div>
+    </div>
+
+    <!-- mkt tabs -->
+    <div class="mt-6 tabs max-w-2xl">
+      <button class="tab active" data-mtab="buy"><i data-lucide="shopping-cart" class="w-4 h-4"></i>Comprar</button>
+      <button class="tab" data-mtab="mine"><i data-lucide="tag" class="w-4 h-4"></i>Mis Listados</button>
+      <button class="tab" data-mtab="auction"><i data-lucide="gavel" class="w-4 h-4"></i>Subastas <span class="text-[10px] font-mono opacity-60">12</span></button>
+      <button class="tab" data-mtab="hist"><i data-lucide="clock" class="w-4 h-4"></i>Historial</button>
+    </div>
+  </section>
+
+  <section class="max-w-7xl mx-auto px-5 lg:px-7 py-6 pb-20">
+
+    <!-- BUY -->
+    <div class="tabview active" data-mtab="buy">
+      <!-- filters -->
+      <div class="card p-3 flex flex-wrap items-center gap-2 mb-4">
+        <div class="inp-ic flex-1 min-w-[200px]">
+          <i data-lucide="search" class="w-4 h-4"></i>
+          <input class="inp" placeholder="Buscar muebles, sets, themes…" />
+        </div>
+        <select class="inp w-auto"><option>Todas las categorías</option><option>Raros</option><option>Normales</option><option>Limitados</option><option>Reciclados</option></select>
+        <select class="inp w-auto"><option>Más recientes</option><option>Precio: ↓ menor</option><option>Precio: ↑ mayor</option><option>Más populares</option></select>
+        <div class="flex items-center gap-1.5 bg-[#0e1730] border border-[#2a3b5b] rounded-lg px-2 py-1">
+          <span class="text-xs text-muted px-1">Precio</span>
+          <input class="inp" style="width:80px; padding:.3rem .5rem;" placeholder="Mín"/>
+          <span class="text-muted">—</span>
+          <input class="inp" style="width:80px; padding:.3rem .5rem;" placeholder="Máx"/>
+        </div>
+      </div>
+
+      <!-- result count -->
+      <div class="flex items-center justify-between mb-3 text-sm">
+        <span class="text-muted">Mostrando <b class="text-white">8</b> de 1,247 listados activos</span>
+        <span class="live-pill"><span class="pulse-dot"></span>Actualización en tiempo real</span>
+      </div>
+
+      <!-- products grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4" id="prodGrid"></div>
+
+      <!-- pagination -->
+      <div class="mt-6 flex items-center justify-center gap-1">
+        <button class="icon-btn"><i data-lucide="chevron-left" class="w-4 h-4"></i></button>
+        <button class="icon-btn" style="background:rgba(0,212,170,.15); color:#5BFFD7;">1</button>
+        <button class="icon-btn">2</button>
+        <button class="icon-btn">3</button>
+        <span class="px-2 text-muted text-xs">…</span>
+        <button class="icon-btn">156</button>
+        <button class="icon-btn"><i data-lucide="chevron-right" class="w-4 h-4"></i></button>
+      </div>
+    </div>
+
+    <!-- MY LISTINGS -->
+    <div class="tabview" data-mtab="mine">
+      <div class="card p-4 flex items-center justify-between flex-wrap gap-3 mb-4">
+        <div>
+          <div class="text-sm font-semibold">3 listados activos</div>
+          <div class="text-xs text-muted mt-0.5">Total potencial: <span class="text-accent font-bold">11,200 c</span> · 187 vistas</div>
+        </div>
+        <button class="btn btn-primary" onclick="openModal('mList')"><i data-lucide="plus" class="w-4 h-4"></i>Listar nuevo item</button>
+      </div>
+
+      <div class="card overflow-hidden">
+        <div class="overflow-x-auto">
+          <table class="kx">
+            <thead><tr><th>Item</th><th>Precio</th><th class="hidden md:table-cell">Listado</th><th class="hidden lg:table-cell">Vistas</th><th>Estado</th><th class="text-right">Acciones</th></tr></thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="furni" style="width:48px; height:48px;"><div class="w-7 h-7 rounded bg-gradient-to-b from-accent to-amber-700 shadow-lg"></div></div>
+                    <div><div class="font-medium">Trono Dorado</div><div class="text-xs text-muted">throne_gold</div></div>
+                  </div>
+                </td>
+                <td><div class="font-bold text-accent tabular-nums">5,000 c</div></td>
+                <td class="hidden md:table-cell text-xs font-mono text-muted">hace 2h</td>
+                <td class="hidden lg:table-cell tabular-nums">142</td>
+                <td><span class="badge b-ok">Activo</span></td>
+                <td class="text-right">
+                  <div class="inline-flex gap-0.5">
+                    <button class="icon-btn"><i data-lucide="pencil" class="w-4 h-4"></i></button>
+                    <button class="icon-btn hover:!text-danger"><i data-lucide="x" class="w-4 h-4"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="furni" style="width:48px; height:48px;"><div class="w-6 h-8 rounded-md bg-gradient-to-b from-secondary to-purple-900"></div></div>
+                    <div><div class="font-medium">Lámpara Aurora</div><div class="text-xs text-muted">lamp_aurora</div></div>
+                  </div>
+                </td>
+                <td><div class="font-bold text-accent tabular-nums">800 c</div></td>
+                <td class="hidden md:table-cell text-xs font-mono text-muted">hace 8h</td>
+                <td class="hidden lg:table-cell tabular-nums">31</td>
+                <td><span class="badge b-ok">Activo</span></td>
+                <td class="text-right">
+                  <div class="inline-flex gap-0.5">
+                    <button class="icon-btn"><i data-lucide="pencil" class="w-4 h-4"></i></button>
+                    <button class="icon-btn hover:!text-danger"><i data-lucide="x" class="w-4 h-4"></i></button>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="flex items-center gap-3">
+                    <div class="furni" style="width:48px; height:48px;"><div class="w-7 h-7 rounded-full" style="background:radial-gradient(#5BFFD7, #00B894)"></div></div>
+                    <div><div class="font-medium">Cristal de Energía</div><div class="text-xs text-muted">crystal_energy</div></div>
+                  </div>
+                </td>
+                <td><div class="font-bold text-accent tabular-nums">5,400 c</div></td>
+                <td class="hidden md:table-cell text-xs font-mono text-muted">hace 1d</td>
+                <td class="hidden lg:table-cell tabular-nums">14</td>
+                <td><span class="badge b-info">Subasta</span></td>
+                <td class="text-right">
+                  <div class="inline-flex gap-0.5">
+                    <button class="icon-btn"><i data-lucide="pencil" class="w-4 h-4"></i></button>
+                    <button class="icon-btn hover:!text-danger"><i data-lucide="x" class="w-4 h-4"></i></button>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUCTIONS -->
+    <div class="tabview" data-mtab="auction">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="auctionGrid"></div>
+    </div>
+
+    <!-- HISTORY -->
+    <div class="tabview" data-mtab="hist">
+      <!-- balance bar -->
+      <div class="card p-5 mb-4 flex items-center justify-between flex-wrap gap-3">
+        <div>
+          <div class="text-xs uppercase font-mono tracking-[.16em] text-muted">Balance del marketplace</div>
+          <div class="text-3xl font-bold mt-1 text-success">+12,400 <span class="text-base font-mono text-muted">c</span></div>
+        </div>
+        <div class="grid grid-cols-2 gap-3 text-sm">
+          <div><div class="text-xs text-muted">Vendido</div><div class="text-success font-bold tabular-nums">+24,800 c</div></div>
+          <div><div class="text-xs text-muted">Comprado</div><div class="text-danger font-bold tabular-nums">-12,400 c</div></div>
+        </div>
+      </div>
+
+      <div class="card overflow-hidden">
+        <table class="kx">
+          <thead><tr><th>Tipo</th><th>Item</th><th class="hidden md:table-cell">Contraparte</th><th>Precio</th><th class="hidden lg:table-cell">Fecha</th></tr></thead>
+          <tbody id="histBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+  </section>
+</main>
+
+
+<!-- ============ MODALS ============ -->
+
+<!-- LIST ITEM -->
+<div id="mList" class="overlay hidden">
+  <div class="modal p-6 max-w-[640px]">
+    <div class="flex items-start justify-between">
+      <div>
+        <div class="text-xs uppercase font-mono tracking-[.18em] text-muted">Marketplace</div>
+        <h3 class="text-xl font-bold mt-1">Listar nuevo item</h3>
+      </div>
+      <button class="icon-btn" onclick="closeModals()"><i data-lucide="x" class="w-5 h-5"></i></button>
+    </div>
+
+    <div class="mt-5">
+      <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">1. Selecciona del inventario</label>
+      <div class="mt-2 grid grid-cols-4 sm:grid-cols-6 gap-2 p-2 bg-bg/40 rounded-xl border border-surface-2/60 max-h-[180px] overflow-y-auto">
+        <!-- inventory slots -->
+        <script>
+          const colors=['#F59E0B,#92400e','#7C3AED,#5b21b6','#5BFFD7,#00B894','#EF4444,#991b1b','#3B82F6,#1e40af','#F472B6,#9d174d','#10B981,#064e3b','#FCD34D,#92400e','#A78BFA,#5b21b6','#06B6D4,#155e75','#F97316,#7c2d12','#84CC16,#365314'];
+          let inv = '';
+          for (let i = 0; i < 24; i++){
+            const c = colors[i % colors.length];
+            const sel = i === 1 ? 'border-primary bg-primary/10' : 'border-surface-2/60';
+            inv += `<button class="aspect-square rounded-lg border ${sel} hover:border-primary transition flex items-center justify-center bg-[#0a1224] relative">
+              <div class="w-7 h-7 rounded" style="background:linear-gradient(180deg, ${c});"></div>
+              ${i === 1 ? '<i data-lucide=\"check\" class=\"absolute top-1 right-1 w-3 h-3 text-primary\"></i>' : ''}
+            </button>`;
+          }
+          document.write(inv);
+        </script>
+      </div>
+    </div>
+
+    <div class="mt-4 grid grid-cols-2 gap-4">
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">2. Tipo de venta</label>
+        <div class="seg mt-2 w-full">
+          <button class="on flex-1" onclick="this.classList.add('on'); this.nextElementSibling.classList.remove('on'); document.getElementById('aucBlock').classList.add('hidden');">Venta directa</button>
+          <button class="flex-1" onclick="this.classList.add('on'); this.previousElementSibling.classList.remove('on'); document.getElementById('aucBlock').classList.remove('hidden');">Subasta</button>
+        </div>
+      </div>
+      <div>
+        <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">3. Precio (créditos)</label>
+        <div class="relative mt-2">
+          <input class="inp pr-10" placeholder="0" type="number" />
+          <i data-lucide="coins" class="w-4 h-4 absolute right-3 top-1/2 -translate-y-1/2 text-accent"></i>
+        </div>
+      </div>
+    </div>
+
+    <div id="aucBlock" class="mt-4 hidden">
+      <label class="text-xs uppercase tracking-[.16em] font-mono text-muted">Duración de subasta</label>
+      <div class="seg mt-2 grid grid-cols-5 gap-1" style="display:grid">
+        <button>1h</button><button class="on">6h</button><button>12h</button><button>24h</button><button>3d</button>
+      </div>
+    </div>
+
+    <!-- summary -->
+    <div class="mt-5 p-3.5 bg-bg/40 rounded-xl border border-surface-2/60 flex items-center justify-between text-sm">
+      <span class="text-muted">Comisión del hotel <span class="text-muted/60">(5%)</span></span>
+      <span class="font-mono text-muted">— c</span>
+    </div>
+
+    <div class="mt-5 flex justify-end gap-2">
+      <button class="btn btn-outline" onclick="closeModals()">Cancelar</button>
+      <button class="btn btn-primary" onclick="closeModals()"><i data-lucide="send" class="w-4 h-4"></i>Publicar</button>
+    </div>
+  </div>
+</div>
+
+<!-- CONFIRM PURCHASE -->
+<div id="mBuy" class="overlay hidden">
+  <div class="modal p-6 max-w-[440px]">
+    <div class="flex items-start justify-between">
+      <h3 class="text-xl font-bold flex items-center gap-2"><i data-lucide="shopping-cart" class="w-5 h-5 text-primary"></i>Confirmar compra</h3>
+      <button class="icon-btn" onclick="closeModals()"><i data-lucide="x" class="w-5 h-5"></i></button>
+    </div>
+
+    <div class="mt-5 p-4 rounded-xl bg-bg/40 border border-surface-2/60 flex items-center gap-4">
+      <div class="furni"><div class="w-10 h-10 rounded bg-gradient-to-b from-accent to-amber-700 shadow-lg"></div></div>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center gap-2"><span class="badge b-rare">RARO</span></div>
+        <div class="font-bold text-base mt-1" id="buyName">Trono Dorado</div>
+        <div class="text-xs text-muted">Vendedor: <a href="#" class="text-primary">@XRiku_Mc</a></div>
+      </div>
+      <div class="text-right">
+        <div class="text-2xl font-bold text-accent tabular-nums" id="buyPrice">5,000 c</div>
+      </div>
+    </div>
+
+    <p class="mt-4 text-sm text-muted">¿Confirmar compra de <b class="text-white" id="buyName2">Trono Dorado</b> por <b class="text-accent" id="buyPrice2">5,000 c</b>?</p>
+
+    <div class="mt-4 p-3 bg-bg/40 rounded-xl border border-surface-2/60 space-y-2 text-sm">
+      <div class="flex items-center justify-between"><span class="text-muted">Saldo actual</span><span class="font-mono">12,840 c</span></div>
+      <div class="flex items-center justify-between"><span class="text-muted">Compra</span><span class="font-mono text-danger">-5,000 c</span></div>
+      <div class="border-t border-surface-2/40 pt-2 flex items-center justify-between font-bold"><span>Saldo después</span><span class="font-mono text-success">7,840 c</span></div>
+    </div>
+
+    <div class="mt-5 flex gap-2">
+      <button class="btn btn-outline flex-1 justify-center" onclick="closeModals()">Cancelar</button>
+      <button class="btn btn-primary flex-1 justify-center" onclick="closeModals()"><i data-lucide="check" class="w-4 h-4"></i>Confirmar compra</button>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  lucide.createIcons(); showPage('market');
+
+  /* page swap */
+  function showPage(p){
+    const isP = p === 'profile';
+    document.getElementById('profilePage').classList.toggle('active', isP);
+    document.getElementById('marketPage').classList.toggle('active', !isP);
+    document.getElementById('pgProfile').classList.toggle('active', isP);
+    document.getElementById('pgMarket').classList.toggle('active', !isP);
+    window.scrollTo({top:0});
+  }
+
+  /* tabs */
+  document.querySelectorAll('.tab[data-tab]').forEach(t => {
+    t.addEventListener('click', () => {
+      const v = t.dataset.tab;
+      document.querySelectorAll('.tab[data-tab]').forEach(x => x.classList.toggle('active', x.dataset.tab===v));
+      document.querySelectorAll('.tabview[data-tab]').forEach(x => x.classList.toggle('active', x.dataset.tab===v));
+    });
+  });
+  document.querySelectorAll('.tab[data-mtab]').forEach(t => {
+    t.addEventListener('click', () => {
+      const v = t.dataset.mtab;
+      document.querySelectorAll('.tab[data-mtab]').forEach(x => x.classList.toggle('active', x.dataset.mtab===v));
+      document.querySelectorAll('.tabview[data-mtab]').forEach(x => x.classList.toggle('active', x.dataset.mtab===v));
+    });
+  });
+
+  /* modals */
+  function openModal(id){ document.getElementById(id).classList.remove('hidden'); }
+  function closeModals(){ document.querySelectorAll('.overlay').forEach(o => o.classList.add('hidden')); }
+  document.querySelectorAll('.overlay').forEach(o => o.addEventListener('click', e => { if (e.target === o) closeModals(); }));
+  document.addEventListener('keydown', e => { if (e.key==='Escape') closeModals(); });
+
+  /* ============ DATA ============ */
+
+  /* badges */
+  const badges = [
+    {n:'Founder', d:'Estuviste desde el inicio', eq:true,  c:'#F59E0B,#92400e', i:'F'},
+    {n:'Builder Pro', d:'+10 salas creadas',      eq:true,  c:'#00D4AA,#0F766E', i:'B'},
+    {n:'Trader', d:'+50 trades exitosos',         eq:true,  c:'#7C3AED,#5b21b6', i:'T'},
+    {n:'Helper', d:'Ayudaste a +100 newbies',     eq:true,  c:'#10B981,#064e3b', i:'H'},
+    {n:'Wired Master', d:'Domina los nodos',      eq:true,  c:'#EF4444,#991b1b', i:'W'},
+    {n:'Pixel Artist', d:'Creó +20 muebles',      eq:false, c:'#F472B6,#9d174d', i:'P'},
+    {n:'Casinero', d:'Ganaste 5 jackpots',        eq:false, c:'#FCD34D,#92400e', i:'C'},
+    {n:'Coleccionista', d:'+1000 muebles',        eq:false, c:'#A78BFA,#5b21b6', i:'X'},
+    {n:'Charlatán', d:'Mensaje #10000',           eq:false, c:'#3B82F6,#1e40af', i:'M'},
+    {n:'NPC Whisperer', d:'NPC con 100% rep',     eq:false, c:'#06B6D4,#155e75', i:'N'},
+    {n:'Tour Guide', d:'Guiaste 50 visitas',      eq:false, c:'#84CC16,#365314', i:'G'},
+    {n:'Subastador', d:'Ganaste 10 subastas',     eq:false, c:'#F97316,#7c2d12', i:'S'},
+    {n:'Maratonista', d:'+100 días seguidos',     eq:false, c:'#EC4899,#9d174d', i:'D'},
+    {n:'Inversor', d:'+100k créditos',            eq:false, c:'#FBBF24,#92400e', i:'$'},
+    {n:'Beta Tester', d:'Reportaste 10 bugs',     eq:false, c:'#9CA3AF,#374151', i:'β'},
+    {n:'Influencer', d:'+500 amigos',             eq:false, c:'#60A5FA,#1e3a8a', i:'I'},
+  ];
+  const bg = document.getElementById('badgesGrid');
+  badges.forEach(b => {
+    const el = document.createElement('div');
+    el.className = 'badge-tile' + (b.eq ? ' equipped' : '');
+    el.innerHTML = `
+      <div class="w-10 h-10 rounded-md flex items-center justify-center font-extrabold text-white text-lg" style="background:linear-gradient(135deg,${b.c}); box-shadow: inset 0 1px 0 rgba(255,255,255,.4);">${b.i}</div>
+      <div class="tip"><b class="text-white">${b.n}</b><div class="text-muted text-[10px]">${b.d}</div></div>`;
+    bg.appendChild(el);
+  });
+
+  /* rooms */
+  const rooms = [
+    { n:'Club Kodexa',        d:'Discoteca con minijuego de wired · premios cada hora', cur:18, max:25, s:4.7, g:'135deg,#7C3AED,#00D4AA' },
+    { n:'Casino Real',        d:'Tragamonedas, ruleta, blackjack — apuesta real',       cur:9,  max:20, s:4.5, g:'135deg,#F59E0B,#EF4444' },
+    { n:'Wired Tutorial',     d:'Aprende a programar minijuegos paso a paso',           cur:6,  max:12, s:4.6, g:'135deg,#5BFFD7,#7C3AED' },
+    { n:'Sala secreta',       d:'Solo amigos cercanos · password requerido',            cur:1,  max:5,  s:5.0, g:'135deg,#1f2b41,#0F172A' },
+  ];
+  const stars = s => {
+    const full = Math.floor(s); let h=''; for(let i=0;i<5;i++) h+=`<i data-lucide="star" class="w-3 h-3" style="color:${i<full?'#F59E0B':'#334155'}; fill:${i<full?'#F59E0B':'none'}"></i>`; return h;
+  };
+  const rl = document.getElementById('roomsList');
+  rooms.forEach(r => {
+    const el = document.createElement('div');
+    el.className = 'room-row';
+    el.innerHTML = `
+      <div class="room-thumb" style="background:linear-gradient(${r.g})"></div>
+      <div class="min-w-0">
+        <div class="font-semibold">${r.n}</div>
+        <div class="text-xs text-muted truncate">${r.d}</div>
+        <div class="mt-1.5 flex items-center gap-3 text-[11px] font-mono">
+          <span class="flex items-center gap-1 text-muted"><i data-lucide="users-round" class="w-3 h-3"></i>${r.cur}/${r.max}</span>
+          <span class="flex items-center gap-1">${stars(r.s)} <span class="text-muted">${r.s}</span></span>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-sm"><i data-lucide="log-in" class="w-3.5 h-3.5"></i>Visitar</button>`;
+    rl.appendChild(el);
+  });
+
+  /* achievements */
+  const ach = [
+    { n:'Constructor estrella',  d:'Crea 10 salas',                  cur:7,  tot:10, ic:'home',     c:'#00D4AA' },
+    { n:'Coleccionista',         d:'Tener 5,000 muebles',            cur:2345, tot:5000, ic:'package', c:'#7C3AED' },
+    { n:'Marathonista',          d:'200 días consecutivos',          cur:156, tot:200, ic:'flame',    c:'#F59E0B' },
+    { n:'Trader maestro',        d:'100 trades completados',         cur:67,  tot:100, ic:'repeat',   c:'#3B82F6' },
+    { n:'Bienvenido',            d:'Crea tu primer avatar',          cur:1, tot:1, ic:'user-round', c:'#10B981', done:true },
+    { n:'Primer mueble',         d:'Compra tu primer mueble',        cur:1, tot:1, ic:'shopping-bag', c:'#10B981', done:true },
+  ];
+  const al = document.getElementById('achList');
+  ach.forEach(a => {
+    const pct = Math.min(100, (a.cur/a.tot)*100);
+    const el = document.createElement('div');
+    el.className = 'ach-row';
+    el.innerHTML = `
+      <div class="ach-ic" style="background: rgba(0,212,170,.1); border:1px solid ${a.c}40; color:${a.c};">
+        <i data-lucide="${a.ic}" class="w-5 h-5"></i>
+      </div>
+      <div class="flex-1 min-w-0">
+        <div class="flex items-center justify-between gap-3 flex-wrap">
+          <div>
+            <div class="font-semibold text-sm">${a.n}</div>
+            <div class="text-xs text-muted">${a.d}</div>
+          </div>
+          ${a.done
+            ? '<span class="badge b-ok"><i data-lucide="check" class="w-3 h-3"></i>Completado</span>'
+            : `<span class="text-xs font-mono text-muted">${a.cur.toLocaleString()} / ${a.tot.toLocaleString()}</span>`}
+        </div>
+        <div class="mt-2 h-1.5 rounded-full bg-bg/70 overflow-hidden">
+          <div class="h-full rounded-full" style="width:${pct}%; background:${a.done ? '#10B981' : a.c};"></div>
+        </div>
+      </div>`;
+    al.appendChild(el);
+  });
+
+  /* products (marketplace buy) */
+  const products = [
+    { n:'Trono Dorado',        seller:'XRiku_Mc',   price:'5,000', t:'Hace 2h',   tag:'rare',    cat:'Throne',  c:'#F59E0B,#92400e', s:'crown' },
+    { n:'Lámpara Aurora',      seller:'PixelDoll',  price:'800',   t:'Hace 4h',   tag:null,      cat:'Light',   c:'#7C3AED,#5b21b6', s:'lamp-ceiling' },
+    { n:'Cristal de Energía',  seller:'NovaPilot',  price:'3,200', t:'Hace 30m',  tag:'limit',   cat:'Special', c:'#5BFFD7,#00B894', s:'gem', left:3 },
+    { n:'Sofá Aurora Boreal',  seller:'BluRise',    price:'1,500', t:'Hace 1h',   tag:null,      cat:'Sofa',    c:'#3B82F6,#06B6D4', s:'armchair' },
+    { n:'Trono Real',          seller:'NovaPilot',  price:'12,000',t:'Hace 8h',   tag:'rare',    cat:'Throne',  c:'#7C3AED,#5b21b6', s:'crown' },
+    { n:'Set Piedra Antigua',  seller:'Glitchy',    price:'4,400', t:'Hace 1d',   tag:null,      cat:'Set',     c:'#9CA3AF,#374151', s:'box' },
+    { n:'Pez Tropical Raro',   seller:'EchoZyrx',   price:'2,200', t:'Hace 3h',   tag:'rare',    cat:'Pet',     c:'#F472B6,#9d174d', s:'fish' },
+    { n:'Reloj Cucú',          seller:'Casinero99', price:'650',   t:'Hace 6h',   tag:null,      cat:'Decor',   c:'#FCD34D,#92400e', s:'clock' },
+  ];
+  const pg = document.getElementById('prodGrid');
+  products.forEach(p => {
+    let badgeHtml = '';
+    if (p.tag === 'rare')  badgeHtml = '<span class="badge b-rare absolute top-2 right-2"><i data-lucide="sparkles" class="w-3 h-3"></i>RARO</span>';
+    if (p.tag === 'limit') badgeHtml = `<span class="badge b-limit absolute top-2 right-2"><i data-lucide="flame" class="w-3 h-3"></i>${p.left} restantes</span>`;
+    const card = document.createElement('div');
+    card.className = 'card prod';
+    card.innerHTML = `
+      <div class="prod-img">
+        ${badgeHtml}
+        <div class="absolute top-2 left-2 text-[10px] font-mono uppercase tracking-[.14em] text-muted/70 px-2 py-0.5 rounded bg-bg/60 border border-surface-2/40">${p.cat}</div>
+        <div class="relative z-10 w-20 h-20 rounded-xl flex items-center justify-center" style="background:linear-gradient(180deg,${p.c}); box-shadow:0 12px 24px -8px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.3);">
+          <i data-lucide="${p.s}" class="w-8 h-8 text-white/85"></i>
+        </div>
+      </div>
+      <div class="p-4">
+        <div class="font-semibold truncate">${p.n}</div>
+        <div class="text-xs text-muted mt-0.5 truncate">@${p.seller} · ${p.t}</div>
+        <div class="mt-3 flex items-center justify-between">
+          <div class="flex items-center gap-1.5">
+            <i data-lucide="coins" class="w-4 h-4 text-accent"></i>
+            <span class="text-accent font-bold tabular-nums">${p.price}</span>
+          </div>
+          <button class="btn btn-primary btn-sm" onclick="onBuy('${p.n}','${p.price}')">Comprar</button>
+        </div>
+      </div>`;
+    pg.appendChild(card);
+  });
+
+  function onBuy(name, price){
+    document.getElementById('buyName').textContent = name;
+    document.getElementById('buyName2').textContent = name;
+    document.getElementById('buyPrice').textContent = price + ' c';
+    document.getElementById('buyPrice2').textContent = price + ' c';
+    openModal('mBuy');
+  }
+
+  /* auctions */
+  const auctions = [
+    { n:'Espejo Encantado',   bid:'3,200', leader:'XRiku_Mc',  bids:24, end:[2,34,12], c:'#A78BFA,#5b21b6', s:'sparkles', cat:'Magic' },
+    { n:'Trono Cristal',      bid:'8,800', leader:'NovaPilot', bids:42, end:[0,12,5],  c:'#5BFFD7,#00B894', s:'crown',    cat:'Throne', urg:true },
+    { n:'Pet Dragón Bebé',    bid:'5,400', leader:'EchoZyrx',  bids:18, end:[5,2,30],  c:'#EF4444,#7c2d12', s:'flame',    cat:'Pet' },
+  ];
+  const ag = document.getElementById('auctionGrid');
+  auctions.forEach((a, i) => {
+    const card = document.createElement('div');
+    card.className = 'card overflow-hidden';
+    const urgent = a.urg ? 'urgent' : '';
+    card.innerHTML = `
+      <div class="prod-img">
+        <span class="badge b-info absolute top-2 left-2"><i data-lucide="gavel" class="w-3 h-3"></i>SUBASTA</span>
+        <span class="absolute top-2 right-2 text-[10px] font-mono px-2 py-0.5 rounded bg-bg/80 border border-surface-2/40">${a.bids} pujas</span>
+        <div class="relative z-10 w-20 h-20 rounded-xl flex items-center justify-center" style="background:linear-gradient(180deg,${a.c}); box-shadow:0 12px 24px -8px rgba(0,0,0,.6), inset 0 1px 0 rgba(255,255,255,.3);">
+          <i data-lucide="${a.s}" class="w-8 h-8 text-white/85"></i>
+        </div>
+      </div>
+      <div class="p-4">
+        <div class="text-xs text-muted">${a.cat}</div>
+        <div class="font-semibold mt-0.5">${a.n}</div>
+
+        <div class="mt-3 p-3 rounded-xl bg-bg/40 border border-surface-2/60">
+          <div class="flex items-center justify-between text-xs">
+            <span class="text-muted">Puja actual</span>
+            <span class="text-muted">por <a href="#" class="text-primary">@${a.leader}</a></span>
+          </div>
+          <div class="text-2xl font-bold text-accent tabular-nums mt-0.5">${a.bid} c</div>
+          <div class="mt-2 flex items-center justify-between">
+            <span class="text-xs text-muted flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i>Termina en</span>
+            <div class="countdown ${urgent}" data-cd="${i}">
+              <span>${String(a.end[0]).padStart(2,'0')}h</span>
+              <span>${String(a.end[1]).padStart(2,'0')}m</span>
+              <span>${String(a.end[2]).padStart(2,'0')}s</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-3 flex gap-2">
+          <input class="inp flex-1" placeholder="Tu puja..." type="number" />
+          <button class="btn btn-secondary"><i data-lucide="gavel" class="w-4 h-4"></i>Pujar</button>
+        </div>
+      </div>`;
+    ag.appendChild(card);
+  });
+
+  /* history */
+  const hist = [
+    { type:'sell', item:'Pez Tropical', who:'Glitchy',     price:'+2,200', date:'hace 2h',   c:'#F472B6,#9d174d', s:'fish' },
+    { type:'buy',  item:'Lámpara Neon', who:'BluRise',     price:'-1,200', date:'hace 1d',   c:'#7C3AED,#5b21b6', s:'lamp-ceiling' },
+    { type:'sell', item:'Trono Dorado', who:'NovaPilot',   price:'+5,000', date:'hace 3d',   c:'#F59E0B,#92400e', s:'crown' },
+    { type:'sell', item:'Set Antigüedad', who:'PixelDoll', price:'+8,400', date:'hace 5d',   c:'#9CA3AF,#374151', s:'box' },
+    { type:'buy',  item:'Pet Dragón', who:'EchoZyrx',      price:'-4,400', date:'hace 1w',   c:'#EF4444,#7c2d12', s:'flame' },
+    { type:'sell', item:'Sofá Aurora', who:'XRiku_Mc',     price:'+1,500', date:'hace 2w',   c:'#3B82F6,#06B6D4', s:'armchair' },
+  ];
+  const hb = document.getElementById('histBody');
+  hist.forEach(h => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td>${h.type==='sell'
+        ? '<span class="badge b-ok"><i data-lucide=\"arrow-up-right\" class=\"w-3 h-3\"></i>Venta</span>'
+        : '<span class="badge b-mono"><i data-lucide=\"arrow-down-left\" class=\"w-3 h-3\"></i>Compra</span>'}</td>
+      <td>
+        <div class="flex items-center gap-3">
+          <div class="furni" style="width:40px; height:40px;">
+            <i data-lucide="${h.s}" class="w-5 h-5 text-white/80" style="filter: drop-shadow(0 1px 2px rgba(0,0,0,.4));"></i>
+          </div>
+          <div class="font-medium">${h.item}</div>
+        </div>
+      </td>
+      <td class="hidden md:table-cell text-muted">@${h.who}</td>
+      <td class="font-bold tabular-nums ${h.type==='sell'?'text-success':'text-danger'}">${h.price} c</td>
+      <td class="hidden lg:table-cell text-xs font-mono text-muted">${h.date}</td>`;
+    hb.appendChild(tr);
+  });
+
+  lucide.createIcons(); showPage('market');
+
+  /* countdown ticker for auctions */
+  setInterval(() => {
+    document.querySelectorAll('.countdown[data-cd]').forEach(c => {
+      const sps = c.querySelectorAll('span');
+      let h = parseInt(sps[0].textContent), m = parseInt(sps[1].textContent), s = parseInt(sps[2].textContent);
+      s--;
+      if (s < 0){ s = 59; m--; if (m < 0){ m = 59; h--; if (h<0){h=0;m=0;s=0;} } }
+      sps[0].textContent = String(h).padStart(2,'0')+'h';
+      sps[1].textContent = String(m).padStart(2,'0')+'m';
+      sps[2].textContent = String(s).padStart(2,'0')+'s';
+      if (h===0 && m<60) c.classList.add('urgent');
+    });
+  }, 1000);
+</script>
+</body>
+</html>

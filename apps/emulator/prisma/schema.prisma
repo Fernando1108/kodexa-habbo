@@ -1,0 +1,44 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Minimal User model for emulator (matches users table)
+model User {
+  id         Int     @id @default(autoincrement())
+  username   String  @unique @db.VarChar(25)
+  rank       Int     @default(1)
+  look       String  @default("hr-115-61.hd-180-1.ch-215-62.lg-270-62.sh-290-62") @db.VarChar(256)
+  motto      String  @default("") @db.VarChar(127)
+  credits    Int     @default(5000)
+  pixels     Int     @default(10000)
+  online     Boolean @default(false)
+  authTicket String  @default("") @db.VarChar(64) @map("auth_ticket")
+
+  @@map("users")
+}
+
+model Room {
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(64)
+  model String @db.VarChar(32)
+  state String @default("open") @db.VarChar(10)
+
+  @@map("rooms")
+}
+
+model RoomModel {
+  id        String @id @db.VarChar(32)
+  name      String @db.VarChar(32)
+  doorX     Int    @map("door_x")
+  doorY     Int    @map("door_y")
+  doorDir   Int    @map("door_dir")
+  heightmap String @db.Text
+
+  @@map("room_models")
+}

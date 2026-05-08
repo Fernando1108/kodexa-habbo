@@ -1,0 +1,88 @@
+services:
+  db:
+    image: mariadb:10.11
+    container_name: kodexa-db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root_password_change_me}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-kodexa_hotel}
+      MYSQL_USER: ${MYSQL_USER:-kodexa}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-kodexa_pass_change_me}
+    ports:
+      - "${DB_PORT:-3306}:3306"
+    volumes:
+      - db_data:/var/lib/mysql
+      - ../database/seed:/docker-entrypoint-initdb.d
+    command: >
+      --character-set-server=utf8mb4
+      --collation-server=utf8mb4_unicode_ci
+      --innodb-buffer-pool-size=256M
+      --max-connections=200
+    healthcheck:
+      test: ["CMD", "healthcheck.sh", "--connect", "--innodb_initialized"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - kodexa
+
+  redis:
+    image: redis:7-alpine
+    container_name: kodexa-redis
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis_data:/data
+    command: >
+      redis-server
+      --appendonly yes
+      --maxmemory 256mb
+      --maxmemory-policy allkeys-lru
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    networks:
+      - kodexa
+
+  imager:
+    build:
+      context: ..
+      dockerfile: docker/imager.Dockerfile
+    container_name: kodexa-imager
+    ports:
+      - "${IMAGER_PORT:-1338}:1338"
+    volumes:
+      - imager_cache:/app/cache
+    environment:
+      - API_PORT=1338
+      - API_HOST=0.0.0.0
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - kodexa
+
+  assets:
+    image: nginx:alpine
+    container_name: kodexa-assets
+    volumes:
+      - ../assets:/usr/share/nginx/html/assets:ro
+      - ./nginx/assets.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "${ASSETS_PORT:-8080}:80"
+    restart: unless-stopped
+    networks:
+      - kodexa
+
+volumes:
+  db_data:
+  redis_data:
+  imager_cache:
+
+networks:
+  kodexa:
+    driver: bridge

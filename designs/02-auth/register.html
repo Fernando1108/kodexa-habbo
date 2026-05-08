@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Kodexa Hotel — Crear cuenta</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<script>
+tailwind.config = { theme: { extend: {
+  colors: {
+    primary:'#00D4AA','primary-dim':'#00B894', secondary:'#7C3AED', accent:'#F59E0B',
+    bg:'#0F172A', surface:'#1E293B','surface-2':'#334155',
+    muted:'#94A3B8', danger:'#EF4444', success:'#10B981',
+  },
+  fontFamily:{ sans:['Sora','ui-sans-serif','system-ui'], mono:['JetBrains Mono','ui-monospace'] },
+}}};
+</script>
+<style>
+  body{ background:#0F172A; color:#F8FAFC; font-family:'Sora',sans-serif; min-height:100vh; overflow-x:hidden; }
+
+  /* aurora bg */
+  .aurora{ position:fixed; pointer-events:none; filter:blur(80px); opacity:.45; border-radius:50%; z-index:0; }
+  .aurora.a{ width:620px; height:620px; top:-220px; left:-180px; background:radial-gradient(circle,#00D4AA 0%, transparent 60%);}
+  .aurora.b{ width:560px; height:560px; bottom:-220px; right:-200px; background:radial-gradient(circle,#7C3AED 0%, transparent 60%);}
+  .aurora.c{ width:380px; height:380px; top:35%; right:20%; background:radial-gradient(circle,#F59E0B 0%, transparent 60%); opacity:.18;}
+
+  .grid-bg{
+    position:fixed; inset:0; z-index:0; pointer-events:none; opacity:.55;
+    background-image:
+      linear-gradient(rgba(124,58,237,.08) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,212,170,.08) 1px, transparent 1px);
+    background-size: 56px 56px;
+    mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+  }
+
+  .stars{ position:fixed; inset:0; z-index:0; pointer-events:none;
+    background-image:
+      radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,.7) 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 52% 22%, rgba(0,212,170,.7) 50%, transparent 51%),
+      radial-gradient(1px 1px at 70% 80%, rgba(255,255,255,.6) 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 82% 35%, rgba(124,58,237,.65) 50%, transparent 51%),
+      radial-gradient(1px 1px at 90% 70%, rgba(255,255,255,.45) 50%, transparent 51%),
+      radial-gradient(1px 1px at 18% 88%, rgba(245,158,11,.5) 50%, transparent 51%);
+    animation: twinkle 6s ease-in-out infinite alternate;
+  }
+  @keyframes twinkle{0%{opacity:.4}100%{opacity:1}}
+
+  /* logo mark */
+  .logo-k{ width:34px; height:34px; border-radius:10px;
+    background:conic-gradient(from 220deg at 50% 50%, #00D4AA, #7C3AED, #F59E0B, #00D4AA);
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 0 0 1px rgba(0,212,170,.3), 0 6px 18px -6px rgba(0,212,170,.6);}
+  .logo-k span{ width:calc(100% - 4px); height:calc(100% - 4px); border-radius:8px;
+    background:#0F172A; display:flex; align-items:center; justify-content:center;
+    color:#F8FAFC; font-weight:800; font-size:1rem; letter-spacing:-.04em;}
+
+  .text-gradient{ background:linear-gradient(110deg,#5BFFD7 0%,#00D4AA 35%,#7C3AED 80%,#F59E0B 100%);
+    -webkit-background-clip:text; background-clip:text; color:transparent;}
+
+  /* card */
+  .auth-card{
+    position:relative; z-index:1;
+    background:linear-gradient(180deg, rgba(30,41,59,.92) 0%, rgba(20,28,49,.92) 100%);
+    border:1px solid #243149; border-radius:20px; padding:2.25rem;
+    box-shadow:
+      0 30px 80px -30px rgba(0,212,170,.35),
+      0 30px 80px -30px rgba(124,58,237,.35),
+      inset 0 1px 0 rgba(255,255,255,.05);
+    backdrop-filter:blur(12px);
+  }
+  .auth-card::before{
+    content:""; position:absolute; inset:-1px; border-radius:20px; pointer-events:none; z-index:-1;
+    background:linear-gradient(140deg, rgba(0,212,170,.5), transparent 35%, transparent 65%, rgba(124,58,237,.5));
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor; mask-composite: exclude; padding:1px;
+    opacity:.5;
+  }
+
+  /* inputs */
+  .field{ position:relative; }
+  .field input, .field select{
+    width:100%; padding:.95rem 1rem .95rem 2.85rem; background:#0e1730;
+    border:1px solid #2a3b5b; border-radius:12px; color:#F8FAFC; font-size:.95rem;
+    transition:.18s ease; outline:none;
+  }
+  .field input::placeholder{ color:#64748B; }
+  .field input:focus{ border-color:#00D4AA; box-shadow:0 0 0 4px rgba(0,212,170,.18); background:#0d1a36; }
+  .field .ic{ position:absolute; left:.95rem; top:50%; transform:translateY(-50%); color:#64748B; pointer-events:none; }
+  .field input:focus ~ .ic, .field.has-val .ic{ color:#5BFFD7; }
+  .field .toggle{ position:absolute; right:.6rem; top:50%; transform:translateY(-50%);
+    width:36px; height:36px; display:flex; align-items:center; justify-content:center;
+    border-radius:8px; color:#94A3B8; cursor:pointer; transition:.15s; background:transparent; border:0; }
+  .field .toggle:hover{ color:#F8FAFC; background:rgba(148,163,184,.08); }
+
+  .field.error input{ border-color:#EF4444; box-shadow:0 0 0 4px rgba(239,68,68,.15); }
+  .field.error .ic{ color:#fca5a5; }
+
+  .err-msg{ overflow:hidden; max-height:0; opacity:0; transition:max-height .25s ease, opacity .2s ease, margin-top .25s ease; }
+  .err-msg.show{ max-height:50px; opacity:1; margin-top:.45rem; }
+
+  /* buttons */
+  .btn{ display:inline-flex; align-items:center; justify-content:center; gap:.55rem;
+    padding:.95rem 1.4rem; border-radius:12px; font-weight:600; font-size:.95rem;
+    transition:.18s ease; border:1px solid transparent; cursor:pointer; user-select:none; }
+  .btn-primary{ background:linear-gradient(180deg,#14E4BB 0%,#00D4AA 100%); color:#062A22;
+    box-shadow:0 0 0 1px rgba(0,212,170,.35), 0 8px 24px -6px rgba(0,212,170,.55), inset 0 1px 0 rgba(255,255,255,.45);}
+  .btn-primary:hover:not(:disabled){ transform:translateY(-1px);
+    box-shadow:0 0 0 1px rgba(0,212,170,.45), 0 14px 32px -8px rgba(0,212,170,.65), inset 0 1px 0 rgba(255,255,255,.55);}
+  .btn-primary:active:not(:disabled){ transform:scale(.985); }
+  .btn-primary:disabled{ opacity:.7; cursor:not-allowed; }
+  .btn-outline{ background:rgba(15,23,42,.4); color:#F8FAFC; border-color:#334155; }
+  .btn-outline:hover{ border-color:#00D4AA; color:#5BFFD7; box-shadow:0 0 0 1px rgba(0,212,170,.25);}
+
+  .spinner{ width:18px; height:18px; border:2px solid rgba(6,42,34,.3); border-top-color:#062A22;
+    border-radius:50%; animation: spin .8s linear infinite; }
+  @keyframes spin{ to{ transform: rotate(360deg) } }
+
+  /* checkbox */
+  .check{ display:inline-flex; align-items:center; gap:.55rem; cursor:pointer; user-select:none; font-size:.85rem; color:#CBD5E1; }
+  .check input{ position:absolute; opacity:0; pointer-events:none; }
+  .check .box{ width:18px; height:18px; border-radius:5px; border:1.5px solid #475569; background:#0e1730;
+    display:flex; align-items:center; justify-content:center; transition:.15s; flex:none; }
+  .check input:checked + .box{ background:#00D4AA; border-color:#00D4AA; }
+  .check input:checked + .box::after{ content:""; width:10px; height:6px; border:2px solid #062A22; border-top:0; border-right:0; transform: rotate(-45deg) translate(1px,-1px); }
+
+  /* divider */
+  .div-or{ display:flex; align-items:center; gap:.85rem; color:#64748B; font-size:.8rem; }
+  .div-or::before, .div-or::after{ content:""; flex:1; height:1px; background:linear-gradient(90deg, transparent, #334155, transparent); }
+
+  /* strength bar */
+  .strength{ height:4px; background:#0e1730; border-radius:999px; overflow:hidden; }
+  .strength > div{ height:100%; width:0%; transition: width .35s ease, background-color .35s ease; border-radius:999px; }
+
+  /* fade page */
+  .page-enter{ animation: fadeUp .55s cubic-bezier(.2,.7,.3,1) both; }
+  @keyframes fadeUp{ from{ opacity:0; transform: translateY(14px) scale(.985);} to{ opacity:1; transform: none; } }
+
+  /* page swap toggle (top-right pill) */
+  .page-toggle{ display:inline-flex; padding:4px; background:rgba(15,23,42,.6); border:1px solid #243149;
+    border-radius:999px; backdrop-filter:blur(8px); }
+  .page-toggle button{ padding:.45rem 1rem; border-radius:999px; font-size:.82rem; font-weight:500; color:#94A3B8; transition:.15s; }
+  .page-toggle button.active{ background:linear-gradient(180deg, rgba(0,212,170,.18), rgba(0,212,170,.08));
+    color:#5BFFD7; box-shadow:inset 0 0 0 1px rgba(0,212,170,.3); }
+
+  /* small float ornaments */
+  .ornament{ position:absolute; pointer-events:none; }
+  .ornament .ring{ width:120px; height:120px; border-radius:50%; border:1px solid rgba(0,212,170,.18);
+    box-shadow: inset 0 0 30px rgba(0,212,170,.06); animation: float 9s ease-in-out infinite; }
+  @keyframes float{ 0%,100%{ transform: translateY(0);} 50%{ transform: translateY(-14px);} }
+
+  /* eyebrow */
+  .eyebrow{ display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .8rem;
+    border-radius:999px; border:1px solid rgba(0,212,170,.3); background:rgba(0,212,170,.07);
+    color:#5BFFD7; font-family:'JetBrains Mono'; font-size:.7rem; letter-spacing:.18em; text-transform:uppercase;}
+</style>
+</head>
+<body>
+
+<div class="aurora a"></div>
+<div class="aurora b"></div>
+<div class="aurora c"></div>
+<div class="grid-bg"></div>
+<div class="stars"></div>
+
+<!-- top bar -->
+<header class="relative z-10 max-w-6xl mx-auto px-5 lg:px-8 pt-6 flex items-center justify-between">
+  <a href="01-landing.html" class="flex items-center gap-2.5">
+    <div class="logo-k"><span>K</span></div>
+    <div class="leading-tight">
+      <div class="font-bold tracking-tight">Kodexa<span class="text-primary">.</span></div>
+      <div class="text-[10px] uppercase tracking-[.22em] text-muted font-mono">Hotel</div>
+    </div>
+  </a>
+
+  <div class="page-toggle">
+    <button id="pgLogin" class="active" onclick="showPage('login')">Iniciar sesión</button>
+    <button id="pgRegister" onclick="showPage('register')">Crear cuenta</button>
+  </div>
+
+  <a href="01-landing.html" class="hidden sm:inline-flex items-center gap-1.5 text-sm text-muted hover:text-white transition">
+    <i data-lucide="arrow-left" class="w-4 h-4"></i> Volver
+  </a>
+</header>
+
+
+<!-- ───────────────────────── LOGIN PAGE ───────────────────────── -->
+<main id="loginPage" class="relative z-10 min-h-[calc(100vh-72px)] flex items-center justify-center px-5 py-12">
+  <div class="w-full max-w-[440px]">
+    <div class="ornament" style="top:-60px; right:-50px;"><div class="ring"></div></div>
+
+    <!-- header -->
+    <div class="text-center mb-7 page-enter">
+      <div class="eyebrow mx-auto"><i data-lucide="lock-keyhole" class="w-3 h-3"></i> Acceso seguro</div>
+      <h1 class="mt-4 text-4xl font-extrabold tracking-tight"><span class="text-gradient">Bienvenido</span> de vuelta</h1>
+      <p class="mt-2 text-sm text-muted">Entra al hotel para reanudar tu aventura.</p>
+    </div>
+
+    <!-- card -->
+    <form id="loginForm" novalidate class="auth-card page-enter" style="animation-delay:.05s">
+      <div class="space-y-4">
+
+        <!-- field: user -->
+        <div>
+          <label class="block text-xs uppercase tracking-[.16em] text-muted/80 font-mono mb-1.5">Username o Email</label>
+          <div class="field" data-field="user">
+            <input id="loginUser" type="text" autocomplete="username" placeholder="kodex_player" />
+            <i data-lucide="user-round" class="w-4 h-4 ic"></i>
+          </div>
+          <div class="err-msg text-xs text-danger flex items-center gap-1.5">
+            <i data-lucide="alert-circle" class="w-3 h-3"></i><span class="msg"></span>
+          </div>
+        </div>
+
+        <!-- field: password -->
+        <div>
+          <label class="block text-xs uppercase tracking-[.16em] text-muted/80 font-mono mb-1.5">Contraseña</label>
+          <div class="field" data-field="pass">
+            <input id="loginPass" type="password" autocomplete="current-password" placeholder="••••••••" />
+            <i data-lucide="lock" class="w-4 h-4 ic"></i>
+            <button type="button" class="toggle" onclick="togglePw('loginPass', this)" aria-label="mostrar contraseña">
+              <i data-lucide="eye" class="w-4 h-4"></i>
+            </button>
+          </div>
+          <div class="err-msg text-xs text-danger flex items-center gap-1.5">
+            <i data-lucide="alert-circle" class="w-3 h-3"></i><span class="msg"></span>
+          </div>
+        </div>
+
+        <!-- row: remember + forgot -->
+        <div class="flex items-center justify-between pt-1">
+          <label class="check">
+            <input type="checkbox" checked />
+            <span class="box"></span>
+            Recordarme
+          </label>
+          <a href="#" class="text-sm text-primary hover:underline">¿Olvidaste tu contraseña?</a>
+        </div>
+
+        <!-- submit -->
+        <button id="loginSubmit" type="submit" class="btn btn-primary w-full mt-3">
+          <span class="lbl">Iniciar Sesión</span>
+          <i data-lucide="arrow-right" class="w-4 h-4 ic-end"></i>
+        </button>
+
+        <!-- general error -->
+        <div id="loginGenErr" class="err-msg text-xs text-danger flex items-center gap-1.5 justify-center">
+          <i data-lucide="shield-alert" class="w-3 h-3"></i><span class="msg"></span>
+        </div>
+      </div>
+
+      <!-- divider -->
+      <div class="div-or my-6 font-mono uppercase tracking-[.2em]"><span>o</span></div>
+
+      <!-- discord -->
+      <button type="button" class="btn btn-outline w-full">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="#7C3AED" aria-hidden="true">
+          <path d="M19.27 5.33A18.06 18.06 0 0 0 14.97 4l-.2.39c1.5.34 2.85.93 4.18 1.86A14.4 14.4 0 0 0 9 6.25c-1.78.13-3.6.5-5.27 1.08l-.2-.39c1.32-.4 2.78-.7 4.3-.93C5.95 5.32 4.4 5.66 3 6.13 1.13 9.36.32 12.86.07 16.36c1.7 1.25 3.36 2.05 5 2.55l.65-.92c-.93-.34-1.78-.78-2.6-1.36.22-.16.44-.3.65-.46 3.39 1.6 7.05 1.6 10.4 0 .21.16.43.3.65.46-.82.58-1.7 1.02-2.61 1.36l.65.92c1.64-.5 3.3-1.3 5-2.55-.4-4.05-1.27-7.55-3.59-11.06zM8.52 14.5c-.98 0-1.79-.92-1.79-2.05s.79-2.05 1.79-2.05 1.81.92 1.79 2.05c.02 1.13-.79 2.05-1.79 2.05zm6.96 0c-.98 0-1.79-.92-1.79-2.05s.79-2.05 1.79-2.05 1.81.92 1.79 2.05c0 1.13-.79 2.05-1.79 2.05z"/>
+        </svg>
+        Continuar con Discord
+      </button>
+
+      <!-- footer link -->
+      <p class="mt-6 text-center text-sm text-muted">
+        ¿No tienes cuenta?
+        <button type="button" onclick="showPage('register')" class="text-primary hover:underline font-medium">Regístrate aquí</button>
+      </p>
+    </form>
+
+    <!-- ssl note -->
+    <div class="mt-6 flex items-center justify-center gap-2 text-xs text-muted/70 font-mono">
+      <i data-lucide="shield-check" class="w-3 h-3 text-success"></i> conexión cifrada · auth.kodexahotel.com
+    </div>
+  </div>
+</main>
+
+
+<!-- ───────────────────────── REGISTER PAGE ───────────────────────── -->
+<main id="registerPage" class="relative z-10 min-h-[calc(100vh-72px)] flex items-center justify-center px-5 py-12 hidden">
+  <div class="w-full max-w-[460px]">
+    <div class="ornament" style="bottom:-40px; left:-50px;"><div class="ring"></div></div>
+
+    <div class="text-center mb-7 page-enter">
+      <div class="eyebrow mx-auto"><i data-lucide="sparkles" class="w-3 h-3"></i> Únete al hotel</div>
+      <h1 class="mt-4 text-4xl font-extrabold tracking-tight"><span class="text-gradient">Crea tu</span> cuenta gratis</h1>
+      <p class="mt-2 text-sm text-muted">30 segundos. Sin tarjeta. Tu avatar te espera.</p>
+    </div>
+
+    <form id="registerForm" novalidate class="auth-card page-enter" style="animation-delay:.05s">
+      <div class="space-y-4">
+
+        <!-- username -->
+        <div>
+          <label class="block text-xs uppercase tracking-[.16em] text-muted/80 font-mono mb-1.5">Username</label>
+          <div class="field" data-field="user">
+            <input id="regUser" type="text" autocomplete="username" placeholder="ej: kodex_nova" maxlength="20" />
+            <i data-lucide="user-round" class="w-4 h-4 ic"></i>
+          </div>
+          <div class="err-msg text-xs text-danger flex items-center gap-1.5">
+            <i data-lucide="alert-circle" class="w-3 h-3"></i><span class="msg"></span>
+          </div>
+        </div>
+
+        <!-- email -->
+        <div>
+          <label class="block text-xs uppercase tracking-[.16em] text-muted/80 font-mono mb-1.5">Email</label>
+          <div class="field" data-field="email">
+            <input id="regEmail" type="email" autocomplete="email" placeholder="tu@email.com" />
+            <i data-lucide="mail" class="w-4 h-4 ic"></i>
+          </div>
+          <div class="err-msg text-xs text-danger flex items-center gap-1.5">
+            <i data-lucide="alert-circle" class="w-3 h-3"></i><span class="msg"></span>
+          </div>
+        </div>
+
+        <!-- password -->
+        <div>
+          <label class="block text-xs uppercase tracking-[.16em] text-muted/80 font-mono mb-1.5">Contraseña</label>
+          <div class="field" data-field="pass">
+            <input id="regPass" type="password" autocomplete="new-password" placeholder="mínimo 6 caracteres" />
+            <i data-lucide="lock" class="w-4 h-4 ic"></i>
+            <button type="button" class="toggle" onclick="togglePw('regPass', this)"><i data-lucide="eye" class="w-4 h-4"></i></button>
+          </div>
+          <!-- strength -->
+          <div class="mt-2 strength"><div id="strengthBar"></div></div>
+          <div class="mt-1 flex items-center justify-between text-[11px] font-mono">
+            <span id="strengthLabel" class="text-muted">Fuerza: —</span>
+            <span class="text-muted/70">tip: usa símbolos como ! @ #</span>
+          </div>
+          <div class="err-msg text-xs text-danger flex items-center gap-1.5">
+            <i data-lucide="alert-circle" class="w-3 h-3"></i><span class="msg"></span>
+          </div>
+        </div>
+
+        <!-- confirm -->
+        <div>
+          <label class="block text-xs uppercase tracking-[.16em] text-muted/80 font-mono mb-1.5">Confirmar contraseña</label>
+          <div class="field" data-field="confirm">
+            <input id="regConfirm" type="password" autocomplete="new-password" placeholder="repite tu contraseña" />
+            <i data-lucide="lock" class="w-4 h-4 ic"></i>
+            <button type="button" class="toggle" onclick="togglePw('regConfirm', this)"><i data-lucide="eye" class="w-4 h-4"></i></button>
+          </div>
+          <div class="err-msg text-xs text-danger flex items-center gap-1.5">
+            <i data-lucide="alert-circle" class="w-3 h-3"></i><span class="msg"></span>
+          </div>
+        </div>
+
+        <!-- terms -->
+        <label class="check pt-1" data-field="terms">
+          <input id="regTerms" type="checkbox" />
+          <span class="box"></span>
+          <span>Acepto los <a href="#" class="text-primary hover:underline">términos y condiciones</a> y la <a href="#" class="text-primary hover:underline">política de privacidad</a></span>
+        </label>
+        <div class="err-msg text-xs text-danger flex items-center gap-1.5">
+          <i data-lucide="alert-circle" class="w-3 h-3"></i><span class="msg"></span>
+        </div>
+
+        <!-- submit -->
+        <button id="registerSubmit" type="submit" class="btn btn-primary w-full mt-2">
+          <span class="lbl">Crear Cuenta</span>
+          <i data-lucide="rocket" class="w-4 h-4 ic-end"></i>
+        </button>
+      </div>
+
+      <p class="mt-6 text-center text-sm text-muted">
+        ¿Ya tienes cuenta?
+        <button type="button" onclick="showPage('login')" class="text-primary hover:underline font-medium">Inicia sesión</button>
+      </p>
+    </form>
+
+    <div class="mt-6 flex items-center justify-center gap-3 text-xs text-muted/70 font-mono">
+      <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-success"></i> 100% gratis</span>
+      <span class="opacity-50">·</span>
+      <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-success"></i> sin spam</span>
+      <span class="opacity-50">·</span>
+      <span class="flex items-center gap-1.5"><i data-lucide="check" class="w-3 h-3 text-success"></i> cancelable</span>
+    </div>
+  </div>
+</main>
+
+
+<script>
+  lucide.createIcons();
+
+  /* ───── page switch ───── */
+  function showPage(name){
+    const isLogin = name === 'login';
+    document.getElementById('loginPage').classList.toggle('hidden', !isLogin);
+    document.getElementById('registerPage').classList.toggle('hidden', isLogin);
+    document.getElementById('pgLogin').classList.toggle('active', isLogin);
+    document.getElementById('pgRegister').classList.toggle('active', !isLogin);
+    // re-trigger entry animation
+    const el = document.getElementById(isLogin?'loginPage':'registerPage');
+    el.querySelectorAll('.page-enter').forEach(n => {
+      n.style.animation = 'none'; n.offsetHeight; n.style.animation = '';
+    });
+    window.scrollTo({top:0});
+  }
+
+  /* ───── pw toggle ───── */
+  function togglePw(id, btn){
+    const inp = document.getElementById(id);
+    const showing = inp.type === 'text';
+    inp.type = showing ? 'password' : 'text';
+    btn.innerHTML = showing
+      ? '<i data-lucide="eye" class="w-4 h-4"></i>'
+      : '<i data-lucide="eye-off" class="w-4 h-4"></i>';
+    lucide.createIcons();
+  }
+
+  /* ───── input "has-val" tracking ───── */
+  document.querySelectorAll('.field input').forEach(inp => {
+    inp.addEventListener('input', () => {
+      inp.closest('.field').classList.toggle('has-val', !!inp.value);
+      // clear field error on edit
+      const wrap = inp.closest('div')?.parentElement;
+      const fieldEl = inp.closest('.field');
+      if(fieldEl){ fieldEl.classList.remove('error'); }
+      const err = inp.closest('div').parentElement.querySelector('.err-msg');
+      if(err){ err.classList.remove('show'); }
+    });
+  });
+
+  /* ───── error helpers ───── */
+  function setError(fieldName, formEl, message){
+    const field = formEl.querySelector(`[data-field="${fieldName}"]`);
+    if(!field) return;
+    if(field.classList.contains('field')) field.classList.add('error');
+    const block = field.closest('div')?.parentElement || field.parentElement;
+    const err = block.querySelector('.err-msg');
+    if(err){ err.querySelector('.msg').textContent = message; err.classList.add('show'); }
+  }
+  function clearErrors(formEl){
+    formEl.querySelectorAll('.field.error').forEach(f => f.classList.remove('error'));
+    formEl.querySelectorAll('.err-msg.show').forEach(e => e.classList.remove('show'));
+  }
+  function setLoading(btn, isLoading){
+    btn.disabled = isLoading;
+    if(isLoading){
+      btn.dataset.lbl = btn.querySelector('.lbl').textContent;
+      btn.innerHTML = `<div class="spinner"></div><span>Procesando…</span>`;
+    } else {
+      btn.innerHTML = `<span class="lbl">${btn.dataset.lbl||'Enviar'}</span>`;
+    }
+  }
+  function setSuccess(btn, message){
+    btn.disabled = true;
+    btn.style.background = 'linear-gradient(180deg,#34d399,#10B981)';
+    btn.innerHTML = `<i data-lucide="check" class="w-4 h-4"></i><span>${message}</span>`;
+    lucide.createIcons();
+  }
+
+  /* ───── LOGIN submit ───── */
+  document.getElementById('loginForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    clearErrors(form);
+    const user = document.getElementById('loginUser').value.trim();
+    const pass = document.getElementById('loginPass').value;
+    let ok = true;
+    if(user.length < 3){ setError('user', form, 'Mínimo 3 caracteres'); ok = false; }
+    if(pass.length < 6){ setError('pass', form, 'Mínimo 6 caracteres'); ok = false; }
+    if(!ok) return;
+
+    const btn = document.getElementById('loginSubmit');
+    setLoading(btn, true);
+    setTimeout(() => {
+      // simulate failure if password is "wrong"
+      if(pass === 'wrong'){
+        setLoading(btn, false);
+        const gen = document.getElementById('loginGenErr');
+        gen.querySelector('.msg').textContent = 'Usuario o contraseña incorrectos';
+        gen.classList.add('show');
+        return;
+      }
+      setSuccess(btn, '¡Bienvenido!');
+      console.log('login →', { user, pass });
+      setTimeout(() => { btn.style.background = ''; setLoading(btn, false); }, 1800);
+    }, 1100);
+  });
+
+  /* ───── REGISTER strength ───── */
+  const passInput = document.getElementById('regPass');
+  const bar = document.getElementById('strengthBar');
+  const lbl = document.getElementById('strengthLabel');
+  passInput.addEventListener('input', () => {
+    const v = passInput.value;
+    let score = 0, color='#EF4444', name='—', w='0%';
+    if(v.length >= 6) score++;
+    if(v.length >= 8) score++;
+    if(/[a-z]/.test(v) && /[A-Z]/.test(v)) score++;
+    if(/\d/.test(v)) score++;
+    if(/[^A-Za-z0-9]/.test(v)) score++;
+    if(v.length === 0){ name='—'; w='0%'; color='#334155'; }
+    else if(score <= 2){ name='Débil'; w='33%'; color='#EF4444'; }
+    else if(score <= 4){ name='Media'; w='66%'; color='#F59E0B'; }
+    else { name='Fuerte'; w='100%'; color='#10B981'; }
+    bar.style.width = w; bar.style.background = color;
+    lbl.textContent = `Fuerza: ${name}`;
+    lbl.style.color = v.length===0 ? '#94A3B8' : color;
+  });
+
+  /* ───── REGISTER submit ───── */
+  document.getElementById('registerForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const form = e.currentTarget;
+    clearErrors(form);
+    const user = document.getElementById('regUser').value.trim();
+    const email = document.getElementById('regEmail').value.trim();
+    const pass = document.getElementById('regPass').value;
+    const conf = document.getElementById('regConfirm').value;
+    const terms = document.getElementById('regTerms').checked;
+    let ok = true;
+    if(!/^[A-Za-z0-9_]{3,20}$/.test(user)){ setError('user', form, '3–20 caracteres · letras, números y _'); ok=false; }
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ setError('email', form, 'Email no válido'); ok=false; }
+    if(pass.length < 6){ setError('pass', form, 'Mínimo 6 caracteres'); ok=false; }
+    if(conf !== pass){ setError('confirm', form, 'Las contraseñas no coinciden'); ok=false; }
+    if(!terms){ setError('terms', form, 'Debes aceptar los términos para continuar'); ok=false; }
+    if(!ok) return;
+
+    const btn = document.getElementById('registerSubmit');
+    setLoading(btn, true);
+    setTimeout(() => {
+      setSuccess(btn, '¡Cuenta creada!');
+      console.log('register →', { user, email, pass });
+    }, 1300);
+  });
+
+  /* deep-link via hash */
+  showPage('register');
+</script>
+
+</body>
+</html>
