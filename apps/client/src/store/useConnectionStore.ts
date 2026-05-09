@@ -4,6 +4,7 @@ import { MessageComposer, MessageParser, IncomingPacketIds, OutgoingPacketIds } 
 import { SOCKET_URL } from '../config/renderer.config';
 import { useUserStore } from '../stores/useUserStore';
 import { useRoomStore  } from '../stores/useRoomStore';
+import { useChatStore  } from '../stores/useChatStore';
 import { gameEvents    } from '../utils/gameEvents';
 import type { AvatarData } from '../engine/AvatarEntity';
 
@@ -115,6 +116,18 @@ export const useConnectionStore = create<ConnectionState>((set, get) => ({
             break;
           }
 
+          case OutgoingPacketIds.ROOM_USER_CHAT: {
+            const userId   = parser.readInt();
+            const message  = parser.readString();
+            const type     = parser.readInt() as 0 | 1 | 2;
+            const username = useUserStore.getState().userId === userId
+              ? (useUserStore.getState().username ?? '')
+              : (useRoomStore.getState().avatars.get(userId)?.username ?? '');
+            useChatStore.getState().addMessage({ userId, username, message, type });
+            gameEvents.emitChat({ userId, username, message, type });
+            break;
+          }
+
           default:
             break;
         }
@@ -124,6 +137,7 @@ export const useConnectionStore = create<ConnectionState>((set, get) => ({
         set({ status: 'disconnected', client: null });
         useUserStore.getState().reset();
         useRoomStore.getState().clearRoom();
+        useChatStore.getState().clearRoom();
       });
 
     } catch {

@@ -31,6 +31,10 @@ export function App() {
     const ticket = params.get('sso');
 
     if (ticket) {
+      // Guard: only connect once (Strict Mode mounts effect twice in dev)
+      if (useConnectionStore.getState().status !== 'idle') return;
+      // Remove ticket from URL immediately so a second mount finds nothing
+      history.replaceState({}, '', window.location.pathname);
       useConnectionStore.getState().connect(ticket).catch(() => {});
     } else {
       // No SSO ticket — dev/preview mode

@@ -2,11 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import { MessageComposer, IncomingPacketIds } from '@kodexa/protocol';
 import { RoomEngine }     from '../engine/RoomEngine';
 import { RoomRenderer }   from '../engine/RoomRenderer';
-import { AvatarEntity }   from '../engine/AvatarEntity';
+import { AvatarEntity, type AvatarData } from '../engine/AvatarEntity';
 import { MovementEngine } from '../engine/MovementEngine';
 import { useRoomStore }   from '../stores/useRoomStore';
 import { useConnectionStore } from '../store/useConnectionStore';
 import { gameEvents }         from '../utils/gameEvents';
+import { ChatInput }          from './ChatInput';
 
 export function RoomView() {
   const canvasRef      = useRef<HTMLCanvasElement>(null);
@@ -14,6 +15,7 @@ export function RoomView() {
   const rendererRef    = useRef<RoomRenderer  | null>(null);
   const movementRef    = useRef<MovementEngine>(new MovementEngine());
   const entitiesRef    = useRef<Map<number, AvatarEntity>>(new Map());
+  const unsubChatRef   = useRef<(() => void) | null>(null);
   const [, setReady]   = useState(false);
 
   const { roomName, heightmap } = useRoomStore();
@@ -75,12 +77,19 @@ export function RoomView() {
         (avatars) => syncAvatars(avatars),
       );
 
+      // Subscribe to chat events → show bubble on correct entity
+      unsubChatRef.current = gameEvents.onChat(({ userId, message, type }) => {
+        const entity = entitiesRef.current.get(userId);
+        entity?.showBubble(message, type);
+      });
+
       setReady(true);
     });
 
     return () => {
       cancelled = true;
       unsubAvatars?.();
+      unsubChatRef.current?.();
       entitiesRef.current.forEach(e => e.destroy());
       entitiesRef.current.clear();
       rendererRef.current?.destroy();
@@ -141,6 +150,8 @@ export function RoomView() {
           Salir
         </button>
       </div>
+
+      <ChatInput />
 
       {/* Controls hint */}
       <div style={{

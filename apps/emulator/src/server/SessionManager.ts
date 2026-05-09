@@ -16,6 +16,7 @@ export interface GameSession {
   dir?:          number;
   authenticated: boolean;
   lastPing:      number;
+  chatTimestamps?: number[];
 }
 
 export class SessionManager {
