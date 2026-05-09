@@ -38,3 +38,5 @@ RUN npm run build
 EXPOSE 1338
 
 CMD ["npm", "start"]
+
+COPY tools/imager/clothes ./clothes
