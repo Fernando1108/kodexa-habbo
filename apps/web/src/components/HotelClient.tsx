@@ -120,9 +120,6 @@ export default function HotelClient({ user }: { user: HotelUser }) {
             <span className="gpill" style={{ background: 'rgba(124,58,237,.12)', color: '#c4b5fd', borderColor: 'rgba(124,58,237,.25)' }}>
               <Diamond className="w-3 h-3 inline mr-1" />{user.pixels.toLocaleString()}
             </span>
-            <span className="gpill" style={{ background: 'rgba(16,185,129,.08)', color: '#6ee7b7', borderColor: 'rgba(16,185,129,.2)' }}>
-              <Users className="w-3 h-3 inline mr-1" />0 en sala
-            </span>
             <button
               onClick={toggleFullscreen}
               className="icon-btn"

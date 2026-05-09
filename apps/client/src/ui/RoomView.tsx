@@ -6,8 +6,11 @@ import { AvatarEntity, type AvatarData } from '../engine/AvatarEntity';
 import { MovementEngine } from '../engine/MovementEngine';
 import { useRoomStore }   from '../stores/useRoomStore';
 import { useConnectionStore } from '../store/useConnectionStore';
+import { useUserStore }       from '../stores/useUserStore';
 import { gameEvents }         from '../utils/gameEvents';
 import { ChatInput }          from './ChatInput';
+import { NavigatorPanel }     from './NavigatorPanel';
+import { useNavigatorStore }  from '../stores/useNavigatorStore';
 
 export function RoomView() {
   const canvasRef      = useRef<HTMLCanvasElement>(null);
@@ -18,8 +21,9 @@ export function RoomView() {
   const unsubChatRef   = useRef<(() => void) | null>(null);
   const [, setReady]   = useState(false);
 
-  const { roomName, heightmap } = useRoomStore();
-  const { sendPacket }          = useConnectionStore();
+  const { roomName, heightmap }                   = useRoomStore();
+  const { sendPacket }                             = useConnectionStore();
+  const { openNavigator, isOpen: navigatorOpen }  = useNavigatorStore();
 
   // ── Bootstrap engine ────────────────────────────────────────────────────
   useEffect(() => {
@@ -38,6 +42,14 @@ export function RoomView() {
 
       // Tile click → send MOVE_TO to emulator
       renderer.setOnTileClick((x, y) => {
+        // MVP: ignore clicks while self-avatar is animating to prevent snap/cancel churn
+        const selfId     = useUserStore.getState().userId;
+        const selfEntity = selfId ? entitiesRef.current.get(selfId) : null;
+        if (selfEntity?.isMoving) {
+          console.log(`[MoveRequestBlocked] reason=avatar_is_moving`);
+          return;
+        }
+        console.log(`[Movement] request ROOM_MOVE x=${x} y=${y}`);
         const composer = new MessageComposer(IncomingPacketIds.ROOM_MOVE)
           .writeInt(x)
           .writeInt(y);
@@ -110,13 +122,17 @@ export function RoomView() {
   // ── Avatar movement animations ────────────────────────────────────────────
   useEffect(() => {
     const unsub = gameEvents.onAvatarMove(({ userId, path }) => {
-      const entity = entitiesRef.current.get(userId);
+      const entity  = entitiesRef.current.get(userId);
+      const logical = useRoomStore.getState().avatars.get(userId);
+      console.log(`[Movement] USER_MOVED userId=${userId} pathLen=${path.length}`);
+      if (entity) {
+        console.log(`[Movement] visual=(${entity.tileX.toFixed(3)},${entity.tileY.toFixed(3)}) logical=(${logical?.x ?? '?'},${logical?.y ?? '?'}) isMoving=${entity.isMoving}`);
+        console.log(`[Movement] zIndex_before=${entity.container.zIndex}`);
+      }
       if (entity && path.length > 0) {
-        movementRef.current.animateMove(entity, path).then(() => {
-          // update store with final position after animation
-          const last = path[path.length - 1];
-          useRoomStore.getState().updateAvatarPos(userId, last.x, last.y);
-        });
+        // Store already has final position (set in useConnectionStore).
+        // Just animate — no extra updateAvatarPos needed.
+        movementRef.current.animateMove(entity, path);
       }
     });
     return unsub;
@@ -139,9 +155,23 @@ export function RoomView() {
         <span style={{ color: '#94a3b8', fontWeight: 400, fontSize: 11 }}>|</span>
         <span>{roomName || 'Sala'}</span>
         <button
-          onClick={() => useRoomStore.getState().clearRoom()}
+          onClick={openNavigator}
           style={{
             marginLeft: 6, padding: '3px 10px',
+            background: navigatorOpen
+              ? 'rgba(0,212,170,0.18)'
+              : 'rgba(0,212,170,0.08)',
+            color: '#00D4AA',
+            border: '1px solid rgba(0,212,170,0.25)', borderRadius: 6,
+            fontFamily: "'Sora',sans-serif", fontSize: 11, cursor: 'pointer',
+          }}
+        >
+          🗺️ Salas
+        </button>
+        <button
+          onClick={() => useRoomStore.getState().clearRoom()}
+          style={{
+            padding: '3px 10px',
             background: 'rgba(239,68,68,0.12)', color: '#ef4444',
             border: '1px solid rgba(239,68,68,0.25)', borderRadius: 6,
             fontFamily: "'Sora',sans-serif", fontSize: 11, cursor: 'pointer',
@@ -151,6 +181,7 @@ export function RoomView() {
         </button>
       </div>
 
+      <NavigatorPanel />
       <ChatInput />
 
       {/* Controls hint */}

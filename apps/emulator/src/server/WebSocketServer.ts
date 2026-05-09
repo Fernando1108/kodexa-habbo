@@ -5,7 +5,8 @@ import { PacketHandler } from '../protocol/PacketHandler';
 import { SSOTicketHandler  } from '../protocol/incoming/handshake/SSOTicketHandler';
 import { EnterRoomHandler  } from '../protocol/incoming/room/EnterRoomHandler';
 import { MoveHandler       } from '../protocol/incoming/room/MoveHandler';
-import { makeChatHandler   } from '../protocol/incoming/room/ChatHandler';
+import { makeChatHandler         } from '../protocol/incoming/room/ChatHandler';
+import { NavigatorSearchHandler  } from '../protocol/incoming/navigator/NavigatorSearchHandler';
 import { MessageComposer, OutgoingPacketIds } from '@kodexa/protocol';
 import { roomManager } from '../game/RoomManager';
 import { logger } from '../utils/logger';
@@ -30,8 +31,9 @@ export class WebSocketServer {
     this.packetHandler.register(IncomingPacketIds.SSO_TICKET, SSOTicketHandler);
     this.packetHandler.register(IncomingPacketIds.ROOM_ENTER,  EnterRoomHandler);
     this.packetHandler.register(IncomingPacketIds.ROOM_MOVE,   MoveHandler);
-    this.packetHandler.register(IncomingPacketIds.ROOM_CHAT,  makeChatHandler(0));
-    this.packetHandler.register(IncomingPacketIds.ROOM_SHOUT, makeChatHandler(1));
+    this.packetHandler.register(IncomingPacketIds.ROOM_CHAT,       makeChatHandler(0));
+    this.packetHandler.register(IncomingPacketIds.ROOM_SHOUT,      makeChatHandler(1));
+    this.packetHandler.register(IncomingPacketIds.NAVIGATOR_SEARCH, NavigatorSearchHandler);
   }
 
   start(): void {

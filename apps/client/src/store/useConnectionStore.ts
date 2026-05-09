@@ -4,7 +4,8 @@ import { MessageComposer, MessageParser, IncomingPacketIds, OutgoingPacketIds } 
 import { SOCKET_URL } from '../config/renderer.config';
 import { useUserStore } from '../stores/useUserStore';
 import { useRoomStore  } from '../stores/useRoomStore';
-import { useChatStore  } from '../stores/useChatStore';
+import { useChatStore       } from '../stores/useChatStore';
+import { useNavigatorStore } from '../stores/useNavigatorStore';
 import { gameEvents    } from '../utils/gameEvents';
 import type { AvatarData } from '../engine/AvatarEntity';
 
@@ -106,13 +107,13 @@ export const useConnectionStore = create<ConnectionState>((set, get) => ({
             for (let i = 0; i < pathLength; i++) {
               path.push({ x: parser.readInt(), y: parser.readInt() });
             }
-            // Update final position in store
-            if (path.length > 0) {
-              const last = path[path.length - 1];
-              useRoomStore.getState().updateAvatarPos(userId, last.x, last.y);
-            }
-            // Trigger animation via event bus
+            const last = path.length > 0 ? path[path.length - 1] : null;
+            console.log(`[Movement] USER_MOVED userId=${userId} pathLen=${path.length} to=(${last?.x},${last?.y})`);
+            console.log(`[Movement] full path=`, JSON.stringify(path));
+            // Animate first (entity reads its own tileX/tileY as start)
+            // then update logical store position so syncAvatars has correct data
             gameEvents.emitAvatarMove({ userId, path });
+            if (last) useRoomStore.getState().updateAvatarPos(userId, last.x, last.y);
             break;
           }
 
@@ -125,6 +126,24 @@ export const useConnectionStore = create<ConnectionState>((set, get) => ({
               : (useRoomStore.getState().avatars.get(userId)?.username ?? '');
             useChatStore.getState().addMessage({ userId, username, message, type });
             gameEvents.emitChat({ userId, username, message, type });
+            break;
+          }
+
+          case OutgoingPacketIds.NAVIGATOR_RESULTS: {
+            const count = parser.readInt();
+            const rooms = [];
+            for (let i = 0; i < count; i++) {
+              rooms.push({
+                id:          parser.readInt(),
+                name:        parser.readString(),
+                ownerName:   parser.readString(),
+                users:       parser.readInt(),
+                capacity:    parser.readInt(),
+                description: parser.readString(),
+              });
+            }
+            console.log(`[Navigator] results received count=${count}`, rooms.map(r => r.name));
+            useNavigatorStore.getState().setRooms(rooms);
             break;
           }
 
