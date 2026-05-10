@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 import { auth } from '@/lib/auth';
 import { prisma as db } from '@/lib/db';
-import { isFounder } from '@/middleware';
+import { isFounder } from '@/lib/guards';
 import HotelBetaClient from '@/components/HotelBetaClient';
 
 export const metadata = { title: 'Kodexa Hotel · Beta Privada' };

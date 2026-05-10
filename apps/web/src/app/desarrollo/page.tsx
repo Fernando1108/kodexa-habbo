@@ -1,7 +1,7 @@
 import { redirect } from 'next/navigation';
 import { auth } from '@/lib/auth';
 import { prisma as db } from '@/lib/db';
-import { canAccessDevelopment } from '@/middleware';
+import { canAccessDevelopment } from '@/lib/guards';
 import HotelDesarrolloClient from '@/components/HotelDesarrolloClient';
 
 export const metadata = { title: 'Kodexa Hotel · Desarrollo' };
