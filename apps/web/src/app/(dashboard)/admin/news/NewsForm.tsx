@@ -38,10 +38,11 @@ function toSlug(title: string): string {
     .slice(0, 200);
 }
 
+// Per-status accent colors (fixed design tokens, not theme-sensitive)
 const STATUS_OPTIONS: { value: Status; label: string; icon: React.ReactNode; color: string }[] = [
-  { value: 'DRAFT',     label: 'Borrador',  icon: <File className="w-4 h-4" />,    color: '#F59E0B' },
-  { value: 'PUBLISHED', label: 'Publicado', icon: <Globe className="w-4 h-4" />,   color: '#10B981' },
-  { value: 'ARCHIVED',  label: 'Archivado', icon: <Archive className="w-4 h-4" />, color: '#475569' },
+  { value: 'DRAFT',     label: 'Borrador',  icon: <File    className="w-4 h-4" />, color: '#F59E0B' },
+  { value: 'PUBLISHED', label: 'Publicado', icon: <Globe   className="w-4 h-4" />, color: '#10B981' },
+  { value: 'ARCHIVED',  label: 'Archivado', icon: <Archive className="w-4 h-4" />, color: '#94A3B8' },
 ];
 
 export default function NewsForm({ mode, initial }: Props) {
@@ -73,7 +74,7 @@ export default function NewsForm({ mode, initial }: Props) {
   async function save(targetStatus?: Status) {
     const resolvedStatus = targetStatus ?? status;
 
-    if (!title.trim()) { setError('El título es requerido.'); return; }
+    if (!title.trim())   { setError('El título es requerido.');    return; }
     if (!content.trim()) { setError('El contenido es requerido.'); return; }
 
     setSaving(true);
@@ -120,10 +121,8 @@ export default function NewsForm({ mode, initial }: Props) {
           <ChevronLeft className="w-5 h-5" />
         </Link>
         <div>
-          <div className="text-xs uppercase font-mono tracking-[.2em]" style={{ color: '#94A3B8' }}>
-            Comunicación
-          </div>
-          <h1 className="mt-0.5 text-2xl font-bold flex items-center gap-2">
+          <div className="admin-eyebrow">Contenido</div>
+          <h1 className="mt-0.5 text-2xl font-bold flex items-center gap-2" style={{ color: 'var(--admin-text)' }}>
             <Newspaper className="w-5 h-5" style={{ color: '#7C3AED' }} />
             {pageTitle}
           </h1>
@@ -133,11 +132,10 @@ export default function NewsForm({ mode, initial }: Props) {
       <div className="grid lg:grid-cols-[1fr_280px] gap-6">
         {/* Main form */}
         <div className="space-y-5">
-          {/* Title */}
+
+          {/* Title + Slug */}
           <div className="card p-5">
-            <label className="text-xs uppercase tracking-[.16em] font-mono block mb-2" style={{ color: '#94A3B8' }}>
-              Título *
-            </label>
+            <label className="admin-eyebrow block mb-2">Título *</label>
             <input
               className="inp w-full text-base font-medium"
               placeholder="Ej: Llega la temporada 2 de Wired Visual"
@@ -146,12 +144,11 @@ export default function NewsForm({ mode, initial }: Props) {
               maxLength={128}
             />
 
-            {/* Slug */}
-            <label className="text-xs uppercase tracking-[.16em] font-mono block mt-4 mb-2" style={{ color: '#94A3B8' }}>
-              Slug URL
-            </label>
+            <label className="admin-eyebrow block mt-4 mb-2">Slug URL</label>
             <div className="flex items-center gap-2">
-              <span className="text-sm flex-shrink-0" style={{ color: '#475569' }}>/community/news/</span>
+              <span className="text-sm flex-shrink-0" style={{ color: 'var(--admin-text-subtle)' }}>
+                /community/news/
+              </span>
               <input
                 className="inp flex-1 font-mono text-sm"
                 placeholder="auto-generado-del-titulo"
@@ -160,15 +157,16 @@ export default function NewsForm({ mode, initial }: Props) {
                 maxLength={200}
               />
             </div>
-            <p className="text-[11px] mt-1" style={{ color: '#475569' }}>
+            <p className="text-[11px] mt-1" style={{ color: 'var(--admin-text-subtle)' }}>
               {slugManual ? 'Slug editado manualmente.' : 'Auto-generado desde el título.'}
             </p>
           </div>
 
           {/* Excerpt */}
           <div className="card p-5">
-            <label className="text-xs uppercase tracking-[.16em] font-mono block mb-2" style={{ color: '#94A3B8' }}>
-              Extracto <span style={{ color: '#475569' }}>(opcional)</span>
+            <label className="admin-eyebrow block mb-2">
+              Extracto{' '}
+              <span className="normal-case" style={{ color: 'var(--admin-text-subtle)' }}>(opcional)</span>
             </label>
             <textarea
               className="inp w-full"
@@ -178,14 +176,14 @@ export default function NewsForm({ mode, initial }: Props) {
               onChange={e => setExcerpt(e.target.value)}
               maxLength={512}
             />
-            <p className="text-[11px] mt-1" style={{ color: '#475569' }}>
+            <p className="text-[11px] mt-1" style={{ color: 'var(--admin-text-subtle)' }}>
               {excerpt.length}/512 — Si está vacío, se usa el inicio del contenido.
             </p>
           </div>
 
           {/* Content */}
           <div className="card p-5">
-            <label className="text-xs uppercase tracking-[.16em] font-mono flex items-center gap-2 mb-2" style={{ color: '#94A3B8' }}>
+            <label className="admin-eyebrow flex items-center gap-2 mb-2">
               <FileText className="w-3.5 h-3.5" />
               Contenido *
             </label>
@@ -196,7 +194,7 @@ export default function NewsForm({ mode, initial }: Props) {
               value={content}
               onChange={e => setContent(e.target.value)}
             />
-            <p className="text-[11px] mt-1" style={{ color: '#475569' }}>
+            <p className="text-[11px] mt-1" style={{ color: 'var(--admin-text-subtle)' }}>
               Texto plano. Los párrafos se separan con doble salto de línea.
             </p>
           </div>
@@ -204,37 +202,39 @@ export default function NewsForm({ mode, initial }: Props) {
 
         {/* Sidebar */}
         <div className="space-y-4">
-          {/* Status */}
+
+          {/* Status selector */}
           <div className="card p-5">
-            <label className="text-xs uppercase tracking-[.16em] font-mono block mb-3" style={{ color: '#94A3B8' }}>
-              Estado
-            </label>
+            <label className="admin-eyebrow block mb-3">Estado</label>
             <div className="space-y-2">
-              {STATUS_OPTIONS.map(opt => (
-                <button
-                  key={opt.value}
-                  className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg border transition-colors text-left cursor-pointer"
-                  style={{
-                    background:   status === opt.value ? `${opt.color}15` : 'transparent',
-                    borderColor:  status === opt.value ? opt.color : '#1E293B',
-                    color:        status === opt.value ? opt.color : '#94A3B8',
-                  }}
-                  onClick={() => setStatus(opt.value)}
-                  type="button"
-                >
-                  {opt.icon}
-                  <span className="text-sm font-medium">{opt.label}</span>
-                  {status === opt.value && (
-                    <span className="ml-auto w-2 h-2 rounded-full" style={{ background: opt.color }} />
-                  )}
-                </button>
-              ))}
+              {STATUS_OPTIONS.map(opt => {
+                const isActive = status === opt.value;
+                return (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    className="w-full flex items-center gap-3 px-3 py-2.5 rounded-lg border transition-colors text-left cursor-pointer"
+                    style={{
+                      background:  isActive ? `${opt.color}18` : 'transparent',
+                      borderColor: isActive ? opt.color : 'var(--admin-border)',
+                      color:       isActive ? opt.color : 'var(--admin-text-muted)',
+                    }}
+                    onClick={() => setStatus(opt.value)}
+                  >
+                    {opt.icon}
+                    <span className="text-sm font-medium">{opt.label}</span>
+                    {isActive && (
+                      <span className="ml-auto w-2 h-2 rounded-full" style={{ background: opt.color }} />
+                    )}
+                  </button>
+                );
+              })}
             </div>
           </div>
 
           {/* Cover image */}
           <div className="card p-5">
-            <label className="text-xs uppercase tracking-[.16em] font-mono flex items-center gap-2 mb-2" style={{ color: '#94A3B8' }}>
+            <label className="admin-eyebrow flex items-center gap-2 mb-2">
               <Image className="w-3.5 h-3.5" />
               Imagen de portada
             </label>
@@ -247,15 +247,24 @@ export default function NewsForm({ mode, initial }: Props) {
             {imageUrl && (
               <div
                 className="mt-3 h-28 rounded-lg overflow-hidden"
-                style={{ background: `url(${imageUrl}) center/cover`, border: '1px solid #1E293B' }}
+                style={{
+                  background: `url(${imageUrl}) center/cover`,
+                  border:     '1px solid var(--admin-border)',
+                }}
               />
             )}
           </div>
 
           {/* Error */}
           {error && (
-            <div className="flex items-start gap-2 text-sm px-3 py-2.5 rounded-lg"
-              style={{ background: 'rgba(239,68,68,.1)', border: '1px solid rgba(239,68,68,.3)', color: '#f87171' }}>
+            <div
+              className="flex items-start gap-2 text-sm px-3 py-2.5 rounded-lg"
+              style={{
+                background: 'rgba(239,68,68,.1)',
+                border:     '1px solid rgba(239,68,68,.3)',
+                color:      'var(--admin-danger)',
+              }}
+            >
               <AlertCircle className="w-4 h-4 mt-0.5 flex-shrink-0" />
               {error}
             </div>
@@ -273,10 +282,10 @@ export default function NewsForm({ mode, initial }: Props) {
             </button>
             {status !== 'DRAFT' && (
               <button
+                type="button"
                 className="btn btn-outline w-full justify-center text-xs"
                 onClick={() => save('DRAFT')}
                 disabled={saving}
-                type="button"
               >
                 <File className="w-3.5 h-3.5" />
                 Guardar como borrador
