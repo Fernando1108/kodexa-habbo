@@ -6,7 +6,7 @@ import {
   Coins, Gem, Trophy, Home, LogIn, ShoppingBag, UserPlus, Star,
   Pencil, Check, X, Play, Gift, Flame, Copy, ExternalLink,
   Newspaper, Users, ChevronRight, Zap, TrendingUp, Crown,
-  Hand,
+  Hand, Shield, Medal, Sparkles,
 } from 'lucide-react';
 import { RANK_LABELS, RANK_COLORS } from '@kodexa/shared';
 import { Avatar, AvatarHead } from '@/components/Avatar';
@@ -19,8 +19,11 @@ interface MeUser {
   level: number; experience: number;
 }
 interface NewsItem {
-  id: number; title: string; content: string; imageUrl: string;
+  id: number; slug: string | null; title: string; content: string; imageUrl: string;
   createdAt: string; author: string;
+}
+interface BadgeItem {
+  id: number; badgeCode: string; slotNumber: number;
 }
 interface ActivityItem {
   id: number; action: string; details: string; createdAt: string;
@@ -34,6 +37,8 @@ interface Props {
   user:               MeUser;
   news:               NewsItem[];
   activity:           ActivityItem[];
+  badges:             BadgeItem[];
+  currencies:         Record<string, number>;
   roomCount:          number;
   dailyRewardClaimed: boolean;
   onlineUsers:        OnlineUser[];
@@ -79,10 +84,13 @@ const XP_PER_LEVEL = 1000;
    MAIN COMPONENT
 ══════════════════════════════════════════════════════════════════ */
 export default function MeDashboard({
-  user, news, activity, roomCount,
+  user, news, activity, badges, currencies, roomCount,
   dailyRewardClaimed, onlineUsers, onlineCount,
   popularRooms, featuredUser, latestUser,
 }: Props) {
+  const canAdmin = user.rank >= 7;
+  const canDev   = user.rank >= 9;
+  const canBeta  = user.rank >= 10;
   /* Motto */
   const [motto,        setMotto]    = useState(user.motto);
   const [editingMotto, setEditing]  = useState(false);
@@ -224,9 +232,15 @@ export default function MeDashboard({
 
             {/* Stats pills */}
             <div className="flex gap-1.5 justify-center flex-wrap px-3 py-2 border-t border-[#1f2b41]">
-              <StatPill icon={<Coins size={12} />} value={user.credits.toLocaleString()} color="#F59E0B" tooltip="Créditos: moneda principal del hotel" />
-              <StatPill icon={<Gem size={12} />}   value={user.pixels.toLocaleString()}  color="#7C3AED" tooltip="Píxeles: moneda secundaria para decoración" />
-              <StatPill icon={<Trophy size={12} />} value={`Nv ${user.level}`}           color="#00D4AA" tooltip="Tu nivel de experiencia en el hotel" />
+              <StatPill icon={<Coins size={12} />}    value={user.credits.toLocaleString()}              color="#F59E0B" tooltip="Créditos: moneda principal del hotel" />
+              <StatPill icon={<Gem size={12} />}      value={user.pixels.toLocaleString()}               color="#7C3AED" tooltip="Píxeles: moneda secundaria para decoración" />
+              {(currencies['Diamantes'] ?? 0) > 0 && (
+                <StatPill icon={<Sparkles size={12} />} value={(currencies['Diamantes']).toLocaleString()} color="#60A5FA" tooltip="Diamantes" />
+              )}
+              {(currencies['Puntos'] ?? 0) > 0 && (
+                <StatPill icon={<Star size={12} />}     value={(currencies['Puntos']).toLocaleString()}     color="#10B981" tooltip="Puntos GOTW" />
+              )}
+              <StatPill icon={<Trophy size={12} />}   value={`Nv ${user.level}`}                        color="#00D4AA" tooltip="Tu nivel de experiencia en el hotel" />
             </div>
 
             {/* XP bar */}
@@ -240,6 +254,27 @@ export default function MeDashboard({
               </div>
               <p className="text-[10px] text-[#475569] mt-1 text-center font-mono">{xpPct}% hacia nivel {user.level + 1}</p>
             </div>
+
+            {/* Badges */}
+            {badges.length > 0 && (
+              <div className="px-3 py-3 border-t border-[#1f2b41]">
+                <p className="text-[10px] font-mono text-[#475569] mb-2 flex items-center gap-1">
+                  <Medal size={10} />Insignias
+                </p>
+                <div className="flex flex-wrap gap-1">
+                  {badges.map(b => (
+                    <span
+                      key={b.id}
+                      title={b.badgeCode}
+                      className="px-1.5 py-0.5 rounded text-[10px] font-mono font-semibold cursor-default"
+                      style={{ background: '#1f2b41', color: '#00D4AA', border: '1px solid #00D4AA22' }}
+                    >
+                      {b.badgeCode}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Action buttons */}
             <div className="px-3 pb-3 flex flex-col gap-2 border-t border-[#1f2b41] pt-3">
@@ -315,7 +350,7 @@ export default function MeDashboard({
               <div className="flex flex-col gap-3">
                 {/* Featured */}
                 {featured && (
-                  <Link href={`/community/news/${featured.id}`} className="me-news-featured group">
+                  <Link href={featured.slug ? `/community/news/${featured.slug}` : '/community/news'} className="me-news-featured group">
                     <div className="me-news-featured-thumb">
                       {featured.imageUrl ? (
                         <img src={featured.imageUrl} alt={featured.title} className="w-full h-full object-cover" />
@@ -340,7 +375,7 @@ export default function MeDashboard({
                 {restNews.length > 0 && (
                   <div className="flex flex-col gap-2">
                     {restNews.map(n => (
-                      <Link key={n.id} href={`/community/news/${n.id}`} className="me-news-mini group">
+                      <Link key={n.id} href={n.slug ? `/community/news/${n.slug}` : '/community/news'} className="me-news-mini group">
                         <div className="me-news-mini-thumb">
                           {n.imageUrl ? (
                             <img src={n.imageUrl} alt={n.title} className="w-full h-full object-cover" />
@@ -471,6 +506,47 @@ export default function MeDashboard({
             SIDEBAR DERECHO
         ══════════════════════════════════════════════════════ */}
         <aside className="me3-right flex flex-col gap-4">
+
+          {/* Quick Access — visible solo a staff */}
+          {(canAdmin || canDev || canBeta) && (
+            <div className="card p-4 fade-in-up delay-100" style={{ borderColor: '#7C3AED44' }}>
+              <div className="flex items-center gap-2 mb-3">
+                <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: '#7C3AED1A' }}>
+                  <Shield size={14} className="text-[#7C3AED]" />
+                </div>
+                <p className="text-sm font-semibold text-[#F8FAFC]">Acceso rápido</p>
+              </div>
+              <div className="flex flex-col gap-1.5">
+                {canAdmin && (
+                  <Link href="/admin" className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors"
+                    style={{ background: '#7C3AED12', color: '#A78BFA' }}
+                    onMouseEnter={e => (e.currentTarget.style.background = '#7C3AED22')}
+                    onMouseLeave={e => (e.currentTarget.style.background = '#7C3AED12')}>
+                    Panel de administración
+                    <ChevronRight size={12} />
+                  </Link>
+                )}
+                {canDev && (
+                  <Link href="/desarrollo" className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors"
+                    style={{ background: '#6366F112', color: '#818CF8' }}
+                    onMouseEnter={e => (e.currentTarget.style.background = '#6366F122')}
+                    onMouseLeave={e => (e.currentTarget.style.background = '#6366F112')}>
+                    Herramientas de desarrollo
+                    <ChevronRight size={12} />
+                  </Link>
+                )}
+                {canBeta && (
+                  <Link href="/hotel-beta" className="flex items-center justify-between px-3 py-2 rounded-lg text-xs font-medium transition-colors"
+                    style={{ background: '#00D4AA12', color: '#00D4AA' }}
+                    onMouseEnter={e => (e.currentTarget.style.background = '#00D4AA22')}
+                    onMouseLeave={e => (e.currentTarget.style.background = '#00D4AA12')}>
+                    Hotel Beta
+                    <ChevronRight size={12} />
+                  </Link>
+                )}
+              </div>
+            </div>
+          )}
 
           {/* Discord Widget */}
           <div className="me-discord-widget fade-in-up delay-150">
