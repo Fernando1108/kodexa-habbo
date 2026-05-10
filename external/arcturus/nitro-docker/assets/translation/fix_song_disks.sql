@@ -1,1 +1,0 @@
-UPDATE catalog_items SET catalog_items.catalog_name = 'SONG song_disk' WHERE catalog_items.song_id > 0;

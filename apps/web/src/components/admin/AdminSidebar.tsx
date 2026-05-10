@@ -8,7 +8,8 @@ import {
   Settings, Terminal, LogOut, Crown,
   Ban, Filter, Shield, Award, Megaphone, MessageSquare,
 } from 'lucide-react';
-import { RANK_LABELS, rankBadgeClass } from '@kodexa/shared';
+import type { LucideIcon } from 'lucide-react';
+import { RANK_LABELS } from '@kodexa/shared';
 import { Avatar, AvatarHead } from '@/components/Avatar';
 
 interface SidebarUser {
@@ -23,27 +24,56 @@ interface Props {
   onToggleCollapse: () => void;
 }
 
+interface NavItem {
+  label: string;
+  href:  string | null;
+  Icon:  LucideIcon;
+  exact?: boolean;
+}
+
+interface NavSection {
+  label: string;
+  items: NavItem[];
+}
+
 const WIDTH_OPEN      = 240;
 const WIDTH_COLLAPSED = 60;
 
-const NAV_OP = [
-  { label: 'Dashboard', href: '/admin',       Icon: LayoutDashboard, exact: true  },
-  { label: 'Usuarios',  href: '/admin/users',  Icon: UsersRound,      exact: false },
-  { label: 'Salas',     href: '/admin/rooms',  Icon: Home,            exact: false },
-  { label: 'Catálogo',  href: null,            Icon: ShoppingBag,     exact: false },
-  { label: 'Noticias',  href: '/admin/news',   Icon: Newspaper,       exact: false },
-] as const;
-
-const NAV_SYS = [
-  { label: 'Configuración', href: '/admin/settings',    Icon: Settings      },
-  { label: 'Logs',          href: '/admin/logs',        Icon: Terminal      },
-  { label: 'Bans',          href: '/admin/bans',        Icon: Ban           },
-  { label: 'Wordfilter',    href: '/admin/wordfilter',  Icon: Filter        },
-  { label: 'Permisos',      href: '/admin/permissions', Icon: Shield        },
-  { label: 'Badges',        href: '/admin/badges',      Icon: Award         },
-  { label: 'Alertas',       href: '/admin/alerts',      Icon: Megaphone     },
-  { label: 'Mensajes',      href: '/admin/messages',    Icon: MessageSquare },
-] as const;
+const NAV_SECTIONS: NavSection[] = [
+  {
+    label: 'Hotel',
+    items: [
+      { label: 'Dashboard', href: '/admin',       Icon: LayoutDashboard, exact: true },
+      { label: 'Salas',     href: '/admin/rooms',  Icon: Home },
+      { label: 'Catálogo',  href: null,            Icon: ShoppingBag },   // futuro: post-Arcturus
+    ],
+  },
+  {
+    label: 'Comunidad',
+    items: [
+      { label: 'Usuarios',  href: '/admin/users',    Icon: UsersRound },
+      { label: 'Noticias',  href: '/admin/news',     Icon: Newspaper },
+      { label: 'Mensajes',  href: '/admin/messages', Icon: MessageSquare },
+    ],
+  },
+  {
+    label: 'Moderación',
+    items: [
+      { label: 'Baneos',     href: '/admin/bans',       Icon: Ban },
+      { label: 'Wordfilter', href: '/admin/wordfilter',  Icon: Filter },
+      { label: 'Alertas',    href: '/admin/alerts',     Icon: Megaphone },
+      { label: 'Logs',       href: '/admin/logs',       Icon: Terminal },
+    ],
+  },
+  {
+    label: 'Sistema',
+    items: [
+      { label: 'Permisos',      href: '/admin/permissions', Icon: Shield },
+      { label: 'Badges',        href: '/admin/badges',      Icon: Award },
+      { label: 'Configuración', href: '/admin/settings',    Icon: Settings },
+    ],
+  },
+];
 
 function initials(s: string) {
   return s.replace(/[^A-Za-z0-9]/g, '').slice(0, 2).toUpperCase();
@@ -68,7 +98,7 @@ export default function AdminSidebar({ user, collapsed, onToggleCollapse }: Prop
       className="sb shrink-0 flex flex-col"
       style={{ zIndex: 60, width, minWidth: width, transition: 'width 300ms ease', overflowX: 'hidden' }}
     >
-      {/* Brand — click toggles */}
+      {/* Brand — click toggles collapse */}
       <button
         type="button"
         onClick={onToggleCollapse}
@@ -141,51 +171,54 @@ export default function AdminSidebar({ user, collapsed, onToggleCollapse }: Prop
         </div>
       )}
 
-      {/* Nav */}
+      {/* Nav — grouped sections */}
       <nav className="flex-1 px-2 overflow-y-auto overflow-x-hidden pb-4">
-        {!collapsed ? <div className="nav-section">Operación</div> : <div className="h-3" />}
+        {NAV_SECTIONS.map(section => (
+          <div key={section.label}>
+            {/* Section header — hidden when collapsed */}
+            {!collapsed
+              ? <div className="nav-section">{section.label}</div>
+              : <div className="h-2" />
+            }
 
-        {NAV_OP.map(({ label, href, Icon, exact }) =>
-          href ? (
-            <Link
-              key={label}
-              href={href}
-              className={`nav-item${active(href, exact) ? ' active' : ''}`}
-              style={collapsedStyle}
-              title={collapsed ? label : undefined}
-            >
-              <Icon className="w-4 h-4 flex-none" />
-              {!collapsed && label}
-            </Link>
-          ) : (
-            <div
-              key={label}
-              className="nav-item"
-              style={{ opacity: .4, cursor: 'default', ...collapsedStyle }}
-              title={collapsed ? label : undefined}
-            >
-              <Icon className="w-4 h-4 flex-none" />
-              {!collapsed && label}
-            </div>
-          )
-        )}
-
-        {!collapsed ? <div className="nav-section">Sistema</div> : <div className="h-3" />}
-
-        {NAV_SYS.map(({ label, href, Icon }) => (
-          <Link
-            key={label}
-            href={href}
-            className={`nav-item${active(href) ? ' active' : ''}`}
-            style={collapsedStyle}
-            title={collapsed ? label : undefined}
-          >
-            <Icon className="w-4 h-4 flex-none" />
-            {!collapsed && label}
-          </Link>
+            {section.items.map(({ label, href, Icon, exact }) =>
+              href ? (
+                <Link
+                  key={label}
+                  href={href}
+                  className={`nav-item${active(href, exact) ? ' active' : ''}`}
+                  style={collapsedStyle}
+                  title={collapsed ? label : undefined}
+                >
+                  <Icon className="w-4 h-4 flex-none" />
+                  {!collapsed && label}
+                </Link>
+              ) : (
+                <div
+                  key={label}
+                  className="nav-item"
+                  style={{ opacity: .4, cursor: 'default', ...collapsedStyle }}
+                  title={collapsed ? `${label} (próximamente)` : undefined}
+                >
+                  <Icon className="w-4 h-4 flex-none" />
+                  {!collapsed && (
+                    <span className="flex-1 flex items-center justify-between gap-1">
+                      {label}
+                      <span
+                        className="text-[9px] font-mono uppercase tracking-wide px-1 rounded"
+                        style={{ background: 'var(--admin-surface-soft)', color: 'var(--admin-text-subtle)' }}
+                      >
+                        soon
+                      </span>
+                    </span>
+                  )}
+                </div>
+              )
+            )}
+          </div>
         ))}
 
-        <div className="h-3" />
+        <div className="h-2" />
         <button
           type="button"
           className="nav-item w-full text-left"

@@ -1,5 +1,6 @@
 import { prisma } from '@/lib/db';
 import BansClient from './BansClient';
+import { AdminPageHeader } from '@/components/admin/AdminPageHeader';
 
 export const metadata = { title: 'Bans · Admin Kodexa' };
 
@@ -28,23 +29,24 @@ export default async function AdminBansPage({
   ]);
 
   const serialized = bans.map(b => ({
-    id:         b.id,
-    username:   b.user.username,
-    ip:         b.ip,
-    type:       b.type,
-    reason:     b.reason,
-    bannedBy:   b.admin.username,
-    expiresAt:  b.expiresAt?.toISOString() ?? null,
-    createdAt:  b.createdAt.toISOString(),
+    id:        b.id,
+    username:  b.user.username,
+    ip:        b.ip,
+    type:      b.type,
+    reason:    b.reason,
+    bannedBy:  b.admin.username,
+    expiresAt: b.expiresAt?.toISOString() ?? null,
+    createdAt: b.createdAt.toISOString(),
   }));
 
   return (
-    <div>
-      <div className="mb-6">
-        <h1 className="text-xl font-bold text-[#F8FAFC]">Gestión de Bans</h1>
-        <p className="text-sm text-[#94A3B8] mt-1">{total} bans activos</p>
-      </div>
+    <>
+      <AdminPageHeader
+        eyebrow="Moderación"
+        title="Baneos"
+        subtitle={`${total} ${total === 1 ? 'ban activo' : 'bans activos'}`}
+      />
       <BansClient bans={serialized} total={total} page={page} pages={Math.ceil(total / take)} />
-    </div>
+    </>
   );
 }
