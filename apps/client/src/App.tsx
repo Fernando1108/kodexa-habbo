@@ -3,6 +3,7 @@ import { MessageComposer, IncomingPacketIds } from '@kodexa/protocol';
 import { useConnectionStore } from './store/useConnectionStore';
 import { useUserStore  } from './stores/useUserStore';
 import { useRoomStore  } from './stores/useRoomStore';
+import { sanitizeWsUrl } from './config/renderer.config';
 import { LoadingScreen } from './ui/LoadingScreen';
 import { RoomView      } from './ui/RoomView';
 
@@ -25,17 +26,19 @@ export function App() {
     return () => clearInterval(id);
   }, [appState]);
 
-  // Read SSO ticket from URL, connect
+  // Read SSO ticket + optional ?ws= override from URL, connect
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const ticket = params.get('sso');
+    // ?ws= injected by HotelBetaClient iframe src — sanitized to only allow ws:// or wss://
+    const wsUrl  = sanitizeWsUrl(params.get('ws'));
 
     if (ticket) {
       // Guard: only connect once (Strict Mode mounts effect twice in dev)
       if (useConnectionStore.getState().status !== 'idle') return;
-      // Remove ticket from URL immediately so a second mount finds nothing
+      // Remove ticket + ws params from URL immediately so a second mount finds nothing
       history.replaceState({}, '', window.location.pathname);
-      useConnectionStore.getState().connect(ticket).catch(() => {});
+      useConnectionStore.getState().connect(ticket, wsUrl).catch(() => {});
     } else {
       // No SSO ticket — dev/preview mode
       setTimeout(() => {

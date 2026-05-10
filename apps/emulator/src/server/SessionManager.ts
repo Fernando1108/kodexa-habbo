@@ -2,6 +2,7 @@ import type { WebSocket } from 'ws';
 
 export interface GameSession {
   socket:        WebSocket;
+  ip?:           string;   // remote address — used for audit logs and rate limiting
   userId?:       number;
   username?:     string;
   look?:         string;
@@ -22,9 +23,10 @@ export interface GameSession {
 export class SessionManager {
   private sessions = new Map<WebSocket, GameSession>();
 
-  createSession(socket: WebSocket): GameSession {
+  createSession(socket: WebSocket, ip?: string): GameSession {
     const session: GameSession = {
       socket,
+      ip,
       authenticated: false,
       lastPing: Date.now(),
     };

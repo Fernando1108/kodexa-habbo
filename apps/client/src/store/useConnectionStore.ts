@@ -2,6 +2,7 @@ import { create } from 'zustand';
 import { WebSocketClient } from '../network/WebSocketClient';
 import { MessageComposer, MessageParser, IncomingPacketIds, OutgoingPacketIds } from '@kodexa/protocol';
 import { SOCKET_URL } from '../config/renderer.config';
+// wsUrl resolved at call-site (App.tsx reads ?ws= param at startup)
 import { useUserStore } from '../stores/useUserStore';
 import { useRoomStore  } from '../stores/useRoomStore';
 import { useChatStore       } from '../stores/useChatStore';
@@ -15,7 +16,8 @@ interface ConnectionState {
   status: ConnectionStatus;
   error:  string | null;
   client: WebSocketClient | null;
-  connect:    (ssoTicket: string) => Promise<void>;
+  /** wsUrl overrides the default SOCKET_URL — used by beta hotel (?ws= param) */
+  connect:    (ssoTicket: string, wsUrl?: string) => Promise<void>;
   disconnect: () => void;
   sendPacket: (packetId: number, composer: MessageComposer) => void;
 }
@@ -37,9 +39,9 @@ export const useConnectionStore = create<ConnectionState>((set, get) => ({
   error:  null,
   client: null,
 
-  connect: async (ssoTicket: string) => {
+  connect: async (ssoTicket: string, wsUrl?: string) => {
     set({ status: 'connecting', error: null });
-    const client = new WebSocketClient(SOCKET_URL);
+    const client = new WebSocketClient(wsUrl ?? SOCKET_URL);
 
     try {
       await client.connect();

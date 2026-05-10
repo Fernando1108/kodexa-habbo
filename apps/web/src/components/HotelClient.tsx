@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { signOut } from 'next-auth/react';
-import { Zap, AlertCircle, WifiOff, Play, RefreshCw, Users, Home, Star, Cpu, Maximize2, LogOut, Coins, Diamond } from 'lucide-react';
+import { Zap, AlertCircle, WifiOff, Play, RefreshCw, Users, Home, Star, Cpu, Maximize2, LogOut, Coins, Diamond, FlaskConical, Construction } from 'lucide-react';
 import { getAvatarUrl } from '@kodexa/shared';
 
 interface HotelUser {
@@ -282,15 +282,51 @@ export default function HotelClient({ user }: { user: HotelUser }) {
             ))}
           </div>
 
-          {/* Launch button */}
-          <button
-            onClick={launchGame}
-            className="btn flex items-center gap-2.5 text-base px-8 py-3"
-            style={{ fontSize: '1rem', borderRadius: 14, boxShadow: '0 0 40px rgba(0,212,170,.3)' }}
-          >
-            <Play className="w-5 h-5 fill-current" />
-            Entrar al Hotel
-          </button>
+          {/* Launch buttons */}
+          <div className="flex flex-col items-center gap-3 w-full">
+            <button
+              onClick={launchGame}
+              className="btn flex items-center gap-2.5 text-base px-8 py-3 w-full justify-center"
+              style={{ fontSize: '1rem', borderRadius: 14, boxShadow: '0 0 40px rgba(0,212,170,.3)' }}
+            >
+              <Play className="w-5 h-5 fill-current" />
+              Entrar al Hotel Principal
+            </button>
+
+            {/* DEVELOPER / FOUNDER — Desarrollo access (rank >= 9) */}
+            {user.rank >= 9 && process.env['NEXT_PUBLIC_ENABLE_DEV_HOTEL'] !== 'false' && (
+              <a
+                href="/desarrollo"
+                className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-medium w-full justify-center"
+                style={{
+                  border: '1px solid rgba(245,158,11,.4)',
+                  color: '#fbbf24',
+                  background: 'rgba(245,158,11,.08)',
+                  textDecoration: 'none',
+                }}
+              >
+                <Construction className="w-4 h-4" />
+                Desarrollo (DEVELOPER)
+              </a>
+            )}
+
+            {/* FOUNDER only — Beta Hotel access (rank >= 10) */}
+            {user.rank >= 10 && process.env['NEXT_PUBLIC_ENABLE_BETA_HOTEL'] !== 'false' && (
+              <a
+                href="/hotel-beta"
+                className="flex items-center gap-2 px-6 py-2.5 rounded-xl text-sm font-medium w-full justify-center"
+                style={{
+                  border: '1px solid rgba(124,58,237,.4)',
+                  color: '#a78bfa',
+                  background: 'rgba(124,58,237,.08)',
+                  textDecoration: 'none',
+                }}
+              >
+                <FlaskConical className="w-4 h-4" />
+                Hotel Beta (FOUNDER)
+              </a>
+            )}
+          </div>
         </div>
 
         {/* ── ERROR STATE ── */}

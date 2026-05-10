@@ -10,17 +10,30 @@ datasource db {
 
 // Minimal User model for emulator (matches users table)
 model User {
-  id         Int     @id @default(autoincrement())
-  username   String  @unique @db.VarChar(25)
-  rank       Int     @default(1)
-  look       String  @default("hr-115-61.hd-180-1.ch-215-62.lg-270-62.sh-290-62") @db.VarChar(256)
-  motto      String  @default("") @db.VarChar(127)
-  credits    Int     @default(5000)
-  pixels     Int     @default(10000)
-  online     Boolean @default(false)
-  authTicket String  @default("") @db.VarChar(64) @map("auth_ticket")
+  id           Int              @id @default(autoincrement())
+  username     String           @unique @db.VarChar(25)
+  rank         Int              @default(1)
+  look         String           @default("hr-115-61.hd-180-1.ch-215-62.lg-270-62.sh-290-62") @db.VarChar(256)
+  motto        String           @default("") @db.VarChar(127)
+  credits      Int              @default(5000)
+  pixels       Int              @default(10000)
+  online       Boolean          @default(false)
+  authTicket   String           @default("") @db.VarChar(64) @map("auth_ticket")
+  activityLogs KxActivityLog[]
 
   @@map("users")
+}
+
+// Audit log — used by beta emulator to record access denials and security events
+model KxActivityLog {
+  id        Int      @id @default(autoincrement())
+  userId    Int      @map("user_id")
+  action    String   @db.VarChar(64)
+  details   String   @default("") @db.VarChar(512)
+  createdAt DateTime @default(now()) @map("created_at")
+  user      User     @relation(fields: [userId], references: [id])
+
+  @@map("kx_activity_log")
 }
 
 model Room {

@@ -1,4 +1,5 @@
 import { WebSocketServer } from './WebSocketServer';
+import { getBetaDenyTrackedCount } from '../protocol/incoming/handshake/SSOTicketHandler';
 import { logger } from '../utils/logger';
 
 interface GameServerOptions {
@@ -24,5 +25,12 @@ export class GameServer {
 
   getOnlineCount(): number {
     return this.wsServer.getOnlineCount();
+  }
+
+  getRateLimitStats(): { connectionTrackedIps: number; betaTrackedUsers: number } {
+    return {
+      connectionTrackedIps: this.wsServer.getConnectionTrackedIps(),
+      betaTrackedUsers:     getBetaDenyTrackedCount(),
+    };
   }
 }

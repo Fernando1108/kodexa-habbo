@@ -4,8 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "tsx watch src/index.ts",
+    "dev:beta": "BETA_MODE=true PORT=2097 tsx watch src/index.ts",
+    "dev:beta:win": "node scripts/dev-beta.mjs",
     "build": "tsc",
     "start": "node dist/index.js",
+    "start:beta": "BETA_MODE=true PORT=2097 node dist/index.js",
     "typecheck": "tsc --noEmit",
     "lint": "eslint src --ext .ts",
     "test": "vitest run"
