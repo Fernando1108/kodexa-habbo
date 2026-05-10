@@ -1,10 +1,11 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
+import { canAccessAdmin } from '@/lib/guards';
 import { prisma } from '@/lib/db';
 
 export async function POST(req: NextRequest) {
   const session = await auth();
-  if (!session?.user || session.user.rank < 7) {
+  if (!session?.user || !canAccessAdmin(session.user.rank ?? 1)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   }
 

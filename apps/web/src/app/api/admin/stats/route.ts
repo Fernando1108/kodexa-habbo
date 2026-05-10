@@ -1,10 +1,11 @@
 import { NextResponse } from 'next/server';
 import { auth } from '@/lib/auth';
+import { canAccessAdmin } from '@/lib/guards';
 import { prisma } from '@/lib/db';
 
 export async function GET() {
   const session = await auth();
-  if (!session?.user?.id || session.user.rank < 7) {
+  if (!session?.user?.id || !canAccessAdmin(session.user.rank ?? 1)) {
     return NextResponse.json({ error: 'Forbidden' }, { status: 403 });
   }
 
