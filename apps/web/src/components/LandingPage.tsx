@@ -6,7 +6,7 @@ import {
   ArrowRight, Play, UserPlus, ShieldCheck, Smartphone, Sparkles,
   ChevronDown, Menu, Zap, Store, BrainCircuit, Cable, Palette,
   Coins, Activity, UsersRound, Home, Package, Rocket, Film,
-  Gem, Trophy, ArrowUpRight,
+  Gem, Trophy, ArrowUpRight, Newspaper, ChevronRight,
 } from 'lucide-react';
 import Footer from '@/components/Footer';
 
@@ -79,15 +79,32 @@ function FeatCard({ num, delay, iconStyle, icon, title, description, children }:
   );
 }
 
-// ─── Main Component ──────────────────────────────────────
-export interface LandingStats {
-  onlineUsers: number;
-  totalRooms: number;
-  totalFurniture: number;
-  totalUsers: number;
+// ─── Types ───────────────────────────────────────────────
+export interface LandingNewsItem {
+  id:       number;
+  slug:     string | null;
+  title:    string;
+  excerpt:  string;
+  imageUrl: string;
+  date:     string; // ISO string
 }
 
-export function LandingPage({ onlineUsers, totalRooms, totalFurniture, totalUsers }: LandingStats) {
+export interface LandingStats {
+  onlineUsers:  number;
+  totalRooms:   number;
+  totalFurniture: number;
+  totalUsers:   number;
+  latestNews:   LandingNewsItem[];
+}
+
+// ─── Date helper (stable, no hydration risk) ─────────────
+function formatDate(iso: string): string {
+  return new Date(iso).toLocaleDateString('es-ES', {
+    day: 'numeric', month: 'short', year: 'numeric',
+  });
+}
+
+export function LandingPage({ onlineUsers, totalRooms, totalFurniture, totalUsers, latestNews }: LandingStats) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
@@ -127,9 +144,9 @@ export function LandingPage({ onlineUsers, totalRooms, totalFurniture, totalUser
 
           <nav className="hidden md:flex items-center gap-8">
             <a className="nav-link active" href="#hero">Inicio</a>
+            <a className="nav-link" href="#features">El Hotel</a>
+            <a className="nav-link" href="#news">Noticias</a>
             <a className="nav-link" href="/community/rankings">Comunidad</a>
-            <a className="nav-link" href="#stats">Noticias</a>
-            <a className="nav-link" href="#features">Rankings</a>
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
@@ -153,9 +170,9 @@ export function LandingPage({ onlineUsers, totalRooms, totalFurniture, totalUser
         <div className={`md:hidden border-t border-surface-2 bg-bg/95 backdrop-blur-lg${mobileOpen ? '' : ' hidden'}`}>
           <div className="px-5 py-5 flex flex-col gap-4">
             <a className="nav-link" href="#hero">Inicio</a>
+            <a className="nav-link" href="#features">El Hotel</a>
+            <a className="nav-link" href="#news">Noticias</a>
             <a className="nav-link" href="/community/rankings">Comunidad</a>
-            <a className="nav-link" href="#stats">Noticias</a>
-            <a className="nav-link" href="#features">Rankings</a>
             <div className="grid grid-cols-2 gap-3 pt-2">
               <Link href="/login" className="btn btn-outline justify-center">Iniciar Sesión</Link>
               <Link href="/register" className="btn btn-primary justify-center">Registrarse</Link>
@@ -472,6 +489,91 @@ export function LandingPage({ onlineUsers, totalRooms, totalFurniture, totalUser
               </div>
               <div className="mt-1 text-xs text-muted uppercase tracking-wider">Usuarios registrados</div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* =================== NEWS =================== */}
+      <section id="news" className="relative py-24 border-t border-surface-2/50">
+        <div className="max-w-7xl mx-auto px-5 lg:px-8">
+          <div className="flex items-end justify-between mb-12">
+            <div className="max-w-xl">
+              <div className="reveal eyebrow"><Newspaper className="w-3 h-3" /> Del hotel</div>
+              <h2 className="reveal mt-5 text-3xl md:text-4xl font-bold tracking-tight" data-delay="1">
+                Últimas <span className="text-gradient">noticias</span>
+              </h2>
+            </div>
+            <Link
+              href="/community/news"
+              className="reveal hidden md:flex items-center gap-1.5 text-sm text-primary hover:underline font-medium"
+              data-delay="1"
+            >
+              Ver todas <ChevronRight className="w-4 h-4" />
+            </Link>
+          </div>
+
+          {latestNews.length > 0 ? (
+            <div className="reveal grid md:grid-cols-3 gap-5" data-delay="2">
+              {latestNews.map(n => {
+                const href = n.slug ? `/community/news/${n.slug}` : '/community/news';
+                return (
+                  <Link
+                    key={n.id}
+                    href={href}
+                    className="group relative rounded-2xl border border-surface-2 overflow-hidden transition-all duration-300 hover:border-primary/40 hover:-translate-y-1 flex flex-col"
+                    style={{ background: 'linear-gradient(180deg, #131c33 0%, #0e1628 100%)' }}
+                  >
+                    {/* Image */}
+                    <div className="relative h-40 overflow-hidden flex-none bg-surface">
+                      {n.imageUrl ? (
+                        <img
+                          src={n.imageUrl}
+                          alt={n.title}
+                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center"
+                          style={{ background: 'radial-gradient(circle at 50% 40%, rgba(0,212,170,.12), transparent 70%)' }}>
+                          <Newspaper className="w-10 h-10 text-surface-2" />
+                        </div>
+                      )}
+                      {/* overlay gradient */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#0e1628]/80 to-transparent pointer-events-none" />
+                    </div>
+
+                    {/* Body */}
+                    <div className="p-5 flex flex-col flex-1">
+                      <p className="text-[11px] font-mono text-muted uppercase tracking-[.15em] mb-2">
+                        {formatDate(n.date)}
+                      </p>
+                      <h3 className="font-semibold text-[#F8FAFC] text-sm leading-snug group-hover:text-primary transition-colors line-clamp-2 mb-2">
+                        {n.title}
+                      </h3>
+                      {n.excerpt && (
+                        <p className="text-xs text-muted leading-relaxed line-clamp-3 flex-1">
+                          {n.excerpt}
+                        </p>
+                      )}
+                      <div className="mt-4 flex items-center gap-1 text-xs text-primary font-medium">
+                        Leer más <ArrowUpRight className="w-3.5 h-3.5" />
+                      </div>
+                    </div>
+                  </Link>
+                );
+              })}
+            </div>
+          ) : (
+            <div className="reveal text-center py-16 rounded-2xl border border-surface-2/60" data-delay="2"
+              style={{ background: 'linear-gradient(180deg, #131c33 0%, #0e1628 100%)' }}>
+              <Newspaper className="w-10 h-10 text-surface-2 mx-auto mb-3" />
+              <p className="text-muted text-sm">Próximas noticias en camino. ¡Vuelve pronto!</p>
+            </div>
+          )}
+
+          <div className="mt-6 text-center md:hidden">
+            <Link href="/community/news" className="text-sm text-primary hover:underline font-medium">
+              Ver todas las noticias →
+            </Link>
           </div>
         </div>
       </section>
