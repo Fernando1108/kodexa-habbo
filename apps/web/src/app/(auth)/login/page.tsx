@@ -315,7 +315,7 @@ export default function LoginPage() {
                   <span className="box" />
                   Recordarme
                 </label>
-                <a href="#" className="text-sm text-primary hover:underline">¿Olvidaste tu contraseña?</a>
+                <Link href="/forgot-password" className="text-sm text-primary hover:underline">¿Olvidaste tu contraseña?</Link>
               </div>
 
               {/* Submit */}

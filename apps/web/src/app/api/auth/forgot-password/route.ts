@@ -37,13 +37,13 @@ export async function POST(req: NextRequest) {
       },
     });
 
-    // Send real email with reset link
+    // Send reset email to the user's real address.
+    // ADMIN_EMAIL is intentionally NOT used here — it would intercept user resets.
     const baseUrl = process.env.NEXTAUTH_URL ?? 'http://localhost:3000';
     const resetUrl = `${baseUrl}/reset-password/${token}`;
-    const recipientEmail = process.env.ADMIN_EMAIL ?? user.email;
 
     const emailResult = await sendEmail(
-      recipientEmail,
+      user.email,
       'Restablece tu contraseña | Kodexa Hotel',
       passwordResetTemplate(user.username, resetUrl),
     );
