@@ -623,6 +623,207 @@ table.kx tbody tr:nth-child(even):hover { background: rgba(51,65,85,.25); }
   .sb.open { transform: translateX(0); box-shadow: 0 0 60px rgba(0,0,0,.6); }
 }
 
+/* ─────────────────────────────────────
+   ADMIN THEME SYSTEM — Light-first
+   ───────────────────────────────────── */
+
+/* ── Tokens: Light (default) ── */
+.admin-shell,
+.admin-shell[data-theme="light"] {
+  --admin-bg:              #F8FAFC;
+  --admin-surface:         #FFFFFF;
+  --admin-surface-soft:    #F1F5F9;
+  --admin-border:          #E2E8F0;
+  --admin-border-mid:      #CBD5E1;
+  --admin-text:            #0F172A;
+  --admin-text-muted:      #64748B;
+  --admin-text-subtle:     #94A3B8;
+  --admin-primary:         #00D4AA;
+  --admin-primary-hover:   #00B894;
+  --admin-primary-bg:      rgba(0,212,170,.1);
+  --admin-danger:          #EF4444;
+  --admin-warning:         #F59E0B;
+  --admin-success:         #10B981;
+  --admin-sidebar-bg:      #FFFFFF;
+  --admin-sidebar-border:  #E2E8F0;
+  --admin-topbar-bg:       rgba(255,255,255,.92);
+  --admin-topbar-border:   #E2E8F0;
+  --admin-nav-hover-bg:    #F1F5F9;
+  --admin-nav-active-bg:   rgba(0,212,170,.08);
+  --admin-nav-active-color:#00B894;
+  --admin-inp-bg:          #FFFFFF;
+  --admin-inp-border:      #CBD5E1;
+  --admin-modal-bg:        #FFFFFF;
+  --admin-table-head-bg:   #F8FAFC;
+  --admin-table-stripe:    rgba(248,250,252,.8);
+  --admin-overlay:         rgba(15,23,42,.45);
+  --admin-card-shadow:     0 1px 3px rgba(0,0,0,.07), 0 1px 2px rgba(0,0,0,.04);
+  --admin-card-shadow-hover: 0 4px 14px rgba(0,0,0,.09);
+  color-scheme: light;
+}
+
+/* ── Tokens: Dark (optional) ── */
+.admin-shell[data-theme="dark"] {
+  --admin-bg:              #0B1322;
+  --admin-surface:         #0e1627;
+  --admin-surface-soft:    #131e36;
+  --admin-border:          #1f2b41;
+  --admin-border-mid:      #2a3b5b;
+  --admin-text:            #F8FAFC;
+  --admin-text-muted:      #94A3B8;
+  --admin-text-subtle:     #64748B;
+  --admin-primary:         #00D4AA;
+  --admin-primary-hover:   #5BFFD7;
+  --admin-primary-bg:      rgba(0,212,170,.15);
+  --admin-danger:          #EF4444;
+  --admin-warning:         #F59E0B;
+  --admin-success:         #10B981;
+  --admin-sidebar-bg:      #0e1627;
+  --admin-sidebar-border:  #1f2b41;
+  --admin-topbar-bg:       rgba(14,22,39,.88);
+  --admin-topbar-border:   #1f2b41;
+  --admin-nav-hover-bg:    rgba(51,65,85,.4);
+  --admin-nav-active-bg:   rgba(0,212,170,.18);
+  --admin-nav-active-color:#5BFFD7;
+  --admin-inp-bg:          #0e1730;
+  --admin-inp-border:      #2a3b5b;
+  --admin-modal-bg:        #131e36;
+  --admin-table-head-bg:   #0f1828;
+  --admin-table-stripe:    rgba(15,23,42,.35);
+  --admin-overlay:         rgba(8,12,24,.7);
+  --admin-card-shadow:     0 4px 24px -4px rgba(0,0,0,.3), inset 0 1px 0 rgba(255,255,255,.05);
+  --admin-card-shadow-hover: 0 8px 32px -6px rgba(0,0,0,.4), inset 0 1px 0 rgba(255,255,255,.07);
+  color-scheme: dark;
+}
+
+/* ── Scoped overrides — sidebar ── */
+.admin-shell .sb {
+  background: var(--admin-sidebar-bg);
+  border-right-color: var(--admin-sidebar-border);
+}
+.admin-shell .nav-item           { color: var(--admin-text-muted); }
+.admin-shell .nav-item:hover     { background: var(--admin-nav-hover-bg); color: var(--admin-text); }
+.admin-shell .nav-item.active    { background: var(--admin-nav-active-bg); color: var(--admin-nav-active-color); }
+.admin-shell .nav-section        { color: var(--admin-text-subtle); }
+
+/* ── Scoped overrides — topbar ── */
+.admin-shell .topbar {
+  background: var(--admin-topbar-bg);
+  border-bottom: 1px solid var(--admin-topbar-border);
+  backdrop-filter: blur(10px);
+}
+
+/* ── Scoped overrides — card ── */
+.admin-shell .card {
+  background: var(--admin-surface);
+  border-color: var(--admin-border);
+  box-shadow: var(--admin-card-shadow);
+  backdrop-filter: none;
+}
+.admin-shell .card:hover {
+  border-color: var(--admin-border-mid);
+  box-shadow: var(--admin-card-shadow-hover);
+  transform: translateY(-1px);
+}
+.admin-shell[data-theme="dark"] .card {
+  background: linear-gradient(180deg, rgba(30,41,59,.75) 0%, rgba(15,23,42,.85) 100%);
+  backdrop-filter: blur(12px);
+}
+.admin-shell[data-theme="dark"] .card:hover {
+  border-color: rgba(0,212,170,.2);
+}
+
+/* ── Scoped overrides — inputs ── */
+.admin-shell .inp {
+  background: var(--admin-inp-bg);
+  border-color: var(--admin-inp-border);
+  color: var(--admin-text);
+}
+.admin-shell .inp:focus {
+  border-color: var(--admin-primary);
+  box-shadow: 0 0 0 3px rgba(0,212,170,.18);
+}
+.admin-shell .inp::placeholder { color: var(--admin-text-subtle); }
+
+/* ── Scoped overrides — modal ── */
+.admin-shell .modal {
+  background: var(--admin-modal-bg);
+  border-color: var(--admin-border);
+  box-shadow: 0 20px 60px rgba(0,0,0,.15), 0 0 0 1px rgba(0,212,170,.06);
+}
+.admin-shell[data-theme="dark"] .modal {
+  box-shadow: 0 30px 80px -20px rgba(0,0,0,.6), 0 0 0 1px rgba(0,212,170,.08);
+}
+.admin-shell .overlay { background: var(--admin-overlay); }
+
+/* ── Scoped overrides — table ── */
+.admin-shell table.kx th {
+  background: var(--admin-table-head-bg);
+  border-bottom-color: var(--admin-border);
+  color: var(--admin-text-muted);
+}
+.admin-shell table.kx td {
+  border-bottom-color: var(--admin-border);
+  color: var(--admin-text);
+}
+.admin-shell table.kx tbody tr:hover             { background: var(--admin-surface-soft); }
+.admin-shell table.kx tbody tr:nth-child(even)   { background: var(--admin-table-stripe); }
+.admin-shell table.kx tbody tr:nth-child(even):hover { background: var(--admin-surface-soft); }
+
+/* ── Scoped overrides — buttons ── */
+.admin-shell .btn-outline {
+  background: transparent;
+  color: var(--admin-text);
+  border-color: var(--admin-border-mid);
+}
+.admin-shell .btn-outline:hover {
+  border-color: var(--admin-primary);
+  color: var(--admin-primary-hover);
+  background: var(--admin-primary-bg);
+  box-shadow: 0 0 0 1px rgba(0,212,170,.2);
+}
+.admin-shell .btn-ghost          { color: var(--admin-text-muted); }
+.admin-shell .btn-ghost:hover    { color: var(--admin-text); background: var(--admin-surface-soft); }
+.admin-shell .icon-btn           { color: var(--admin-text-muted); }
+.admin-shell .icon-btn:hover     { color: var(--admin-text); background: var(--admin-surface-soft); }
+.admin-shell .pill               { color: var(--admin-text-muted); }
+.admin-shell .pill:hover         { color: var(--admin-text); }
+
+/* ── Scoped overrides — misc ── */
+.admin-shell .crumb   { color: var(--admin-text-muted); }
+.admin-shell .crumb b { color: var(--admin-text); font-weight: 500; }
+.admin-shell .menu {
+  background: var(--admin-surface);
+  border-color: var(--admin-border);
+}
+.admin-shell .menu button           { color: var(--admin-text-muted); }
+.admin-shell .menu button:hover     { background: var(--admin-surface-soft); color: var(--admin-text); }
+.admin-shell .news-card {
+  background: var(--admin-surface);
+  border-color: var(--admin-border);
+}
+
+/* ── Admin typography helpers ── */
+.admin-eyebrow {
+  font-size: .72rem;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+  font-family: var(--font-mono);
+  color: var(--admin-text-muted);
+}
+.admin-page-title {
+  font-size: 1.875rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--admin-text);
+  margin-top: .25rem;
+}
+.admin-page-subtitle {
+  font-size: .875rem;
+  color: var(--admin-text-muted);
+  margin-top: .25rem;
+}
+
 /* ─── Hotel Launcher ─── */
 
 /* State machine — all states hidden by default */
