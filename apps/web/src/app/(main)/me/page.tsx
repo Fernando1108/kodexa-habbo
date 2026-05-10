@@ -28,11 +28,12 @@ export default async function MePage() {
       },
     }),
     prisma.news.findMany({
-      where:   { published: true },
-      orderBy: { createdAt: 'desc' },
+      where:   { status: 'PUBLISHED' },
+      orderBy: { publishedAt: 'desc' },
       take:    4,
       select:  {
-        id: true, title: true, content: true, imageUrl: true, createdAt: true,
+        id: true, title: true, excerpt: true, content: true, imageUrl: true,
+        createdAt: true, publishedAt: true,
         author: { select: { username: true } },
       },
     }),
@@ -90,9 +91,9 @@ export default async function MePage() {
       news={news.map(n => ({
         id:        n.id,
         title:     n.title,
-        content:   n.content,
+        content:   n.excerpt || n.content,
         imageUrl:  n.imageUrl,
-        createdAt: n.createdAt.toISOString(),
+        createdAt: (n.publishedAt ?? n.createdAt).toISOString(),
         author:    n.author.username,
       }))}
       activity={activity.map(a => ({

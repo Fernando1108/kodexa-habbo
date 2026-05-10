@@ -16,13 +16,13 @@ export default async function NewsPage({
 
   const [news, total] = await Promise.all([
     prisma.news.findMany({
-      where: { published: true },
-      orderBy: { createdAt: 'desc' },
-      skip: (page - 1) * PER_PAGE,
-      take: PER_PAGE,
+      where:   { status: 'PUBLISHED' },
+      orderBy: { publishedAt: 'desc' },
+      skip:    (page - 1) * PER_PAGE,
+      take:    PER_PAGE,
       include: { author: { select: { username: true } } },
     }),
-    prisma.news.count({ where: { published: true } }),
+    prisma.news.count({ where: { status: 'PUBLISHED' } }),
   ]);
 
   const totalPages = Math.max(1, Math.ceil(total / PER_PAGE));
@@ -36,7 +36,7 @@ export default async function NewsPage({
         </div>
         <div>
           <h1 className="text-xl font-bold text-[#F8FAFC]">Noticias del Hotel</h1>
-          <p className="text-xs text-[#94A3B8]">{total} artículos publicados</p>
+          <p className="text-xs text-[#94A3B8]">{total} {total === 1 ? 'artículo publicado' : 'artículos publicados'}</p>
         </div>
       </div>
 
@@ -47,41 +47,56 @@ export default async function NewsPage({
         </div>
       ) : (
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {news.map((n) => (
-            <Link key={n.id} href={`/community/news/${n.id}`} className="card group cursor-pointer block">
-              {/* Image / gradient placeholder */}
-              <div className="h-36 rounded-t-xl -mx-[1px] -mt-[1px] overflow-hidden mb-4"
-                style={{
-                  background: n.imageUrl
-                    ? `url(${n.imageUrl}) center/cover`
-                    : 'linear-gradient(135deg,rgba(0,212,170,.15),rgba(124,58,237,.15))',
-                  borderRadius: '13px 13px 0 0',
-                }}>
-                {!n.imageUrl && (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <Newspaper size={36} className="text-primary/30" />
-                  </div>
-                )}
-              </div>
+          {news.map((n) => {
+            const href = n.slug ? `/community/news/${n.slug}` : null;
+            const displayText = n.excerpt || n.content.replace(/<[^>]+>/g, '').slice(0, 150);
 
-              <div className="px-1">
-                <h2 className="text-sm font-semibold text-[#F8FAFC] mb-2 line-clamp-2 group-hover:text-primary transition-colors">
-                  {n.title}
-                </h2>
-                <p className="text-xs text-[#94A3B8] line-clamp-3 mb-3 leading-relaxed">
-                  {n.content.replace(/<[^>]+>/g, '').slice(0, 150)}
-                  {n.content.length > 150 && '…'}
-                </p>
-                <div className="flex items-center gap-3 text-[11px] text-[#475569]">
-                  <span className="flex items-center gap-1"><User size={10} />{n.author.username}</span>
-                  <span className="flex items-center gap-1">
-                    <Calendar size={10} />
-                    {new Date(n.createdAt).toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' })}
-                  </span>
+            const card = (
+              <div className="card group cursor-pointer">
+                {/* Image */}
+                <div
+                  className="h-36 rounded-t-xl -mx-[1px] -mt-[1px] overflow-hidden mb-4"
+                  style={{
+                    background: n.imageUrl
+                      ? `url(${n.imageUrl}) center/cover`
+                      : 'linear-gradient(135deg,rgba(0,212,170,.15),rgba(124,58,237,.15))',
+                    borderRadius: '13px 13px 0 0',
+                  }}
+                >
+                  {!n.imageUrl && (
+                    <div className="w-full h-full flex items-center justify-center">
+                      <Newspaper size={36} className="text-primary/30" />
+                    </div>
+                  )}
+                </div>
+
+                <div className="px-1">
+                  <h2 className="text-sm font-semibold text-[#F8FAFC] mb-2 line-clamp-2 group-hover:text-primary transition-colors">
+                    {n.title}
+                  </h2>
+                  <p className="text-xs text-[#94A3B8] line-clamp-3 mb-3 leading-relaxed">
+                    {displayText}
+                    {displayText.length >= 150 && '…'}
+                  </p>
+                  <div className="flex items-center gap-3 text-[11px] text-[#475569]">
+                    <span className="flex items-center gap-1">
+                      <User size={10} />{n.author.username}
+                    </span>
+                    <span className="flex items-center gap-1">
+                      <Calendar size={10} />
+                      {new Date(n.publishedAt ?? n.createdAt).toLocaleDateString('es-ES', {
+                        day: 'numeric', month: 'short', year: 'numeric',
+                      })}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </Link>
-          ))}
+            );
+
+            return href
+              ? <Link key={n.id} href={href}>{card}</Link>
+              : <div key={n.id}>{card}</div>;
+          })}
         </div>
       )}
 

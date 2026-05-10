@@ -332,14 +332,21 @@ model KxActivityLog {
 }
 
 model News {
-  id        Int      @id @default(autoincrement())
-  title     String   @db.VarChar(128)
-  content   String   @db.Text
-  imageUrl  String   @default("") @db.VarChar(256) @map("image_url")
-  authorId  Int      @map("author_id")
-  published Boolean  @default(false)
-  createdAt DateTime @default(now())               @map("created_at")
-  author    User     @relation(fields: [authorId], references: [id])
+  id          Int       @id @default(autoincrement())
+  title       String    @db.VarChar(128)
+  slug        String?   @unique @db.VarChar(256)
+  excerpt     String    @default("") @db.VarChar(512)
+  content     String    @db.Text
+  imageUrl    String    @default("") @db.VarChar(256) @map("image_url")
+  // status: DRAFT | PUBLISHED | ARCHIVED
+  status      String    @default("DRAFT") @db.VarChar(16)
+  authorId    Int       @map("author_id")
+  publishedAt DateTime? @map("published_at")
+  createdAt   DateTime  @default(now()) @map("created_at")
+  updatedAt   DateTime  @updatedAt @map("updated_at")
+  author      User      @relation(fields: [authorId], references: [id])
+
+  @@map("news")
 }
 
 
