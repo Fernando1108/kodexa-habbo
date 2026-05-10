@@ -823,6 +823,21 @@ table.kx tbody tr:nth-child(even):hover { background: rgba(51,65,85,.25); }
   color: var(--admin-text-muted);
   margin-top: .25rem;
 }
+.admin-quick-action {
+  display: flex;
+  flex-direction: column;
+  padding: .875rem;
+  border-radius: .75rem;
+  border: 1px solid var(--admin-border);
+  background: var(--admin-surface);
+  transition: border-color 150ms, background 150ms, box-shadow 150ms;
+  cursor: pointer;
+}
+.admin-quick-action:hover {
+  border-color: var(--admin-primary);
+  background: var(--admin-primary-bg);
+  box-shadow: 0 0 0 1px var(--admin-primary-bg);
+}
 
 /* ─── Hotel Launcher ─── */
 

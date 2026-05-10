@@ -1,11 +1,15 @@
 import { auth } from '@/lib/auth';
 import { prisma } from '@/lib/db';
+import Link from 'next/link';
 import {
-  UsersRound, UserPlus, Home, Coins,
-  TrendingUp, TrendingDown, UserRound, Ban, Package, Gavel,
-  Activity,
+  UsersRound, UserPlus, Home, Newspaper,
+  Activity, Terminal, Settings,
+  CheckCircle2, XCircle,
 } from 'lucide-react';
 import { RANK_LABELS, rankBadgeClass } from '@kodexa/shared';
+import { AdminPageHeader } from '@/components/admin/AdminPageHeader';
+import { AdminStatCard }   from '@/components/admin/AdminStatCard';
+import { EmptyState }      from '@/components/admin/EmptyState';
 
 function fmt(n: number) {
   return n.toLocaleString('es-ES');
@@ -27,224 +31,170 @@ function rankLabel(rank: number) {
 }
 
 const COLORS = [
-  '#5BFFD7,#7C3AED','#F59E0B,#EF4444','#10B981,#00D4AA',
-  '#7C3AED,#F472B6','#3B82F6,#06B6D4',
+  '#5BFFD7,#7C3AED', '#F59E0B,#EF4444', '#10B981,#00D4AA',
+  '#7C3AED,#F472B6', '#3B82F6,#06B6D4',
 ];
 
-function ini(s: string) { return s.replace(/[^A-Za-z0-9]/g,'').slice(0,2).toUpperCase(); }
+function ini(s: string) { return s.replace(/[^A-Za-z0-9]/g, '').slice(0, 2).toUpperCase(); }
 
-const CHART_HEIGHTS = [22,18,15,12,10,14,18,28,42,55,68,72,78,82,88,92,98,87,75,82,90,76,58,46];
+const QUICK_ACTIONS = [
+  { label: 'Usuarios',      href: '/admin/users',    Icon: UsersRound, desc: 'Gestionar cuentas'   },
+  { label: 'Noticias',      href: '/admin/news',     Icon: Newspaper,  desc: 'Publicar contenido'  },
+  { label: 'Logs',          href: '/admin/logs',     Icon: Terminal,   desc: 'Ver actividad'       },
+  { label: 'Configuración', href: '/admin/settings', Icon: Settings,   desc: 'Ajustes del hotel'   },
+] as const;
+
+const SYSTEM_STATUS = [
+  { label: 'CMS Web',       status: true,  note: 'Next.js 15 activo'        },
+  { label: 'Autenticación', status: true,  note: 'NextAuth v5 activo'       },
+  { label: 'Base de datos', status: true,  note: 'MariaDB + Prisma activo'  },
+  { label: 'Emulador',      status: false, note: 'Pendiente de configurar'  },
+] as const;
 
 export default async function AdminPage() {
-  const session = await auth();
+  const session  = await auth();
   const username = session?.user?.username ?? 'Admin';
 
-  const [onlineUsers, totalUsers, totalRooms, creditsAgg, recentUsers, recentLogs] = await Promise.all([
+  const [onlineUsers, totalUsers, totalRooms, totalNews, recentUsers, recentLogs] = await Promise.all([
     prisma.user.count({ where: { online: true } }),
     prisma.user.count(),
     prisma.room.count(),
-    prisma.user.aggregate({ _sum: { credits: true } }),
+    prisma.news.count(),
     prisma.user.findMany({
-      select: { id: true, username: true, email: true, rank: true, createdAt: true },
+      select:  { id: true, username: true, email: true, rank: true, createdAt: true },
       orderBy: { createdAt: 'desc' },
-      take: 5,
+      take:    5,
     }),
     prisma.kxActivityLog.findMany({
       include: { user: { select: { username: true } } },
       orderBy: { createdAt: 'desc' },
-      take: 5,
+      take:    5,
     }),
   ]);
 
-  const totalCredits = creditsAgg._sum.credits ?? 0;
-
   return (
     <>
-      {/* Header */}
-      <div className="flex items-end justify-between flex-wrap gap-3 mb-6">
-        <div>
-          <div className="text-xs uppercase font-mono tracking-[.2em]" style={{ color: '#94A3B8' }}>Vista general</div>
-          <h1 className="mt-1 text-3xl font-bold">
-            Bienvenido, <span className="text-gradient">{username}</span>
-          </h1>
-          <p className="text-sm mt-1" style={{ color: '#94A3B8' }}>
-            {onlineUsers} jugadores online ahora mismo.
-          </p>
-        </div>
-        <div className="flex items-center gap-2">
-          <button className="btn btn-outline"><Activity className="w-4 h-4" />Ver logs</button>
-        </div>
-      </div>
+      <AdminPageHeader
+        eyebrow="Vista general"
+        title={<>Bienvenido, <span className="text-gradient">{username}</span></>}
+        subtitle={`${fmt(onlineUsers)} jugador${onlineUsers !== 1 ? 'es' : ''} online ahora mismo`}
+        actions={
+          <Link href="/admin/logs" className="btn btn-outline">
+            <Activity className="w-4 h-4" />Ver logs
+          </Link>
+        }
+      />
 
-      {/* Metric cards */}
+      {/* Stat cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4">
-        <div className="card metric m1">
-          <div className="flex items-center justify-between">
-            <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'rgba(0,212,170,.15)', border: '1px solid rgba(0,212,170,.3)' }}>
-              <UsersRound className="w-5 h-5" style={{ color: '#00D4AA' }} />
-            </div>
-            <span className="pulse-dot" />
-          </div>
-          <div className="mt-4 text-3xl font-bold tracking-tight">{fmt(onlineUsers)}</div>
-          <div className="text-xs mt-0.5 uppercase tracking-wider" style={{ color: '#94A3B8' }}>Usuarios online</div>
-          <div className="mt-3 flex items-center gap-1 text-xs">
-            <TrendingUp className="w-3 h-3" style={{ color: '#10B981' }} />
-            <span style={{ color: '#10B981' }} className="font-mono">activos</span>
-            <span style={{ color: '#94A3B8' }}>ahora</span>
-          </div>
-        </div>
-
-        <div className="card metric m2">
-          <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'rgba(124,58,237,.15)', border: '1px solid rgba(124,58,237,.3)' }}>
-            <UserPlus className="w-5 h-5" style={{ color: '#7C3AED' }} />
-          </div>
-          <div className="mt-4 text-3xl font-bold tracking-tight">{fmt(totalUsers)}</div>
-          <div className="text-xs mt-0.5 uppercase tracking-wider" style={{ color: '#94A3B8' }}>Registrados</div>
-          <div className="mt-3 flex items-center gap-1 text-xs">
-            <TrendingUp className="w-3 h-3" style={{ color: '#10B981' }} />
-            <span style={{ color: '#10B981' }} className="font-mono">total</span>
-            <span style={{ color: '#94A3B8' }}>acumulado</span>
-          </div>
-        </div>
-
-        <div className="card metric m3">
-          <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'rgba(245,158,11,.15)', border: '1px solid rgba(245,158,11,.3)' }}>
-            <Home className="w-5 h-5" style={{ color: '#F59E0B' }} />
-          </div>
-          <div className="mt-4 text-3xl font-bold tracking-tight">{fmt(totalRooms)}</div>
-          <div className="text-xs mt-0.5 uppercase tracking-wider" style={{ color: '#94A3B8' }}>Salas creadas</div>
-          <div className="mt-3 flex items-center gap-1 text-xs">
-            <TrendingUp className="w-3 h-3" style={{ color: '#10B981' }} />
-            <span style={{ color: '#10B981' }} className="font-mono">total</span>
-            <span style={{ color: '#94A3B8' }}>en el hotel</span>
-          </div>
-        </div>
-
-        <div className="card metric m4">
-          <div className="w-10 h-10 rounded-lg flex items-center justify-center" style={{ background: 'rgba(16,185,129,.15)', border: '1px solid rgba(16,185,129,.3)' }}>
-            <Coins className="w-5 h-5" style={{ color: '#F59E0B' }} />
-          </div>
-          <div className="mt-4 text-3xl font-bold tracking-tight">{fmt(totalCredits)}</div>
-          <div className="text-xs mt-0.5 uppercase tracking-wider" style={{ color: '#94A3B8' }}>Créditos en circulación</div>
-          <div className="mt-3 flex items-center gap-1 text-xs">
-            <TrendingDown className="w-3 h-3" style={{ color: '#EF4444' }} />
-            <span style={{ color: '#EF4444' }} className="font-mono">economía</span>
-            <span style={{ color: '#94A3B8' }}>del hotel</span>
-          </div>
-        </div>
+        <AdminStatCard
+          icon={<UsersRound className="w-5 h-5" />}
+          iconColor="primary"
+          value={fmt(onlineUsers)}
+          label="Usuarios online"
+          trend={{ direction: 'up', label: 'activos ahora' }}
+          live
+        />
+        <AdminStatCard
+          icon={<UserPlus className="w-5 h-5" />}
+          iconColor="purple"
+          value={fmt(totalUsers)}
+          label="Registrados"
+          trend={{ direction: 'neutral', label: 'total acumulado' }}
+        />
+        <AdminStatCard
+          icon={<Home className="w-5 h-5" />}
+          iconColor="amber"
+          value={fmt(totalRooms)}
+          label="Salas creadas"
+          trend={{ direction: 'neutral', label: 'en el hotel' }}
+        />
+        <AdminStatCard
+          icon={<Newspaper className="w-5 h-5" />}
+          iconColor="green"
+          value={fmt(totalNews)}
+          label="Noticias publicadas"
+          trend={{ direction: 'neutral', label: 'total' }}
+        />
       </div>
 
-      {/* Chart + Activity */}
-      <div className="mt-5 grid grid-cols-1 xl:grid-cols-[1.6fr_1fr] gap-4">
-        {/* Chart */}
+      {/* Quick actions + Activity feed */}
+      <div className="mt-5 grid grid-cols-1 xl:grid-cols-[1fr_1.4fr] gap-4">
+
+        {/* Quick actions */}
         <div className="card p-5">
-          <div className="flex items-center justify-between flex-wrap gap-2">
-            <div>
-              <div className="text-sm font-semibold">Actividad — últimas 24h</div>
-              <div className="text-xs mt-0.5" style={{ color: '#94A3B8' }}>Usuarios online por hora</div>
-            </div>
-            <div className="flex gap-1.5">
-              <button className="pill active">24h</button>
-              <button className="pill">7d</button>
-              <button className="pill">30d</button>
-            </div>
+          <div className="text-sm font-semibold mb-4" style={{ color: 'var(--admin-text)' }}>
+            Acciones rápidas
           </div>
-          <div className="mt-5 relative">
-            <div className="sparkbars">
-              {CHART_HEIGHTS.map((h, i) => (
+          <div className="grid grid-cols-2 gap-2">
+            {QUICK_ACTIONS.map(({ label, href, Icon, desc }) => (
+              <Link key={href} href={href} className="admin-quick-action">
                 <div
-                  key={i}
-                  style={{
-                    height: `${h}%`,
-                    background: i === 14
-                      ? 'linear-gradient(180deg,#F59E0B,#7C3AED)'
-                      : 'linear-gradient(180deg,#00D4AA,#0F766E)',
-                  }}
-                />
-              ))}
-            </div>
-            <div className="absolute inset-x-0 top-0 grid grid-cols-4 text-[10px] font-mono -mt-4" style={{ color: 'rgba(148,163,184,.6)' }}>
-              <div />
-              <div className="text-center">06:00</div>
-              <div className="text-center">12:00</div>
-              <div className="text-right">18:00</div>
-            </div>
-          </div>
-          <div className="mt-4 pt-4 grid grid-cols-3 gap-4 text-xs" style={{ borderTop: '1px solid rgba(51,65,85,.4)' }}>
-            <div><div style={{ color: '#94A3B8' }}>Pico</div><div className="font-bold text-lg">{fmt(onlineUsers + 60)}</div><div className="font-mono" style={{ color: '#64748B' }}>estimado</div></div>
-            <div><div style={{ color: '#94A3B8' }}>Promedio</div><div className="font-bold text-lg">{fmt(Math.floor(onlineUsers * 0.8))}</div><div style={{ color: '#10B981' }} className="font-mono">activos</div></div>
-            <div><div style={{ color: '#94A3B8' }}>Sesión media</div><div className="font-bold text-lg">42m</div><div className="font-mono" style={{ color: '#64748B' }}>por usuario</div></div>
+                  className="w-8 h-8 rounded-lg flex items-center justify-center mb-2"
+                  style={{ background: 'var(--admin-primary-bg)', color: 'var(--admin-primary)' }}
+                >
+                  <Icon className="w-4 h-4" />
+                </div>
+                <div className="text-sm font-medium" style={{ color: 'var(--admin-text)' }}>{label}</div>
+                <div className="text-xs mt-0.5"      style={{ color: 'var(--admin-text-muted)' }}>{desc}</div>
+              </Link>
+            ))}
           </div>
         </div>
 
         {/* Activity feed */}
         <div className="card p-5">
           <div className="flex items-center justify-between mb-4">
-            <div className="text-sm font-semibold">Actividad reciente</div>
-            <button className="btn btn-ghost text-xs">Ver todo</button>
+            <div className="text-sm font-semibold" style={{ color: 'var(--admin-text)' }}>
+              Actividad reciente
+            </div>
+            <Link href="/admin/logs" className="btn btn-ghost text-xs">Ver todo</Link>
           </div>
-          <ul className="space-y-3">
-            {recentLogs.length > 0 ? recentLogs.map(log => (
-              <li key={log.id} className="flex items-start gap-3">
-                <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-none"
-                     style={{ background: 'rgba(0,212,170,.15)', border: '1px solid rgba(0,212,170,.3)', color: '#00D4AA' }}>
-                  <Activity className="w-3.5 h-3.5" />
-                </div>
-                <div className="text-sm flex-1">
-                  <b>{log.user.username}</b> {log.details}
-                  <div className="text-[11px] mt-0.5" style={{ color: 'rgba(148,163,184,.8)' }}>{rel(log.createdAt)}</div>
-                </div>
-              </li>
-            )) : (
-              <>
-                <li className="flex items-start gap-3">
-                  <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-none" style={{ background: 'rgba(16,185,129,.15)', border: '1px solid rgba(16,185,129,.3)', color: '#10B981' }}>
-                    <UserRound className="w-3.5 h-3.5" />
+
+          {recentLogs.length === 0 ? (
+            <EmptyState
+              icon={<Activity className="w-6 h-6" />}
+              title="Sin actividad aún"
+              description="Los logs aparecerán aquí cuando los usuarios interactúen con el hotel."
+            />
+          ) : (
+            <ul className="space-y-3">
+              {recentLogs.map(log => (
+                <li key={log.id} className="flex items-start gap-3">
+                  <div
+                    className="w-7 h-7 rounded-lg flex items-center justify-center flex-none"
+                    style={{
+                      background: 'var(--admin-primary-bg)',
+                      border:     '1px solid rgba(0,212,170,.2)',
+                      color:      'var(--admin-primary)',
+                    }}
+                  >
+                    <Activity className="w-3.5 h-3.5" />
                   </div>
-                  <div className="text-sm flex-1">
-                    Hotel iniciado con éxito
-                    <div className="text-[11px] mt-0.5" style={{ color: 'rgba(148,163,184,.8)' }}>Bienvenido a Kodexa Hotel</div>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-none" style={{ background: 'rgba(124,58,237,.15)', border: '1px solid rgba(124,58,237,.3)', color: '#7C3AED' }}>
-                    <Package className="w-3.5 h-3.5" />
-                  </div>
-                  <div className="text-sm flex-1">
-                    Base de datos inicializada
-                    <div className="text-[11px] mt-0.5" style={{ color: 'rgba(148,163,184,.8)' }}>Schema + seed completado</div>
+                  <div className="text-sm flex-1 min-w-0">
+                    <b style={{ color: 'var(--admin-text)' }}>{log.user.username}</b>
+                    <span style={{ color: 'var(--admin-text-muted)' }}> {log.details}</span>
+                    <div className="text-[11px] mt-0.5" style={{ color: 'var(--admin-text-subtle)' }}>
+                      {rel(log.createdAt)}
+                    </div>
                   </div>
                 </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-none" style={{ background: 'rgba(245,158,11,.15)', border: '1px solid rgba(245,158,11,.3)', color: '#F59E0B' }}>
-                    <Gavel className="w-3.5 h-3.5" />
-                  </div>
-                  <div className="text-sm flex-1">
-                    Marketplace disponible
-                    <div className="text-[11px] mt-0.5" style={{ color: 'rgba(148,163,184,.8)' }}>Listo para publicar ítems</div>
-                  </div>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-7 h-7 rounded-lg flex items-center justify-center flex-none" style={{ background: 'rgba(239,68,68,.15)', border: '1px solid rgba(239,68,68,.3)', color: '#EF4444' }}>
-                    <Ban className="w-3.5 h-3.5" />
-                  </div>
-                  <div className="text-sm flex-1">
-                    Sistema de moderación activo
-                    <div className="text-[11px] mt-0.5" style={{ color: 'rgba(148,163,184,.8)' }}>Reportes y bans disponibles</div>
-                  </div>
-                </li>
-              </>
-            )}
-          </ul>
+              ))}
+            </ul>
+          )}
         </div>
       </div>
 
-      {/* Recent users + Health */}
+      {/* Recent users + System overview */}
       <div className="mt-5 grid grid-cols-1 xl:grid-cols-[1.6fr_1fr] gap-4">
+
+        {/* Recent users table */}
         <div className="card overflow-hidden">
           <div className="flex items-center justify-between p-5 pb-3">
-            <div className="text-sm font-semibold">Últimos registros</div>
-            <a href="/admin/users" className="btn btn-ghost text-xs">Ver todos →</a>
+            <div className="text-sm font-semibold" style={{ color: 'var(--admin-text)' }}>
+              Últimos registros
+            </div>
+            <Link href="/admin/users" className="btn btn-ghost text-xs">Ver todos →</Link>
           </div>
           <div className="overflow-x-auto">
             <table className="kx">
@@ -263,15 +213,22 @@ export default async function AdminPage() {
                     <tr key={u.id}>
                       <td>
                         <div className="flex items-center gap-3">
-                          <div className="avt" style={{ background: `linear-gradient(135deg,${COLORS[i % COLORS.length]})` }}>
+                          <div
+                            className="avt"
+                            style={{ background: `linear-gradient(135deg,${COLORS[i % COLORS.length]})` }}
+                          >
                             {ini(u.username)}
                           </div>
-                          <div className="font-medium">{u.username}</div>
+                          <div className="font-medium" style={{ color: 'var(--admin-text)' }}>
+                            {u.username}
+                          </div>
                         </div>
                       </td>
-                      <td style={{ color: '#94A3B8' }}>{u.email}</td>
+                      <td style={{ color: 'var(--admin-text-muted)' }}>{u.email}</td>
                       <td><span className={`badge ${rk.cls}`}>{rk.label}</span></td>
-                      <td className="text-xs font-mono" style={{ color: '#94A3B8' }}>{rel(u.createdAt)}</td>
+                      <td className="text-xs font-mono" style={{ color: 'var(--admin-text-muted)' }}>
+                        {rel(u.createdAt)}
+                      </td>
                     </tr>
                   );
                 })}
@@ -280,32 +237,27 @@ export default async function AdminPage() {
           </div>
         </div>
 
+        {/* System overview */}
         <div className="card p-5">
-          <div className="flex items-center justify-between mb-4">
-            <div className="text-sm font-semibold">Salud del hotel</div>
-            <span className="badge badge-ok"><span className="dot" style={{ background: '#10B981' }} /> Todo OK</span>
+          <div className="text-sm font-semibold mb-4" style={{ color: 'var(--admin-text)' }}>
+            Estado del sistema
           </div>
           <div className="space-y-3">
-            {[
-              { label: 'CPU',           val: '24%',           pct: 24,  color: '#10B981' },
-              { label: 'Memoria',       val: '3.2 GB / 8 GB', pct: 40,  color: '#00D4AA' },
-              { label: 'Latencia',      val: '42 ms',         pct: 15,  color: '#10B981' },
-              { label: 'Moderación',    val: `${totalUsers} usuarios`, pct: 35, color: '#F59E0B' },
-            ].map(({ label, val, pct, color }) => (
-              <div key={label}>
-                <div className="flex items-center justify-between text-xs mb-1.5">
-                  <span style={{ color: '#94A3B8' }}>{label}</span>
-                  <span className="font-mono">{val}</span>
+            {SYSTEM_STATUS.map(({ label, status, note }) => (
+              <div key={label} className="flex items-start gap-3">
+                <div className="mt-0.5 flex-none">
+                  {status
+                    ? <CheckCircle2 className="w-4 h-4" style={{ color: '#10B981' }} />
+                    : <XCircle      className="w-4 h-4" style={{ color: 'var(--admin-text-subtle)' }} />
+                  }
                 </div>
-                <div className="h-1.5 rounded-full overflow-hidden" style={{ background: 'rgba(15,23,42,.7)' }}>
-                  <div className="h-full rounded-full" style={{ width: `${pct}%`, background: color }} />
+                <div className="flex-1 min-w-0">
+                  <div className="text-sm"    style={{ color: 'var(--admin-text)' }}>{label}</div>
+                  <div className="text-xs mt-0.5" style={{ color: 'var(--admin-text-muted)' }}>{note}</div>
                 </div>
               </div>
             ))}
           </div>
-          <button className="btn btn-outline w-full mt-5 justify-center">
-            <Activity className="w-4 h-4" />Ver telemetría completa
-          </button>
         </div>
       </div>
     </>
