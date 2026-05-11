@@ -271,7 +271,7 @@ export default function HotelDesarrolloClient({ user }: { user: GatewayUser }) {
             description="Laboratorio para pruebas de catálogo, furnis, comandos Arcturus y actualizaciones antes de producción. Bridge separado del hotel principal."
             note={
               devEnabled
-                ? 'Infraestructura lista. Requiere bootstrap de arcturus_dev y Nitro Dev corriendo en :8082.'
+                ? 'Entorno activo. Datos separados de producción. Solo Developer/Founder (rank ≥ 9).'
                 : 'NEXT_PUBLIC_ENABLE_DEV_HOTEL=false — deshabilitado por feature flag.'
             }
             accentColor={AMBER}
@@ -311,7 +311,7 @@ export default function HotelDesarrolloClient({ user }: { user: GatewayUser }) {
           <EnvCard
             icon={<FlaskConical className="w-5 h-5" style={{ color: '#a78bfa' }} />}
             name="Custom Emulator Beta"
-            engine="kodexa-custom · WS :2097"
+            engine="kodexa-custom · WS :2098"
             status="experimental"
             description="Entorno experimental del emulador propio (Node.js / TypeScript / WebSocket). Para features exclusivas: economy, wired, marketplace."
             note={isFounder && betaEnabled ? 'Acceso FOUNDER habilitado vía /hotel-beta.' : 'Requiere rank FOUNDER (10) para acceder.'}
@@ -391,16 +391,20 @@ export default function HotelDesarrolloClient({ user }: { user: GatewayUser }) {
                 style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))' }}
               >
                 {[
-                  { label: 'Usuario',           value: user.username },
-                  { label: 'Email',             value: user.email },
-                  { label: 'Rank',              value: `${user.rank} (${rankLabel})` },
-                  { label: 'Acceso /desarrollo',value: isDeveloper ? '✅ Autorizado' : '❌ No autorizado' },
-                  { label: 'Entorno principal', value: 'arcturus_main' },
-                  { label: 'Auth Bridge',       value: 'Configurado (/api/sso)' },
-                  { label: 'Nitro URL',         value: nitroUrl },
-                  { label: 'Wallet endpoint',   value: '/api/hotel/wallet' },
-                  { label: 'Beta hotel flag',   value: betaEnabled ? 'true' : 'false (deshabilitado)' },
-                  { label: 'Dev hotel flag',    value: devEnabled  ? 'true' : 'false (deshabilitado)' },
+                  { label: 'Usuario',            value: user.username },
+                  { label: 'Email',              value: user.email },
+                  { label: 'Rank',               value: `${user.rank} (${rankLabel})` },
+                  { label: 'Acceso /desarrollo', value: isDeveloper ? '✅ Autorizado' : '❌ No autorizado' },
+                  { label: 'Entorno principal',  value: 'arcturus_main' },
+                  { label: 'Auth Bridge',        value: 'Configurado (/api/sso)' },
+                  { label: 'Nitro Main URL',     value: nitroUrl },
+                  { label: 'Wallet endpoint',    value: '/api/hotel/wallet' },
+                  { label: 'Entorno dev',        value: 'arcturus_dev' },
+                  { label: 'Auth Bridge Dev',    value: 'Configurado (/api/dev/sso)' },
+                  { label: 'Nitro Dev URL',      value: process.env['NEXT_PUBLIC_NITRO_DEV_URL'] ?? 'http://localhost:8082' },
+                  { label: 'WS Dev',             value: 'ws://localhost:2097' },
+                  { label: 'Beta hotel flag',    value: betaEnabled ? 'true' : 'false (deshabilitado)' },
+                  { label: 'Dev hotel flag',     value: devEnabled  ? 'true' : 'false (deshabilitado)' },
                 ].map(item => (
                   <div
                     key={item.label}
@@ -420,37 +424,6 @@ export default function HotelDesarrolloClient({ user }: { user: GatewayUser }) {
               </div>
             </div>
           )}
-        </div>
-
-        {/* Future env architecture — pending variables */}
-        <div
-          style={{
-            background:   'rgba(11,19,34,.4)',
-            border:       '1px dashed #1a2540',
-            borderRadius: 12,
-            padding:      '0.875rem 1rem',
-          }}
-        >
-          <div
-            className="text-xs font-semibold mb-2"
-            style={{ color: '#1e3058', textTransform: 'uppercase', letterSpacing: '0.06em' }}
-          >
-            Variables de entorno pendientes (MP-015)
-          </div>
-          <div
-            className="grid gap-1"
-            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}
-          >
-            {[
-              'ARCTURUS_DEV_DB_URL',
-              'NEXT_PUBLIC_NITRO_DEV_URL',
-              'NEXT_PUBLIC_CUSTOM_EMULATOR_URL',
-            ].map(v => (
-              <div key={v} className="text-xs font-mono" style={{ color: '#1e3058' }}>
-                {v}=<span style={{ color: '#162540' }}>pendiente</span>
-              </div>
-            ))}
-          </div>
         </div>
 
         {/* Back link */}

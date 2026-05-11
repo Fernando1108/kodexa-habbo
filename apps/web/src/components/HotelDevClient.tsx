@@ -160,6 +160,18 @@ export default function HotelDevClient({ user }: { user: HotelDevUser }) {
           >
             DEV ONLY
           </span>
+          <span
+            className="text-xs font-mono px-1.5 py-0.5 rounded hidden sm:inline"
+            style={{ background: 'rgba(16,185,129,.08)', color: '#10B981', fontSize: '0.6rem', border: '1px solid rgba(16,185,129,.18)' }}
+          >
+            arcturus_dev
+          </span>
+          <span
+            className="text-xs font-mono px-1.5 py-0.5 rounded hidden md:inline"
+            style={{ background: 'rgba(16,185,129,.08)', color: '#10B981', fontSize: '0.6rem', border: '1px solid rgba(16,185,129,.18)' }}
+          >
+            ws:2097
+          </span>
 
           <div className="ml-auto flex items-center gap-2">
             {/* Settings dropdown */}
