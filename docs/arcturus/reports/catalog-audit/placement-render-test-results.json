@@ -1,0 +1,61 @@
+{
+  "mp": "MP-010.1B.1",
+  "items": [
+    {
+      "instance_id": 50,
+      "item_name": "darkelegant_c20_flowerpot",
+      "classname_base": "darkelegant_c20_flowerpot",
+      "status": "placed_room_50",
+      "room_id": 50,
+      "has_nitro": true,
+      "has_icon": true,
+      "in_fd_corrected": true,
+      "fd_entry_classname": "darkelegant_c20_flowerpot",
+      "fd_name": "Dark Elegant Vase",
+      "classification": "PUBLIC_GOOD",
+      "expected_render_in_room": true
+    },
+    {
+      "instance_id": 336,
+      "item_name": "js_exe_chair",
+      "classname_base": "js_exe_chair",
+      "status": "in_inventory",
+      "room_id": 0,
+      "has_nitro": true,
+      "has_icon": true,
+      "in_fd_corrected": true,
+      "fd_entry_classname": "js_exe_chair",
+      "fd_name": "Vanilla Lounge Chair",
+      "classification": "PUBLIC_GOOD",
+      "expected_render_in_room": true
+    },
+    {
+      "instance_id": 337,
+      "item_name": "habbos_cf_roundchair",
+      "classname_base": "habbos_cf_roundchair",
+      "status": "in_inventory",
+      "room_id": 0,
+      "has_nitro": true,
+      "has_icon": false,
+      "in_fd_corrected": false,
+      "fd_entry_classname": null,
+      "fd_name": null,
+      "classification": "REVIEW_NO_FD",
+      "expected_render_in_room": false
+    },
+    {
+      "instance_id": 338,
+      "item_name": "classic3_bench*1",
+      "classname_base": "classic3_bench",
+      "status": "in_inventory",
+      "room_id": 0,
+      "has_nitro": true,
+      "has_icon": false,
+      "in_fd_corrected": true,
+      "fd_entry_classname": "classic3_bench*0",
+      "fd_name": "Classic BB bench",
+      "classification": "ICON_MISSING_RENDER_OK",
+      "expected_render_in_room": true
+    }
+  ]
+}

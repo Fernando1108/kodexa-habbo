@@ -1,0 +1,87 @@
+{
+  "mp": "MP-010.1A.5",
+  "admin_rank_for_test": 1,
+  "pre_move": {
+    "public_rank1_pages": 1106,
+    "public_rank1_items": 29912,
+    "classified": 27596,
+    "PUBLIC_GOOD": 11274,
+    "ICON_MISSING_RENDER_OK": 6240,
+    "PUBLIC_REVIEW": 10081,
+    "PUBLIC_BAD_HIDE": 1,
+    "icon_gray_total": 6241,
+    "no_nitro_total": 10082
+  },
+  "post_move": {
+    "public_rank1_items": 19829,
+    "items_moved_to_dev": 10082,
+    "items_with_nitro_remaining": 17514,
+    "items_with_icon_remaining": 11274,
+    "icon_gray_still_visible": 6240,
+    "note_icon_gray": "These have .nitro and FD — render OK in preview and room. Icon gray in grid only. Pending furniture imager.",
+    "empty_pages_disabled": 347,
+    "active_leaf_pages_with_items": 713,
+    "final_public_rank1_items": 19829
+  },
+  "dev_page_id": "9965236",
+  "backup": "docs\\arcturus\\reports\\catalog-audit\\mp-010-1a-5-runtime-hide-backup.json",
+  "restore_sql": "docs\\arcturus\\restore-mp-010-1a-5-runtime-hidden-items.sql",
+  "categories_cleaned": [
+    {
+      "page": 1480,
+      "caption": "Ate",
+      "status": "disabled (0 items)"
+    },
+    {
+      "page": 1477,
+      "caption": "Subeau",
+      "status": "disabled (0 items)"
+    },
+    {
+      "page": 1486,
+      "caption": "Cupid",
+      "status": "active (1 item)"
+    },
+    {
+      "page": 88557,
+      "caption": "Cupid (alt)",
+      "status": "active (66 icon_miss items)"
+    },
+    {
+      "page": 1766,
+      "caption": "Coffee Shop",
+      "status": "disabled (0 items)"
+    },
+    {
+      "page": 3502,
+      "caption": "Creepy",
+      "status": "disabled (0 items)"
+    },
+    {
+      "page": 1489,
+      "caption": "Disco",
+      "status": "disabled (0 items)"
+    },
+    {
+      "page": 88481,
+      "caption": "Disco (alt)",
+      "status": "active (17 items)"
+    },
+    {
+      "page": 3509,
+      "caption": "Gryffindor",
+      "status": "disabled (0 items)"
+    },
+    {
+      "page": 3511,
+      "caption": "iPixxel",
+      "status": "disabled (0 items)"
+    },
+    {
+      "page": 1229,
+      "caption": "Jerseys",
+      "status": "disabled (0 items)"
+    }
+  ],
+  "restore_sql_pages": "docs/arcturus/restore-mp-010-1a-5-disabled-pages.sql"
+}

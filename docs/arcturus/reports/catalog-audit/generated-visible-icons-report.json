@@ -1,0 +1,6 @@
+{
+  "generated": 0,
+  "reason": "No furniture imager available. tools/imager and kodexa-imager are avatar-only renderers.",
+  "items_needing_generation": 200,
+  "recommendation": "Requires nitro-imager with furniture support (e.g., nitro-imager npm package or custom renderer)"
+}

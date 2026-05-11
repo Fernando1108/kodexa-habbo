@@ -1,0 +1,30 @@
+{
+  "pre_fix": {
+    "icon_pct": 31,
+    "nitro_pct": 73,
+    "name_pct": 31,
+    "fd_items": 17698,
+    "icons": 14347
+  },
+  "post_mp010_1": {
+    "icon_pct": 39,
+    "nitro_pct": 73,
+    "name_pct": 64,
+    "fd_items": 30991,
+    "icons": 16657
+  },
+  "post_mp010_1a": {
+    "icon_pct": 39,
+    "nitro_pct": 73,
+    "name_pct": 92,
+    "fd_items": 30991,
+    "icons": 16657,
+    "ext_texts_keys": 57289,
+    "total_furni_refs": 32809
+  },
+  "text_fallbacks_added": 9198,
+  "icons_additionally_copied": 0,
+  "nitro_additionally_copied": 0,
+  "icons_unresolved": 16159,
+  "nitro_unresolved": 8512
+}

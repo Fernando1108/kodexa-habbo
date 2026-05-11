@@ -1,0 +1,354 @@
+{
+  "count": 69,
+  "breakdown_by_prefix": {
+    "other_custom": 69
+  },
+  "note": "Custom hotel furniture with no external asset source. Requires original source files or new asset creation.",
+  "items": [
+    {
+      "classname": "yummy_22_floor_0",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "Chess",
+      "in_fd": true,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "TicTacToe",
+      "in_fd": true,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "BattleShip",
+      "in_fd": true,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "Poker",
+      "in_fd": true,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "Elevator",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "ads_clwall3",
+      "in_fd": true,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "post.it.vd",
+      "in_fd": true,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "axovtile4_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "sowford_sol05_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "sowford_sol4_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "sowford_sol5_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "weyko_marron_h1o_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "17wautomat_pink",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "17wautomat_purple",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "17wautomat_red",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "17wautomat_turquoise",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "Aquarium",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "grunge_wall",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_base_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_chest_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_crystalball_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_divtable1_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_globe_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_goblet_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_historybook_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_key_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_ladder_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_quill1_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_quill2_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_quill3_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_quill4_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_sack_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_scrollstack_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "wf_act_givexp",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "mybobba_stef_pinkdragon",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "kinggrizzy_harvycstmph_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "blochp_yvess_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hogwarts_broom_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_acromantula_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_alchemybook_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_angel_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_architect_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_bluebox_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_closet_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_flask_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_greenbox_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_heads_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_lantern_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_mask_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_necroot_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_purplebox_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_quidchest_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_redbox_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_skelegro_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_skull_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_spade_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_spectre_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_spider_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "hp_yellowbox_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "3d1ceh4",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "3d1ceh5",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "ptrnvloer2_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "vaultdragon_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "cas17_block4_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "Vacuum",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "fairy_grass_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "table_morderne_en__bois_II",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    },
+    {
+      "classname": "suburban_bw_gate_name",
+      "in_fd": false,
+      "prefix_category": "other_custom"
+    }
+  ]
+}

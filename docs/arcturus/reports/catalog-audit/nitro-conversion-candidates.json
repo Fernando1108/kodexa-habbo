@@ -1,0 +1,1030 @@
+{
+  "summary": {
+    "total_missing": 8512,
+    "A_already_available_nitro": 8364,
+    "B_convertible_swf": 0,
+    "C_partial_source": 2,
+    "D_no_source": 69,
+    "E_name_mismatch_candidate": 77,
+    "recovery_rate_pct": 98.3
+  },
+  "A_already_available_nitro": [
+    {
+      "classname": "avionetahl",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "avionetahl.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "qday_vliegtuigje",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "qday_vliegtuigje.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "snta_globe",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "snta_globe.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "hfdiy_venomduck_lucifer",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "hfdiy_venomduck_lucifer.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "hfdiy_witchduck_lucifer",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "hfdiy_witchduck_lucifer.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "hfdiy_Duckbox2_lucifer",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "hfdiy_Duckbox2_lucifer.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "hfdiy_Duckbox3_lucifer",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "hfdiy_Duckbox3_lucifer.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "Malette",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "Malette.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wibbo_tardis",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wibbo_tardis.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "lotus_holofriend",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "lotus_holofriend.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "habcrush_c19_blackrosebox",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "habcrush_c19_blackrosebox.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "habcrush_c19_bollybox",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "habcrush_c19_bollybox.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "habcrush_c19_poinsettiabox",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "habcrush_c19_poinsettiabox.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "habcrush_c19_redrosebox",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "habcrush_c19_redrosebox.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "habcrush_c19_sakurabox",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "habcrush_c19_sakurabox.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "habcrush_c19_sunflowerbox",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "habcrush_c19_sunflowerbox.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "army_c15_otacosad",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "army_c15_otacosad.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "bb_biip",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "bb_biip.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "chair_otac",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "chair_otac.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "diamond_otacosng1",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "diamond_otacosng1.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "diamond_otacosng2",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "diamond_otacosng2.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "diamond_otacosng3",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "diamond_otacosng3.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "diamond_otacosng4",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "diamond_otacosng4.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "school_tacos_05",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "school_tacos_05.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "school_tacos_06",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "school_tacos_06.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "table_tacos",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "table_tacos.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "tacos_silo_small",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "tacos_silo_small.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "kitchen_sink",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "kitchen_sink.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "mellow_fridge",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "mellow_fridge.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "mellow_kitchendesk",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "mellow_kitchendesk.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "mellow_plank",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "mellow_plank.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "mellow_sink",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "mellow_sink.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "mellow_smallsink",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "mellow_smallsink.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "xkekos_c22_cabcocina1",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "xkekos_c22_cabcocina1.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "xkekos_c22_cabmesada1a",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "xkekos_c22_cabmesada1a.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "xkekos_c22_cabmesada2a",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "xkekos_c22_cabmesada2a.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "xkekos_c22_cabmesada3a",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "xkekos_c22_cabmesada3a.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "xkekos_c22_cabpared1",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "xkekos_c22_cabpared1.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "cstm_f23_keuken_koelkast1",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "cstm_f23_keuken_koelkast1.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "cstm_f23_keuken_koelkast2",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "cstm_f23_keuken_koelkast2.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "cstm_f23_keuken_koelkast3",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "cstm_f23_keuken_koelkast3.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "Arve_Biscuits_22",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "Arve_Biscuits_22.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "Arve_Bouteilledelait_22",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "Arve_Bouteilledelait_22.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "Arve_Briquettedelait_22",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "Arve_Briquettedelait_22.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "Arve_Chips_22",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "Arve_Chips_22.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "kitchen_c23_fridge",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "kitchen_c23_fridge.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "Dish_Washer",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "Dish_Washer.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "White_Fridge",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "White_Fridge.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "habbo_rubbi_sh",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "habbo_rubbi_sh.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "ktchn_microw",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "ktchn_microw.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_trg_cls_user1",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_trg_cls_user1.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_trg_cls_user2",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_trg_cls_user2.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_trg_state_changdd",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_trg_state_changdd.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_collide_upper",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_collide_upper.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_give_pointss",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_give_pointss.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_all_users_leave_team",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_all_users_leave_team.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_closes_dices",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_closes_dices.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_tele_room",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_tele_room.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_close_dice_cstm",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_close_dice_cstm.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_execute_stack_custom",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_execute_stack_custom.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_plus_match_furni_state_instant",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_plus_match_furni_state_instant.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_toggle_moodl",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_toggle_moodl.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "habactive_unfreeze",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "habactive_unfreeze.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_set_roller_spd",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_set_roller_spd.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cstm_freeze",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cstm_freeze.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cstm_fswalk",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cstm_fswalk.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "bobbacrew_wf_act_bot_stopdance",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "bobbacrew_wf_act_bot_stopdance.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "bobba_crew_wf_act_bot_dance",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "bobba_crew_wf_act_bot_dance.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_signal_otheroompts",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_signal_otheroompts.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_joue_assi",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_joue_assi.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_joue_dorm",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_joue_dorm.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_set_apristanza",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_set_apristanza.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_set_chiudistanza",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_set_chiudistanza.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wfactclickthroughusereffectoff",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wfactclickthroughusereffectoff.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wfactclickthroughusereffecton",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wfactclickthroughusereffecton.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_make_say",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_make_say.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_cond_stacks",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_cond_stacks.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_move_rotate_custom",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_move_rotate_custom.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_give_effect",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_give_effect.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_give_handitem",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_give_handitem.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_act_walkuser_alone",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_act_walkuser_alone.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_atleast_one_user_team",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_atleast_one_user_team.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_hdev_countavatars",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_hdev_countavatars.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_user_in_range",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_user_in_range.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_user_not_in_range",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_user_not_in_range.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_user_folow_ne",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_user_folow_ne.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_user_folow_po",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_user_folow_po.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_battlebanzai",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_battlebanzai.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_freeze_booty",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_freeze_booty.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_is_dancingbb",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_is_dancingbb.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_motto_contns",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_motto_contns.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_not_dancingb",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_not_dancingb.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_not_freezebb",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_not_freezebb.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_user_group_in",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_user_group_in.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cnd_user_group_ou",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cnd_user_group_ou.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "bobbacrew_wf_cnd_bot_notdance",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "bobbacrew_wf_cnd_bot_notdance.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "bobba_crew_wf_cnd_bot_is_dance",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "bobba_crew_wf_cnd_bot_is_dance.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cdn_avatar_isfemale",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cdn_avatar_isfemale.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "wf_cdn_avatar_ismale",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "wf_cdn_avatar_ismale.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    },
+    {
+      "classname": "bobbacrew_user_is_in_group",
+      "source": "external/arcturus/objectretros/nitro/nitro-assets/nitro-assets/bundled/furniture/",
+      "file": "bobbacrew_user_is_in_group.nitro",
+      "action": "copy_to_assets",
+      "in_fd": false
+    }
+  ],
+  "B_convertible_swf": [],
+  "C_partial_source": [
+    {
+      "classname": "Snst_tree1",
+      "has_icon": true,
+      "action": "partial_source_icon_only",
+      "in_fd": false
+    },
+    {
+      "classname": "Snst_iceblock",
+      "has_icon": true,
+      "action": "partial_source_icon_only",
+      "in_fd": false
+    }
+  ],
+  "E_name_mismatch": [
+    {
+      "classname": "Black Dino Egg",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "StrayPixels Winner x1",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "StrayPixels winner x3",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "StrayPixels winner x7",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "StrayPixels winner x10",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet0",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet1",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet2",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet3",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet4",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet5",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet6",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet7",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet8",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet9",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet11",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet12",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet14",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet15",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet17",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet18",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet19",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet20",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet21",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet22",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet23",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet24",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet25",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet28",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet29",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet30",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet31",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Habbo Hotel",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Gray Waasa Rug",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Blue Waasa Rug",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Orange Waasa Rug",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Green Waasa Rug",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Yellow Waasa Rug",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Large Wooden Table",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Small Wooden Table",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "BW_HogwartsTableGH_name",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "GrimmauldFloor_name",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "HogwartsDoorBW_name",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet35",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet32",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Hobo Awards 2022",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "PF_100_duckebag",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "CF__5_coin_silver",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Computer Chair",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Large Sailing Boat",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    }
+  ]
+}

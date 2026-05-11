@@ -1,0 +1,53 @@
+{
+  "pre_mp010_1a3": {
+    "nitro_pct": 73,
+    "total_nitro_in_assets": 22153,
+    "missing": 8512
+  },
+  "post_mp010_1a3": {
+    "nitro_pct": 99,
+    "total_nitro_in_assets": 30516,
+    "missing_remaining": 183,
+    "copied_this_mp": 8263
+  },
+  "p0_coverage": {
+    "nitro_pct": 100,
+    "ok": 30146,
+    "total": 30294
+  },
+  "tab_coverage": {
+    "Classic": {
+      "ok": 9183,
+      "fail": 52,
+      "total": 9235,
+      "pct": 99
+    },
+    "Creators": {
+      "ok": 17740,
+      "fail": 77,
+      "total": 17817,
+      "pct": 100
+    },
+    "Rares": {
+      "ok": 219,
+      "fail": 1,
+      "total": 220,
+      "pct": 100
+    },
+    "Badges": {
+      "ok": 43,
+      "fail": 5,
+      "total": 48,
+      "pct": 90
+    },
+    "Staff": {
+      "ok": 4594,
+      "fail": 26,
+      "total": 4620,
+      "pct": 99
+    }
+  },
+  "unresolved": 148,
+  "projected": 98,
+  "actual": 99
+}

@@ -1,0 +1,467 @@
+{
+  "count": 77,
+  "items": [
+    {
+      "classname": "Black Dino Egg",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "StrayPixels Winner x1",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "StrayPixels winner x3",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "StrayPixels winner x7",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "StrayPixels winner x10",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet0",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet1",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet2",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet3",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet4",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet5",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet6",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet7",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet8",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet9",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet11",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet12",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet14",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet15",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet17",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet18",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet19",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet20",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet21",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet22",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet23",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet24",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet25",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet28",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet29",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet30",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet31",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Habbo Hotel",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Gray Waasa Rug",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Blue Waasa Rug",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Orange Waasa Rug",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Green Waasa Rug",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Yellow Waasa Rug",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Large Wooden Table",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Small Wooden Table",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "BW_HogwartsTableGH_name",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "GrimmauldFloor_name",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "HogwartsDoorBW_name",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet35",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet32",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Hobo Awards 2022",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "PF_100_duckebag",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "CF__5_coin_silver",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Computer Chair",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Large Sailing Boat",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Small Sailing Boat",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Bunk Bed",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Wooden Study Desk",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Wooden Chair",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Wall Shelf",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Book Shelf",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet10",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Rainbow_fountain",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Cupid_chair",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "DF_102_10_bluechip",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "DF_102_1_whitechip",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "DF_102_25_greenchip",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "DF_102_50_purplechip",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "DF_102_5_redchip",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "DF_102_100_gold",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "DF_102_25__gold",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "DF_102_5_goldcc",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "DF_102_75__gold",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "DF_102_50_n_gold",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "Badge Display Case",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "a0 pet49",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "xmas_c17_doll2 name",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "xmas_c17_doll4 name",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "xmas_c17_doll1 name",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "xmas_c17_doll6 name",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "xmas_c17_doll5 name",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    },
+    {
+      "classname": "xmas_c17_doll3 name",
+      "reason": "possible_name_mismatch",
+      "hint": "spaces or unusual casing may differ from bundle filename",
+      "in_fd": false
+    }
+  ]
+}

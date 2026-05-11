@@ -1,0 +1,16 @@
+{
+  "mp": "MP-010.1B.1",
+  "bug": "*N classname FD lookup bug in MP-010.1A.5",
+  "bug_detail": "items_base.item_name like classic3_bench*1 → stripped to classic3_bench, but FD has classic3_bench*1 → lookup miss → falsely classified as REVIEW",
+  "original_review_count": 10081,
+  "misclassified_restored": 2574,
+  "correctly_hidden": 7507,
+  "bad_no_nitro": 1,
+  "pages_reenabled": 112,
+  "dev_page_final": 7657,
+  "public_rank1_final": 22403,
+  "restored_breakdown": {
+    "PUBLIC_GOOD": 0,
+    "ICON_MISSING_RENDER_OK": 2574
+  }
+}

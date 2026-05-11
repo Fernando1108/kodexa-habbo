@@ -1,0 +1,33 @@
+{
+  "mp": "MP-010.1A.4",
+  "action": "moved unrenderable catalog_items to internal Desarrollo/Pendientes page",
+  "dev_page_id": 9965236,
+  "dev_page_caption": "Desarrollo/Pendientes",
+  "dev_page_visible": 0,
+  "dev_page_enabled": 0,
+  "dev_page_min_rank": 9,
+  "items_moved": 149,
+  "items_already_internal": 35,
+  "items_with_nitro_kept_visible": 1,
+  "unresolved_classnames": 148,
+  "pre_hide": {
+    "nitro_pct": 99,
+    "p0_pct": 100,
+    "total_nitro": 30516
+  },
+  "post_hide": {
+    "note": "Global/P0 coverage unchanged \u2014 moved items had no .nitro, so removing from public catalog does not reduce coverage",
+    "global_pct": 99,
+    "p0_pct": 100,
+    "items_removed_from_public": 149
+  },
+  "restore_sql": "docs/arcturus/restore-mp-010-1a-4-hidden-items.sql",
+  "backup_json": "docs/arcturus/reports/catalog-audit/mp-010-1a-4-catalog-items-backup.json",
+  "validation": {
+    "public_pages_rank_1_6_broken": 0,
+    "staff_pages_rank_7_8_broken": 0,
+    "dev_page_access": "rank >= 9 (Developer + Founder)",
+    "nitro_set_used": "current_nitro_fresh.txt (30516 files)",
+    "stale_nitro_set_false_positives": 56
+  }
+}

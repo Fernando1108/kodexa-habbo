@@ -1,0 +1,802 @@
+[
+  {
+    "classname": "pokeweebzs054",
+    "file": "pokeweebzs054_icon.png"
+  },
+  {
+    "classname": "bloc_fonces",
+    "file": "bloc_fonces_icon.png"
+  },
+  {
+    "classname": "bssitalia_cuscinogiungla",
+    "file": "bssitalia_cuscinogiungla_icon.png"
+  },
+  {
+    "classname": "dralaxy_thronesofa",
+    "file": "dralaxy_thronesofa_icon.png"
+  },
+  {
+    "classname": "Diofante_Centauro",
+    "file": "Diofante_Centauro_icon.png"
+  },
+  {
+    "classname": "hfdiy_curtain1_XSongzi",
+    "file": "hfdiy_curtain1_XSongzi_icon.png"
+  },
+  {
+    "classname": "st_fliesesenfgelb",
+    "file": "st_fliesesenfgelb_icon.png"
+  },
+  {
+    "classname": "habbox_izakaya_sake_barrel",
+    "file": "habbox_izakaya_sake_barrel_icon.png"
+  },
+  {
+    "classname": "pokeweebz032",
+    "file": "pokeweebz032_icon.png"
+  },
+  {
+    "classname": "habbox_fbnncls_finesse_bloct5",
+    "file": "habbox_fbnncls_finesse_bloct5_icon.png"
+  },
+  {
+    "classname": "habbox_rosebury_siege2",
+    "file": "habbox_rosebury_siege2_icon.png"
+  },
+  {
+    "classname": "kasja_g_stonewall",
+    "file": "kasja_g_stonewall_icon.png"
+  },
+  {
+    "classname": "habbox_lavabo02_linette",
+    "file": "habbox_lavabo02_linette_icon.png"
+  },
+  {
+    "classname": "st_bclidowalmagenta2_mkq",
+    "file": "st_bclidowalmagenta2_mkq_icon.png"
+  },
+  {
+    "classname": "habbox_breana_panneau_festival",
+    "file": "habbox_breana_panneau_festival_icon.png"
+  },
+  {
+    "classname": "habbox_breana_buisson",
+    "file": "habbox_breana_buisson_icon.png"
+  },
+  {
+    "classname": "habbox_finley_hween_access1",
+    "file": "habbox_finley_hween_access1_icon.png"
+  },
+  {
+    "classname": "asth_door1_1x1",
+    "file": "asth_door1_1x1_icon.png"
+  },
+  {
+    "classname": "cstm_luanda23_elegance_frame",
+    "file": "cstm_luanda23_elegance_frame_icon.png"
+  },
+  {
+    "classname": "cstm_f23_keuken_koelkast2",
+    "file": "cstm_f23_keuken_koelkast2_icon.png"
+  },
+  {
+    "classname": "City_Yvess5_Murlap",
+    "file": "City_Yvess5_Murlap_icon.png"
+  },
+  {
+    "classname": "ipad_package",
+    "file": "ipad_package_icon.png"
+  },
+  {
+    "classname": "rare_VIP_marquee",
+    "file": "rare_VIP_marquee_icon.png"
+  },
+  {
+    "classname": "chiffres_8",
+    "file": "chiffres_8_icon.png"
+  },
+  {
+    "classname": "pmarceline",
+    "file": "pmarceline_icon.png"
+  },
+  {
+    "classname": "wibbo_Barrierelumiere_Alaska",
+    "file": "wibbo_Barrierelumiere_Alaska_icon.png"
+  },
+  {
+    "classname": "pokeweebzs556",
+    "file": "pokeweebzs556_icon.png"
+  },
+  {
+    "classname": "homify_23_bench_01",
+    "file": "homify_23_bench_01_icon.png"
+  },
+  {
+    "classname": "wf_cnd_user_folow_po",
+    "file": "wf_cnd_user_folow_po_icon.png"
+  },
+  {
+    "classname": "peetgreekblok4",
+    "file": "peetgreekblok4_icon.png"
+  },
+  {
+    "classname": "chess16_SPawn",
+    "file": "chess16_SPawn_icon.png"
+  },
+  {
+    "classname": "habbox_moonlight_chaise2",
+    "file": "habbox_moonlight_chaise2_icon.png"
+  },
+  {
+    "classname": "Habblet_circus_118",
+    "file": "Habblet_circus_118_icon.png"
+  },
+  {
+    "classname": "flexy_23_rctnglr_cube_04_01",
+    "file": "flexy_23_rctnglr_cube_04_01_icon.png"
+  },
+  {
+    "classname": "rav_holo_switch2",
+    "file": "rav_holo_switch2_icon.png"
+  },
+  {
+    "classname": "anc16_merdragon_fountain",
+    "file": "anc16_merdragon_fountain_icon.png"
+  },
+  {
+    "classname": "diamond_habbox_123",
+    "file": "diamond_habbox_123_icon.png"
+  },
+  {
+    "classname": "cutiezor_door",
+    "file": "cutiezor_door_icon.png"
+  },
+  {
+    "classname": "Yvess5_Halloween_barriere3",
+    "file": "Yvess5_Halloween_barriere3_icon.png"
+  },
+  {
+    "classname": "karma_small_dressior",
+    "file": "karma_small_dressior_icon.png"
+  },
+  {
+    "classname": "pokeweebzs762",
+    "file": "pokeweebzs762_icon.png"
+  },
+  {
+    "classname": "Rana",
+    "file": "Rana_icon.png"
+  },
+  {
+    "classname": "habbox_egypte_15",
+    "file": "habbox_egypte_15_icon.png"
+  },
+  {
+    "classname": "monsterseyes_pumpkin2",
+    "file": "monsterseyes_pumpkin2_icon.png"
+  },
+  {
+    "classname": "smouks_potmarron",
+    "file": "smouks_potmarron_icon.png"
+  },
+  {
+    "classname": "axovblock",
+    "file": "axovblock_icon.png"
+  },
+  {
+    "classname": "disney",
+    "file": "disney_icon.png"
+  },
+  {
+    "classname": "Rons_tiles_7",
+    "file": "Rons_tiles_7_icon.png"
+  },
+  {
+    "classname": "yologram",
+    "file": "yologram_icon.png"
+  },
+  {
+    "classname": "hubba_theconar_casinorose",
+    "file": "hubba_theconar_casinorose_icon.png"
+  },
+  {
+    "classname": "cstm_cait22_kerst_langebalk",
+    "file": "cstm_cait22_kerst_langebalk_icon.png"
+  },
+  {
+    "classname": "habbox_couture_tapis_turqu",
+    "file": "habbox_couture_tapis_turqu_icon.png"
+  },
+  {
+    "classname": "Yvess5_Western_PetitEtageres",
+    "file": "Yvess5_Western_PetitEtageres_icon.png"
+  },
+  {
+    "classname": "Yvess5_Jardin_TuyauxTurn",
+    "file": "Yvess5_Jardin_TuyauxTurn_icon.png"
+  },
+  {
+    "classname": "irinc_pablok_rope",
+    "file": "irinc_pablok_rope_icon.png"
+  },
+  {
+    "classname": "habbox_finley_hween_access4",
+    "file": "habbox_finley_hween_access4_icon.png"
+  },
+  {
+    "classname": "pokeweebzs045",
+    "file": "pokeweebzs045_icon.png"
+  },
+  {
+    "classname": "apenasmobis",
+    "file": "apenasmobis_icon.png"
+  },
+  {
+    "classname": "Rons_tiles_27",
+    "file": "Rons_tiles_27_icon.png"
+  },
+  {
+    "classname": "Habblet_flowerpower_02",
+    "file": "Habblet_flowerpower_02_icon.png"
+  },
+  {
+    "classname": "tile_walk_magic3",
+    "file": "tile_walk_magic3_icon.png"
+  },
+  {
+    "classname": "onepiece_toybear_krm",
+    "file": "onepiece_toybear_krm_icon.png"
+  },
+  {
+    "classname": "cookie_lego2x2shortcornerwedge",
+    "file": "cookie_lego2x2shortcornerwedge_icon.png"
+  },
+  {
+    "classname": "habbox_cerveau_zombie",
+    "file": "habbox_cerveau_zombie_icon.png"
+  },
+  {
+    "classname": "pokeweebz107",
+    "file": "pokeweebz107_icon.png"
+  },
+  {
+    "classname": "habbis20_uni2",
+    "file": "habbis20_uni2_icon.png"
+  },
+  {
+    "classname": "pizza17_chair",
+    "file": "pizza17_chair_icon.png"
+  },
+  {
+    "classname": "yvess5_minions_2",
+    "file": "yvess5_minions_2_icon.png"
+  },
+  {
+    "classname": "habbox_shone_bureau_poubelle",
+    "file": "habbox_shone_bureau_poubelle_icon.png"
+  },
+  {
+    "classname": "sunflower_pouf_marion",
+    "file": "sunflower_pouf_marion_icon.png"
+  },
+  {
+    "classname": "Nitre_Throne",
+    "file": "Nitre_Throne_icon.png"
+  },
+  {
+    "classname": "welkendrote2",
+    "file": "welkendrote2_icon.png"
+  },
+  {
+    "classname": "may_light_table_updtd",
+    "file": "may_light_table_updtd_icon.png"
+  },
+  {
+    "classname": "habbox_breana_b_etagere",
+    "file": "habbox_breana_b_etagere_icon.png"
+  },
+  {
+    "classname": "mario_star",
+    "file": "mario_star_icon.png"
+  },
+  {
+    "classname": "DIY_Mahjong_15",
+    "file": "DIY_Mahjong_15_icon.png"
+  },
+  {
+    "classname": "pokeweebzs535",
+    "file": "pokeweebzs535_icon.png"
+  },
+  {
+    "classname": "habbox_haaziq_coussin_2",
+    "file": "habbox_haaziq_coussin_2_icon.png"
+  },
+  {
+    "classname": "coe_barbie_tablo",
+    "file": "coe_barbie_tablo_icon.png"
+  },
+  {
+    "classname": "irinc_shadow_bushpillar1",
+    "file": "irinc_shadow_bushpillar1_icon.png"
+  },
+  {
+    "classname": "Yvess5_Mine_TP_1_1",
+    "file": "Yvess5_Mine_TP_1_1_icon.png"
+  },
+  {
+    "classname": "tronconneuseyvess_halloween",
+    "file": "tronconneuseyvess_halloween_icon.png"
+  },
+  {
+    "classname": "duck_sterk",
+    "file": "duck_sterk_icon.png"
+  },
+  {
+    "classname": "AC_city_thrasher_ballon",
+    "file": "AC_city_thrasher_ballon_icon.png"
+  },
+  {
+    "classname": "Atlanta_Japandi_Plant_2",
+    "file": "Atlanta_Japandi_Plant_2_icon.png"
+  },
+  {
+    "classname": "oilpainting_Rysselberghe",
+    "file": "oilpainting_Rysselberghe_icon.png"
+  },
+  {
+    "classname": "green_chip",
+    "file": "green_chip_icon.png"
+  },
+  {
+    "classname": "st_vermuelltedrachenlampe",
+    "file": "st_vermuelltedrachenlampe_icon.png"
+  },
+  {
+    "classname": "hubba_wataeis_stonebuild",
+    "file": "hubba_wataeis_stonebuild_icon.png"
+  },
+  {
+    "classname": "Habblet_EBM_37",
+    "file": "Habblet_EBM_37_icon.png"
+  },
+  {
+    "classname": "Habblet_EBM_108",
+    "file": "Habblet_EBM_108_icon.png"
+  },
+  {
+    "classname": "poster8",
+    "file": "poster8_icon.png"
+  },
+  {
+    "classname": "hm_lizeng_ccdragi",
+    "file": "hm_lizeng_ccdragi_icon.png"
+  },
+  {
+    "classname": "cstm_deco_plants40",
+    "file": "cstm_deco_plants40_icon.png"
+  },
+  {
+    "classname": "cstm_cait23_funky_tiletable",
+    "file": "cstm_cait23_funky_tiletable_icon.png"
+  },
+  {
+    "classname": "pokeweebz571",
+    "file": "pokeweebz571_icon.png"
+  },
+  {
+    "classname": "cstm_deco_plants8",
+    "file": "cstm_deco_plants8_icon.png"
+  },
+  {
+    "classname": "cstm_f23_huiskamer_scherm2",
+    "file": "cstm_f23_huiskamer_scherm2_icon.png"
+  },
+  {
+    "classname": "habbox_clr_bc_plainsmallblock",
+    "file": "habbox_clr_bc_plainsmallblock_icon.png"
+  },
+  {
+    "classname": "Hellsinore_Habblet_27",
+    "file": "Hellsinore_Habblet_27_icon.png"
+  },
+  {
+    "classname": "stark_lost_town_silla",
+    "file": "stark_lost_town_silla_icon.png"
+  },
+  {
+    "classname": "Rons_tiles_5",
+    "file": "Rons_tiles_5_icon.png"
+  },
+  {
+    "classname": "habbox_izakaya_wooden_plate",
+    "file": "habbox_izakaya_wooden_plate_icon.png"
+  },
+  {
+    "classname": "DIY_a003_StarIceCreamMachine",
+    "file": "DIY_a003_StarIceCreamMachine_icon.png"
+  },
+  {
+    "classname": "lyvo_2_kjott",
+    "file": "lyvo_2_kjott_icon.png"
+  },
+  {
+    "classname": "pokeweebz305",
+    "file": "pokeweebz305_icon.png"
+  },
+  {
+    "classname": "champi_distributeur",
+    "file": "champi_distributeur_icon.png"
+  },
+  {
+    "classname": "kasja_c_sofa",
+    "file": "kasja_c_sofa_icon.png"
+  },
+  {
+    "classname": "habbox_rosebury_60s_lune",
+    "file": "habbox_rosebury_60s_lune_icon.png"
+  },
+  {
+    "classname": "pokeweebz694",
+    "file": "pokeweebz694_icon.png"
+  },
+  {
+    "classname": "Yvess5_CityWeen19_Sol4",
+    "file": "Yvess5_CityWeen19_Sol4_icon.png"
+  },
+  {
+    "classname": "Yvess5_Print22_SolTP2",
+    "file": "Yvess5_Print22_SolTP2_icon.png"
+  },
+  {
+    "classname": "habbox_rosebury_cuisine7",
+    "file": "habbox_rosebury_cuisine7_icon.png"
+  },
+  {
+    "classname": "Yvess5_PacMan_Fantome_Rouge",
+    "file": "Yvess5_PacMan_Fantome_Rouge_icon.png"
+  },
+  {
+    "classname": "zelda13_castleblock2",
+    "file": "zelda13_castleblock2_icon.png"
+  },
+  {
+    "classname": "hfdiy_HJdessert001_BBB",
+    "file": "hfdiy_HJdessert001_BBB_icon.png"
+  },
+  {
+    "classname": "habbox_fr_asthorine_10",
+    "file": "habbox_fr_asthorine_10_icon.png"
+  },
+  {
+    "classname": "asth_door9_1x1",
+    "file": "asth_door9_1x1_icon.png"
+  },
+  {
+    "classname": "em2016_holoswdn",
+    "file": "em2016_holoswdn_icon.png"
+  },
+  {
+    "classname": "Diofante_LoriltonBarbosa",
+    "file": "Diofante_LoriltonBarbosa_icon.png"
+  },
+  {
+    "classname": "nesa_redbullwhite",
+    "file": "nesa_redbullwhite_icon.png"
+  },
+  {
+    "classname": "old_telephone",
+    "file": "old_telephone_icon.png"
+  },
+  {
+    "classname": "VanTassel_Teleportsecreto",
+    "file": "VanTassel_Teleportsecreto_icon.png"
+  },
+  {
+    "classname": "Figure6Whrswly",
+    "file": "Figure6Whrswly_icon.png"
+  },
+  {
+    "classname": "habbox_persia_077",
+    "file": "habbox_persia_077_icon.png"
+  },
+  {
+    "classname": "seven_mobula",
+    "file": "seven_mobula_icon.png"
+  },
+  {
+    "classname": "pokeweebzs013",
+    "file": "pokeweebzs013_icon.png"
+  },
+  {
+    "classname": "zengarden_rock1",
+    "file": "zengarden_rock1_icon.png"
+  },
+  {
+    "classname": "LuandaBookcase",
+    "file": "LuandaBookcase_icon.png"
+  },
+  {
+    "classname": "pokeweebzs781",
+    "file": "pokeweebzs781_icon.png"
+  },
+  {
+    "classname": "habbox_finley_nyc_pancart2",
+    "file": "habbox_finley_nyc_pancart2_icon.png"
+  },
+  {
+    "classname": "Yvess5_Alien_Sol_PortePicBleu",
+    "file": "Yvess5_Alien_Sol_PortePicBleu_icon.png"
+  },
+  {
+    "classname": "wf_act_toggle_moodl",
+    "file": "wf_act_toggle_moodl_icon.png"
+  },
+  {
+    "classname": "Xs_RiseB0ngsam",
+    "file": "Xs_RiseB0ngsam_icon.png"
+  },
+  {
+    "classname": "yang_d57_Paperfishingnet",
+    "file": "yang_d57_Paperfishingnet_icon.png"
+  },
+  {
+    "classname": "pokeweebz064",
+    "file": "pokeweebz064_icon.png"
+  },
+  {
+    "classname": "habbox_arthurrr_cadeau3",
+    "file": "habbox_arthurrr_cadeau3_icon.png"
+  },
+  {
+    "classname": "rare_frankarcade",
+    "file": "rare_frankarcade_icon.png"
+  },
+  {
+    "classname": "dragonrouge_alphabet_rose",
+    "file": "dragonrouge_alphabet_rose_icon.png"
+  },
+  {
+    "classname": "Mesita_sepas",
+    "file": "Mesita_sepas_icon.png"
+  },
+  {
+    "classname": "bento_mbl00_specialpilar",
+    "file": "bento_mbl00_specialpilar_icon.png"
+  },
+  {
+    "classname": "pokeweebz026",
+    "file": "pokeweebz026_icon.png"
+  },
+  {
+    "classname": "pokeweebz145",
+    "file": "pokeweebz145_icon.png"
+  },
+  {
+    "classname": "pokeweebzs782",
+    "file": "pokeweebzs782_icon.png"
+  },
+  {
+    "classname": "tn_christmas_hotte",
+    "file": "tn_christmas_hotte_icon.png"
+  },
+  {
+    "classname": "pokeweebzs591",
+    "file": "pokeweebzs591_icon.png"
+  },
+  {
+    "classname": "fontijn_draak4",
+    "file": "fontijn_draak4_icon.png"
+  },
+  {
+    "classname": "smar_vdoll",
+    "file": "smar_vdoll_icon.png"
+  },
+  {
+    "classname": "concrio_23_floor_01_01",
+    "file": "concrio_23_floor_01_01_icon.png"
+  },
+  {
+    "classname": "pokeweebz656",
+    "file": "pokeweebz656_icon.png"
+  },
+  {
+    "classname": "oeil_3",
+    "file": "oeil_3_icon.png"
+  },
+  {
+    "classname": "apple_bag1",
+    "file": "apple_bag1_icon.png"
+  },
+  {
+    "classname": "habbox_baignoire_linette",
+    "file": "habbox_baignoire_linette_icon.png"
+  },
+  {
+    "classname": "wibbocustom_3366",
+    "file": "wibbocustom_3366_icon.png"
+  },
+  {
+    "classname": "cstm_cait_spiegellampjes",
+    "file": "cstm_cait_spiegellampjes_icon.png"
+  },
+  {
+    "classname": "xkekos_c22_cabadorno",
+    "file": "xkekos_c22_cabadorno_icon.png"
+  },
+  {
+    "classname": "habbox_haaziq_coussin_4",
+    "file": "habbox_haaziq_coussin_4_icon.png"
+  },
+  {
+    "classname": "habbox_fbnncls_finesse_bloct4",
+    "file": "habbox_fbnncls_finesse_bloct4_icon.png"
+  },
+  {
+    "classname": "mybobba_stef_white_dragon",
+    "file": "mybobba_stef_white_dragon_icon.png"
+  },
+  {
+    "classname": "vampireyvess_halloween",
+    "file": "vampireyvess_halloween_icon.png"
+  },
+  {
+    "classname": "VanTassel_Arciano",
+    "file": "VanTassel_Arciano_icon.png"
+  },
+  {
+    "classname": "seven_jellyfish_white",
+    "file": "seven_jellyfish_white_icon.png"
+  },
+  {
+    "classname": "hfdiy_curtains_XSongzi",
+    "file": "hfdiy_curtains_XSongzi_icon.png"
+  },
+  {
+    "classname": "pokeweebzs480",
+    "file": "pokeweebzs480_icon.png"
+  },
+  {
+    "classname": "Hellsinore_CasaBergstrom_26",
+    "file": "Hellsinore_CasaBergstrom_26_icon.png"
+  },
+  {
+    "classname": "wibbo_Toit_Alaska",
+    "file": "wibbo_Toit_Alaska_icon.png"
+  },
+  {
+    "classname": "bedrum_23_dresser_01",
+    "file": "bedrum_23_dresser_01_icon.png"
+  },
+  {
+    "classname": "st_bclidowalyellow1_mkq",
+    "file": "st_bclidowalyellow1_mkq_icon.png"
+  },
+  {
+    "classname": "kasja_s_swindow",
+    "file": "kasja_s_swindow_icon.png"
+  },
+  {
+    "classname": "wf_act_raise_furni",
+    "file": "wf_act_raise_furni_icon.png"
+  },
+  {
+    "classname": "rare_wdragonlamp05",
+    "file": "rare_wdragonlamp05_icon.png"
+  },
+  {
+    "classname": "crstl_c15_throne",
+    "file": "crstl_c15_throne_icon.png"
+  },
+  {
+    "classname": "Atlanta_Japandi_Window_5",
+    "file": "Atlanta_Japandi_Window_5_icon.png"
+  },
+  {
+    "classname": "kasja_a_table",
+    "file": "kasja_a_table_icon.png"
+  },
+  {
+    "classname": "pokeweebz074",
+    "file": "pokeweebz074_icon.png"
+  },
+  {
+    "classname": "pokeweebz373",
+    "file": "pokeweebz373_icon.png"
+  },
+  {
+    "classname": "LuandaFrogMirror1",
+    "file": "LuandaFrogMirror1_icon.png"
+  },
+  {
+    "classname": "habbox_hancar_worktop2",
+    "file": "habbox_hancar_worktop2_icon.png"
+  },
+  {
+    "classname": "Habblet_EBM_119",
+    "file": "Habblet_EBM_119_icon.png"
+  },
+  {
+    "classname": "bl_box",
+    "file": "bl_box_icon.png"
+  },
+  {
+    "classname": "ABC_city_battlebanzai2",
+    "file": "ABC_city_battlebanzai2_icon.png"
+  },
+  {
+    "classname": "hm_lizeng_cctruhe",
+    "file": "hm_lizeng_cctruhe_icon.png"
+  },
+  {
+    "classname": "soft_sofa_gorja",
+    "file": "soft_sofa_gorja_icon.png"
+  },
+  {
+    "classname": "habbox23_uni8",
+    "file": "habbox23_uni8_icon.png"
+  },
+  {
+    "classname": "Diofante_Barracas",
+    "file": "Diofante_Barracas_icon.png"
+  },
+  {
+    "classname": "asth_door3_1x2",
+    "file": "asth_door3_1x2_icon.png"
+  },
+  {
+    "classname": "habbox_finley_nyc_poster2",
+    "file": "habbox_finley_nyc_poster2_icon.png"
+  },
+  {
+    "classname": "louisvuitton_pillow_by_soleau",
+    "file": "louisvuitton_pillow_by_soleau_icon.png"
+  },
+  {
+    "classname": "habbox_fbnncls_coussin4",
+    "file": "habbox_fbnncls_coussin4_icon.png"
+  },
+  {
+    "classname": "usersemobis",
+    "file": "usersemobis_icon.png"
+  },
+  {
+    "classname": "bssitaliait_uovotribale_11",
+    "file": "bssitaliait_uovotribale_11_icon.png"
+  },
+  {
+    "classname": "pokeweebz227",
+    "file": "pokeweebz227_icon.png"
+  },
+  {
+    "classname": "korallenriff_stone7",
+    "file": "korallenriff_stone7_icon.png"
+  },
+  {
+    "classname": "flexy_23_door_01",
+    "file": "flexy_23_door_01_icon.png"
+  },
+  {
+    "classname": "black_vintage_office_marion",
+    "file": "black_vintage_office_marion_icon.png"
+  },
+  {
+    "classname": "armchair_vintage_marion",
+    "file": "armchair_vintage_marion_icon.png"
+  },
+  {
+    "classname": "kasja_prime_lemonlime",
+    "file": "kasja_prime_lemonlime_icon.png"
+  },
+  {
+    "classname": "mlobby_plant1",
+    "file": "mlobby_plant1_icon.png"
+  },
+  {
+    "classname": "glow_angeldragonlamp",
+    "file": "glow_angeldragonlamp_icon.png"
+  },
+  {
+    "classname": "babyboo_23_wall_03",
+    "file": "babyboo_23_wall_03_icon.png"
+  }
+]

@@ -1,0 +1,3154 @@
+{
+  "mp": "MP-010.1A.4",
+  "total_affected": 185,
+  "to_hide": 149,
+  "already_internal": 35,
+  "has_nitro_keep_visible": 1,
+  "items": [
+    {
+      "catalog_item_id": "28921",
+      "page_id": "1",
+      "page_caption": "Limited Edition",
+      "page_public": false,
+      "catalog_name": "black_dino_egg",
+      "item_ids": "4489",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "4489",
+          "classname": "Black Dino Egg",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "42017228",
+      "page_id": "14",
+      "page_caption": "Yummy",
+      "page_public": true,
+      "catalog_name": "yummy_22_floor_01_name",
+      "item_ids": "42017228",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "42017228",
+          "classname": "yummy_22_floor_0",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "1998",
+      "page_id": "66",
+      "page_caption": "Art Easles",
+      "page_public": true,
+      "catalog_name": "easel_0",
+      "item_ids": "3582",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "3582",
+          "classname": "StrayPixels Winner x1",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2010",
+      "page_id": "66",
+      "page_caption": "Art Easles",
+      "page_public": true,
+      "catalog_name": "easel_1",
+      "item_ids": "3594",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "3594",
+          "classname": "StrayPixels winner x3",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2012",
+      "page_id": "66",
+      "page_caption": "Art Easles",
+      "page_public": true,
+      "catalog_name": "easel_3",
+      "item_ids": "3596",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "3596",
+          "classname": "StrayPixels winner x7",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2016",
+      "page_id": "66",
+      "page_caption": "Art Easles",
+      "page_public": true,
+      "catalog_name": "easel_4",
+      "item_ids": "3600",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "3600",
+          "classname": "StrayPixels winner x10",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10231",
+      "page_id": "75",
+      "page_caption": "Dogs",
+      "page_public": true,
+      "catalog_name": "a0 pet0",
+      "item_ids": "50000",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50000",
+          "classname": "a0 pet0",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10232",
+      "page_id": "76",
+      "page_caption": "Cats",
+      "page_public": true,
+      "catalog_name": "a0 pet1",
+      "item_ids": "50001",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50001",
+          "classname": "a0 pet1",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10233",
+      "page_id": "77",
+      "page_caption": "Crocs",
+      "page_public": true,
+      "catalog_name": "a0 pet2",
+      "item_ids": "50002",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50002",
+          "classname": "a0 pet2",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10234",
+      "page_id": "78",
+      "page_caption": "Terriers",
+      "page_public": true,
+      "catalog_name": "a0 pet3",
+      "item_ids": "50003",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50003",
+          "classname": "a0 pet3",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10235",
+      "page_id": "79",
+      "page_caption": "Bears",
+      "page_public": true,
+      "catalog_name": "a0 pet4",
+      "item_ids": "50004",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50004",
+          "classname": "a0 pet4",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10236",
+      "page_id": "80",
+      "page_caption": "Pigs",
+      "page_public": true,
+      "catalog_name": "a0 pet5",
+      "item_ids": "50005",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50005",
+          "classname": "a0 pet5",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10237",
+      "page_id": "81",
+      "page_caption": "Lion",
+      "page_public": true,
+      "catalog_name": "a0 pet6",
+      "item_ids": "50006",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50006",
+          "classname": "a0 pet6",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10238",
+      "page_id": "82",
+      "page_caption": "Rhino",
+      "page_public": true,
+      "catalog_name": "a0 pet7",
+      "item_ids": "50007",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50007",
+          "classname": "a0 pet7",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10239",
+      "page_id": "83",
+      "page_caption": "Spider",
+      "page_public": true,
+      "catalog_name": "a0 pet8",
+      "item_ids": "50008",
+      "cost_credits": "15",
+      "classnames": [
+        {
+          "base_id": "50008",
+          "classname": "a0 pet8",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10240",
+      "page_id": "84",
+      "page_caption": "Turtles",
+      "page_public": true,
+      "catalog_name": "a0 pet9",
+      "item_ids": "50009",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50009",
+          "classname": "a0 pet9",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10242",
+      "page_id": "86",
+      "page_caption": "Frog",
+      "page_public": true,
+      "catalog_name": "a0 pet11",
+      "item_ids": "50011",
+      "cost_credits": "15",
+      "classnames": [
+        {
+          "base_id": "50011",
+          "classname": "a0 pet11",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10243",
+      "page_id": "87",
+      "page_caption": "Dragons",
+      "page_public": true,
+      "catalog_name": "a0 pet12",
+      "item_ids": "50012",
+      "cost_credits": "12",
+      "classnames": [
+        {
+          "base_id": "50012",
+          "classname": "a0 pet12",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10244",
+      "page_id": "88",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "a0 pet14",
+      "item_ids": "50014",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50014",
+          "classname": "a0 pet14",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10245",
+      "page_id": "89",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "a0 pet15",
+      "item_ids": "50015",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50015",
+          "classname": "a0 pet15",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10246",
+      "page_id": "90",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "a0 pet17",
+      "item_ids": "50017",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50017",
+          "classname": "a0 pet17",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10247",
+      "page_id": "91",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "a0 pet18",
+      "item_ids": "50018",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50018",
+          "classname": "a0 pet18",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10248",
+      "page_id": "92",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "a0 pet19",
+      "item_ids": "50019",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50019",
+          "classname": "a0 pet19",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10249",
+      "page_id": "93",
+      "page_caption": "Bunny - Manic",
+      "page_public": false,
+      "catalog_name": "a0 pet20",
+      "item_ids": "50020",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50020",
+          "classname": "a0 pet20",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10250",
+      "page_id": "94",
+      "page_caption": "Pigeon - Wise",
+      "page_public": false,
+      "catalog_name": "a0 pet21",
+      "item_ids": "50021",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50021",
+          "classname": "a0 pet21",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10251",
+      "page_id": "95",
+      "page_caption": "Pigeon - Cunning",
+      "page_public": false,
+      "catalog_name": "a0 pet22",
+      "item_ids": "50022",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50022",
+          "classname": "a0 pet22",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10252",
+      "page_id": "96",
+      "page_caption": "Monkey - Evil",
+      "page_public": false,
+      "catalog_name": "a0 pet23",
+      "item_ids": "50023",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50023",
+          "classname": "a0 pet23",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10253",
+      "page_id": "97",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "a0 pet24",
+      "item_ids": "50024",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50024",
+          "classname": "a0 pet24",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10254",
+      "page_id": "98",
+      "page_caption": "Terrier Puppies",
+      "page_public": false,
+      "catalog_name": "a0 pet25",
+      "item_ids": "50025",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50025",
+          "classname": "a0 pet25",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10255",
+      "page_id": "99",
+      "page_caption": "Kittens",
+      "page_public": false,
+      "catalog_name": "a0 pet28",
+      "item_ids": "50028",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50028",
+          "classname": "a0 pet28",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10256",
+      "page_id": "100",
+      "page_caption": "Puppies",
+      "page_public": false,
+      "catalog_name": "a0 pet29",
+      "item_ids": "50029",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50029",
+          "classname": "a0 pet29",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10257",
+      "page_id": "101",
+      "page_caption": "Piglets",
+      "page_public": false,
+      "catalog_name": "a0 pet30",
+      "item_ids": "50030",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50030",
+          "classname": "a0 pet30",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2767",
+      "page_id": "414",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "snst_tree1",
+      "item_ids": "4357",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "4357",
+          "classname": "Snst_tree1",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2768",
+      "page_id": "414",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "snst_iceblock",
+      "item_ids": "4358",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "4358",
+          "classname": "Snst_iceblock",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "280",
+      "page_id": "429",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "Chess",
+      "item_ids": "1001",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "1001",
+          "classname": "Chess",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "281",
+      "page_id": "429",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "TicTacToe",
+      "item_ids": "1011",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "1011",
+          "classname": "TicTacToe",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "282",
+      "page_id": "429",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "BattleShip",
+      "item_ids": "1021",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "1021",
+          "classname": "BattleShip",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "9628",
+      "page_id": "429",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "Poker",
+      "item_ids": "20100",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "20100",
+          "classname": "Poker",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10258",
+      "page_id": "429",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "a0 pet31",
+      "item_ids": "50031",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50031",
+          "classname": "a0 pet31",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "6330",
+      "page_id": "437",
+      "page_caption": "Hallway",
+      "page_public": true,
+      "catalog_name": "room_hall15_ele",
+      "item_ids": "7927",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "7927",
+          "classname": "Elevator",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "6308",
+      "page_id": "439",
+      "page_caption": "Welcome Lounge - Modern",
+      "page_public": true,
+      "catalog_name": "room_wl15_ele",
+      "item_ids": "7905",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "7905",
+          "classname": "Habbo Hotel",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "9706",
+      "page_id": "442",
+      "page_caption": "AD Furniture",
+      "page_public": true,
+      "catalog_name": "ads_clwall3",
+      "item_ids": "40790",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "40790",
+          "classname": "ads_clwall3",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "1996663652",
+      "page_id": "466",
+      "page_caption": "Sticky Notes",
+      "page_public": true,
+      "catalog_name": "Heart stickies",
+      "item_ids": "2",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "2",
+          "classname": "post.it.vd",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2312",
+      "page_id": "559",
+      "page_caption": "Carpets",
+      "page_public": true,
+      "catalog_name": "waasa_rug5",
+      "item_ids": "3898",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3898",
+          "classname": "Gray Waasa Rug",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2313",
+      "page_id": "559",
+      "page_caption": "Carpets",
+      "page_public": true,
+      "catalog_name": "waasa_rug1",
+      "item_ids": "3899",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3899",
+          "classname": "Blue Waasa Rug",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2314",
+      "page_id": "559",
+      "page_caption": "Carpets",
+      "page_public": true,
+      "catalog_name": "waasa_rug3",
+      "item_ids": "3900",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3900",
+          "classname": "Orange Waasa Rug",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2316",
+      "page_id": "559",
+      "page_caption": "Carpets",
+      "page_public": true,
+      "catalog_name": "waasa_rug4",
+      "item_ids": "3902",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3902",
+          "classname": "Green Waasa Rug",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2318",
+      "page_id": "559",
+      "page_caption": "Carpets",
+      "page_public": true,
+      "catalog_name": "waasa_rug2",
+      "item_ids": "3904",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3904",
+          "classname": "Yellow Waasa Rug",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2301",
+      "page_id": "607",
+      "page_caption": "Tables",
+      "page_public": true,
+      "catalog_name": "waasa_table2",
+      "item_ids": "3887",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3887",
+          "classname": "Large Wooden Table",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2309",
+      "page_id": "607",
+      "page_caption": "Tables",
+      "page_public": true,
+      "catalog_name": "waasa_table1",
+      "item_ids": "3895",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3895",
+          "classname": "Small Wooden Table",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "52398381",
+      "page_id": "607",
+      "page_caption": "Tables",
+      "page_public": true,
+      "catalog_name": "BW_HogwartsTableGH_name",
+      "item_ids": "52398381",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "52398381",
+          "classname": "BW_HogwartsTableGH_name",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "36885432",
+      "page_id": "612",
+      "page_caption": "Flooring",
+      "page_public": true,
+      "catalog_name": "axovtile4_name",
+      "item_ids": "36885432",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "36885432",
+          "classname": "axovtile4_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "36885437",
+      "page_id": "612",
+      "page_caption": "Flooring",
+      "page_public": true,
+      "catalog_name": "GrimmauldFloor_name",
+      "item_ids": "36885437",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "36885437",
+          "classname": "GrimmauldFloor_name",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "36885455",
+      "page_id": "612",
+      "page_caption": "Flooring",
+      "page_public": true,
+      "catalog_name": "sowford_sol05_name",
+      "item_ids": "36885455",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "36885455",
+          "classname": "sowford_sol05_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "36885461",
+      "page_id": "612",
+      "page_caption": "Flooring",
+      "page_public": true,
+      "catalog_name": "sowford_sol4_name",
+      "item_ids": "36885461",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "36885461",
+          "classname": "sowford_sol4_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "36885462",
+      "page_id": "612",
+      "page_caption": "Flooring",
+      "page_public": true,
+      "catalog_name": "sowford_sol5_name",
+      "item_ids": "36885462",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "36885462",
+          "classname": "sowford_sol5_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "36885473",
+      "page_id": "612",
+      "page_caption": "Flooring",
+      "page_public": true,
+      "catalog_name": "weyko_marron_h1o_name",
+      "item_ids": "36885473",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "36885473",
+          "classname": "weyko_marron_h1o_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "85323319",
+      "page_id": "615",
+      "page_caption": "Doors & Frames",
+      "page_public": true,
+      "catalog_name": "HogwartsDoorBW_name",
+      "item_ids": "85323319",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "85323319",
+          "classname": "HogwartsDoorBW_name",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10260",
+      "page_id": "681",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "a0 pet35",
+      "item_ids": "50035",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50035",
+          "classname": "a0 pet35",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "11220556",
+      "page_id": "683",
+      "page_caption": "Junk",
+      "page_public": true,
+      "catalog_name": "17wautomat_pink_name",
+      "item_ids": "11220556",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "11220556",
+          "classname": "17wautomat_pink",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "11220557",
+      "page_id": "683",
+      "page_caption": "Junk",
+      "page_public": true,
+      "catalog_name": "17wautomat_purple_name",
+      "item_ids": "11220557",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "11220557",
+          "classname": "17wautomat_purple",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "11220558",
+      "page_id": "683",
+      "page_caption": "Junk",
+      "page_public": true,
+      "catalog_name": "17wautomat_red_name",
+      "item_ids": "11220558",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "11220558",
+          "classname": "17wautomat_red",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "11220559",
+      "page_id": "683",
+      "page_caption": "Junk",
+      "page_public": true,
+      "catalog_name": "17wautomat_turquoise_name",
+      "item_ids": "11220559",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "11220559",
+          "classname": "17wautomat_turquoise",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "18578500",
+      "page_id": "683",
+      "page_caption": "Junk",
+      "page_public": true,
+      "catalog_name": "mybobba_Stef_Pinkdragon_name",
+      "item_ids": "18578500",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "18578500",
+          "classname": "mybobba_Stef_Pinkdragon",
+          "category": "unknown",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10259",
+      "page_id": "685",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "a0 pet32",
+      "item_ids": "50032",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50032",
+          "classname": "a0 pet32",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2247",
+      "page_id": "736",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "Hobo Awards 2022",
+      "item_ids": "3833",
+      "cost_credits": "1000",
+      "classnames": [
+        {
+          "base_id": "3833",
+          "classname": "Hobo Awards 2022",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "102441",
+      "page_id": "881",
+      "page_caption": "Pet Monkey",
+      "page_public": true,
+      "catalog_name": "a0 pet14",
+      "item_ids": "50014",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50014",
+          "classname": "a0 pet14",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "102451",
+      "page_id": "891",
+      "page_caption": "Pet Horse",
+      "page_public": true,
+      "catalog_name": "a0 pet15",
+      "item_ids": "50015",
+      "cost_credits": "20",
+      "classnames": [
+        {
+          "base_id": "50015",
+          "classname": "a0 pet15",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "102461",
+      "page_id": "901",
+      "page_caption": "Bunny",
+      "page_public": true,
+      "catalog_name": "a0 pet17",
+      "item_ids": "50017",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50017",
+          "classname": "a0 pet17",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "76680116",
+      "page_id": "913",
+      "page_caption": "Duckets",
+      "page_public": true,
+      "catalog_name": "100 Duckies",
+      "item_ids": "76680116",
+      "cost_credits": "50",
+      "classnames": [
+        {
+          "base_id": "76680116",
+          "classname": "PF_100_duckebag",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "11065",
+      "page_id": "914",
+      "page_caption": "Credits",
+      "page_public": true,
+      "catalog_name": "Silver Coin",
+      "item_ids": "2067",
+      "cost_credits": "4",
+      "classnames": [
+        {
+          "base_id": "2067",
+          "classname": "CF__5_coin_silver",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "102491",
+      "page_id": "931",
+      "page_caption": "Bunny - Manic",
+      "page_public": true,
+      "catalog_name": "a0 pet20",
+      "item_ids": "50020",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50020",
+          "classname": "a0 pet20",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12301",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_table2",
+      "item_ids": "3887",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3887",
+          "classname": "Large Wooden Table",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12303",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_chair",
+      "item_ids": "3889",
+      "cost_credits": "2",
+      "classnames": [
+        {
+          "base_id": "3889",
+          "classname": "Computer Chair",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12304",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_ship2",
+      "item_ids": "3890",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3890",
+          "classname": "Large Sailing Boat",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12305",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_ship1",
+      "item_ids": "3891",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3891",
+          "classname": "Small Sailing Boat",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12306",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_bunk_bed",
+      "item_ids": "3892",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3892",
+          "classname": "Bunk Bed",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12309",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_table1",
+      "item_ids": "3895",
+      "cost_credits": "2",
+      "classnames": [
+        {
+          "base_id": "3895",
+          "classname": "Small Wooden Table",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12310",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_desk",
+      "item_ids": "3896",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3896",
+          "classname": "Wooden Study Desk",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12312",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_rug5",
+      "item_ids": "3898",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3898",
+          "classname": "Gray Waasa Rug",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12313",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_rug1",
+      "item_ids": "3899",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3899",
+          "classname": "Blue Waasa Rug",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12314",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_rug3",
+      "item_ids": "3900",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3900",
+          "classname": "Orange Waasa Rug",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12315",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_aquarium",
+      "item_ids": "3901",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3901",
+          "classname": "Aquarium",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12316",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_rug4",
+      "item_ids": "3902",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3902",
+          "classname": "Green Waasa Rug",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12317",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_chair_wood",
+      "item_ids": "3903",
+      "cost_credits": "2",
+      "classnames": [
+        {
+          "base_id": "3903",
+          "classname": "Wooden Chair",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "12318",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_rug2",
+      "item_ids": "3904",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3904",
+          "classname": "Yellow Waasa Rug",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "19928",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_wall_shelf2",
+      "item_ids": "43960",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "43960",
+          "classname": "Wall Shelf",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "19929",
+      "page_id": "950",
+      "page_caption": "Waasa",
+      "page_public": true,
+      "catalog_name": "waasa_wall_shelf1",
+      "item_ids": "43970",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "43970",
+          "classname": "Book Shelf",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "1996663942",
+      "page_id": "952",
+      "page_caption": "Broken/Unused",
+      "page_public": false,
+      "catalog_name": "a0 pet10",
+      "item_ids": "50010",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "50010",
+          "classname": "a0 pet10",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "1996663994",
+      "page_id": "952",
+      "page_caption": "Broken/Unused",
+      "page_public": false,
+      "catalog_name": "grunge_wall",
+      "item_ids": "451101",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "451101",
+          "classname": "grunge_wall",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "1996664124",
+      "page_id": "952",
+      "page_caption": "Broken/Unused",
+      "page_public": false,
+      "catalog_name": "Rainbow_fountain",
+      "item_ids": "6660081",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "6660081",
+          "classname": "Rainbow_fountain",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "102561",
+      "page_id": "1001",
+      "page_caption": "Puppies",
+      "page_public": true,
+      "catalog_name": "a0 pet29",
+      "item_ids": "50029",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50029",
+          "classname": "a0 pet29",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "102571",
+      "page_id": "1011",
+      "page_caption": "Piglets",
+      "page_public": true,
+      "catalog_name": "a0 pet30",
+      "item_ids": "50030",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50030",
+          "classname": "a0 pet30",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109640",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_base_name",
+      "item_ids": "29109640",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109640",
+          "classname": "hp_base_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109646",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_chest_name",
+      "item_ids": "29109646",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109646",
+          "classname": "hp_chest_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109647",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_crystalball_name",
+      "item_ids": "29109647",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109647",
+          "classname": "hp_crystalball_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109649",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_divtable1_name",
+      "item_ids": "29109649",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109649",
+          "classname": "hp_divtable1_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109658",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_globe_name",
+      "item_ids": "29109658",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109658",
+          "classname": "hp_globe_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109659",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_goblet_name",
+      "item_ids": "29109659",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109659",
+          "classname": "hp_goblet_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109664",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_historybook_name",
+      "item_ids": "29109664",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109664",
+          "classname": "hp_historybook_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109665",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_key_name",
+      "item_ids": "29109665",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109665",
+          "classname": "hp_key_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109666",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_ladder_name",
+      "item_ids": "29109666",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109666",
+          "classname": "hp_ladder_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109672",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_quill1_name",
+      "item_ids": "29109672",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109672",
+          "classname": "hp_quill1_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109673",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_quill2_name",
+      "item_ids": "29109673",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109673",
+          "classname": "hp_quill2_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109674",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_quill3_name",
+      "item_ids": "29109674",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109674",
+          "classname": "hp_quill3_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109675",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_quill4_name",
+      "item_ids": "29109675",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109675",
+          "classname": "hp_quill4_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109676",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_sack_name",
+      "item_ids": "29109676",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109676",
+          "classname": "hp_sack_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "29109678",
+      "page_id": "1299",
+      "page_caption": "HP 2",
+      "page_public": true,
+      "catalog_name": "hp_scrollstack_name",
+      "item_ids": "29109678",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "29109678",
+          "classname": "hp_scrollstack_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "95567291",
+      "page_id": "1486",
+      "page_caption": "Cupid",
+      "page_public": true,
+      "catalog_name": "Cupid_chair_name",
+      "item_ids": "95567291",
+      "cost_credits": "1",
+      "classnames": [
+        {
+          "base_id": "95567291",
+          "classname": "Cupid_chair",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "18578504",
+      "page_id": "1516",
+      "page_caption": "Unused Wired",
+      "page_public": false,
+      "catalog_name": "wf_act_givexp_name",
+      "item_ids": "18578504",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "18578504",
+          "classname": "wf_act_givexp",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "34604620",
+      "page_id": "1519",
+      "page_caption": "Firey Dragons",
+      "page_public": true,
+      "catalog_name": "mybobba_Stef_Pinkdragon_name",
+      "item_ids": "34604620",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "34604620",
+          "classname": "mybobba_Stef_Pinkdragon",
+          "category": "unknown",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "87380109",
+      "page_id": "1581",
+      "page_caption": "Sparkle Dragons",
+      "page_public": true,
+      "catalog_name": "Pink Sparkle Dragon",
+      "item_ids": "87380109",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "87380109",
+          "classname": "mybobba_stef_pinkdragon",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "19990862",
+      "page_id": "1762",
+      "page_caption": "Bears",
+      "page_public": true,
+      "catalog_name": "kinggrizzy_harvycstmph_name",
+      "item_ids": "19990862",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "19990862",
+          "classname": "kinggrizzy_harvycstmph_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "49332948",
+      "page_id": "1780",
+      "page_caption": "Poker Chips",
+      "page_public": true,
+      "catalog_name": "10 Poker Chips",
+      "item_ids": "49332948",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "49332948",
+          "classname": "DF_102_10_bluechip",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "49332949",
+      "page_id": "1780",
+      "page_caption": "Poker Chips",
+      "page_public": true,
+      "catalog_name": "1 Poker Chip",
+      "item_ids": "49332949",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "49332949",
+          "classname": "DF_102_1_whitechip",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "49332950",
+      "page_id": "1780",
+      "page_caption": "Poker Chips",
+      "page_public": true,
+      "catalog_name": "25 Poker Chips",
+      "item_ids": "49332950",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "49332950",
+          "classname": "DF_102_25_greenchip",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "49332951",
+      "page_id": "1780",
+      "page_caption": "Poker Chips",
+      "page_public": true,
+      "catalog_name": "50 Poker Chips",
+      "item_ids": "49332951",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "49332951",
+          "classname": "DF_102_50_purplechip",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "49332952",
+      "page_id": "1780",
+      "page_caption": "Poker Chips",
+      "page_public": true,
+      "catalog_name": "5 Poker Chips",
+      "item_ids": "49332952",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "49332952",
+          "classname": "DF_102_5_redchip",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "64885397",
+      "page_id": "1780",
+      "page_caption": "Poker Chips",
+      "page_public": true,
+      "catalog_name": "CF_1820000_gold_name",
+      "item_ids": "64885397",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "64885397",
+          "classname": "DF_102_100_gold",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "64885398",
+      "page_id": "1780",
+      "page_caption": "Poker Chips",
+      "page_public": true,
+      "catalog_name": "CF_455000__gold_name",
+      "item_ids": "64885398",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "64885398",
+          "classname": "DF_102_25__gold",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "64885399",
+      "page_id": "1780",
+      "page_caption": "Poker Chips",
+      "page_public": true,
+      "catalog_name": "CF_5000000__goldcc_name",
+      "item_ids": "64885399",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "64885399",
+          "classname": "DF_102_5_goldcc",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "64885400",
+      "page_id": "1780",
+      "page_caption": "Poker Chips",
+      "page_public": true,
+      "catalog_name": "CF_910000__gold_name",
+      "item_ids": "64885400",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "64885400",
+          "classname": "DF_102_75__gold",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "64885401",
+      "page_id": "1780",
+      "page_caption": "Poker Chips",
+      "page_public": true,
+      "catalog_name": "CF_91000_n_gold_name",
+      "item_ids": "64885401",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "64885401",
+          "classname": "DF_102_50_n_gold",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "1303113",
+      "page_id": "1799",
+      "page_caption": "More",
+      "page_public": true,
+      "catalog_name": "blochp_yvess_name",
+      "item_ids": "1303113",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "1303113",
+          "classname": "blochp_yvess_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257801",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hogwarts_broom_name",
+      "item_ids": "53257801",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257801",
+          "classname": "hogwarts_broom_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257805",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_acromantula_name",
+      "item_ids": "53257805",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257805",
+          "classname": "hp_acromantula_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257806",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_alchemybook_name",
+      "item_ids": "53257806",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257806",
+          "classname": "hp_alchemybook_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257807",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_angel_name",
+      "item_ids": "53257807",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257807",
+          "classname": "hp_angel_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257808",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_architect_name",
+      "item_ids": "53257808",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257808",
+          "classname": "hp_architect_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257810",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_bluebox_name",
+      "item_ids": "53257810",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257810",
+          "classname": "hp_bluebox_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257813",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_closet_name",
+      "item_ids": "53257813",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257813",
+          "classname": "hp_closet_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257814",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_flask_name",
+      "item_ids": "53257814",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257814",
+          "classname": "hp_flask_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257815",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_greenbox_name",
+      "item_ids": "53257815",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257815",
+          "classname": "hp_greenbox_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257816",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_heads_name",
+      "item_ids": "53257816",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257816",
+          "classname": "hp_heads_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257817",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_lantern_name",
+      "item_ids": "53257817",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257817",
+          "classname": "hp_lantern_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257819",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_mask_name",
+      "item_ids": "53257819",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257819",
+          "classname": "hp_mask_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257820",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_necroot_name",
+      "item_ids": "53257820",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257820",
+          "classname": "hp_necroot_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257821",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_purplebox_name",
+      "item_ids": "53257821",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257821",
+          "classname": "hp_purplebox_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257822",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_quidchest_name",
+      "item_ids": "53257822",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257822",
+          "classname": "hp_quidchest_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257823",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_redbox_name",
+      "item_ids": "53257823",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257823",
+          "classname": "hp_redbox_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257826",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_skelegro_name",
+      "item_ids": "53257826",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257826",
+          "classname": "hp_skelegro_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257828",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_skull_name",
+      "item_ids": "53257828",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257828",
+          "classname": "hp_skull_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257830",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_spade_name",
+      "item_ids": "53257830",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257830",
+          "classname": "hp_spade_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257831",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_spectre_name",
+      "item_ids": "53257831",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257831",
+          "classname": "hp_spectre_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257832",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_spider_name",
+      "item_ids": "53257832",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257832",
+          "classname": "hp_spider_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "53257835",
+      "page_id": "1999",
+      "page_caption": "HP 1",
+      "page_public": true,
+      "catalog_name": "hp_yellowbox_name",
+      "item_ids": "53257835",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "53257835",
+          "classname": "hp_yellowbox_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "77083308",
+      "page_id": "2053",
+      "page_caption": "Coloured Dice",
+      "page_public": true,
+      "catalog_name": "3d1ceh4_name",
+      "item_ids": "77083308",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "77083308",
+          "classname": "3d1ceh4",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "77083309",
+      "page_id": "2053",
+      "page_caption": "Coloured Dice",
+      "page_public": true,
+      "catalog_name": "3d1ceh5_name",
+      "item_ids": "77083309",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "77083309",
+          "classname": "3d1ceh5",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "71203823",
+      "page_id": "2255",
+      "page_caption": "Castle",
+      "page_public": true,
+      "catalog_name": "ptrnvloer2_name",
+      "item_ids": "71203823",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "71203823",
+          "classname": "ptrnvloer2_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "34161",
+      "page_id": "2512",
+      "page_caption": "Badge Display",
+      "page_public": true,
+      "catalog_name": "badge_display2",
+      "item_ids": "5013",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "5013",
+          "classname": "Badge Display Case",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "34171",
+      "page_id": "2512",
+      "page_caption": "Badge Display",
+      "page_public": true,
+      "catalog_name": "badge_display",
+      "item_ids": "5014",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "5014",
+          "classname": "Badge Display Case",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "34181",
+      "page_id": "2512",
+      "page_caption": "Badge Display",
+      "page_public": true,
+      "catalog_name": "badge_display4",
+      "item_ids": "5015",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "5015",
+          "classname": "Badge Display Case",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "34191",
+      "page_id": "2512",
+      "page_caption": "Badge Display",
+      "page_public": true,
+      "catalog_name": "badge_display3",
+      "item_ids": "5016",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "5016",
+          "classname": "Badge Display Case",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "34201",
+      "page_id": "2512",
+      "page_caption": "Badge Display",
+      "page_public": true,
+      "catalog_name": "badge_display5",
+      "item_ids": "5017",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "5017",
+          "classname": "Badge Display Case",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "90855",
+      "page_id": "3057",
+      "page_caption": "Pikachu",
+      "page_public": true,
+      "catalog_name": "a0 pet49",
+      "item_ids": "90855",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "90855",
+          "classname": "a0 pet49",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "52398443",
+      "page_id": "3344",
+      "page_caption": "HP 6",
+      "page_public": true,
+      "catalog_name": "vaultdragon_name",
+      "item_ids": "52398443",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "52398443",
+          "classname": "vaultdragon_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "8195",
+      "page_id": "5533",
+      "page_caption": "Daycare",
+      "page_public": true,
+      "catalog_name": "xmas_c17_doll2",
+      "item_ids": "9792",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "9792",
+          "classname": "xmas_c17_doll2 name",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "8201",
+      "page_id": "5533",
+      "page_caption": "Daycare",
+      "page_public": true,
+      "catalog_name": "xmas_c17_doll4",
+      "item_ids": "9798",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "9798",
+          "classname": "xmas_c17_doll4 name",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "8214",
+      "page_id": "5533",
+      "page_caption": "Daycare",
+      "page_public": true,
+      "catalog_name": "xmas_c17_doll1",
+      "item_ids": "9811",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "9811",
+          "classname": "xmas_c17_doll1 name",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "8220",
+      "page_id": "5533",
+      "page_caption": "Daycare",
+      "page_public": true,
+      "catalog_name": "xmas_c17_doll6",
+      "item_ids": "9817",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "9817",
+          "classname": "xmas_c17_doll6 name",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "8237",
+      "page_id": "5533",
+      "page_caption": "Daycare",
+      "page_public": true,
+      "catalog_name": "xmas_c17_doll5",
+      "item_ids": "9834",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "9834",
+          "classname": "xmas_c17_doll5 name",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "8246",
+      "page_id": "5533",
+      "page_caption": "Daycare",
+      "page_public": true,
+      "catalog_name": "xmas_c17_doll3",
+      "item_ids": "9843",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "9843",
+          "classname": "xmas_c17_doll3 name",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "1996668977",
+      "page_id": "6688",
+      "page_caption": "Bricks",
+      "page_public": true,
+      "catalog_name": "cas17_block4_name",
+      "item_ids": "71203767",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "71203767",
+          "classname": "cas17_block4_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2306",
+      "page_id": "8897",
+      "page_caption": "Beds",
+      "page_public": true,
+      "catalog_name": "waasa_bunk_bed",
+      "item_ids": "3892",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3892",
+          "classname": "Bunk Bed",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10627",
+      "page_id": "8897",
+      "page_caption": "Beds",
+      "page_public": true,
+      "catalog_name": "waasa_table1",
+      "item_ids": "3895",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3895",
+          "classname": "Small Wooden Table",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "10628",
+      "page_id": "8897",
+      "page_caption": "Beds",
+      "page_public": true,
+      "catalog_name": "waasa_table2",
+      "item_ids": "3887",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3887",
+          "classname": "Large Wooden Table",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2303",
+      "page_id": "8898",
+      "page_caption": "Seating",
+      "page_public": true,
+      "catalog_name": "waasa_chair",
+      "item_ids": "3889",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3889",
+          "classname": "Computer Chair",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2317",
+      "page_id": "8898",
+      "page_caption": "Seating",
+      "page_public": true,
+      "catalog_name": "waasa_chair_wood",
+      "item_ids": "3903",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3903",
+          "classname": "Wooden Chair",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2304",
+      "page_id": "8985",
+      "page_caption": "Decor",
+      "page_public": true,
+      "catalog_name": "waasa_ship2",
+      "item_ids": "3890",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3890",
+          "classname": "Large Sailing Boat",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2305",
+      "page_id": "8985",
+      "page_caption": "Decor",
+      "page_public": true,
+      "catalog_name": "waasa_ship1",
+      "item_ids": "3891",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3891",
+          "classname": "Small Sailing Boat",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2315",
+      "page_id": "9966",
+      "page_caption": "Assorted Furni",
+      "page_public": true,
+      "catalog_name": "waasa_aquarium",
+      "item_ids": "3901",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "3901",
+          "classname": "Aquarium",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "8459",
+      "page_id": "9966",
+      "page_caption": "Assorted Furni",
+      "page_public": true,
+      "catalog_name": "laundry_r18_vacuum",
+      "item_ids": "10056",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "10056",
+          "classname": "Vacuum",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "9928",
+      "page_id": "9966",
+      "page_caption": "Assorted Furni",
+      "page_public": true,
+      "catalog_name": "waasa_wall_shelf2",
+      "item_ids": "43960",
+      "cost_credits": "15",
+      "classnames": [
+        {
+          "base_id": "43960",
+          "classname": "Wall Shelf",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "9929",
+      "page_id": "9966",
+      "page_caption": "Assorted Furni",
+      "page_public": true,
+      "catalog_name": "waasa_wall_shelf1",
+      "item_ids": "43970",
+      "cost_credits": "15",
+      "classnames": [
+        {
+          "base_id": "43970",
+          "classname": "Book Shelf",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "85323311",
+      "page_id": "11999",
+      "page_caption": "HP 3",
+      "page_public": true,
+      "catalog_name": "fairy_grass_name",
+      "item_ids": "85323311",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "85323311",
+          "classname": "fairy_grass_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "3416",
+      "page_id": "69690",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "badge_display2",
+      "item_ids": "5013",
+      "cost_credits": "15",
+      "classnames": [
+        {
+          "base_id": "5013",
+          "classname": "Badge Display Case",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "3417",
+      "page_id": "69690",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "badge_display",
+      "item_ids": "5014",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "5014",
+          "classname": "Badge Display Case",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "3418",
+      "page_id": "69690",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "badge_display4",
+      "item_ids": "5015",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "5015",
+          "classname": "Badge Display Case",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "3419",
+      "page_id": "69690",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "badge_display3",
+      "item_ids": "5016",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "5016",
+          "classname": "Badge Display Case",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "3420",
+      "page_id": "69690",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "badge_display5",
+      "item_ids": "5017",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "5017",
+          "classname": "Badge Display Case",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "42622807",
+      "page_id": "88557",
+      "page_caption": "Cupid",
+      "page_public": true,
+      "catalog_name": "cupid_chair_name",
+      "item_ids": "42622807",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "42622807",
+          "classname": "cupid_chair",
+          "category": "unknown",
+          "has_nitro": true
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "1234572455",
+      "page_id": "1234577",
+      "page_caption": "?",
+      "page_public": false,
+      "catalog_name": "table_morderne_en__bois_II",
+      "item_ids": "996662900",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "996662900",
+          "classname": "table_morderne_en__bois_II",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "99910892",
+      "page_id": "2234637",
+      "page_caption": "Dividers & Gates",
+      "page_public": true,
+      "catalog_name": "suburban_bw_gate_name",
+      "item_ids": "99910892",
+      "cost_credits": "3",
+      "classnames": [
+        {
+          "base_id": "99910892",
+          "classname": "suburban_bw_gate_name",
+          "category": "no-source",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "2310",
+      "page_id": "2234693",
+      "page_caption": "Office",
+      "page_public": true,
+      "catalog_name": "waasa_desk",
+      "item_ids": "3896",
+      "cost_credits": "15",
+      "classnames": [
+        {
+          "base_id": "3896",
+          "classname": "Wooden Study Desk",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    },
+    {
+      "catalog_item_id": "102551",
+      "page_id": "9965234",
+      "page_caption": "Kittens",
+      "page_public": true,
+      "catalog_name": "a0 pet28",
+      "item_ids": "50028",
+      "cost_credits": "0",
+      "classnames": [
+        {
+          "base_id": "50028",
+          "classname": "a0 pet28",
+          "category": "name-mismatch",
+          "has_nitro": false
+        }
+      ]
+    }
+  ]
+}

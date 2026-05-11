@@ -1,0 +1,898 @@
+{
+  "total_unresolved": 148,
+  "by_category": {
+    "no-source": 69,
+    "name-mismatch": 79,
+    "copy-error": 0
+  },
+  "items": [
+    {
+      "classname": "hp_flask_name",
+      "file": "hp_flask_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_historybook_name",
+      "file": "hp_historybook_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "Wooden Chair",
+      "file": "Wooden Chair.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_redbox_name",
+      "file": "hp_redbox_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "Badge Display Case",
+      "file": "Badge Display Case.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Habbo Hotel",
+      "file": "Habbo Hotel.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "kinggrizzy_harvycstmph_name",
+      "file": "kinggrizzy_harvycstmph_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_bluebox_name",
+      "file": "hp_bluebox_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_necroot_name",
+      "file": "hp_necroot_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "sowford_sol4_name",
+      "file": "sowford_sol4_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "Rainbow_fountain",
+      "file": "Rainbow_fountain.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "DF_102_25__gold",
+      "file": "DF_102_25__gold.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_closet_name",
+      "file": "hp_closet_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_architect_name",
+      "file": "hp_architect_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_goblet_name",
+      "file": "hp_goblet_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "suburban_bw_gate_name",
+      "file": "suburban_bw_gate_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "xmas_c17_doll1 name",
+      "file": "xmas_c17_doll1 name.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Chess",
+      "file": "Chess.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_crystalball_name",
+      "file": "hp_crystalball_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_alchemybook_name",
+      "file": "hp_alchemybook_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "a0 pet9",
+      "file": "a0 pet9.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet6",
+      "file": "a0 pet6.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "axovtile4_name",
+      "file": "axovtile4_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_greenbox_name",
+      "file": "hp_greenbox_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "GrimmauldFloor_name",
+      "file": "GrimmauldFloor_name.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Snst_tree1",
+      "file": "Snst_tree1.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Elevator",
+      "file": "Elevator.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "17wautomat_pink",
+      "file": "17wautomat_pink.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "a0 pet12",
+      "file": "a0 pet12.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Blue Waasa Rug",
+      "file": "Blue Waasa Rug.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Snst_iceblock",
+      "file": "Snst_iceblock.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "DF_102_1_whitechip",
+      "file": "DF_102_1_whitechip.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hogwarts_broom_name",
+      "file": "hogwarts_broom_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_skelegro_name",
+      "file": "hp_skelegro_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "a0 pet0",
+      "file": "a0 pet0.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet35",
+      "file": "a0 pet35.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "ptrnvloer2_name",
+      "file": "ptrnvloer2_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "weyko_marron_h1o_name",
+      "file": "weyko_marron_h1o_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "a0 pet15",
+      "file": "a0 pet15.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Bunk Bed",
+      "file": "Bunk Bed.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "DF_102_5_goldcc",
+      "file": "DF_102_5_goldcc.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "StrayPixels winner x7",
+      "file": "StrayPixels winner x7.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "StrayPixels winner x3",
+      "file": "StrayPixels winner x3.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet2",
+      "file": "a0 pet2.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "xmas_c17_doll4 name",
+      "file": "xmas_c17_doll4 name.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet8",
+      "file": "a0 pet8.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_chest_name",
+      "file": "hp_chest_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_heads_name",
+      "file": "hp_heads_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "Aquarium",
+      "file": "Aquarium.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "HogwartsDoorBW_name",
+      "file": "HogwartsDoorBW_name.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_quill4_name",
+      "file": "hp_quill4_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "mybobba_stef_pinkdragon",
+      "file": "mybobba_stef_pinkdragon.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "DF_102_75__gold",
+      "file": "DF_102_75__gold.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "3d1ceh4",
+      "file": "3d1ceh4.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_ladder_name",
+      "file": "hp_ladder_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "Small Wooden Table",
+      "file": "Small Wooden Table.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet3",
+      "file": "a0 pet3.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_divtable1_name",
+      "file": "hp_divtable1_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "TicTacToe",
+      "file": "TicTacToe.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "cas17_block4_name",
+      "file": "cas17_block4_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "17wautomat_turquoise",
+      "file": "17wautomat_turquoise.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "Wooden Study Desk",
+      "file": "Wooden Study Desk.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_base_name",
+      "file": "hp_base_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "a0 pet49",
+      "file": "a0 pet49.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Book Shelf",
+      "file": "Book Shelf.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Small Sailing Boat",
+      "file": "Small Sailing Boat.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "vaultdragon_name",
+      "file": "vaultdragon_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_angel_name",
+      "file": "hp_angel_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_key_name",
+      "file": "hp_key_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "DF_102_25_greenchip",
+      "file": "DF_102_25_greenchip.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet24",
+      "file": "a0 pet24.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet14",
+      "file": "a0 pet14.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_lantern_name",
+      "file": "hp_lantern_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "a0 pet1",
+      "file": "a0 pet1.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "DF_102_5_redchip",
+      "file": "DF_102_5_redchip.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Poker",
+      "file": "Poker.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "BW_HogwartsTableGH_name",
+      "file": "BW_HogwartsTableGH_name.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_quill2_name",
+      "file": "hp_quill2_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_yellowbox_name",
+      "file": "hp_yellowbox_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "post.it.vd",
+      "file": "post.it.vd.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "PF_100_duckebag",
+      "file": "PF_100_duckebag.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_acromantula_name",
+      "file": "hp_acromantula_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "wf_act_givexp",
+      "file": "wf_act_givexp.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "Orange Waasa Rug",
+      "file": "Orange Waasa Rug.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet5",
+      "file": "a0 pet5.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "StrayPixels Winner x1",
+      "file": "StrayPixels Winner x1.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet22",
+      "file": "a0 pet22.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Gray Waasa Rug",
+      "file": "Gray Waasa Rug.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_sack_name",
+      "file": "hp_sack_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "Large Wooden Table",
+      "file": "Large Wooden Table.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Large Sailing Boat",
+      "file": "Large Sailing Boat.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Wall Shelf",
+      "file": "Wall Shelf.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "blochp_yvess_name",
+      "file": "blochp_yvess_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_scrollstack_name",
+      "file": "hp_scrollstack_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "a0 pet19",
+      "file": "a0 pet19.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_quidchest_name",
+      "file": "hp_quidchest_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_spectre_name",
+      "file": "hp_spectre_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "DF_102_50_purplechip",
+      "file": "DF_102_50_purplechip.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_skull_name",
+      "file": "hp_skull_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "a0 pet32",
+      "file": "a0 pet32.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "yummy_22_floor_0",
+      "file": "yummy_22_floor_0.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "grunge_wall",
+      "file": "grunge_wall.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "a0 pet21",
+      "file": "a0 pet21.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet4",
+      "file": "a0 pet4.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "fairy_grass_name",
+      "file": "fairy_grass_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "hp_quill3_name",
+      "file": "hp_quill3_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "17wautomat_purple",
+      "file": "17wautomat_purple.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "ads_clwall3",
+      "file": "ads_clwall3.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "a0 pet29",
+      "file": "a0 pet29.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet28",
+      "file": "a0 pet28.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Hobo Awards 2022",
+      "file": "Hobo Awards 2022.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet18",
+      "file": "a0 pet18.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Green Waasa Rug",
+      "file": "Green Waasa Rug.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_purplebox_name",
+      "file": "hp_purplebox_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "a0 pet23",
+      "file": "a0 pet23.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet10",
+      "file": "a0 pet10.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_spade_name",
+      "file": "hp_spade_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "Vacuum",
+      "file": "Vacuum.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "BattleShip",
+      "file": "BattleShip.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "xmas_c17_doll5 name",
+      "file": "xmas_c17_doll5 name.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_quill1_name",
+      "file": "hp_quill1_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "xmas_c17_doll3 name",
+      "file": "xmas_c17_doll3 name.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "17wautomat_red",
+      "file": "17wautomat_red.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "DF_102_50_n_gold",
+      "file": "DF_102_50_n_gold.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "3d1ceh5",
+      "file": "3d1ceh5.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "Black Dino Egg",
+      "file": "Black Dino Egg.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet31",
+      "file": "a0 pet31.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_spider_name",
+      "file": "hp_spider_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "Yellow Waasa Rug",
+      "file": "Yellow Waasa Rug.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_globe_name",
+      "file": "hp_globe_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "xmas_c17_doll2 name",
+      "file": "xmas_c17_doll2 name.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet11",
+      "file": "a0 pet11.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "sowford_sol5_name",
+      "file": "sowford_sol5_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "a0 pet7",
+      "file": "a0 pet7.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "DF_102_100_gold",
+      "file": "DF_102_100_gold.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "hp_mask_name",
+      "file": "hp_mask_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "Computer Chair",
+      "file": "Computer Chair.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "sowford_sol05_name",
+      "file": "sowford_sol05_name.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "DF_102_10_bluechip",
+      "file": "DF_102_10_bluechip.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet17",
+      "file": "a0 pet17.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "xmas_c17_doll6 name",
+      "file": "xmas_c17_doll6 name.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "table_morderne_en__bois_II",
+      "file": "table_morderne_en__bois_II.nitro",
+      "category": "no-source",
+      "recommendation": "hide-temporarily in MP-010.1A.4"
+    },
+    {
+      "classname": "StrayPixels winner x10",
+      "file": "StrayPixels winner x10.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet20",
+      "file": "a0 pet20.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet25",
+      "file": "a0 pet25.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "a0 pet30",
+      "file": "a0 pet30.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "Cupid_chair",
+      "file": "Cupid_chair.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    },
+    {
+      "classname": "CF__5_coin_silver",
+      "file": "CF__5_coin_silver.nitro",
+      "category": "name-mismatch",
+      "recommendation": "manual-review"
+    }
+  ]
+}

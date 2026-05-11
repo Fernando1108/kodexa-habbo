@@ -1,0 +1,46 @@
+{
+  "mp": "MP-010.1A.1",
+  "pre_this_mp": {
+    "icon_pct": 39,
+    "nitro_pct": 73,
+    "name_pct": 92,
+    "fd_items": 30991,
+    "icons": 16657,
+    "ext_texts_keys": 57289
+  },
+  "post_this_mp": {
+    "icon_pct": 39,
+    "nitro_pct": 73,
+    "name_pct": 100,
+    "fd_items": 30991,
+    "icons": 16657,
+    "ext_texts_keys": 57289,
+    "total_furni_refs": 32809
+  },
+  "p0_coverage": {
+    "icon_pct": 39,
+    "nitro_pct": 74,
+    "name_pct": 100,
+    "total_furni_refs": 30294
+  },
+  "changes_this_mp": {
+    "fd_names_fixed": 133,
+    "et_technical_names_fixed": 0,
+    "icons_additionally_copied": 0,
+    "nitro_additionally_copied": 0,
+    "icon_generation": "NOT POSSIBLE - no furniture imager available"
+  },
+  "unresolved": {
+    "icons_missing": 20058,
+    "nitro_missing": 8758,
+    "names_missing": 0,
+    "p0_icons_missing": 18443,
+    "p0_nitro_missing": 7735,
+    "p0_names_missing": 0
+  },
+  "classification": {
+    "hide_temporarily": 8321,
+    "maintain_with_placeholder": 7576,
+    "maintain_visible": 0
+  }
+}

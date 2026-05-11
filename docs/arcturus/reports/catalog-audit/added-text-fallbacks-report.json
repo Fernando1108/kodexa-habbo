@@ -1,0 +1,3002 @@
+[
+  {
+    "sprite_id": "50000",
+    "classname": "a0 pet0",
+    "public_name": "a0 pet0",
+    "item_name": "a0 pet0"
+  },
+  {
+    "sprite_id": "50001",
+    "classname": "a0 pet1",
+    "public_name": "a0 pet1",
+    "item_name": "a0 pet1"
+  },
+  {
+    "sprite_id": "50002",
+    "classname": "a0 pet2",
+    "public_name": "a0 pet2",
+    "item_name": "a0 pet2"
+  },
+  {
+    "sprite_id": "50003",
+    "classname": "a0 pet3",
+    "public_name": "a0 pet3",
+    "item_name": "a0 pet3"
+  },
+  {
+    "sprite_id": "50004",
+    "classname": "a0 pet4",
+    "public_name": "a0 pet4",
+    "item_name": "a0 pet4"
+  },
+  {
+    "sprite_id": "50005",
+    "classname": "a0 pet5",
+    "public_name": "a0 pet5",
+    "item_name": "a0 pet5"
+  },
+  {
+    "sprite_id": "50006",
+    "classname": "a0 pet6",
+    "public_name": "a0 pet6",
+    "item_name": "a0 pet6"
+  },
+  {
+    "sprite_id": "50007",
+    "classname": "a0 pet7",
+    "public_name": "a0 pet7",
+    "item_name": "a0 pet7"
+  },
+  {
+    "sprite_id": "50008",
+    "classname": "a0 pet8",
+    "public_name": "a0 pet8",
+    "item_name": "a0 pet8"
+  },
+  {
+    "sprite_id": "50009",
+    "classname": "a0 pet9",
+    "public_name": "a0 pet9",
+    "item_name": "a0 pet9"
+  },
+  {
+    "sprite_id": "50010",
+    "classname": "a0 pet10",
+    "public_name": "a0 pet10",
+    "item_name": "a0 pet10"
+  },
+  {
+    "sprite_id": "50011",
+    "classname": "a0 pet11",
+    "public_name": "a0 pet11",
+    "item_name": "a0 pet11"
+  },
+  {
+    "sprite_id": "50012",
+    "classname": "a0 pet12",
+    "public_name": "a0 pet12",
+    "item_name": "a0 pet12"
+  },
+  {
+    "sprite_id": "50014",
+    "classname": "a0 pet14",
+    "public_name": "a0 pet14",
+    "item_name": "a0 pet14"
+  },
+  {
+    "sprite_id": "50015",
+    "classname": "a0 pet15",
+    "public_name": "a0 pet15",
+    "item_name": "a0 pet15"
+  },
+  {
+    "sprite_id": "50017",
+    "classname": "a0 pet17",
+    "public_name": "a0 pet17",
+    "item_name": "a0 pet17"
+  },
+  {
+    "sprite_id": "50018",
+    "classname": "a0 pet18",
+    "public_name": "a0 pet18",
+    "item_name": "a0 pet18"
+  },
+  {
+    "sprite_id": "50019",
+    "classname": "a0 pet19",
+    "public_name": "a0 pet19",
+    "item_name": "a0 pet19"
+  },
+  {
+    "sprite_id": "50020",
+    "classname": "a0 pet20",
+    "public_name": "a0 pet20",
+    "item_name": "a0 pet20"
+  },
+  {
+    "sprite_id": "50021",
+    "classname": "a0 pet21",
+    "public_name": "a0 pet21",
+    "item_name": "a0 pet21"
+  },
+  {
+    "sprite_id": "50022",
+    "classname": "a0 pet22",
+    "public_name": "a0 pet22",
+    "item_name": "a0 pet22"
+  },
+  {
+    "sprite_id": "50023",
+    "classname": "a0 pet23",
+    "public_name": "a0 pet23",
+    "item_name": "a0 pet23"
+  },
+  {
+    "sprite_id": "50024",
+    "classname": "a0 pet24",
+    "public_name": "a0 pet24",
+    "item_name": "a0 pet24"
+  },
+  {
+    "sprite_id": "50025",
+    "classname": "a0 pet25",
+    "public_name": "a0 pet25",
+    "item_name": "a0 pet25"
+  },
+  {
+    "sprite_id": "50028",
+    "classname": "a0 pet28",
+    "public_name": "a0 pet28",
+    "item_name": "a0 pet28"
+  },
+  {
+    "sprite_id": "50029",
+    "classname": "a0 pet29",
+    "public_name": "a0 pet29",
+    "item_name": "a0 pet29"
+  },
+  {
+    "sprite_id": "50030",
+    "classname": "a0 pet30",
+    "public_name": "a0 pet30",
+    "item_name": "a0 pet30"
+  },
+  {
+    "sprite_id": "50031",
+    "classname": "a0 pet31",
+    "public_name": "a0 pet31",
+    "item_name": "a0 pet31"
+  },
+  {
+    "sprite_id": "50032",
+    "classname": "a0 pet32",
+    "public_name": "a0 pet32",
+    "item_name": "a0 pet32"
+  },
+  {
+    "sprite_id": "50035",
+    "classname": "a0 pet35",
+    "public_name": "a0 pet35",
+    "item_name": "a0 pet35"
+  },
+  {
+    "sprite_id": "90855",
+    "classname": "a0 pet49",
+    "public_name": "a0 pet49",
+    "item_name": "a0 pet49"
+  },
+  {
+    "sprite_id": "451101",
+    "classname": "grunge_wall",
+    "public_name": "grunge_wall",
+    "item_name": "grunge_wall"
+  },
+  {
+    "sprite_id": "456098",
+    "classname": "habbox_finley_david1",
+    "public_name": "habbox finley david1",
+    "item_name": "habbox_finley_david1"
+  },
+  {
+    "sprite_id": "456099",
+    "classname": "habbox_finley_david2",
+    "public_name": "habbox finley david2",
+    "item_name": "habbox_finley_david2"
+  },
+  {
+    "sprite_id": "456100",
+    "classname": "habbox_finley_grec_bain",
+    "public_name": "habbox finley grec bain",
+    "item_name": "habbox_finley_grec_bain"
+  },
+  {
+    "sprite_id": "456101",
+    "classname": "habbox_finley_grec_barre",
+    "public_name": "habbox finley grec barre",
+    "item_name": "habbox_finley_grec_barre"
+  },
+  {
+    "sprite_id": "456102",
+    "classname": "habbox_finley_grec_bouclier",
+    "public_name": "habbox finley grec bouclier",
+    "item_name": "habbox_finley_grec_bouclier"
+  },
+  {
+    "sprite_id": "456103",
+    "classname": "habbox_finley_grec_buste",
+    "public_name": "habbox finley grec buste",
+    "item_name": "habbox_finley_grec_buste"
+  },
+  {
+    "sprite_id": "456104",
+    "classname": "habbox_finley_grec_casque",
+    "public_name": "habbox finley grec casque",
+    "item_name": "habbox_finley_grec_casque"
+  },
+  {
+    "sprite_id": "456105",
+    "classname": "habbox_finley_grec_chaussures",
+    "public_name": "habbox finley grec chaussures",
+    "item_name": "habbox_finley_grec_chaussures"
+  },
+  {
+    "sprite_id": "456106",
+    "classname": "habbox_finley_grec_colonne",
+    "public_name": "habbox finley grec colonne",
+    "item_name": "habbox_finley_grec_colonne"
+  },
+  {
+    "sprite_id": "456107",
+    "classname": "habbox_finley_grec_couronne",
+    "public_name": "habbox finley grec couronne",
+    "item_name": "habbox_finley_grec_couronne"
+  },
+  {
+    "sprite_id": "456108",
+    "classname": "habbox_finley_grec_cupidon",
+    "public_name": "habbox finley grec cupidon",
+    "item_name": "habbox_finley_grec_cupidon"
+  },
+  {
+    "sprite_id": "456109",
+    "classname": "habbox_finley_grec_dalle",
+    "public_name": "habbox finley grec dalle",
+    "item_name": "habbox_finley_grec_dalle"
+  },
+  {
+    "sprite_id": "456110",
+    "classname": "habbox_finley_grec_disco",
+    "public_name": "habbox finley grec disco",
+    "item_name": "habbox_finley_grec_disco"
+  },
+  {
+    "sprite_id": "456111",
+    "classname": "habbox_finley_grec_lances",
+    "public_name": "habbox finley grec lances",
+    "item_name": "habbox_finley_grec_lances"
+  },
+  {
+    "sprite_id": "456112",
+    "classname": "habbox_finley_grec_masque",
+    "public_name": "habbox finley grec masque",
+    "item_name": "habbox_finley_grec_masque"
+  },
+  {
+    "sprite_id": "456113",
+    "classname": "habbox_finley_grec_mur1",
+    "public_name": "habbox finley grec mur1",
+    "item_name": "habbox_finley_grec_mur1"
+  },
+  {
+    "sprite_id": "456114",
+    "classname": "habbox_finley_grec_mur2",
+    "public_name": "habbox finley grec mur2",
+    "item_name": "habbox_finley_grec_mur2"
+  },
+  {
+    "sprite_id": "456115",
+    "classname": "habbox_finley_grec_mur3",
+    "public_name": "habbox finley grec mur3",
+    "item_name": "habbox_finley_grec_mur3"
+  },
+  {
+    "sprite_id": "456116",
+    "classname": "habbox_finley_grec_nourriture",
+    "public_name": "habbox finley grec nourriture",
+    "item_name": "habbox_finley_grec_nourriture"
+  },
+  {
+    "sprite_id": "456117",
+    "classname": "habbox_finley_grec_papyrus",
+    "public_name": "habbox finley grec papyrus",
+    "item_name": "habbox_finley_grec_papyrus"
+  },
+  {
+    "sprite_id": "456118",
+    "classname": "habbox_finley_grec_plat",
+    "public_name": "habbox finley grec plat",
+    "item_name": "habbox_finley_grec_plat"
+  },
+  {
+    "sprite_id": "456119",
+    "classname": "habbox_finley_grec_poseidon",
+    "public_name": "habbox finley grec poseidon",
+    "item_name": "habbox_finley_grec_poseidon"
+  },
+  {
+    "sprite_id": "456120",
+    "classname": "habbox_finley_grec_pot1",
+    "public_name": "habbox finley grec pot1",
+    "item_name": "habbox_finley_grec_pot1"
+  },
+  {
+    "sprite_id": "456121",
+    "classname": "habbox_finley_grec_pot2",
+    "public_name": "habbox finley grec pot2",
+    "item_name": "habbox_finley_grec_pot2"
+  },
+  {
+    "sprite_id": "456122",
+    "classname": "habbox_finley_grec_sol1",
+    "public_name": "habbox finley grec sol1",
+    "item_name": "habbox_finley_grec_sol1"
+  },
+  {
+    "sprite_id": "456123",
+    "classname": "habbox_finley_grec_sol2",
+    "public_name": "habbox finley grec sol2",
+    "item_name": "habbox_finley_grec_sol2"
+  },
+  {
+    "sprite_id": "456124",
+    "classname": "habbox_finley_grec_statue1",
+    "public_name": "habbox finley grec statue1",
+    "item_name": "habbox_finley_grec_statue1"
+  },
+  {
+    "sprite_id": "456125",
+    "classname": "habbox_finley_grec_statue2",
+    "public_name": "habbox finley grec statue2",
+    "item_name": "habbox_finley_grec_statue2"
+  },
+  {
+    "sprite_id": "456126",
+    "classname": "habbox_finley_grec_vase",
+    "public_name": "habbox finley grec vase",
+    "item_name": "habbox_finley_grec_vase"
+  },
+  {
+    "sprite_id": "456127",
+    "classname": "habbox_finley_grec_vetement",
+    "public_name": "habbox finley grec vetement",
+    "item_name": "habbox_finley_grec_vetement"
+  },
+  {
+    "sprite_id": "468196",
+    "classname": "overige_xmasplank",
+    "public_name": "overige xmasplank",
+    "item_name": "overige_xmasplank"
+  },
+  {
+    "sprite_id": "468197",
+    "classname": "xmas_comfy_couch_1",
+    "public_name": "xmas comfy couch 1",
+    "item_name": "xmas_comfy_couch_1"
+  },
+  {
+    "sprite_id": "468198",
+    "classname": "xmas_comfy_couch_2",
+    "public_name": "xmas comfy couch 2",
+    "item_name": "xmas_comfy_couch_2"
+  },
+  {
+    "sprite_id": "468199",
+    "classname": "xmas_comfy_couch_3",
+    "public_name": "xmas comfy couch 3",
+    "item_name": "xmas_comfy_couch_3"
+  },
+  {
+    "sprite_id": "468200",
+    "classname": "xmas_comfy_couch_4",
+    "public_name": "xmas comfy couch 4",
+    "item_name": "xmas_comfy_couch_4"
+  },
+  {
+    "sprite_id": "509034",
+    "classname": "poster_calendrier",
+    "public_name": "poster_calendrier",
+    "item_name": "poster_calendrier"
+  },
+  {
+    "sprite_id": "698153",
+    "classname": "rare_elephant_beige",
+    "public_name": "rare elephant beige",
+    "item_name": "rare_elephant_beige"
+  },
+  {
+    "sprite_id": "698154",
+    "classname": "rare_elephant_blue",
+    "public_name": "rare elephant blue",
+    "item_name": "rare_elephant_blue"
+  },
+  {
+    "sprite_id": "698155",
+    "classname": "rare_elephant_bluegrey",
+    "public_name": "rare elephant bluegrey",
+    "item_name": "rare_elephant_bluegrey"
+  },
+  {
+    "sprite_id": "698156",
+    "classname": "rare_elephant_blueh",
+    "public_name": "rare elephant blueh",
+    "item_name": "rare_elephant_blueh"
+  },
+  {
+    "sprite_id": "698157",
+    "classname": "rare_elephant_cyan",
+    "public_name": "rare elephant cyan",
+    "item_name": "rare_elephant_cyan"
+  },
+  {
+    "sprite_id": "698158",
+    "classname": "rare_elephant_gray",
+    "public_name": "rare elephant gray",
+    "item_name": "rare_elephant_gray"
+  },
+  {
+    "sprite_id": "698159",
+    "classname": "rare_elephant_green",
+    "public_name": "rare elephant green",
+    "item_name": "rare_elephant_green"
+  },
+  {
+    "sprite_id": "698160",
+    "classname": "rare_elephant_greenH",
+    "public_name": "rare elephant greenH",
+    "item_name": "rare_elephant_greenH"
+  },
+  {
+    "sprite_id": "698161",
+    "classname": "rare_elephant_orange",
+    "public_name": "rare elephant orange",
+    "item_name": "rare_elephant_orange"
+  },
+  {
+    "sprite_id": "698162",
+    "classname": "rare_elephant_pinkbaby",
+    "public_name": "rare elephant pinkbaby",
+    "item_name": "rare_elephant_pinkbaby"
+  },
+  {
+    "sprite_id": "698163",
+    "classname": "rare_elephant_purple",
+    "public_name": "rare elephant purple",
+    "item_name": "rare_elephant_purple"
+  },
+  {
+    "sprite_id": "698164",
+    "classname": "rare_elephant_purpleH",
+    "public_name": "rare elephant purpleH",
+    "item_name": "rare_elephant_purpleH"
+  },
+  {
+    "sprite_id": "698165",
+    "classname": "rare_elephant_purplez",
+    "public_name": "rare elephant purplez",
+    "item_name": "rare_elephant_purplez"
+  },
+  {
+    "sprite_id": "698166",
+    "classname": "rare_elephant_red",
+    "public_name": "rare elephant red",
+    "item_name": "rare_elephant_red"
+  },
+  {
+    "sprite_id": "698167",
+    "classname": "rare_elephant_white",
+    "public_name": "rare elephant white",
+    "item_name": "rare_elephant_white"
+  },
+  {
+    "sprite_id": "698168",
+    "classname": "rare_elephant_yellow",
+    "public_name": "rare elephant yellow",
+    "item_name": "rare_elephant_yellow"
+  },
+  {
+    "sprite_id": "864254",
+    "classname": "Yvess5_VIP_Lutrin_Blanc",
+    "public_name": "Yvess5 VIP Lutrin Blanc",
+    "item_name": "Yvess5_VIP_Lutrin_Blanc"
+  },
+  {
+    "sprite_id": "864255",
+    "classname": "Yvess5_VIP_Lutrin_Gold",
+    "public_name": "Yvess5 VIP Lutrin Gold",
+    "item_name": "Yvess5_VIP_Lutrin_Gold"
+  },
+  {
+    "sprite_id": "864256",
+    "classname": "Yvess5_VIP_Lutrin_Noir",
+    "public_name": "Yvess5 VIP Lutrin Noir",
+    "item_name": "Yvess5_VIP_Lutrin_Noir"
+  },
+  {
+    "sprite_id": "864257",
+    "classname": "Yvess5_VIP_Lutrin_Or",
+    "public_name": "Yvess5 VIP Lutrin Or",
+    "item_name": "Yvess5_VIP_Lutrin_Or"
+  },
+  {
+    "sprite_id": "864258",
+    "classname": "Yvess5_VIP_Lutrin_Rouge",
+    "public_name": "Yvess5 VIP Lutrin Rouge",
+    "item_name": "Yvess5_VIP_Lutrin_Rouge"
+  },
+  {
+    "sprite_id": "980618",
+    "classname": "attic15_paintingfloo1",
+    "public_name": "attic15 paintingfloo1",
+    "item_name": "attic15_paintingfloo1"
+  },
+  {
+    "sprite_id": "980619",
+    "classname": "axovblock",
+    "public_name": "axovblock",
+    "item_name": "axovblock"
+  },
+  {
+    "sprite_id": "980620",
+    "classname": "axovblock2",
+    "public_name": "axovblock2",
+    "item_name": "axovblock2"
+  },
+  {
+    "sprite_id": "980621",
+    "classname": "axovblock8_1",
+    "public_name": "axovblock8 1",
+    "item_name": "axovblock8_1"
+  },
+  {
+    "sprite_id": "980622",
+    "classname": "axovblock8_2",
+    "public_name": "axovblock8 2",
+    "item_name": "axovblock8_2"
+  },
+  {
+    "sprite_id": "980623",
+    "classname": "axovglass",
+    "public_name": "axovglass",
+    "item_name": "axovglass"
+  },
+  {
+    "sprite_id": "980624",
+    "classname": "axovglass2",
+    "public_name": "axovglass2",
+    "item_name": "axovglass2"
+  },
+  {
+    "sprite_id": "980625",
+    "classname": "axovgreek",
+    "public_name": "axovgreek",
+    "item_name": "axovgreek"
+  },
+  {
+    "sprite_id": "980626",
+    "classname": "axovgreek2",
+    "public_name": "axovgreek2",
+    "item_name": "axovgreek2"
+  },
+  {
+    "sprite_id": "980627",
+    "classname": "axovgreek3",
+    "public_name": "axovgreek3",
+    "item_name": "axovgreek3"
+  },
+  {
+    "sprite_id": "980628",
+    "classname": "axovgreek4",
+    "public_name": "axovgreek4",
+    "item_name": "axovgreek4"
+  },
+  {
+    "sprite_id": "980629",
+    "classname": "axovgreek5",
+    "public_name": "axovgreek5",
+    "item_name": "axovgreek5"
+  },
+  {
+    "sprite_id": "980630",
+    "classname": "axovroof1",
+    "public_name": "axovroof1",
+    "item_name": "axovroof1"
+  },
+  {
+    "sprite_id": "980631",
+    "classname": "axovroof2",
+    "public_name": "axovroof2",
+    "item_name": "axovroof2"
+  },
+  {
+    "sprite_id": "980637",
+    "classname": "axov_2",
+    "public_name": "axov 2",
+    "item_name": "axov_2"
+  },
+  {
+    "sprite_id": "980639",
+    "classname": "cabinet_tv",
+    "public_name": "cabinet tv",
+    "item_name": "cabinet_tv"
+  },
+  {
+    "sprite_id": "980640",
+    "classname": "cabinet_tv_3",
+    "public_name": "cabinet tv 3",
+    "item_name": "cabinet_tv_3"
+  },
+  {
+    "sprite_id": "980641",
+    "classname": "chair_lobby",
+    "public_name": "chair lobby",
+    "item_name": "chair_lobby"
+  },
+  {
+    "sprite_id": "980642",
+    "classname": "classic3_bloc1",
+    "public_name": "classic3 bloc1",
+    "item_name": "classic3_bloc1"
+  },
+  {
+    "sprite_id": "980643",
+    "classname": "concrete_block",
+    "public_name": "concrete block",
+    "item_name": "concrete_block"
+  },
+  {
+    "sprite_id": "980644",
+    "classname": "customstone_1",
+    "public_name": "customstone 1",
+    "item_name": "customstone_1"
+  },
+  {
+    "sprite_id": "980645",
+    "classname": "customstone_2",
+    "public_name": "customstone 2",
+    "item_name": "customstone_2"
+  },
+  {
+    "sprite_id": "980646",
+    "classname": "custom_gulv",
+    "public_name": "custom gulv",
+    "item_name": "custom_gulv"
+  },
+  {
+    "sprite_id": "980647",
+    "classname": "custom_plants",
+    "public_name": "custom plants",
+    "item_name": "custom_plants"
+  },
+  {
+    "sprite_id": "980648",
+    "classname": "DIY_a052_VerticalAirCondition",
+    "public_name": "DIY a052 VerticalAirCondition",
+    "item_name": "DIY_a052_VerticalAirCondition"
+  },
+  {
+    "sprite_id": "980649",
+    "classname": "DIY_a053_VerticalAirCondition1",
+    "public_name": "DIY a053 VerticalAirCondition1",
+    "item_name": "DIY_a053_VerticalAirCondition1"
+  },
+  {
+    "sprite_id": "980650",
+    "classname": "DIY_a054_VerticalAirCondition2",
+    "public_name": "DIY a054 VerticalAirCondition2",
+    "item_name": "DIY_a054_VerticalAirCondition2"
+  },
+  {
+    "sprite_id": "980651",
+    "classname": "DIY_a055_VerticalAirCondition3",
+    "public_name": "DIY a055 VerticalAirCondition3",
+    "item_name": "DIY_a055_VerticalAirCondition3"
+  },
+  {
+    "sprite_id": "980652",
+    "classname": "easter_c18_glassbrickwal2",
+    "public_name": "easter c18 glassbrickwal2",
+    "item_name": "easter_c18_glassbrickwal2"
+  },
+  {
+    "sprite_id": "980654",
+    "classname": "fleuris_d11_table",
+    "public_name": "fleuris d11 table",
+    "item_name": "fleuris_d11_table"
+  },
+  {
+    "sprite_id": "980655",
+    "classname": "furni19_deco_weapon",
+    "public_name": "furni19 deco weapon",
+    "item_name": "furni19_deco_weapon"
+  },
+  {
+    "sprite_id": "980656",
+    "classname": "furni19_wintercabin_floor",
+    "public_name": "furni19 wintercabin floor",
+    "item_name": "furni19_wintercabin_floor"
+  },
+  {
+    "sprite_id": "980657",
+    "classname": "furni19_wintercabin_log",
+    "public_name": "furni19 wintercabin log",
+    "item_name": "furni19_wintercabin_log"
+  },
+  {
+    "sprite_id": "980658",
+    "classname": "furni19_wintercabin_plate",
+    "public_name": "furni19 wintercabin plate",
+    "item_name": "furni19_wintercabin_plate"
+  },
+  {
+    "sprite_id": "980659",
+    "classname": "furni19_wintercabin_plate2",
+    "public_name": "furni19 wintercabin plate2",
+    "item_name": "furni19_wintercabin_plate2"
+  },
+  {
+    "sprite_id": "980660",
+    "classname": "habboxfr_c19_rainpressuretile",
+    "public_name": "habboxfr c19 rainpressuretile",
+    "item_name": "habboxfr_c19_rainpressuretile"
+  },
+  {
+    "sprite_id": "980661",
+    "classname": "habbox_shone_climatisation",
+    "public_name": "habbox shone climatisation",
+    "item_name": "habbox_shone_climatisation"
+  },
+  {
+    "sprite_id": "980663",
+    "classname": "herbe1x1_yve1",
+    "public_name": "herbe1x1 yve1",
+    "item_name": "herbe1x1_yve1"
+  },
+  {
+    "sprite_id": "980667",
+    "classname": "kasja_keys",
+    "public_name": "kasja keys",
+    "item_name": "kasja_keys"
+  },
+  {
+    "sprite_id": "980669",
+    "classname": "kasja_ror",
+    "public_name": "kasja ror",
+    "item_name": "kasja_ror"
+  },
+  {
+    "sprite_id": "980670",
+    "classname": "kasja_sfloatie",
+    "public_name": "kasja sfloatie",
+    "item_name": "kasja_sfloatie"
+  },
+  {
+    "sprite_id": "980676",
+    "classname": "kitchen_sink",
+    "public_name": "kitchen sink",
+    "item_name": "kitchen_sink"
+  },
+  {
+    "sprite_id": "980678",
+    "classname": "live19_schneeflockensuche",
+    "public_name": "live19 schneeflockensuche",
+    "item_name": "live19_schneeflockensuche"
+  },
+  {
+    "sprite_id": "980679",
+    "classname": "live19_snowkraut",
+    "public_name": "live19 snowkraut",
+    "item_name": "live19_snowkraut"
+  },
+  {
+    "sprite_id": "980680",
+    "classname": "live19_snowtree",
+    "public_name": "live19 snowtree",
+    "item_name": "live19_snowtree"
+  },
+  {
+    "sprite_id": "980681",
+    "classname": "live20_bigtree",
+    "public_name": "live20 bigtree",
+    "item_name": "live20_bigtree"
+  },
+  {
+    "sprite_id": "980682",
+    "classname": "live20_smalltree",
+    "public_name": "live20 smalltree",
+    "item_name": "live20_smalltree"
+  },
+  {
+    "sprite_id": "980683",
+    "classname": "livefurni19_deko_kraut",
+    "public_name": "livefurni19 deko kraut",
+    "item_name": "livefurni19_deko_kraut"
+  },
+  {
+    "sprite_id": "980684",
+    "classname": "livefurni19_deko_metallstange",
+    "public_name": "livefurni19 deko metallstange",
+    "item_name": "livefurni19_deko_metallstange"
+  },
+  {
+    "sprite_id": "980685",
+    "classname": "livefurni19_idk_bett",
+    "public_name": "livefurni19 idk bett",
+    "item_name": "livefurni19_idk_bett"
+  },
+  {
+    "sprite_id": "980686",
+    "classname": "livefurni19_idk_buecher",
+    "public_name": "livefurni19 idk buecher",
+    "item_name": "livefurni19_idk_buecher"
+  },
+  {
+    "sprite_id": "980687",
+    "classname": "livefurni19_idk_deko1",
+    "public_name": "livefurni19 idk deko1",
+    "item_name": "livefurni19_idk_deko1"
+  },
+  {
+    "sprite_id": "980688",
+    "classname": "livefurni19_idk_deko2",
+    "public_name": "livefurni19 idk deko2",
+    "item_name": "livefurni19_idk_deko2"
+  },
+  {
+    "sprite_id": "980689",
+    "classname": "livefurni19_idk_deko3",
+    "public_name": "livefurni19 idk deko3",
+    "item_name": "livefurni19_idk_deko3"
+  },
+  {
+    "sprite_id": "980690",
+    "classname": "livefurni19_idk_deko4",
+    "public_name": "livefurni19 idk deko4",
+    "item_name": "livefurni19_idk_deko4"
+  },
+  {
+    "sprite_id": "980691",
+    "classname": "livefurni19_idk_deko5",
+    "public_name": "livefurni19 idk deko5",
+    "item_name": "livefurni19_idk_deko5"
+  },
+  {
+    "sprite_id": "980692",
+    "classname": "livefurni19_idk_hocker",
+    "public_name": "livefurni19 idk hocker",
+    "item_name": "livefurni19_idk_hocker"
+  },
+  {
+    "sprite_id": "980693",
+    "classname": "livefurni19_idk_regal",
+    "public_name": "livefurni19 idk regal",
+    "item_name": "livefurni19_idk_regal"
+  },
+  {
+    "sprite_id": "980694",
+    "classname": "livefurni19_idk_sofa",
+    "public_name": "livefurni19 idk sofa",
+    "item_name": "livefurni19_idk_sofa"
+  },
+  {
+    "sprite_id": "980695",
+    "classname": "livefurni19_idk_stuhl",
+    "public_name": "livefurni19 idk stuhl",
+    "item_name": "livefurni19_idk_stuhl"
+  },
+  {
+    "sprite_id": "980696",
+    "classname": "livefurni19_idk_tisch",
+    "public_name": "livefurni19 idk tisch",
+    "item_name": "livefurni19_idk_tisch"
+  },
+  {
+    "sprite_id": "980697",
+    "classname": "livefurni19_idk_tisch2",
+    "public_name": "livefurni19 idk tisch2",
+    "item_name": "livefurni19_idk_tisch2"
+  },
+  {
+    "sprite_id": "980698",
+    "classname": "livefurni19_idk_vase",
+    "public_name": "livefurni19 idk vase",
+    "item_name": "livefurni19_idk_vase"
+  },
+  {
+    "sprite_id": "980699",
+    "classname": "livefurni19_invisiblefloor",
+    "public_name": "livefurni19 invisiblefloor",
+    "item_name": "livefurni19_invisiblefloor"
+  },
+  {
+    "sprite_id": "980700",
+    "classname": "livefurni19_invisiblefloor2x2",
+    "public_name": "livefurni19 invisiblefloor2x2",
+    "item_name": "livefurni19_invisiblefloor2x2"
+  },
+  {
+    "sprite_id": "980701",
+    "classname": "livefurni19_rpg_japanfood",
+    "public_name": "livefurni19 rpg japanfood",
+    "item_name": "livefurni19_rpg_japanfood"
+  },
+  {
+    "sprite_id": "980702",
+    "classname": "livefurni19_rpg_schneidebrett",
+    "public_name": "livefurni19 rpg schneidebrett",
+    "item_name": "livefurni19_rpg_schneidebrett"
+  },
+  {
+    "sprite_id": "980703",
+    "classname": "livefurni20_hospitalpillar",
+    "public_name": "livefurni20 hospitalpillar",
+    "item_name": "livefurni20_hospitalpillar"
+  },
+  {
+    "sprite_id": "980704",
+    "classname": "livefurni20_hospitalplate",
+    "public_name": "livefurni20 hospitalplate",
+    "item_name": "livefurni20_hospitalplate"
+  },
+  {
+    "sprite_id": "980705",
+    "classname": "livefurni20_invisibletriangle",
+    "public_name": "livefurni20 invisibletriangle",
+    "item_name": "livefurni20_invisibletriangle"
+  },
+  {
+    "sprite_id": "980706",
+    "classname": "livefurni20_smallblackfloor",
+    "public_name": "livefurni20 smallblackfloor",
+    "item_name": "livefurni20_smallblackfloor"
+  },
+  {
+    "sprite_id": "980707",
+    "classname": "liverare20_cloudegg",
+    "public_name": "liverare20 cloudegg",
+    "item_name": "liverare20_cloudegg"
+  },
+  {
+    "sprite_id": "980708",
+    "classname": "liverare20_floweregg",
+    "public_name": "liverare20 floweregg",
+    "item_name": "liverare20_floweregg"
+  },
+  {
+    "sprite_id": "980709",
+    "classname": "liverare20_heartegg",
+    "public_name": "liverare20 heartegg",
+    "item_name": "liverare20_heartegg"
+  },
+  {
+    "sprite_id": "980710",
+    "classname": "liverare20_luckegg",
+    "public_name": "liverare20 luckegg",
+    "item_name": "liverare20_luckegg"
+  },
+  {
+    "sprite_id": "980711",
+    "classname": "liverare20_staregg",
+    "public_name": "liverare20 staregg",
+    "item_name": "liverare20_staregg"
+  },
+  {
+    "sprite_id": "980712",
+    "classname": "lobby_table",
+    "public_name": "lobby table",
+    "item_name": "lobby_table"
+  },
+  {
+    "sprite_id": "980713",
+    "classname": "long_table",
+    "public_name": "long table",
+    "item_name": "long_table"
+  },
+  {
+    "sprite_id": "980715",
+    "classname": "po_outil_9",
+    "public_name": "po outil 9",
+    "item_name": "po_outil_9"
+  },
+  {
+    "sprite_id": "980716",
+    "classname": "rainbowtile",
+    "public_name": "rainbowtile",
+    "item_name": "rainbowtile"
+  },
+  {
+    "sprite_id": "980717",
+    "classname": "rainbowtile2",
+    "public_name": "rainbowtile2",
+    "item_name": "rainbowtile2"
+  },
+  {
+    "sprite_id": "980719",
+    "classname": "summer_floatie",
+    "public_name": "summer floatie",
+    "item_name": "summer_floatie"
+  },
+  {
+    "sprite_id": "980722",
+    "classname": "tree_block",
+    "public_name": "tree block",
+    "item_name": "tree_block"
+  },
+  {
+    "sprite_id": "980723",
+    "classname": "tree_block_b",
+    "public_name": "tree block b",
+    "item_name": "tree_block_b"
+  },
+  {
+    "sprite_id": "980724",
+    "classname": "tree_block_r",
+    "public_name": "tree block r",
+    "item_name": "tree_block_r"
+  },
+  {
+    "sprite_id": "980725",
+    "classname": "tree_block_w",
+    "public_name": "tree block w",
+    "item_name": "tree_block_w"
+  },
+  {
+    "sprite_id": "980726",
+    "classname": "tree_stairs",
+    "public_name": "tree stairs",
+    "item_name": "tree_stairs"
+  },
+  {
+    "sprite_id": "980727",
+    "classname": "tv_stand",
+    "public_name": "tv stand",
+    "item_name": "tv_stand"
+  },
+  {
+    "sprite_id": "980728",
+    "classname": "wardrobe_1",
+    "public_name": "wardrobe 1",
+    "item_name": "wardrobe_1"
+  },
+  {
+    "sprite_id": "980729",
+    "classname": "wf_touw1",
+    "public_name": "wf touw1",
+    "item_name": "wf_touw1"
+  },
+  {
+    "sprite_id": "980730",
+    "classname": "wf_touw2",
+    "public_name": "wf touw2",
+    "item_name": "wf_touw2"
+  },
+  {
+    "sprite_id": "980731",
+    "classname": "wf_touw3",
+    "public_name": "wf touw3",
+    "item_name": "wf_touw3"
+  },
+  {
+    "sprite_id": "980732",
+    "classname": "wooden_tile",
+    "public_name": "wooden tile",
+    "item_name": "wooden_tile"
+  },
+  {
+    "sprite_id": "1185154",
+    "classname": "Yvess5_PorteAreasBlanc_Blanc",
+    "public_name": "Yvess5 PorteAreasBlanc Blanc",
+    "item_name": "Yvess5_PorteAreasBlanc_Blanc"
+  },
+  {
+    "sprite_id": "1185155",
+    "classname": "Yvess5_PorteAreasBlanc_BleuCiel",
+    "public_name": "Yvess5 PorteAreasBlanc BleuCiel",
+    "item_name": "Yvess5_PorteAreasBlanc_BleuCiel"
+  },
+  {
+    "sprite_id": "1185156",
+    "classname": "Yvess5_PorteAreasBlanc_BleuFonce",
+    "public_name": "Yvess5 PorteAreasBlanc BleuFonce",
+    "item_name": "Yvess5_PorteAreasBlanc_BleuFonce"
+  },
+  {
+    "sprite_id": "1185157",
+    "classname": "Yvess5_PorteAreasBlanc_Cyan",
+    "public_name": "Yvess5 PorteAreasBlanc Cyan",
+    "item_name": "Yvess5_PorteAreasBlanc_Cyan"
+  },
+  {
+    "sprite_id": "1185158",
+    "classname": "Yvess5_PorteAreasBlanc_Jaune",
+    "public_name": "Yvess5 PorteAreasBlanc Jaune",
+    "item_name": "Yvess5_PorteAreasBlanc_Jaune"
+  },
+  {
+    "sprite_id": "1185159",
+    "classname": "Yvess5_PorteAreasBlanc_Lime",
+    "public_name": "Yvess5 PorteAreasBlanc Lime",
+    "item_name": "Yvess5_PorteAreasBlanc_Lime"
+  },
+  {
+    "sprite_id": "1185160",
+    "classname": "Yvess5_PorteAreasBlanc_Noir",
+    "public_name": "Yvess5 PorteAreasBlanc Noir",
+    "item_name": "Yvess5_PorteAreasBlanc_Noir"
+  },
+  {
+    "sprite_id": "1185161",
+    "classname": "Yvess5_PorteAreasBlanc_Orange",
+    "public_name": "Yvess5 PorteAreasBlanc Orange",
+    "item_name": "Yvess5_PorteAreasBlanc_Orange"
+  },
+  {
+    "sprite_id": "1185162",
+    "classname": "Yvess5_PorteAreasBlanc_Rose",
+    "public_name": "Yvess5 PorteAreasBlanc Rose",
+    "item_name": "Yvess5_PorteAreasBlanc_Rose"
+  },
+  {
+    "sprite_id": "1185163",
+    "classname": "Yvess5_PorteAreasBlanc_Rouge",
+    "public_name": "Yvess5 PorteAreasBlanc Rouge",
+    "item_name": "Yvess5_PorteAreasBlanc_Rouge"
+  },
+  {
+    "sprite_id": "1185164",
+    "classname": "Yvess5_PorteAreasBlanc_Vert",
+    "public_name": "Yvess5 PorteAreasBlanc Vert",
+    "item_name": "Yvess5_PorteAreasBlanc_Vert"
+  },
+  {
+    "sprite_id": "1185165",
+    "classname": "Yvess5_PorteAreasBlanc_Violet",
+    "public_name": "Yvess5 PorteAreasBlanc Violet",
+    "item_name": "Yvess5_PorteAreasBlanc_Violet"
+  },
+  {
+    "sprite_id": "1185166",
+    "classname": "Yvess5_PorteAreasNoir_Blanc",
+    "public_name": "Yvess5 PorteAreasNoir Blanc",
+    "item_name": "Yvess5_PorteAreasNoir_Blanc"
+  },
+  {
+    "sprite_id": "1185167",
+    "classname": "Yvess5_PorteAreasNoir_BleuCiel",
+    "public_name": "Yvess5 PorteAreasNoir BleuCiel",
+    "item_name": "Yvess5_PorteAreasNoir_BleuCiel"
+  },
+  {
+    "sprite_id": "1185168",
+    "classname": "Yvess5_PorteAreasNoir_BleuFonce",
+    "public_name": "Yvess5 PorteAreasNoir BleuFonce",
+    "item_name": "Yvess5_PorteAreasNoir_BleuFonce"
+  },
+  {
+    "sprite_id": "1185169",
+    "classname": "Yvess5_PorteAreasNoir_Cyan",
+    "public_name": "Yvess5 PorteAreasNoir Cyan",
+    "item_name": "Yvess5_PorteAreasNoir_Cyan"
+  },
+  {
+    "sprite_id": "1185170",
+    "classname": "Yvess5_PorteAreasNoir_Jaune",
+    "public_name": "Yvess5 PorteAreasNoir Jaune",
+    "item_name": "Yvess5_PorteAreasNoir_Jaune"
+  },
+  {
+    "sprite_id": "1185171",
+    "classname": "Yvess5_PorteAreasNoir_Lime",
+    "public_name": "Yvess5 PorteAreasNoir Lime",
+    "item_name": "Yvess5_PorteAreasNoir_Lime"
+  },
+  {
+    "sprite_id": "1185172",
+    "classname": "Yvess5_PorteAreasNoir_Noir",
+    "public_name": "Yvess5 PorteAreasNoir Noir",
+    "item_name": "Yvess5_PorteAreasNoir_Noir"
+  },
+  {
+    "sprite_id": "1185173",
+    "classname": "Yvess5_PorteAreasNoir_Orange",
+    "public_name": "Yvess5 PorteAreasNoir Orange",
+    "item_name": "Yvess5_PorteAreasNoir_Orange"
+  },
+  {
+    "sprite_id": "1185174",
+    "classname": "Yvess5_PorteAreasNoir_Rose",
+    "public_name": "Yvess5 PorteAreasNoir Rose",
+    "item_name": "Yvess5_PorteAreasNoir_Rose"
+  },
+  {
+    "sprite_id": "1185175",
+    "classname": "Yvess5_PorteAreasNoir_Rouge",
+    "public_name": "Yvess5 PorteAreasNoir Rouge",
+    "item_name": "Yvess5_PorteAreasNoir_Rouge"
+  },
+  {
+    "sprite_id": "1185176",
+    "classname": "Yvess5_PorteAreasNoir_Vert",
+    "public_name": "Yvess5 PorteAreasNoir Vert",
+    "item_name": "Yvess5_PorteAreasNoir_Vert"
+  },
+  {
+    "sprite_id": "1185177",
+    "classname": "Yvess5_PorteAreasNoir_Violet",
+    "public_name": "Yvess5 PorteAreasNoir Violet",
+    "item_name": "Yvess5_PorteAreasNoir_Violet"
+  },
+  {
+    "sprite_id": "1383342",
+    "classname": "irinc_mazer_1",
+    "public_name": "irinc mazer 1",
+    "item_name": "irinc_mazer_1"
+  },
+  {
+    "sprite_id": "1383343",
+    "classname": "irinc_mazer_2",
+    "public_name": "irinc mazer 2",
+    "item_name": "irinc_mazer_2"
+  },
+  {
+    "sprite_id": "1383344",
+    "classname": "irinc_mazer_3",
+    "public_name": "irinc mazer 3",
+    "item_name": "irinc_mazer_3"
+  },
+  {
+    "sprite_id": "1383345",
+    "classname": "irinc_mazer_4",
+    "public_name": "irinc mazer 4",
+    "item_name": "irinc_mazer_4"
+  },
+  {
+    "sprite_id": "1383346",
+    "classname": "irinc_mazer_5",
+    "public_name": "irinc mazer 5",
+    "item_name": "irinc_mazer_5"
+  },
+  {
+    "sprite_id": "1383347",
+    "classname": "irinc_mazer_6",
+    "public_name": "irinc mazer 6",
+    "item_name": "irinc_mazer_6"
+  },
+  {
+    "sprite_id": "1457099",
+    "classname": "Mut_barra_cine",
+    "public_name": "Mut barra cine",
+    "item_name": "Mut_barra_cine"
+  },
+  {
+    "sprite_id": "1457100",
+    "classname": "Mut_butacas_cine",
+    "public_name": "Mut butacas cine",
+    "item_name": "Mut_butacas_cine"
+  },
+  {
+    "sprite_id": "1457101",
+    "classname": "Mut_Columna_Cine",
+    "public_name": "Mut Columna Cine",
+    "item_name": "Mut_Columna_Cine"
+  },
+  {
+    "sprite_id": "1457102",
+    "classname": "Mut_cubo_cine",
+    "public_name": "Mut cubo cine",
+    "item_name": "Mut_cubo_cine"
+  },
+  {
+    "sprite_id": "1457103",
+    "classname": "Mut_Esquina",
+    "public_name": "Mut Esquina",
+    "item_name": "Mut_Esquina"
+  },
+  {
+    "sprite_id": "1457104",
+    "classname": "Mut_LuzPared_cine",
+    "public_name": "Mut LuzPared cine",
+    "item_name": "Mut_LuzPared_cine"
+  },
+  {
+    "sprite_id": "1457105",
+    "classname": "Mut_Pared",
+    "public_name": "Mut Pared",
+    "item_name": "Mut_Pared"
+  },
+  {
+    "sprite_id": "1457106",
+    "classname": "Mut_SalidaEmergencia",
+    "public_name": "Mut SalidaEmergencia",
+    "item_name": "Mut_SalidaEmergencia"
+  },
+  {
+    "sprite_id": "1663279",
+    "classname": "chupa16_supplier",
+    "public_name": "chupa16 supplier",
+    "item_name": "chupa16_supplier"
+  },
+  {
+    "sprite_id": "1663280",
+    "classname": "disney_sulley",
+    "public_name": "disney sulley",
+    "item_name": "disney_sulley"
+  },
+  {
+    "sprite_id": "1663281",
+    "classname": "famoso_ariag",
+    "public_name": "famoso ariag",
+    "item_name": "famoso_ariag"
+  },
+  {
+    "sprite_id": "1663282",
+    "classname": "famoso_chris",
+    "public_name": "famoso chris",
+    "item_name": "famoso_chris"
+  },
+  {
+    "sprite_id": "1663283",
+    "classname": "famoso_jessi",
+    "public_name": "famoso jessi",
+    "item_name": "famoso_jessi"
+  },
+  {
+    "sprite_id": "1663284",
+    "classname": "famoso_kylie",
+    "public_name": "famoso kylie",
+    "item_name": "famoso_kylie"
+  },
+  {
+    "sprite_id": "1663285",
+    "classname": "famoso_lgaga",
+    "public_name": "famoso lgaga",
+    "item_name": "famoso_lgaga"
+  },
+  {
+    "sprite_id": "1663286",
+    "classname": "famoso_minaj",
+    "public_name": "famoso minaj",
+    "item_name": "famoso_minaj"
+  },
+  {
+    "sprite_id": "1663287",
+    "classname": "famoso_perry",
+    "public_name": "famoso perry",
+    "item_name": "famoso_perry"
+  },
+  {
+    "sprite_id": "1663288",
+    "classname": "famoso_rihan",
+    "public_name": "famoso rihan",
+    "item_name": "famoso_rihan"
+  },
+  {
+    "sprite_id": "1663289",
+    "classname": "famoso_selen",
+    "public_name": "famoso selen",
+    "item_name": "famoso_selen"
+  },
+  {
+    "sprite_id": "1663290",
+    "classname": "famoso_spear",
+    "public_name": "famoso spear",
+    "item_name": "famoso_spear"
+  },
+  {
+    "sprite_id": "1663291",
+    "classname": "Figere2Sandman",
+    "public_name": "Figere2Sandman",
+    "item_name": "Figere2Sandman"
+  },
+  {
+    "sprite_id": "1663292",
+    "classname": "Figere3Pokeman",
+    "public_name": "Figere3Pokeman",
+    "item_name": "Figere3Pokeman"
+  },
+  {
+    "sprite_id": "1663293",
+    "classname": "Figere4Pokeash",
+    "public_name": "Figere4Pokeash",
+    "item_name": "Figere4Pokeash"
+  },
+  {
+    "sprite_id": "1663294",
+    "classname": "Figere5Jokerbm",
+    "public_name": "Figere5Jokerbm",
+    "item_name": "Figere5Jokerbm"
+  },
+  {
+    "sprite_id": "1663295",
+    "classname": "Figere6Somguy1",
+    "public_name": "Figere6Somguy1",
+    "item_name": "Figere6Somguy1"
+  },
+  {
+    "sprite_id": "1663296",
+    "classname": "Figere7Linkdsm",
+    "public_name": "Figere7Linkdsm",
+    "item_name": "Figere7Linkdsm"
+  },
+  {
+    "sprite_id": "1663297",
+    "classname": "Figere8Somguy1",
+    "public_name": "Figere8Somguy1",
+    "item_name": "Figere8Somguy1"
+  },
+  {
+    "sprite_id": "1663298",
+    "classname": "Figure10Hulkes",
+    "public_name": "Figure10Hulkes",
+    "item_name": "Figure10Hulkes"
+  },
+  {
+    "sprite_id": "1663299",
+    "classname": "Figure11CapAme",
+    "public_name": "Figure11CapAme",
+    "item_name": "Figure11CapAme"
+  },
+  {
+    "sprite_id": "1663300",
+    "classname": "Figure12GrnLtn",
+    "public_name": "Figure12GrnLtn",
+    "item_name": "Figure12GrnLtn"
+  },
+  {
+    "sprite_id": "1663301",
+    "classname": "Figure13DrthVd",
+    "public_name": "Figure13DrthVd",
+    "item_name": "Figure13DrthVd"
+  },
+  {
+    "sprite_id": "1663302",
+    "classname": "Figure14Jedimn",
+    "public_name": "Figure14Jedimn",
+    "item_name": "Figure14Jedimn"
+  },
+  {
+    "sprite_id": "1663303",
+    "classname": "Figure15GhstRd",
+    "public_name": "Figure15GhstRd",
+    "item_name": "Figure15GhstRd"
+  },
+  {
+    "sprite_id": "1663304",
+    "classname": "Figure16Sparta",
+    "public_name": "Figure16Sparta",
+    "item_name": "Figure16Sparta"
+  },
+  {
+    "sprite_id": "1663305",
+    "classname": "Figure17Friday",
+    "public_name": "Figure17Friday",
+    "item_name": "Figure17Friday"
+  },
+  {
+    "sprite_id": "1663306",
+    "classname": "Figure18Somgy1",
+    "public_name": "Figure18Somgy1",
+    "item_name": "Figure18Somgy1"
+  },
+  {
+    "sprite_id": "1663307",
+    "classname": "Figure19Spidie",
+    "public_name": "Figure19Spidie",
+    "item_name": "Figure19Spidie"
+  },
+  {
+    "sprite_id": "1663308",
+    "classname": "Figure1Wiseone",
+    "public_name": "Figure1Wiseone",
+    "item_name": "Figure1Wiseone"
+  },
+  {
+    "sprite_id": "1663309",
+    "classname": "Figure2Santasn",
+    "public_name": "Figure2Santasn",
+    "item_name": "Figure2Santasn"
+  },
+  {
+    "sprite_id": "1663310",
+    "classname": "Figure3WackoJa",
+    "public_name": "Figure3WackoJa",
+    "item_name": "Figure3WackoJa"
+  },
+  {
+    "sprite_id": "1663311",
+    "classname": "Figure4Somguy1",
+    "public_name": "Figure4Somguy1",
+    "item_name": "Figure4Somguy1"
+  },
+  {
+    "sprite_id": "1663312",
+    "classname": "Figure5Ironman",
+    "public_name": "Figure5Ironman",
+    "item_name": "Figure5Ironman"
+  },
+  {
+    "sprite_id": "1663313",
+    "classname": "Figure6Whrswly",
+    "public_name": "Figure6Whrswly",
+    "item_name": "Figure6Whrswly"
+  },
+  {
+    "sprite_id": "1663314",
+    "classname": "Figure7Robiyns",
+    "public_name": "Figure7Robiyns",
+    "item_name": "Figure7Robiyns"
+  },
+  {
+    "sprite_id": "1663315",
+    "classname": "Figure8Batmans",
+    "public_name": "Figure8Batmans",
+    "item_name": "Figure8Batmans"
+  },
+  {
+    "sprite_id": "1663316",
+    "classname": "Figure9Somguy1",
+    "public_name": "Figure9Somguy1",
+    "item_name": "Figure9Somguy1"
+  },
+  {
+    "sprite_id": "1663317",
+    "classname": "FLARE_Marvel01",
+    "public_name": "FLARE Marvel01",
+    "item_name": "FLARE_Marvel01"
+  },
+  {
+    "sprite_id": "1663318",
+    "classname": "FLARE_Marvel02",
+    "public_name": "FLARE Marvel02",
+    "item_name": "FLARE_Marvel02"
+  },
+  {
+    "sprite_id": "1663319",
+    "classname": "FLARE_Marvel03",
+    "public_name": "FLARE Marvel03",
+    "item_name": "FLARE_Marvel03"
+  },
+  {
+    "sprite_id": "1663320",
+    "classname": "FLARE_Marvel04",
+    "public_name": "FLARE Marvel04",
+    "item_name": "FLARE_Marvel04"
+  },
+  {
+    "sprite_id": "1663321",
+    "classname": "FLARE_Marvel05",
+    "public_name": "FLARE Marvel05",
+    "item_name": "FLARE_Marvel05"
+  },
+  {
+    "sprite_id": "1663322",
+    "classname": "FLARE_Marvel06",
+    "public_name": "FLARE Marvel06",
+    "item_name": "FLARE_Marvel06"
+  },
+  {
+    "sprite_id": "1663323",
+    "classname": "FLARE_Marvel08",
+    "public_name": "FLARE Marvel08",
+    "item_name": "FLARE_Marvel08"
+  },
+  {
+    "sprite_id": "1663324",
+    "classname": "FLARE_Marvel09",
+    "public_name": "FLARE Marvel09",
+    "item_name": "FLARE_Marvel09"
+  },
+  {
+    "sprite_id": "1663325",
+    "classname": "FLARE_Marvel10",
+    "public_name": "FLARE Marvel10",
+    "item_name": "FLARE_Marvel10"
+  },
+  {
+    "sprite_id": "1663326",
+    "classname": "FLARE_Marvel11",
+    "public_name": "FLARE Marvel11",
+    "item_name": "FLARE_Marvel11"
+  },
+  {
+    "sprite_id": "1663327",
+    "classname": "FLARE_Marvel12",
+    "public_name": "FLARE Marvel12",
+    "item_name": "FLARE_Marvel12"
+  },
+  {
+    "sprite_id": "1663328",
+    "classname": "FLARE_Marvel13",
+    "public_name": "FLARE Marvel13",
+    "item_name": "FLARE_Marvel13"
+  },
+  {
+    "sprite_id": "1663329",
+    "classname": "FLARE_Marvel14",
+    "public_name": "FLARE Marvel14",
+    "item_name": "FLARE_Marvel14"
+  },
+  {
+    "sprite_id": "1663330",
+    "classname": "franklingtahbx",
+    "public_name": "franklingtahbx",
+    "item_name": "franklingtahbx"
+  },
+  {
+    "sprite_id": "1663331",
+    "classname": "gm_catstatueno",
+    "public_name": "gm catstatueno",
+    "item_name": "gm_catstatueno"
+  },
+  {
+    "sprite_id": "1663332",
+    "classname": "habbocash_fairy",
+    "public_name": "habbocash fairy",
+    "item_name": "habbocash_fairy"
+  },
+  {
+    "sprite_id": "1663333",
+    "classname": "habbocash_fiona",
+    "public_name": "habbocash fiona",
+    "item_name": "habbocash_fiona"
+  },
+  {
+    "sprite_id": "1663334",
+    "classname": "habbocash_shrek",
+    "public_name": "habbocash shrek",
+    "item_name": "habbocash_shrek"
+  },
+  {
+    "sprite_id": "1663335",
+    "classname": "michaelhbx_gta",
+    "public_name": "michaelhbx gta",
+    "item_name": "michaelhbx_gta"
+  },
+  {
+    "sprite_id": "1663336",
+    "classname": "NGH_batmanwoman3",
+    "public_name": "NGH batmanwoman3",
+    "item_name": "NGH_batmanwoman3"
+  },
+  {
+    "sprite_id": "1663337",
+    "classname": "NGH_cyborgwoman2",
+    "public_name": "NGH cyborgwoman2",
+    "item_name": "NGH_cyborgwoman2"
+  },
+  {
+    "sprite_id": "1663338",
+    "classname": "NGH_flash1woman3",
+    "public_name": "NGH flash1woman3",
+    "item_name": "NGH_flash1woman3"
+  },
+  {
+    "sprite_id": "1663339",
+    "classname": "NGH_supermanfin2",
+    "public_name": "NGH supermanfin2",
+    "item_name": "NGH_supermanfin2"
+  },
+  {
+    "sprite_id": "1663340",
+    "classname": "NGH_wonderwoman2",
+    "public_name": "NGH wonderwoman2",
+    "item_name": "NGH_wonderwoman2"
+  },
+  {
+    "sprite_id": "1663341",
+    "classname": "NGH_wonderwoman3",
+    "public_name": "NGH wonderwoman3",
+    "item_name": "NGH_wonderwoman3"
+  },
+  {
+    "sprite_id": "1663342",
+    "classname": "pixelperson001",
+    "public_name": "pixelperson001",
+    "item_name": "pixelperson001"
+  },
+  {
+    "sprite_id": "1663343",
+    "classname": "pixelperson002",
+    "public_name": "pixelperson002",
+    "item_name": "pixelperson002"
+  },
+  {
+    "sprite_id": "1663344",
+    "classname": "pixelperson003",
+    "public_name": "pixelperson003",
+    "item_name": "pixelperson003"
+  },
+  {
+    "sprite_id": "1663345",
+    "classname": "pixelperson004",
+    "public_name": "pixelperson004",
+    "item_name": "pixelperson004"
+  },
+  {
+    "sprite_id": "1663346",
+    "classname": "pixelperson005",
+    "public_name": "pixelperson005",
+    "item_name": "pixelperson005"
+  },
+  {
+    "sprite_id": "1663347",
+    "classname": "pixelperson006",
+    "public_name": "pixelperson006",
+    "item_name": "pixelperson006"
+  },
+  {
+    "sprite_id": "1663348",
+    "classname": "pixelperson007",
+    "public_name": "pixelperson007",
+    "item_name": "pixelperson007"
+  },
+  {
+    "sprite_id": "1663349",
+    "classname": "pixelperson008",
+    "public_name": "pixelperson008",
+    "item_name": "pixelperson008"
+  },
+  {
+    "sprite_id": "1663350",
+    "classname": "pixelperson009",
+    "public_name": "pixelperson009",
+    "item_name": "pixelperson009"
+  },
+  {
+    "sprite_id": "1663351",
+    "classname": "pixelperson010",
+    "public_name": "pixelperson010",
+    "item_name": "pixelperson010"
+  },
+  {
+    "sprite_id": "1663352",
+    "classname": "pixelperson011",
+    "public_name": "pixelperson011",
+    "item_name": "pixelperson011"
+  },
+  {
+    "sprite_id": "1663353",
+    "classname": "pixelperson012",
+    "public_name": "pixelperson012",
+    "item_name": "pixelperson012"
+  },
+  {
+    "sprite_id": "1663354",
+    "classname": "pixelperson013",
+    "public_name": "pixelperson013",
+    "item_name": "pixelperson013"
+  },
+  {
+    "sprite_id": "1663355",
+    "classname": "pixelperson014",
+    "public_name": "pixelperson014",
+    "item_name": "pixelperson014"
+  },
+  {
+    "sprite_id": "1663356",
+    "classname": "pixelperson015",
+    "public_name": "pixelperson015",
+    "item_name": "pixelperson015"
+  },
+  {
+    "sprite_id": "1663357",
+    "classname": "pixelperson016",
+    "public_name": "pixelperson016",
+    "item_name": "pixelperson016"
+  },
+  {
+    "sprite_id": "1663358",
+    "classname": "pixelperson017",
+    "public_name": "pixelperson017",
+    "item_name": "pixelperson017"
+  },
+  {
+    "sprite_id": "1663359",
+    "classname": "pixelperson018",
+    "public_name": "pixelperson018",
+    "item_name": "pixelperson018"
+  },
+  {
+    "sprite_id": "1663360",
+    "classname": "power_ranger_black",
+    "public_name": "power ranger black",
+    "item_name": "power_ranger_black"
+  },
+  {
+    "sprite_id": "1663361",
+    "classname": "power_ranger_blue",
+    "public_name": "power ranger blue",
+    "item_name": "power_ranger_blue"
+  },
+  {
+    "sprite_id": "1663362",
+    "classname": "power_ranger_green",
+    "public_name": "power ranger green",
+    "item_name": "power_ranger_green"
+  },
+  {
+    "sprite_id": "1663363",
+    "classname": "power_ranger_pink",
+    "public_name": "power ranger pink",
+    "item_name": "power_ranger_pink"
+  },
+  {
+    "sprite_id": "1663364",
+    "classname": "power_ranger_white",
+    "public_name": "power ranger white",
+    "item_name": "power_ranger_white"
+  },
+  {
+    "sprite_id": "1663365",
+    "classname": "power_ranger_yellow",
+    "public_name": "power ranger yellow",
+    "item_name": "power_ranger_yellow"
+  },
+  {
+    "sprite_id": "1663366",
+    "classname": "rare_marvel1",
+    "public_name": "rare marvel1",
+    "item_name": "rare_marvel1"
+  },
+  {
+    "sprite_id": "1663367",
+    "classname": "rare_marvel2",
+    "public_name": "rare marvel2",
+    "item_name": "rare_marvel2"
+  },
+  {
+    "sprite_id": "1663368",
+    "classname": "rare_marvel3",
+    "public_name": "rare marvel3",
+    "item_name": "rare_marvel3"
+  },
+  {
+    "sprite_id": "1663369",
+    "classname": "trevorhbx_gta1",
+    "public_name": "trevorhbx gta1",
+    "item_name": "trevorhbx_gta1"
+  },
+  {
+    "sprite_id": "2154958",
+    "classname": "em2016_holoalba",
+    "public_name": "em2016 holoalba",
+    "item_name": "em2016_holoalba"
+  },
+  {
+    "sprite_id": "2154959",
+    "classname": "em2016_holobelg",
+    "public_name": "em2016 holobelg",
+    "item_name": "em2016_holobelg"
+  },
+  {
+    "sprite_id": "2154960",
+    "classname": "em2016_holochil",
+    "public_name": "em2016 holochil",
+    "item_name": "em2016_holochil"
+  },
+  {
+    "sprite_id": "2154961",
+    "classname": "em2016_holoengl",
+    "public_name": "em2016 holoengl",
+    "item_name": "em2016_holoengl"
+  },
+  {
+    "sprite_id": "2154962",
+    "classname": "em2016_holofran",
+    "public_name": "em2016 holofran",
+    "item_name": "em2016_holofran"
+  },
+  {
+    "sprite_id": "2154963",
+    "classname": "em2016_hologerm",
+    "public_name": "em2016 hologerm",
+    "item_name": "em2016_hologerm"
+  },
+  {
+    "sprite_id": "2154964",
+    "classname": "em2016_holoirla",
+    "public_name": "em2016 holoirla",
+    "item_name": "em2016_holoirla"
+  },
+  {
+    "sprite_id": "2154965",
+    "classname": "em2016_holoisla",
+    "public_name": "em2016 holoisla",
+    "item_name": "em2016_holoisla"
+  },
+  {
+    "sprite_id": "2154966",
+    "classname": "em2016_holoital",
+    "public_name": "em2016 holoital",
+    "item_name": "em2016_holoital"
+  },
+  {
+    "sprite_id": "2154967",
+    "classname": "em2016_holokroa",
+    "public_name": "em2016 holokroa",
+    "item_name": "em2016_holokroa"
+  },
+  {
+    "sprite_id": "2154968",
+    "classname": "em2016_holonoir",
+    "public_name": "em2016 holonoir",
+    "item_name": "em2016_holonoir"
+  },
+  {
+    "sprite_id": "2154969",
+    "classname": "em2016_holooest",
+    "public_name": "em2016 holooest",
+    "item_name": "em2016_holooest"
+  },
+  {
+    "sprite_id": "2154970",
+    "classname": "em2016_holopole",
+    "public_name": "em2016 holopole",
+    "item_name": "em2016_holopole"
+  },
+  {
+    "sprite_id": "2154971",
+    "classname": "em2016_holoport",
+    "public_name": "em2016 holoport",
+    "item_name": "em2016_holoport"
+  },
+  {
+    "sprite_id": "2154972",
+    "classname": "em2016_holoruma",
+    "public_name": "em2016 holoruma",
+    "item_name": "em2016_holoruma"
+  },
+  {
+    "sprite_id": "2154973",
+    "classname": "em2016_holoruss",
+    "public_name": "em2016 holoruss",
+    "item_name": "em2016_holoruss"
+  },
+  {
+    "sprite_id": "2154974",
+    "classname": "em2016_holoslow",
+    "public_name": "em2016 holoslow",
+    "item_name": "em2016_holoslow"
+  },
+  {
+    "sprite_id": "2154975",
+    "classname": "em2016_holospan",
+    "public_name": "em2016 holospan",
+    "item_name": "em2016_holospan"
+  },
+  {
+    "sprite_id": "2154976",
+    "classname": "em2016_holoswdn",
+    "public_name": "em2016 holoswdn",
+    "item_name": "em2016_holoswdn"
+  },
+  {
+    "sprite_id": "2154977",
+    "classname": "em2016_holoswiz",
+    "public_name": "em2016 holoswiz",
+    "item_name": "em2016_holoswiz"
+  },
+  {
+    "sprite_id": "2154978",
+    "classname": "em2016_holoturk",
+    "public_name": "em2016 holoturk",
+    "item_name": "em2016_holoturk"
+  },
+  {
+    "sprite_id": "2154979",
+    "classname": "em2016_holoukra",
+    "public_name": "em2016 holoukra",
+    "item_name": "em2016_holoukra"
+  },
+  {
+    "sprite_id": "2154980",
+    "classname": "em2016_holounga",
+    "public_name": "em2016 holounga",
+    "item_name": "em2016_holounga"
+  },
+  {
+    "sprite_id": "2154981",
+    "classname": "em2016_holowale",
+    "public_name": "em2016 holowale",
+    "item_name": "em2016_holowale"
+  },
+  {
+    "sprite_id": "2332163",
+    "classname": "anc15_dragonthrone",
+    "public_name": "anc15 dragonthrone",
+    "item_name": "anc15_dragonthrone"
+  },
+  {
+    "sprite_id": "2332164",
+    "classname": "anc15_merdragon_fountain",
+    "public_name": "anc15 merdragon fountain",
+    "item_name": "anc15_merdragon_fountain"
+  },
+  {
+    "sprite_id": "2332165",
+    "classname": "anc15_spyro",
+    "public_name": "anc15 spyro",
+    "item_name": "anc15_spyro"
+  },
+  {
+    "sprite_id": "2332166",
+    "classname": "anc16_merdragon_fountain",
+    "public_name": "anc16 merdragon fountain",
+    "item_name": "anc16_merdragon_fountain"
+  },
+  {
+    "sprite_id": "2332167",
+    "classname": "anrone",
+    "public_name": "anrone",
+    "item_name": "anrone"
+  },
+  {
+    "sprite_id": "2332168",
+    "classname": "egyptn_icecream_anubis",
+    "public_name": "egyptn icecream anubis",
+    "item_name": "egyptn_icecream_anubis"
+  },
+  {
+    "sprite_id": "2332169",
+    "classname": "egypt_elephant",
+    "public_name": "egypt elephant",
+    "item_name": "egypt_elephant"
+  },
+  {
+    "sprite_id": "2332170",
+    "classname": "fan_of_anubis",
+    "public_name": "fan of anubis",
+    "item_name": "fan_of_anubis"
+  },
+  {
+    "sprite_id": "2332171",
+    "classname": "oeufs_of_anubs",
+    "public_name": "oeufs of anubs",
+    "item_name": "oeufs_of_anubs"
+  },
+  {
+    "sprite_id": "2332172",
+    "classname": "rare_dragonlamp_egpt",
+    "public_name": "rare dragonlamp egpt",
+    "item_name": "rare_dragonlamp_egpt"
+  },
+  {
+    "sprite_id": "2448443",
+    "classname": "Luanda_Boots",
+    "public_name": "Luanda Boots",
+    "item_name": "Luanda_Boots"
+  },
+  {
+    "sprite_id": "2448444",
+    "classname": "Luanda_Bowl",
+    "public_name": "Luanda Bowl",
+    "item_name": "Luanda_Bowl"
+  },
+  {
+    "sprite_id": "2448445",
+    "classname": "Luanda_Chair",
+    "public_name": "Luanda Chair",
+    "item_name": "Luanda_Chair"
+  },
+  {
+    "sprite_id": "2448446",
+    "classname": "Luanda_Coffee",
+    "public_name": "Luanda Coffee",
+    "item_name": "Luanda_Coffee"
+  },
+  {
+    "sprite_id": "2448447",
+    "classname": "Luanda_Flower",
+    "public_name": "Luanda Flower",
+    "item_name": "Luanda_Flower"
+  },
+  {
+    "sprite_id": "2448448",
+    "classname": "Luanda_Flower2",
+    "public_name": "Luanda Flower2",
+    "item_name": "Luanda_Flower2"
+  },
+  {
+    "sprite_id": "2448449",
+    "classname": "Luanda_Flower3",
+    "public_name": "Luanda Flower3",
+    "item_name": "Luanda_Flower3"
+  },
+  {
+    "sprite_id": "2448450",
+    "classname": "Luanda_Pillow",
+    "public_name": "Luanda Pillow",
+    "item_name": "Luanda_Pillow"
+  },
+  {
+    "sprite_id": "2448451",
+    "classname": "Luanda_Pillow2",
+    "public_name": "Luanda Pillow2",
+    "item_name": "Luanda_Pillow2"
+  },
+  {
+    "sprite_id": "2448452",
+    "classname": "Luanda_Pillow3",
+    "public_name": "Luanda Pillow3",
+    "item_name": "Luanda_Pillow3"
+  },
+  {
+    "sprite_id": "2448453",
+    "classname": "Luanda_Puff",
+    "public_name": "Luanda Puff",
+    "item_name": "Luanda_Puff"
+  },
+  {
+    "sprite_id": "2448454",
+    "classname": "Luanda_Sunflower",
+    "public_name": "Luanda Sunflower",
+    "item_name": "Luanda_Sunflower"
+  },
+  {
+    "sprite_id": "2448455",
+    "classname": "Luanda_Sunflower2",
+    "public_name": "Luanda Sunflower2",
+    "item_name": "Luanda_Sunflower2"
+  },
+  {
+    "sprite_id": "2448456",
+    "classname": "Luanda_Table",
+    "public_name": "Luanda Table",
+    "item_name": "Luanda_Table"
+  },
+  {
+    "sprite_id": "2448457",
+    "classname": "Luanda_Table2",
+    "public_name": "Luanda Table2",
+    "item_name": "Luanda_Table2"
+  },
+  {
+    "sprite_id": "2448458",
+    "classname": "Luanda_Table3",
+    "public_name": "Luanda Table3",
+    "item_name": "Luanda_Table3"
+  },
+  {
+    "sprite_id": "2448459",
+    "classname": "Luanda_Wall",
+    "public_name": "Luanda Wall",
+    "item_name": "Luanda_Wall"
+  },
+  {
+    "sprite_id": "2475995",
+    "classname": "rval18_dragonlamp",
+    "public_name": "rval18 dragonlamp",
+    "item_name": "rval18_dragonlamp"
+  },
+  {
+    "sprite_id": "2475996",
+    "classname": "rval18_fountain",
+    "public_name": "rval18 fountain",
+    "item_name": "rval18_fountain"
+  },
+  {
+    "sprite_id": "2475997",
+    "classname": "rval18_hippo",
+    "public_name": "rval18 hippo",
+    "item_name": "rval18_hippo"
+  },
+  {
+    "sprite_id": "2475998",
+    "classname": "rval18_icecream",
+    "public_name": "rval18 icecream",
+    "item_name": "rval18_icecream"
+  },
+  {
+    "sprite_id": "2475999",
+    "classname": "rval18_spyro",
+    "public_name": "rval18 spyro",
+    "item_name": "rval18_spyro"
+  },
+  {
+    "sprite_id": "2476000",
+    "classname": "rval18_throne",
+    "public_name": "rval18 throne",
+    "item_name": "rval18_throne"
+  },
+  {
+    "sprite_id": "2476001",
+    "classname": "rval18_voodoopuppe",
+    "public_name": "rval18 voodoopuppe",
+    "item_name": "rval18_voodoopuppe"
+  },
+  {
+    "sprite_id": "2581672",
+    "classname": "BarreiraAge",
+    "public_name": "BarreiraAge",
+    "item_name": "BarreiraAge"
+  },
+  {
+    "sprite_id": "2581673",
+    "classname": "BebidaAge",
+    "public_name": "BebidaAge",
+    "item_name": "BebidaAge"
+  },
+  {
+    "sprite_id": "2581674",
+    "classname": "BonnieAge",
+    "public_name": "BonnieAge",
+    "item_name": "BonnieAge"
+  },
+  {
+    "sprite_id": "2581675",
+    "classname": "DivisoriaAge",
+    "public_name": "DivisoriaAge",
+    "item_name": "DivisoriaAge"
+  },
+  {
+    "sprite_id": "2581676",
+    "classname": "ElefanteAge",
+    "public_name": "ElefanteAge",
+    "item_name": "ElefanteAge"
+  },
+  {
+    "sprite_id": "2581677",
+    "classname": "EstatuaAge",
+    "public_name": "EstatuaAge",
+    "item_name": "EstatuaAge"
+  },
+  {
+    "sprite_id": "2581678",
+    "classname": "FountainAge",
+    "public_name": "FountainAge",
+    "item_name": "FountainAge"
+  },
+  {
+    "sprite_id": "2581679",
+    "classname": "goldenchair",
+    "public_name": "goldenchair",
+    "item_name": "goldenchair"
+  },
+  {
+    "sprite_id": "2581680",
+    "classname": "goldentable",
+    "public_name": "goldentable",
+    "item_name": "goldentable"
+  },
+  {
+    "sprite_id": "2581681",
+    "classname": "guirlande_perlee",
+    "public_name": "guirlande perlee",
+    "item_name": "guirlande_perlee"
+  },
+  {
+    "sprite_id": "2581682",
+    "classname": "miroir",
+    "public_name": "miroir",
+    "item_name": "miroir"
+  },
+  {
+    "sprite_id": "2581683",
+    "classname": "ParasolAge",
+    "public_name": "ParasolAge",
+    "item_name": "ParasolAge"
+  },
+  {
+    "sprite_id": "2581684",
+    "classname": "PersonaAge",
+    "public_name": "PersonaAge",
+    "item_name": "PersonaAge"
+  },
+  {
+    "sprite_id": "2581685",
+    "classname": "PilarAge",
+    "public_name": "PilarAge",
+    "item_name": "PilarAge"
+  },
+  {
+    "sprite_id": "2581686",
+    "classname": "PortaAge",
+    "public_name": "PortaAge",
+    "item_name": "PortaAge"
+  },
+  {
+    "sprite_id": "2581687",
+    "classname": "SerpaAge",
+    "public_name": "SerpaAge",
+    "item_name": "SerpaAge"
+  },
+  {
+    "sprite_id": "2581688",
+    "classname": "SmokeAge",
+    "public_name": "SmokeAge",
+    "item_name": "SmokeAge"
+  },
+  {
+    "sprite_id": "2581689",
+    "classname": "SorveteriaAge",
+    "public_name": "SorveteriaAge",
+    "item_name": "SorveteriaAge"
+  },
+  {
+    "sprite_id": "2581690",
+    "classname": "table",
+    "public_name": "table",
+    "item_name": "table"
+  },
+  {
+    "sprite_id": "2581691",
+    "classname": "ToldoAge",
+    "public_name": "ToldoAge",
+    "item_name": "ToldoAge"
+  },
+  {
+    "sprite_id": "2581692",
+    "classname": "TronoAge",
+    "public_name": "TronoAge",
+    "item_name": "TronoAge"
+  },
+  {
+    "sprite_id": "2581693",
+    "classname": "VentiAge",
+    "public_name": "VentiAge",
+    "item_name": "VentiAge"
+  },
+  {
+    "sprite_id": "2604956",
+    "classname": "irinc_sf_upsidedown_portal",
+    "public_name": "irinc sf upsidedown portal",
+    "item_name": "irinc_sf_upsidedown_portal"
+  },
+  {
+    "sprite_id": "2604957",
+    "classname": "lipe_deville_bush_inv_world",
+    "public_name": "lipe deville bush inv world",
+    "item_name": "lipe_deville_bush_inv_world"
+  },
+  {
+    "sprite_id": "2604958",
+    "classname": "lipe_deville_invworld_vines",
+    "public_name": "lipe deville invworld vines",
+    "item_name": "lipe_deville_invworld_vines"
+  },
+  {
+    "sprite_id": "2604959",
+    "classname": "lipe_deville_invworld_vines2",
+    "public_name": "lipe deville invworld vines2",
+    "item_name": "lipe_deville_invworld_vines2"
+  },
+  {
+    "sprite_id": "2604960",
+    "classname": "lipe_deville_tentacles",
+    "public_name": "lipe deville tentacles",
+    "item_name": "lipe_deville_tentacles"
+  },
+  {
+    "sprite_id": "2604961",
+    "classname": "lipe_deville_vecna_clock",
+    "public_name": "lipe deville vecna clock",
+    "item_name": "lipe_deville_vecna_clock"
+  },
+  {
+    "sprite_id": "2678822",
+    "classname": "bloco_ithalo",
+    "public_name": "bloco ithalo",
+    "item_name": "bloco_ithalo"
+  },
+  {
+    "sprite_id": "2678823",
+    "classname": "bloc_en_pierre_blanc",
+    "public_name": "bloc en pierre blanc",
+    "item_name": "bloc_en_pierre_blanc"
+  },
+  {
+    "sprite_id": "2678824",
+    "classname": "bloc_en_pierre_gris",
+    "public_name": "bloc en pierre gris",
+    "item_name": "bloc_en_pierre_gris"
+  },
+  {
+    "sprite_id": "2678825",
+    "classname": "bloc_en_pierre_marron",
+    "public_name": "bloc en pierre marron",
+    "item_name": "bloc_en_pierre_marron"
+  },
+  {
+    "sprite_id": "2678826",
+    "classname": "bloc_en_pierre_marron_clair",
+    "public_name": "bloc en pierre marron clair",
+    "item_name": "bloc_en_pierre_marron_clair"
+  },
+  {
+    "sprite_id": "2678827",
+    "classname": "bloc_en_pierre_marron_fonce",
+    "public_name": "bloc en pierre marron fonce",
+    "item_name": "bloc_en_pierre_marron_fonce"
+  },
+  {
+    "sprite_id": "2678828",
+    "classname": "bloc_en_pierre_noir",
+    "public_name": "bloc en pierre noir",
+    "item_name": "bloc_en_pierre_noir"
+  },
+  {
+    "sprite_id": "2678829",
+    "classname": "Crunch_block_beige",
+    "public_name": "Crunch block beige",
+    "item_name": "Crunch_block_beige"
+  },
+  {
+    "sprite_id": "2678830",
+    "classname": "Crunch_block_black",
+    "public_name": "Crunch block black",
+    "item_name": "Crunch_block_black"
+  },
+  {
+    "sprite_id": "2678831",
+    "classname": "Crunch_block_blue",
+    "public_name": "Crunch block blue",
+    "item_name": "Crunch_block_blue"
+  },
+  {
+    "sprite_id": "2678832",
+    "classname": "Crunch_block_brown",
+    "public_name": "Crunch block brown",
+    "item_name": "Crunch_block_brown"
+  },
+  {
+    "sprite_id": "2678833",
+    "classname": "Crunch_block_gold",
+    "public_name": "Crunch block gold",
+    "item_name": "Crunch_block_gold"
+  },
+  {
+    "sprite_id": "2678834",
+    "classname": "Crunch_block_green",
+    "public_name": "Crunch block green",
+    "item_name": "Crunch_block_green"
+  },
+  {
+    "sprite_id": "2678835",
+    "classname": "Crunch_block_grey",
+    "public_name": "Crunch block grey",
+    "item_name": "Crunch_block_grey"
+  },
+  {
+    "sprite_id": "2678836",
+    "classname": "Crunch_block_light_grey",
+    "public_name": "Crunch block light grey",
+    "item_name": "Crunch_block_light_grey"
+  },
+  {
+    "sprite_id": "2678837",
+    "classname": "Crunch_block_Muddy_green",
+    "public_name": "Crunch block Muddy green",
+    "item_name": "Crunch_block_Muddy_green"
+  },
+  {
+    "sprite_id": "2678838",
+    "classname": "Crunch_block_purple",
+    "public_name": "Crunch block purple",
+    "item_name": "Crunch_block_purple"
+  },
+  {
+    "sprite_id": "2678839",
+    "classname": "Crunch_block_red",
+    "public_name": "Crunch block red",
+    "item_name": "Crunch_block_red"
+  },
+  {
+    "sprite_id": "2678840",
+    "classname": "Crunch_block_yellow",
+    "public_name": "Crunch block yellow",
+    "item_name": "Crunch_block_yellow"
+  },
+  {
+    "sprite_id": "2678841",
+    "classname": "Cus_block_smokes",
+    "public_name": "Cus block smokes",
+    "item_name": "Cus_block_smokes"
+  },
+  {
+    "sprite_id": "2678842",
+    "classname": "Cus_block_Smokes_2",
+    "public_name": "Cus block Smokes 2",
+    "item_name": "Cus_block_Smokes_2"
+  },
+  {
+    "sprite_id": "2678843",
+    "classname": "Triangle_block_cust_1",
+    "public_name": "Triangle block cust 1",
+    "item_name": "Triangle_block_cust_1"
+  },
+  {
+    "sprite_id": "2678844",
+    "classname": "Triangle_block_cust_2",
+    "public_name": "Triangle block cust 2",
+    "item_name": "Triangle_block_cust_2"
+  },
+  {
+    "sprite_id": "2678845",
+    "classname": "Triangle_block_cust_3",
+    "public_name": "Triangle block cust 3",
+    "item_name": "Triangle_block_cust_3"
+  },
+  {
+    "sprite_id": "2799101",
+    "classname": "bon10",
+    "public_name": "bon10",
+    "item_name": "bon10"
+  },
+  {
+    "sprite_id": "2799102",
+    "classname": "bon11",
+    "public_name": "bon11",
+    "item_name": "bon11"
+  },
+  {
+    "sprite_id": "2799103",
+    "classname": "bon12",
+    "public_name": "bon12",
+    "item_name": "bon12"
+  },
+  {
+    "sprite_id": "2799104",
+    "classname": "bon13",
+    "public_name": "bon13",
+    "item_name": "bon13"
+  },
+  {
+    "sprite_id": "2799105",
+    "classname": "bon14",
+    "public_name": "bon14",
+    "item_name": "bon14"
+  },
+  {
+    "sprite_id": "2799106",
+    "classname": "bon15",
+    "public_name": "bon15",
+    "item_name": "bon15"
+  },
+  {
+    "sprite_id": "2799107",
+    "classname": "bon16",
+    "public_name": "bon16",
+    "item_name": "bon16"
+  },
+  {
+    "sprite_id": "2799108",
+    "classname": "bon17",
+    "public_name": "bon17",
+    "item_name": "bon17"
+  },
+  {
+    "sprite_id": "2799109",
+    "classname": "bon18",
+    "public_name": "bon18",
+    "item_name": "bon18"
+  },
+  {
+    "sprite_id": "2799110",
+    "classname": "bon19",
+    "public_name": "bon19",
+    "item_name": "bon19"
+  },
+  {
+    "sprite_id": "2799111",
+    "classname": "bon20",
+    "public_name": "bon20",
+    "item_name": "bon20"
+  },
+  {
+    "sprite_id": "2799112",
+    "classname": "bon21",
+    "public_name": "bon21",
+    "item_name": "bon21"
+  },
+  {
+    "sprite_id": "2799113",
+    "classname": "bon22",
+    "public_name": "bon22",
+    "item_name": "bon22"
+  },
+  {
+    "sprite_id": "2799114",
+    "classname": "bon23",
+    "public_name": "bon23",
+    "item_name": "bon23"
+  },
+  {
+    "sprite_id": "2799115",
+    "classname": "bon24",
+    "public_name": "bon24",
+    "item_name": "bon24"
+  },
+  {
+    "sprite_id": "2799116",
+    "classname": "bone1",
+    "public_name": "bone1",
+    "item_name": "bone1"
+  },
+  {
+    "sprite_id": "2799117",
+    "classname": "bone2",
+    "public_name": "bone2",
+    "item_name": "bone2"
+  },
+  {
+    "sprite_id": "2799118",
+    "classname": "bone3",
+    "public_name": "bone3",
+    "item_name": "bone3"
+  },
+  {
+    "sprite_id": "2799119",
+    "classname": "bone4",
+    "public_name": "bone4",
+    "item_name": "bone4"
+  },
+  {
+    "sprite_id": "2799120",
+    "classname": "bone5",
+    "public_name": "bone5",
+    "item_name": "bone5"
+  },
+  {
+    "sprite_id": "2799121",
+    "classname": "bone6",
+    "public_name": "bone6",
+    "item_name": "bone6"
+  },
+  {
+    "sprite_id": "2799122",
+    "classname": "bone7",
+    "public_name": "bone7",
+    "item_name": "bone7"
+  },
+  {
+    "sprite_id": "2799123",
+    "classname": "bone8",
+    "public_name": "bone8",
+    "item_name": "bone8"
+  },
+  {
+    "sprite_id": "2799124",
+    "classname": "bone9",
+    "public_name": "bone9",
+    "item_name": "bone9"
+  },
+  {
+    "sprite_id": "2816861",
+    "classname": "crew_statue",
+    "public_name": "crew statue",
+    "item_name": "crew_statue"
+  },
+  {
+    "sprite_id": "2906880",
+    "classname": "floor_window1",
+    "public_name": "floor window1",
+    "item_name": "floor_window1"
+  },
+  {
+    "sprite_id": "2906881",
+    "classname": "hubba_theconar_glass13",
+    "public_name": "hubba theconar glass13",
+    "item_name": "hubba_theconar_glass13"
+  },
+  {
+    "sprite_id": "2906882",
+    "classname": "hubba_theconar_glass22",
+    "public_name": "hubba theconar glass22",
+    "item_name": "hubba_theconar_glass22"
+  },
+  {
+    "sprite_id": "2906883",
+    "classname": "hubba_theconar_glass24",
+    "public_name": "hubba theconar glass24",
+    "item_name": "hubba_theconar_glass24"
+  },
+  {
+    "sprite_id": "2906884",
+    "classname": "window",
+    "public_name": "window",
+    "item_name": "window"
+  },
+  {
+    "sprite_id": "2926420",
+    "classname": "deckofcardsblue",
+    "public_name": "deckofcardsblue",
+    "item_name": "deckofcardsblue"
+  },
+  {
+    "sprite_id": "2926421",
+    "classname": "deckofcardsred",
+    "public_name": "deckofcardsred",
+    "item_name": "deckofcardsred"
+  },
+  {
+    "sprite_id": "2926426",
+    "classname": "rare_deckofcardsgold",
+    "public_name": "rare deckofcardsgold",
+    "item_name": "rare_deckofcardsgold"
+  },
+  {
+    "sprite_id": "2926427",
+    "classname": "rare_dicebejeweled",
+    "public_name": "rare dicebejeweled",
+    "item_name": "rare_dicebejeweled"
+  },
+  {
+    "sprite_id": "2926428",
+    "classname": "rare_diceplatinum",
+    "public_name": "rare diceplatinum",
+    "item_name": "rare_diceplatinum"
+  },
+  {
+    "sprite_id": "3303595",
+    "classname": "hcrush_c23_netcafeplant",
+    "public_name": "hcrush c23 netcafeplant",
+    "item_name": "hcrush_c23_netcafeplant"
+  },
+  {
+    "sprite_id": "3303596",
+    "classname": "hcrush_c23_netcafeplant2",
+    "public_name": "hcrush c23 netcafeplant2",
+    "item_name": "hcrush_c23_netcafeplant2"
+  },
+  {
+    "sprite_id": "3303597",
+    "classname": "hcrush_c23_netcafetable",
+    "public_name": "hcrush c23 netcafetable",
+    "item_name": "hcrush_c23_netcafetable"
+  },
+  {
+    "sprite_id": "3445706",
+    "classname": "mover_usuario",
+    "public_name": "mover usuario",
+    "item_name": "mover_usuario"
+  },
+  {
+    "sprite_id": "3445707",
+    "classname": "wf_act_collide_upper",
+    "public_name": "wf act collide upper",
+    "item_name": "wf_act_collide_upper"
+  },
+  {
+    "sprite_id": "3506133",
+    "classname": "corniches_corner_I",
+    "public_name": "corniches corner I",
+    "item_name": "corniches_corner_I"
+  },
+  {
+    "sprite_id": "3506134",
+    "classname": "corniches_corner_II",
+    "public_name": "corniches corner II",
+    "item_name": "corniches_corner_II"
+  },
+  {
+    "sprite_id": "3506135",
+    "classname": "corniches_corner_III",
+    "public_name": "corniches corner III",
+    "item_name": "corniches_corner_III"
+  },
+  {
+    "sprite_id": "3506136",
+    "classname": "corniches_corner_IV",
+    "public_name": "corniches corner IV",
+    "item_name": "corniches_corner_IV"
+  },
+  {
+    "sprite_id": "3506137",
+    "classname": "corniches_corner_IX",
+    "public_name": "corniches corner IX",
+    "item_name": "corniches_corner_IX"
+  },
+  {
+    "sprite_id": "3506138",
+    "classname": "corniches_corner_V",
+    "public_name": "corniches corner V",
+    "item_name": "corniches_corner_V"
+  },
+  {
+    "sprite_id": "3506139",
+    "classname": "corniches_corner_VI",
+    "public_name": "corniches corner VI",
+    "item_name": "corniches_corner_VI"
+  },
+  {
+    "sprite_id": "3506140",
+    "classname": "corniches_corner_VII",
+    "public_name": "corniches corner VII",
+    "item_name": "corniches_corner_VII"
+  },
+  {
+    "sprite_id": "3506141",
+    "classname": "corniches_victoriennes_I",
+    "public_name": "corniches victoriennes I",
+    "item_name": "corniches_victoriennes_I"
+  },
+  {
+    "sprite_id": "3506142",
+    "classname": "corniches_victoriennes_II",
+    "public_name": "corniches victoriennes II",
+    "item_name": "corniches_victoriennes_II"
+  },
+  {
+    "sprite_id": "3506143",
+    "classname": "corniches_victoriennes_III",
+    "public_name": "corniches victoriennes III",
+    "item_name": "corniches_victoriennes_III"
+  },
+  {
+    "sprite_id": "3506144",
+    "classname": "corniches_victoriennes_IV",
+    "public_name": "corniches victoriennes IV",
+    "item_name": "corniches_victoriennes_IV"
+  },
+  {
+    "sprite_id": "3506145",
+    "classname": "corniches_victoriennes_V",
+    "public_name": "corniches victoriennes V",
+    "item_name": "corniches_victoriennes_V"
+  },
+  {
+    "sprite_id": "3506146",
+    "classname": "corniches_victoriennes_VI",
+    "public_name": "corniches victoriennes VI",
+    "item_name": "corniches_victoriennes_VI"
+  },
+  {
+    "sprite_id": "3506147",
+    "classname": "corniches_victoriennes_VII",
+    "public_name": "corniches victoriennes VII",
+    "item_name": "corniches_victoriennes_VII"
+  },
+  {
+    "sprite_id": "3654363",
+    "classname": "bump_tottero2",
+    "public_name": "bump tottero2",
+    "item_name": "bump_tottero2"
+  },
+  {
+    "sprite_id": "3654364",
+    "classname": "mauricio_hs_ikea",
+    "public_name": "mauricio hs ikea",
+    "item_name": "mauricio_hs_ikea"
+  },
+  {
+    "sprite_id": "3654365",
+    "classname": "rp_pavement",
+    "public_name": "rp pavement",
+    "item_name": "rp_pavement"
+  },
+  {
+    "sprite_id": "3721473",
+    "classname": "coepoly_bomba",
+    "public_name": "coepoly bomba",
+    "item_name": "coepoly_bomba"
+  },
+  {
+    "sprite_id": "3721474",
+    "classname": "coepoly_cash",
+    "public_name": "coepoly cash",
+    "item_name": "coepoly_cash"
+  },
+  {
+    "sprite_id": "3721475",
+    "classname": "coepoly_coin (1)",
+    "public_name": "coepoly coin (1)",
+    "item_name": "coepoly_coin (1)"
+  },
+  {
+    "sprite_id": "3721476",
+    "classname": "coepoly_coin",
+    "public_name": "coepoly coin",
+    "item_name": "coepoly_coin"
+  },
+  {
+    "sprite_id": "3721477",
+    "classname": "coepoly_dice",
+    "public_name": "coepoly dice",
+    "item_name": "coepoly_dice"
+  },
+  {
+    "sprite_id": "3721478",
+    "classname": "coepoly_flag",
+    "public_name": "coepoly flag",
+    "item_name": "coepoly_flag"
+  },
+  {
+    "sprite_id": "3721479",
+    "classname": "coepoly_gamelogo",
+    "public_name": "coepoly gamelogo",
+    "item_name": "coepoly_gamelogo"
+  },
+  {
+    "sprite_id": "3721480",
+    "classname": "coepoly_greenhouse",
+    "public_name": "coepoly greenhouse",
+    "item_name": "coepoly_greenhouse"
+  },
+  {
+    "sprite_id": "3721481",
+    "classname": "coepoly_hand (1)",
+    "public_name": "coepoly hand (1)",
+    "item_name": "coepoly_hand (1)"
+  },
+  {
+    "sprite_id": "3721482",
+    "classname": "coepoly_hand",
+    "public_name": "coepoly hand",
+    "item_name": "coepoly_hand"
+  },
+  {
+    "sprite_id": "3721483",
+    "classname": "coepoly_jail",
+    "public_name": "coepoly jail",
+    "item_name": "coepoly_jail"
+  },
+  {
+    "sprite_id": "3721484",
+    "classname": "coepoly_pawn",
+    "public_name": "coepoly pawn",
+    "item_name": "coepoly_pawn"
+  },
+  {
+    "sprite_id": "3721485",
+    "classname": "coepoly_purplehouse",
+    "public_name": "coepoly purplehouse",
+    "item_name": "coepoly_purplehouse"
+  },
+  {
+    "sprite_id": "3721486",
+    "classname": "coepoly_sign",
+    "public_name": "coepoly sign",
+    "item_name": "coepoly_sign"
+  },
+  {
+    "sprite_id": "3721487",
+    "classname": "coepoly_stage",
+    "public_name": "coepoly stage",
+    "item_name": "coepoly_stage"
+  },
+  {
+    "sprite_id": "3721488",
+    "classname": "coepoly_yellowhouse (1)",
+    "public_name": "coepoly yellowhouse (1)",
+    "item_name": "coepoly_yellowhouse (1)"
+  },
+  {
+    "sprite_id": "3721489",
+    "classname": "coepoly_yellowhouse",
+    "public_name": "coepoly yellowhouse",
+    "item_name": "coepoly_yellowhouse"
+  },
+  {
+    "sprite_id": "3769745",
+    "classname": "black_0dominoes",
+    "public_name": "black 0dominoes",
+    "item_name": "black_0dominoes"
+  },
+  {
+    "sprite_id": "3769746",
+    "classname": "black_1dominoes",
+    "public_name": "black 1dominoes",
+    "item_name": "black_1dominoes"
+  },
+  {
+    "sprite_id": "3769747",
+    "classname": "black_2dominoes",
+    "public_name": "black 2dominoes",
+    "item_name": "black_2dominoes"
+  },
+  {
+    "sprite_id": "3769748",
+    "classname": "black_3dominoes",
+    "public_name": "black 3dominoes",
+    "item_name": "black_3dominoes"
+  }
+]

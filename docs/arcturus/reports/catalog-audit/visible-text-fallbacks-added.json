@@ -1,0 +1,148 @@
+{
+  "fd_name_fixes": 133,
+  "et_technical_names_fixed": 0,
+  "total_text_improvements": 133,
+  "fd_fixes_sample": [
+    {
+      "id": 2135,
+      "classname": "gothic_chair",
+      "old_name": "",
+      "new_name": "Gothic Chair",
+      "source": "humanized"
+    },
+    {
+      "id": 2136,
+      "classname": "gothic_sofa",
+      "old_name": "",
+      "new_name": "Gothic Sofa",
+      "source": "humanized"
+    },
+    {
+      "id": 2137,
+      "classname": "gothic_stool",
+      "old_name": "",
+      "new_name": "Gothic Stool",
+      "source": "humanized"
+    },
+    {
+      "id": 2171,
+      "classname": "sound_machine*1",
+      "old_name": "",
+      "new_name": "Gray Traxmachine",
+      "source": "productdata"
+    },
+    {
+      "id": 2544,
+      "classname": "sound_machine*3",
+      "old_name": "",
+      "new_name": "Gray Traxmachine",
+      "source": "productdata"
+    },
+    {
+      "id": 2545,
+      "classname": "sound_machine*4",
+      "old_name": "",
+      "new_name": "Gray Traxmachine",
+      "source": "productdata"
+    },
+    {
+      "id": 2550,
+      "classname": "sound_set_17",
+      "old_name": "",
+      "new_name": "Sound Set 17",
+      "source": "humanized"
+    },
+    {
+      "id": 4477,
+      "classname": "horse_hairdye_04_horsesho",
+      "old_name": "",
+      "new_name": "horse_hairdye_04_horsesho",
+      "source": "public_name"
+    },
+    {
+      "id": 11955,
+      "classname": "tile_cursor",
+      "old_name": "",
+      "new_name": "Tile Cursor",
+      "source": "humanized"
+    },
+    {
+      "id": 13096,
+      "classname": "sanrio_c22_chococatvanity",
+      "old_name": "",
+      "new_name": "Sanrio C22 Chococatvanity",
+      "source": "humanized"
+    },
+    {
+      "id": 13097,
+      "classname": "clothing_chococatbag",
+      "old_name": "",
+      "new_name": "Clothing Chococatbag",
+      "source": "humanized"
+    },
+    {
+      "id": 13098,
+      "classname": "sanrio_c22_chococatseat",
+      "old_name": "",
+      "new_name": "Sanrio C22 Chococatseat",
+      "source": "humanized"
+    },
+    {
+      "id": 13099,
+      "classname": "clothing_chococatscarf",
+      "old_name": "",
+      "new_name": "Clothing Chococatscarf",
+      "source": "humanized"
+    },
+    {
+      "id": 13100,
+      "classname": "sanrio_c22_chococatclock",
+      "old_name": "",
+      "new_name": "Sanrio C22 Chococatclock",
+      "source": "humanized"
+    },
+    {
+      "id": 13101,
+      "classname": "sanrio_c22_chococatcake",
+      "old_name": "",
+      "new_name": "Sanrio C22 Chococatcake",
+      "source": "humanized"
+    },
+    {
+      "id": 13727,
+      "classname": "sanrio_c22_twinstarsballoons",
+      "old_name": "",
+      "new_name": "Sanrio C22 Twinstarsballoons",
+      "source": "humanized"
+    },
+    {
+      "id": 13728,
+      "classname": "sanrio_c22_twinstarssofa",
+      "old_name": "",
+      "new_name": "Sanrio C22 Twinstarssofa",
+      "source": "humanized"
+    },
+    {
+      "id": 13729,
+      "classname": "sanrio_c22_ltsmoonseat",
+      "old_name": "",
+      "new_name": "Sanrio C22 Ltsmoonseat",
+      "source": "humanized"
+    },
+    {
+      "id": 13730,
+      "classname": "clothing_ltsheadband",
+      "old_name": "",
+      "new_name": "Clothing Ltsheadband",
+      "source": "humanized"
+    },
+    {
+      "id": 13731,
+      "classname": "sanrio_c22_twinstarcake",
+      "old_name": "",
+      "new_name": "Sanrio C22 Twinstarcake",
+      "source": "humanized"
+    }
+  ],
+  "et_fixes_count": 0
+}

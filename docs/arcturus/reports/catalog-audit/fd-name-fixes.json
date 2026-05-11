@@ -1,0 +1,933 @@
+[
+  {
+    "id": 2135,
+    "classname": "gothic_chair",
+    "old_name": "",
+    "new_name": "Gothic Chair",
+    "source": "humanized"
+  },
+  {
+    "id": 2136,
+    "classname": "gothic_sofa",
+    "old_name": "",
+    "new_name": "Gothic Sofa",
+    "source": "humanized"
+  },
+  {
+    "id": 2137,
+    "classname": "gothic_stool",
+    "old_name": "",
+    "new_name": "Gothic Stool",
+    "source": "humanized"
+  },
+  {
+    "id": 2171,
+    "classname": "sound_machine*1",
+    "old_name": "",
+    "new_name": "Gray Traxmachine",
+    "source": "productdata"
+  },
+  {
+    "id": 2544,
+    "classname": "sound_machine*3",
+    "old_name": "",
+    "new_name": "Gray Traxmachine",
+    "source": "productdata"
+  },
+  {
+    "id": 2545,
+    "classname": "sound_machine*4",
+    "old_name": "",
+    "new_name": "Gray Traxmachine",
+    "source": "productdata"
+  },
+  {
+    "id": 2550,
+    "classname": "sound_set_17",
+    "old_name": "",
+    "new_name": "Sound Set 17",
+    "source": "humanized"
+  },
+  {
+    "id": 4477,
+    "classname": "horse_hairdye_04_horsesho",
+    "old_name": "",
+    "new_name": "horse_hairdye_04_horsesho",
+    "source": "public_name"
+  },
+  {
+    "id": 11955,
+    "classname": "tile_cursor",
+    "old_name": "",
+    "new_name": "Tile Cursor",
+    "source": "humanized"
+  },
+  {
+    "id": 13096,
+    "classname": "sanrio_c22_chococatvanity",
+    "old_name": "",
+    "new_name": "Sanrio C22 Chococatvanity",
+    "source": "humanized"
+  },
+  {
+    "id": 13097,
+    "classname": "clothing_chococatbag",
+    "old_name": "",
+    "new_name": "Clothing Chococatbag",
+    "source": "humanized"
+  },
+  {
+    "id": 13098,
+    "classname": "sanrio_c22_chococatseat",
+    "old_name": "",
+    "new_name": "Sanrio C22 Chococatseat",
+    "source": "humanized"
+  },
+  {
+    "id": 13099,
+    "classname": "clothing_chococatscarf",
+    "old_name": "",
+    "new_name": "Clothing Chococatscarf",
+    "source": "humanized"
+  },
+  {
+    "id": 13100,
+    "classname": "sanrio_c22_chococatclock",
+    "old_name": "",
+    "new_name": "Sanrio C22 Chococatclock",
+    "source": "humanized"
+  },
+  {
+    "id": 13101,
+    "classname": "sanrio_c22_chococatcake",
+    "old_name": "",
+    "new_name": "Sanrio C22 Chococatcake",
+    "source": "humanized"
+  },
+  {
+    "id": 13727,
+    "classname": "sanrio_c22_twinstarsballoons",
+    "old_name": "",
+    "new_name": "Sanrio C22 Twinstarsballoons",
+    "source": "humanized"
+  },
+  {
+    "id": 13728,
+    "classname": "sanrio_c22_twinstarssofa",
+    "old_name": "",
+    "new_name": "Sanrio C22 Twinstarssofa",
+    "source": "humanized"
+  },
+  {
+    "id": 13729,
+    "classname": "sanrio_c22_ltsmoonseat",
+    "old_name": "",
+    "new_name": "Sanrio C22 Ltsmoonseat",
+    "source": "humanized"
+  },
+  {
+    "id": 13730,
+    "classname": "clothing_ltsheadband",
+    "old_name": "",
+    "new_name": "Clothing Ltsheadband",
+    "source": "humanized"
+  },
+  {
+    "id": 13731,
+    "classname": "sanrio_c22_twinstarcake",
+    "old_name": "",
+    "new_name": "Sanrio C22 Twinstarcake",
+    "source": "humanized"
+  },
+  {
+    "id": 13732,
+    "classname": "clothing_ltsbackstar",
+    "old_name": "",
+    "new_name": "Clothing Ltsbackstar",
+    "source": "humanized"
+  },
+  {
+    "id": 14631,
+    "classname": "nft_table_plasto_4leg*4",
+    "old_name": "",
+    "new_name": "Nft Table Plasto 4leg",
+    "source": "humanized"
+  },
+  {
+    "id": 14646,
+    "classname": "nft_chair_plasto*10",
+    "old_name": "",
+    "new_name": "Nft Chair Plasto",
+    "source": "humanized"
+  },
+  {
+    "id": 14647,
+    "classname": "nft_chair_plasto*11",
+    "old_name": "",
+    "new_name": "Nft Chair Plasto",
+    "source": "humanized"
+  },
+  {
+    "id": 14648,
+    "classname": "nft_chair_plasto*12",
+    "old_name": "",
+    "new_name": "Nft Chair Plasto",
+    "source": "humanized"
+  },
+  {
+    "id": 14649,
+    "classname": "nft_chair_plasto*13",
+    "old_name": "",
+    "new_name": "Nft Chair Plasto",
+    "source": "humanized"
+  },
+  {
+    "id": 14660,
+    "classname": "nft_chair_plasto*9",
+    "old_name": "",
+    "new_name": "Nft Chair Plasto",
+    "source": "humanized"
+  },
+  {
+    "id": 1001,
+    "classname": "Chess",
+    "old_name": "",
+    "new_name": "Chess",
+    "source": "humanized"
+  },
+  {
+    "id": 1011,
+    "classname": "TicTacToe",
+    "old_name": "",
+    "new_name": "TicTacToe",
+    "source": "humanized"
+  },
+  {
+    "id": 1021,
+    "classname": "BattleShip",
+    "old_name": "",
+    "new_name": "BattleShip",
+    "source": "humanized"
+  },
+  {
+    "id": 2010,
+    "classname": "Poker",
+    "old_name": "",
+    "new_name": "Poker",
+    "source": "humanized"
+  },
+  {
+    "id": 3001,
+    "classname": "wallpaper",
+    "old_name": "",
+    "new_name": "Väggfärg",
+    "source": "public_name"
+  },
+  {
+    "id": 3002,
+    "classname": "floor",
+    "old_name": "",
+    "new_name": "Golvfärg",
+    "source": "public_name"
+  },
+  {
+    "id": 4001,
+    "classname": "poster",
+    "old_name": "",
+    "new_name": "Poster",
+    "source": "humanized"
+  },
+  {
+    "id": 4055,
+    "classname": "landscape",
+    "old_name": "",
+    "new_name": "Landskap",
+    "source": "public_name"
+  },
+  {
+    "id": 70631331,
+    "classname": "poster500",
+    "old_name": "poster500_name",
+    "new_name": "Poster500",
+    "source": "humanized"
+  },
+  {
+    "id": 70631332,
+    "classname": "poster501",
+    "old_name": "poster501_name",
+    "new_name": "Poster501",
+    "source": "humanized"
+  },
+  {
+    "id": 70631333,
+    "classname": "poster502",
+    "old_name": "poster502_name",
+    "new_name": "Poster502",
+    "source": "humanized"
+  },
+  {
+    "id": 70631335,
+    "classname": "poster504",
+    "old_name": "poster504_name",
+    "new_name": "Poster504",
+    "source": "humanized"
+  },
+  {
+    "id": 70631336,
+    "classname": "poster505",
+    "old_name": "poster505_name",
+    "new_name": "Poster505",
+    "source": "humanized"
+  },
+  {
+    "id": 70631337,
+    "classname": "poster506",
+    "old_name": "poster506_name",
+    "new_name": "Poster506",
+    "source": "humanized"
+  },
+  {
+    "id": 70631338,
+    "classname": "poster507",
+    "old_name": "poster507_name",
+    "new_name": "Poster507",
+    "source": "humanized"
+  },
+  {
+    "id": 70631339,
+    "classname": "poster508",
+    "old_name": "poster508_name",
+    "new_name": "Poster508",
+    "source": "humanized"
+  },
+  {
+    "id": 70631340,
+    "classname": "poster509",
+    "old_name": "poster509_name",
+    "new_name": "Poster509",
+    "source": "humanized"
+  },
+  {
+    "id": 70631341,
+    "classname": "poster51",
+    "old_name": "poster51_name",
+    "new_name": "Poster51",
+    "source": "humanized"
+  },
+  {
+    "id": 70631342,
+    "classname": "poster510",
+    "old_name": "poster510_name",
+    "new_name": "Poster510",
+    "source": "humanized"
+  },
+  {
+    "id": 70631343,
+    "classname": "poster511",
+    "old_name": "poster511_name",
+    "new_name": "Poster511",
+    "source": "humanized"
+  },
+  {
+    "id": 70631344,
+    "classname": "poster512",
+    "old_name": "poster512_name",
+    "new_name": "Poster512",
+    "source": "humanized"
+  },
+  {
+    "id": 70631345,
+    "classname": "poster513",
+    "old_name": "poster513_name",
+    "new_name": "Poster513",
+    "source": "humanized"
+  },
+  {
+    "id": 70631346,
+    "classname": "poster514",
+    "old_name": "poster514_name",
+    "new_name": "Poster514",
+    "source": "humanized"
+  },
+  {
+    "id": 70631347,
+    "classname": "poster515",
+    "old_name": "poster515_name",
+    "new_name": "Poster515",
+    "source": "humanized"
+  },
+  {
+    "id": 70631348,
+    "classname": "poster516",
+    "old_name": "poster516_name",
+    "new_name": "Poster516",
+    "source": "humanized"
+  },
+  {
+    "id": 70631349,
+    "classname": "poster517",
+    "old_name": "poster517_name",
+    "new_name": "Poster517",
+    "source": "humanized"
+  },
+  {
+    "id": 70631350,
+    "classname": "poster518",
+    "old_name": "poster518_name",
+    "new_name": "Poster518",
+    "source": "humanized"
+  },
+  {
+    "id": 70631351,
+    "classname": "poster52",
+    "old_name": "poster52_name",
+    "new_name": "Poster52",
+    "source": "humanized"
+  },
+  {
+    "id": 70631352,
+    "classname": "poster520",
+    "old_name": "poster520_name",
+    "new_name": "Poster520",
+    "source": "humanized"
+  },
+  {
+    "id": 70631353,
+    "classname": "poster521",
+    "old_name": "poster521_name",
+    "new_name": "Poster521",
+    "source": "humanized"
+  },
+  {
+    "id": 70631354,
+    "classname": "poster522",
+    "old_name": "poster522_name",
+    "new_name": "Poster522",
+    "source": "humanized"
+  },
+  {
+    "id": 32731878,
+    "classname": "poster523",
+    "old_name": "poster523_name",
+    "new_name": "Poster523",
+    "source": "humanized"
+  },
+  {
+    "id": 70631269,
+    "classname": "poster1",
+    "old_name": "poster1_name",
+    "new_name": "Poster1",
+    "source": "humanized"
+  },
+  {
+    "id": 70631270,
+    "classname": "poster10",
+    "old_name": "poster10_name",
+    "new_name": "Poster10",
+    "source": "humanized"
+  },
+  {
+    "id": 70631271,
+    "classname": "poster1000",
+    "old_name": "poster1000_name",
+    "new_name": "Poster1000",
+    "source": "humanized"
+  },
+  {
+    "id": 70631272,
+    "classname": "poster1001",
+    "old_name": "poster1001_name",
+    "new_name": "Poster1001",
+    "source": "humanized"
+  },
+  {
+    "id": 70631273,
+    "classname": "poster1002",
+    "old_name": "poster1002_name",
+    "new_name": "Poster1002",
+    "source": "humanized"
+  },
+  {
+    "id": 70631274,
+    "classname": "poster1003",
+    "old_name": "poster1003_name",
+    "new_name": "Poster1003",
+    "source": "humanized"
+  },
+  {
+    "id": 70631275,
+    "classname": "poster1004",
+    "old_name": "poster1004_name",
+    "new_name": "Poster1004",
+    "source": "humanized"
+  },
+  {
+    "id": 70631276,
+    "classname": "poster1005",
+    "old_name": "poster1005_name",
+    "new_name": "Poster1005",
+    "source": "humanized"
+  },
+  {
+    "id": 70631277,
+    "classname": "poster1006",
+    "old_name": "poster1006_name",
+    "new_name": "Poster1006",
+    "source": "humanized"
+  },
+  {
+    "id": 70631278,
+    "classname": "poster11",
+    "old_name": "poster11_name",
+    "new_name": "Poster11",
+    "source": "humanized"
+  },
+  {
+    "id": 70631279,
+    "classname": "poster12",
+    "old_name": "poster12_name",
+    "new_name": "Poster12",
+    "source": "humanized"
+  },
+  {
+    "id": 70631280,
+    "classname": "poster13",
+    "old_name": "poster13_name",
+    "new_name": "Poster13",
+    "source": "humanized"
+  },
+  {
+    "id": 70631281,
+    "classname": "poster14",
+    "old_name": "poster14_name",
+    "new_name": "Poster14",
+    "source": "humanized"
+  },
+  {
+    "id": 70631282,
+    "classname": "poster15",
+    "old_name": "poster15_name",
+    "new_name": "Poster15",
+    "source": "humanized"
+  },
+  {
+    "id": 70631283,
+    "classname": "poster16",
+    "old_name": "poster16_name",
+    "new_name": "Poster16",
+    "source": "humanized"
+  },
+  {
+    "id": 70631284,
+    "classname": "poster17",
+    "old_name": "poster17_name",
+    "new_name": "Poster17",
+    "source": "humanized"
+  },
+  {
+    "id": 70631285,
+    "classname": "poster18",
+    "old_name": "poster18_name",
+    "new_name": "Poster18",
+    "source": "humanized"
+  },
+  {
+    "id": 70631286,
+    "classname": "poster19",
+    "old_name": "poster19_name",
+    "new_name": "Poster19",
+    "source": "humanized"
+  },
+  {
+    "id": 70631287,
+    "classname": "poster2",
+    "old_name": "poster2_name",
+    "new_name": "Poster2",
+    "source": "humanized"
+  },
+  {
+    "id": 70631288,
+    "classname": "poster20",
+    "old_name": "poster20_name",
+    "new_name": "Poster20",
+    "source": "humanized"
+  },
+  {
+    "id": 70631289,
+    "classname": "poster2000",
+    "old_name": "poster2000_name",
+    "new_name": "Poster2000",
+    "source": "humanized"
+  },
+  {
+    "id": 70631290,
+    "classname": "poster2001",
+    "old_name": "poster2001_name",
+    "new_name": "Poster2001",
+    "source": "humanized"
+  },
+  {
+    "id": 70631291,
+    "classname": "poster2002",
+    "old_name": "poster2002_name",
+    "new_name": "Poster2002",
+    "source": "humanized"
+  },
+  {
+    "id": 70631292,
+    "classname": "poster2003",
+    "old_name": "poster2003_name",
+    "new_name": "Poster2003",
+    "source": "humanized"
+  },
+  {
+    "id": 70631293,
+    "classname": "poster2004",
+    "old_name": "poster2004_name",
+    "new_name": "Poster2004",
+    "source": "humanized"
+  },
+  {
+    "id": 70631295,
+    "classname": "poster2006",
+    "old_name": "poster2006_name",
+    "new_name": "Poster2006",
+    "source": "humanized"
+  },
+  {
+    "id": 70631296,
+    "classname": "poster2007",
+    "old_name": "poster2007_name",
+    "new_name": "Poster2007",
+    "source": "humanized"
+  },
+  {
+    "id": 70631297,
+    "classname": "poster2008",
+    "old_name": "poster2008_name",
+    "new_name": "Poster2008",
+    "source": "humanized"
+  },
+  {
+    "id": 70631298,
+    "classname": "poster21",
+    "old_name": "poster21_name",
+    "new_name": "Poster21",
+    "source": "humanized"
+  },
+  {
+    "id": 70631299,
+    "classname": "poster22",
+    "old_name": "poster22_name",
+    "new_name": "Poster22",
+    "source": "humanized"
+  },
+  {
+    "id": 70631300,
+    "classname": "poster23",
+    "old_name": "poster23_name",
+    "new_name": "Poster23",
+    "source": "humanized"
+  },
+  {
+    "id": 70631301,
+    "classname": "poster24",
+    "old_name": "poster24_name",
+    "new_name": "Poster24",
+    "source": "humanized"
+  },
+  {
+    "id": 70631302,
+    "classname": "poster25",
+    "old_name": "poster25_name",
+    "new_name": "Poster25",
+    "source": "humanized"
+  },
+  {
+    "id": 70631303,
+    "classname": "poster26",
+    "old_name": "poster26_name",
+    "new_name": "Poster26",
+    "source": "humanized"
+  },
+  {
+    "id": 70631304,
+    "classname": "poster27",
+    "old_name": "poster27_name",
+    "new_name": "Poster27",
+    "source": "humanized"
+  },
+  {
+    "id": 70631305,
+    "classname": "poster28",
+    "old_name": "poster28_name",
+    "new_name": "Poster28",
+    "source": "humanized"
+  },
+  {
+    "id": 70631306,
+    "classname": "poster29",
+    "old_name": "poster29_name",
+    "new_name": "Poster29",
+    "source": "humanized"
+  },
+  {
+    "id": 70631307,
+    "classname": "poster3",
+    "old_name": "poster3_name",
+    "new_name": "Poster3",
+    "source": "humanized"
+  },
+  {
+    "id": 70631308,
+    "classname": "poster30",
+    "old_name": "poster30_name",
+    "new_name": "Poster30",
+    "source": "humanized"
+  },
+  {
+    "id": 70631309,
+    "classname": "poster31",
+    "old_name": "poster31_name",
+    "new_name": "Poster31",
+    "source": "humanized"
+  },
+  {
+    "id": 70631310,
+    "classname": "poster32",
+    "old_name": "poster32_name",
+    "new_name": "Poster32",
+    "source": "humanized"
+  },
+  {
+    "id": 70631311,
+    "classname": "poster33",
+    "old_name": "poster33_name",
+    "new_name": "Poster33",
+    "source": "humanized"
+  },
+  {
+    "id": 70631312,
+    "classname": "poster34",
+    "old_name": "poster34_name",
+    "new_name": "Poster34",
+    "source": "humanized"
+  },
+  {
+    "id": 70631313,
+    "classname": "poster35",
+    "old_name": "poster35_name",
+    "new_name": "Poster35",
+    "source": "humanized"
+  },
+  {
+    "id": 70631314,
+    "classname": "poster36",
+    "old_name": "poster36_name",
+    "new_name": "Poster36",
+    "source": "humanized"
+  },
+  {
+    "id": 70631315,
+    "classname": "poster37",
+    "old_name": "poster37_name",
+    "new_name": "Poster37",
+    "source": "humanized"
+  },
+  {
+    "id": 70631316,
+    "classname": "poster38",
+    "old_name": "poster38_name",
+    "new_name": "Poster38",
+    "source": "humanized"
+  },
+  {
+    "id": 70631317,
+    "classname": "poster39",
+    "old_name": "poster39_name",
+    "new_name": "Poster39",
+    "source": "humanized"
+  },
+  {
+    "id": 70631318,
+    "classname": "poster4",
+    "old_name": "poster4_name",
+    "new_name": "Poster4",
+    "source": "humanized"
+  },
+  {
+    "id": 70631319,
+    "classname": "poster40",
+    "old_name": "poster40_name",
+    "new_name": "Poster40",
+    "source": "humanized"
+  },
+  {
+    "id": 70631320,
+    "classname": "poster41",
+    "old_name": "poster41_name",
+    "new_name": "Poster41",
+    "source": "humanized"
+  },
+  {
+    "id": 70631321,
+    "classname": "poster42",
+    "old_name": "poster42_name",
+    "new_name": "Poster42",
+    "source": "humanized"
+  },
+  {
+    "id": 70631322,
+    "classname": "poster43",
+    "old_name": "poster43_name",
+    "new_name": "Poster43",
+    "source": "humanized"
+  },
+  {
+    "id": 70631323,
+    "classname": "poster44",
+    "old_name": "poster44_name",
+    "new_name": "Poster44",
+    "source": "humanized"
+  },
+  {
+    "id": 70631324,
+    "classname": "poster45",
+    "old_name": "poster45_name",
+    "new_name": "Poster45",
+    "source": "humanized"
+  },
+  {
+    "id": 70631325,
+    "classname": "poster46",
+    "old_name": "poster46_name",
+    "new_name": "Poster46",
+    "source": "humanized"
+  },
+  {
+    "id": 70631326,
+    "classname": "poster47",
+    "old_name": "poster47_name",
+    "new_name": "Poster47",
+    "source": "humanized"
+  },
+  {
+    "id": 70631327,
+    "classname": "poster48",
+    "old_name": "poster48_name",
+    "new_name": "Poster48",
+    "source": "humanized"
+  },
+  {
+    "id": 70631328,
+    "classname": "poster49",
+    "old_name": "poster49_name",
+    "new_name": "Poster49",
+    "source": "humanized"
+  },
+  {
+    "id": 70631329,
+    "classname": "poster5",
+    "old_name": "poster5_name",
+    "new_name": "Poster5",
+    "source": "humanized"
+  },
+  {
+    "id": 70631330,
+    "classname": "poster50",
+    "old_name": "poster50_name",
+    "new_name": "Poster50",
+    "source": "humanized"
+  },
+  {
+    "id": 70631355,
+    "classname": "poster523",
+    "old_name": "poster523_name",
+    "new_name": "Poster523",
+    "source": "humanized"
+  },
+  {
+    "id": 70631356,
+    "classname": "poster53",
+    "old_name": "poster53_name",
+    "new_name": "Poster53",
+    "source": "humanized"
+  },
+  {
+    "id": 70631357,
+    "classname": "poster54",
+    "old_name": "poster54_name",
+    "new_name": "Poster54",
+    "source": "humanized"
+  },
+  {
+    "id": 70631358,
+    "classname": "poster55",
+    "old_name": "poster55_name",
+    "new_name": "Tree Of Time",
+    "source": "productdata"
+  },
+  {
+    "id": 70631359,
+    "classname": "poster56",
+    "old_name": "poster56_name",
+    "new_name": "Poster56",
+    "source": "humanized"
+  },
+  {
+    "id": 70631360,
+    "classname": "poster57",
+    "old_name": "poster57_name",
+    "new_name": "Poster57",
+    "source": "humanized"
+  },
+  {
+    "id": 70631361,
+    "classname": "poster58",
+    "old_name": "poster58_name",
+    "new_name": "Poster58",
+    "source": "humanized"
+  },
+  {
+    "id": 70631362,
+    "classname": "poster6",
+    "old_name": "poster6_name",
+    "new_name": "Poster6",
+    "source": "humanized"
+  },
+  {
+    "id": 70631363,
+    "classname": "poster7",
+    "old_name": "poster7_name",
+    "new_name": "Poster7",
+    "source": "humanized"
+  },
+  {
+    "id": 70631364,
+    "classname": "poster8",
+    "old_name": "poster8_name",
+    "new_name": "Poster8",
+    "source": "humanized"
+  },
+  {
+    "id": 70631365,
+    "classname": "poster9",
+    "old_name": "poster9_name",
+    "new_name": "Poster9",
+    "source": "humanized"
+  },
+  {
+    "id": 70631366,
+    "classname": "posterjb",
+    "old_name": "posterjb_name",
+    "new_name": "Posterjb",
+    "source": "humanized"
+  },
+  {
+    "id": 62479124,
+    "classname": "adobe_b_poster",
+    "old_name": "adobe_b_poster_name",
+    "new_name": "adobe_b_poster",
+    "source": "public_name"
+  }
+]
