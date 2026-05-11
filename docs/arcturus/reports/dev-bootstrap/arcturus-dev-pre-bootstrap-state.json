@@ -1,0 +1,64 @@
+{
+  "report": "arcturus-dev pre-bootstrap state",
+  "date": "2026-05-11",
+  "mp": "MP-015A",
+  "databases": {
+    "arcturus_dev": {
+      "exists": true,
+      "tables": 0,
+      "status": "empty — no schema, no data",
+      "safe_to_bootstrap": true
+    },
+    "arcturus_main": {
+      "exists": true,
+      "tables": 122,
+      "status": "production — untouched",
+      "permissions": 10,
+      "catalog_pages": 1358,
+      "items_base": 36269,
+      "emulator_settings": 346
+    }
+  },
+  "bootstrap_source": {
+    "primary": "external/arcturus/objectretros/BaseDB MS 3.5.5.sql",
+    "size_mb": 11,
+    "lines": 30964,
+    "create_tables": 122,
+    "included_users": 1,
+    "included_items": 335,
+    "note": "Clean Arcturus Morningstar 3.5.5 base — seed user Systemaccount only"
+  },
+  "migration_plan": {
+    "from_base_sql": ["all tables + base data"],
+    "override_from_arcturus_main": [
+      "permissions",
+      "emulator_settings",
+      "items_base",
+      "catalog_pages",
+      "catalog_items",
+      "catalog_clothing",
+      "emulator_texts",
+      "navigator_flatcats",
+      "navigator_publiccats"
+    ],
+    "explicitly_excluded": [
+      "users (except Systemaccount)",
+      "items (inventory)",
+      "users_currency",
+      "users_badges",
+      "users_achievements",
+      "users_settings",
+      "rooms (personal)",
+      "room_rights",
+      "room_items",
+      "messenger_friendships",
+      "messenger_offline",
+      "chatlogs_private",
+      "chatlogs_room",
+      "bans",
+      "sanctions",
+      "auth_ticket values"
+    ]
+  },
+  "confirmation": "arcturus_main was NOT touched during pre-bootstrap audit"
+}

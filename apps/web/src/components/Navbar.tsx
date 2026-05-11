@@ -7,7 +7,7 @@ import { signOut, useSession } from 'next-auth/react';
 import {
   ChevronDown, Settings, LogOut, User, Users, Newspaper, Trophy,
   Home, ShoppingBag, LayoutDashboard, Shield, Menu, X, Camera, Gamepad2,
-  MessageSquare,
+  MessageSquare, Construction,
 } from 'lucide-react';
 import { RANK_LABELS, RANK_COLORS } from '@kodexa/shared';
 import { Avatar, AvatarHead } from '@/components/Avatar';
@@ -147,6 +147,13 @@ export default function Navbar() {
                 <Link href="/admin" className={`kx-nav-link flex items-center gap-1.5 ${isActive('/admin') ? 'active' : ''}`}>
                   <Shield size={13} style={{ color: '#EF4444' }} />
                   Admin
+                </Link>
+              )}
+
+              {rank >= 9 && (
+                <Link href="/desarrollo" className={`kx-nav-link flex items-center gap-1.5 ${isActive('/desarrollo') ? 'active' : ''}`}>
+                  <Construction size={13} style={{ color: '#F59E0B' }} />
+                  Dev
                 </Link>
               )}
 
@@ -309,6 +316,9 @@ export default function Navbar() {
               <Link href="/hotel"               className={`kx-mobile-link ${isActive('/hotel') ? 'active' : ''}`}><Gamepad2 size={16}/>Hotel</Link>
               {rank >= 7 && (
                 <Link href="/admin" className={`kx-mobile-link ${isActive('/admin') ? 'active' : ''}`}><Shield size={16}/>Admin</Link>
+              )}
+              {rank >= 9 && (
+                <Link href="/desarrollo" className={`kx-mobile-link ${isActive('/desarrollo') ? 'active' : ''}`}><Construction size={16}/>Desarrollo</Link>
               )}
             </nav>
           </div>

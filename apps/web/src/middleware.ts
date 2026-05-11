@@ -14,6 +14,7 @@ export default auth((req) => {
 
   const needsAuth =
     path.startsWith('/hotel')      ||
+    path.startsWith('/hotel-dev')  ||
     path.startsWith('/desarrollo') ||
     path.startsWith('/me')         ||
     path.startsWith('/settings')   ||
@@ -23,7 +24,7 @@ export default auth((req) => {
 
   const needsAdmin  = path.startsWith('/admin');
   const needsBeta   = path.startsWith('/hotel-beta');
-  const needsDev    = path.startsWith('/desarrollo');
+  const needsDev    = path.startsWith('/desarrollo') || path.startsWith('/hotel-dev');
   const betaEnabled = process.env.NEXT_PUBLIC_ENABLE_BETA_HOTEL !== 'false';
   const devEnabled  = process.env.NEXT_PUBLIC_ENABLE_DEV_HOTEL  !== 'false';
 
@@ -70,6 +71,7 @@ export const config = {
   matcher: [
     '/hotel/:path*',
     '/hotel-beta/:path*',
+    '/hotel-dev/:path*',
     '/desarrollo/:path*',
     '/me/:path*',
     '/settings/:path*',

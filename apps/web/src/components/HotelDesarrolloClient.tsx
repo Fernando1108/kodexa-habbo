@@ -1,354 +1,475 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import { useState, type ReactNode } from 'react';
+import Link from 'next/link';
 import { signOut } from 'next-auth/react';
-import { AlertCircle, WifiOff, Play, RefreshCw, LogOut, Coins, Diamond, Maximize2, FlaskConical, Construction } from 'lucide-react';
-import { getAvatarUrl } from '@kodexa/shared';
+import {
+  LogOut, Server, FlaskConical, Cpu, ExternalLink,
+  Clock, AlertTriangle, ChevronDown, ChevronUp, ShieldCheck, Globe, Lock,
+} from 'lucide-react';
 
-interface HotelUser {
+// ── Types ──────────────────────────────────────────────────────────────────
+
+interface GatewayUser {
   username: string;
-  look:     string;
-  credits:  number;
-  pixels:   number;
+  email:    string;
   rank:     number;
 }
 
-type LaunchState = 'loading' | 'ready' | 'error' | 'disconnected' | 'playing';
+type EnvStatus = 'active' | 'reserved' | 'experimental';
 
-const PHASES = [
-  'Verificando acceso DEVELOPER / FOUNDER',
-  'Cargando entorno de desarrollo',
-  'Iniciando Arcturus Dev',
-  'Conectando al servidor dev',
-  'Listo',
-];
+interface EnvCardProps {
+  icon:        ReactNode;
+  name:        string;
+  engine:      string;
+  status:      EnvStatus;
+  description: string;
+  note:        string;
+  action:      ReactNode;
+  accentColor: string;
+}
 
-// Amber/orange palette — distinct from main (teal) and beta (purple)
-const AMBER = '#F59E0B';
-const AMBER_DIM = 'rgba(245,158,11,.12)';
-const AMBER_BORDER = 'rgba(245,158,11,.25)';
+// ── Constants ──────────────────────────────────────────────────────────────
 
-export default function HotelDesarrolloClient({ user }: { user: HotelUser }) {
-  const [state, setState]         = useState<LaunchState>('loading');
-  const [progress, setProgress]   = useState(0);
-  const [phase, setPhase]         = useState(0);
-  const [errorMsg, setErrorMsg]   = useState('');
-  const [ssoTicket, setSsoTicket] = useState<string | null>(null);
+const AMBER        = '#F59E0B';
+const AMBER_DIM    = 'rgba(245,158,11,.10)';
+const AMBER_BORDER = 'rgba(245,158,11,.22)';
 
-  const clientUrl = process.env['NEXT_PUBLIC_CLIENT_URL']      ?? 'http://localhost:3001';
-  const devWsUrl  = process.env['NEXT_PUBLIC_DEV_HOTEL_WS_URL'] ?? 'ws://localhost:2098';
+const RANK_LABELS: Record<number, string> = {
+  1: 'Normal',       2: 'VIP',           3: 'Ayudante',
+  4: 'Moderador',    5: 'Game Master',   6: 'Manager',
+  7: 'Admin',        8: 'Hotel Manager', 9: 'Desarrollador',
+  10: 'Fundador',
+};
 
-  const runBoot = useCallback(() => {
-    setState('loading');
-    setProgress(0);
-    setPhase(0);
+const STATUS_STYLES: Record<EnvStatus, { bg: string; color: string; label: string }> = {
+  active:       { bg: 'rgba(16,185,129,.12)',  color: '#10B981', label: 'Disponible'   },
+  reserved:     { bg: 'rgba(100,116,139,.12)', color: '#64748B', label: 'Reservado'    },
+  experimental: { bg: 'rgba(124,58,237,.12)',  color: '#a78bfa', label: 'Experimental' },
+};
 
-    const steps = [
-      { pct: 20,  ph: 0, delay: 300 },
-      { pct: 45,  ph: 1, delay: 600 },
-      { pct: 68,  ph: 2, delay: 500 },
-      { pct: 88,  ph: 3, delay: 400 },
-      { pct: 100, ph: 4, delay: 300 },
-    ];
+// ── Internal component ─────────────────────────────────────────────────────
 
-    let elapsed = 0;
-    steps.forEach(({ pct, ph, delay }) => {
-      elapsed += delay;
-      setTimeout(() => {
-        setProgress(pct);
-        setPhase(ph);
-        if (pct === 100) setTimeout(() => setState('ready'), 350);
-      }, elapsed);
-    });
-  }, []);
-
-  useEffect(() => { runBoot(); }, [runBoot]);
-
-  async function launchGame() {
-    try {
-      const res = await fetch('/api/sso', { method: 'POST' });
-      if (!res.ok) throw new Error('SSO failed');
-      const { ticket } = await res.json() as { ticket: string };
-      setSsoTicket(ticket);
-      setState('playing');
-    } catch {
-      setErrorMsg(
-        'No se pudo generar el ticket de autenticación. ' +
-        'Asegúrate de que Arcturus Dev esté corriendo en el puerto 2098.'
-      );
-      setState('error');
-    }
-  }
-
-  function toggleFullscreen() {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch(() => undefined);
-    } else {
-      document.exitFullscreen().catch(() => undefined);
-    }
-  }
-
-  const avatarUrl = getAvatarUrl(user.look || 'hd-180-1', { size: 'l', direction: 2, gesture: 'sml' });
-
-  // ── PLAYING ──────────────────────────────────────────────────────────────────
-  if (state === 'playing') {
-    const iframeSrc = ssoTicket
-      ? `${clientUrl}?sso=${encodeURIComponent(ssoTicket)}&ws=${encodeURIComponent(devWsUrl)}`
-      : `${clientUrl}?ws=${encodeURIComponent(devWsUrl)}`;
-
-    return (
-      <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', background: '#0B1322' }}>
-        <div className="topbar-game">
-          <div
-            style={{
-              width: 24, height: 24, borderRadius: 6, flexShrink: 0,
-              background: `linear-gradient(135deg,${AMBER},#D97706)`,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              fontSize: '.7rem', fontWeight: 800, color: '#0B1322',
-            }}
-          >
-            D
-          </div>
-          <span className="font-bold text-xs" style={{ color: '#F8FAFC', flexShrink: 0 }}>
-            Kodexa<span style={{ color: AMBER }}>.</span>Desarrollo
-          </span>
-          <span
-            className="text-xs font-mono ml-2 px-1.5 py-0.5 rounded"
-            style={{ background: AMBER_DIM, color: AMBER, fontSize: '0.65rem' }}
-          >
-            DEV ONLY
-          </span>
-
-          <div className="ml-auto flex items-center gap-2">
-            <span className="gpill"><Coins className="w-3 h-3 inline mr-1" />{user.credits.toLocaleString()}</span>
-            <span className="gpill" style={{ background: 'rgba(124,58,237,.12)', color: '#c4b5fd', borderColor: 'rgba(124,58,237,.25)' }}>
-              <Diamond className="w-3 h-3 inline mr-1" />{user.pixels.toLocaleString()}
-            </span>
-            <button onClick={toggleFullscreen} className="icon-btn" title="Pantalla completa">
-              <Maximize2 className="w-4 h-4" />
-            </button>
-            <button onClick={() => signOut({ callbackUrl: '/login' })} className="icon-btn" title="Salir">
-              <LogOut className="w-4 h-4" />
-            </button>
+function EnvCard({ icon, name, engine, status, description, note, action, accentColor }: EnvCardProps) {
+  const s = STATUS_STYLES[status];
+  return (
+    <div
+      style={{
+        background:   'rgba(19,30,54,.6)',
+        border:       '1px solid #1f2b41',
+        borderLeft:   `3px solid ${accentColor}`,
+        borderRadius: 12,
+        padding:      '1.125rem',
+        display:      'flex',
+        flexDirection:'column',
+        gap:          10,
+      }}
+    >
+      {/* Header */}
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex items-center gap-2.5">
+          {icon}
+          <div>
+            <div className="text-sm font-semibold" style={{ color: '#F8FAFC' }}>{name}</div>
+            <div className="text-xs font-mono"     style={{ color: '#475569' }}>{engine}</div>
           </div>
         </div>
-
-        <iframe
-          src={iframeSrc}
-          style={{ flex: 1, border: 'none', width: '100%' }}
-          allow="fullscreen"
-          title="Kodexa Desarrollo"
-        />
+        <span
+          className="text-xs font-mono px-2 py-0.5 rounded-full flex-none"
+          style={{ background: s.bg, color: s.color }}
+        >
+          {s.label}
+        </span>
       </div>
-    );
-  }
+
+      {/* Description */}
+      <p className="text-xs leading-relaxed" style={{ color: '#64748B' }}>{description}</p>
+
+      {/* Note */}
+      <p className="text-xs" style={{ color: '#334155' }}>&#9888; {note}</p>
+
+      {/* Action */}
+      <div style={{ marginTop: 'auto' }}>{action}</div>
+    </div>
+  );
+}
+
+// ── Main component ─────────────────────────────────────────────────────────
+
+export default function HotelDesarrolloClient({ user }: { user: GatewayUser }) {
+  const [diagOpen, setDiagOpen] = useState(false);
+
+  const rankLabel   = RANK_LABELS[user.rank] ?? 'Desconocido';
+  const isFounder   = user.rank >= 10;
+  const isDeveloper = user.rank >= 9;
+
+  const nitroUrl    = process.env['NEXT_PUBLIC_NITRO_URL']         ?? 'http://localhost:8081';
+  const betaEnabled = process.env['NEXT_PUBLIC_ENABLE_BETA_HOTEL'] !== 'false';
+  const devEnabled  = process.env['NEXT_PUBLIC_ENABLE_DEV_HOTEL']  !== 'false';
+
+  // ── Disabled button style (reused for "coming soon") ──────────────────────
+  const disabledBtn: React.CSSProperties = {
+    display:        'flex',
+    alignItems:     'center',
+    justifyContent: 'center',
+    gap:            8,
+    width:          '100%',
+    padding:        '0.5rem 1rem',
+    borderRadius:   10,
+    background:     'rgba(100,116,139,.08)',
+    border:         '1px solid rgba(100,116,139,.18)',
+    color:          '#475569',
+    fontSize:       '0.8rem',
+    cursor:         'not-allowed',
+  };
 
   return (
     <div className="min-h-screen flex flex-col" style={{ background: '#0B1322' }}>
-      {/* Top bar */}
-      <div className="topbar-game">
-        <Construction className="w-5 h-5" style={{ color: AMBER, flexShrink: 0 }} />
+
+      {/* ── Topbar ── */}
+      <div
+        className="sticky top-0 z-30 flex items-center gap-3 px-5"
+        style={{
+          height:         52,
+          background:     'rgba(11,19,34,.97)',
+          borderBottom:   `1px solid ${AMBER_BORDER}`,
+          backdropFilter: 'blur(12px)',
+        }}
+      >
+        {/* Logo */}
+        <div
+          style={{
+            width: 28, height: 28, borderRadius: 8, flexShrink: 0,
+            background: `linear-gradient(135deg,${AMBER},#D97706)`,
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+            fontSize: '.75rem', fontWeight: 800, color: '#0B1322',
+          }}
+        >D</div>
         <span className="font-bold text-sm" style={{ color: '#F8FAFC' }}>
           Kodexa<span style={{ color: AMBER }}>.</span>Desarrollo
         </span>
         <span
-          className="text-xs font-mono ml-2 px-2 py-0.5 rounded"
-          style={{ background: AMBER_DIM, color: AMBER, border: `1px solid ${AMBER_BORDER}` }}
+          className="text-xs font-mono px-2 py-0.5 rounded"
+          style={{ background: AMBER_DIM, color: AMBER, border: `1px solid ${AMBER_BORDER}`, fontSize: '0.62rem' }}
         >
           DEVELOPER / FOUNDER
         </span>
-        <div className="ml-auto flex items-center gap-2">
-          <span className="gpill"><Coins className="w-3 h-3 inline mr-1" />{user.credits.toLocaleString()} créditos</span>
-          <div
-            className="avt ml-2"
-            style={{ background: `linear-gradient(135deg,${AMBER},#D97706)`, width: 28, height: 28, fontSize: '.72rem', color: '#0B1322' }}
+
+        {/* Right: user info + signout */}
+        <div className="ml-auto flex items-center gap-3">
+          <span className="text-xs hidden sm:block" style={{ color: '#64748B' }}>
+            {user.username}
+            <span
+              className="ml-2 px-1.5 py-0.5 rounded"
+              style={{ background: AMBER_DIM, color: AMBER, fontSize: '0.6rem', fontWeight: 700 }}
+            >
+              {rankLabel.toUpperCase()}
+            </span>
+          </span>
+          <button
+            onClick={() => signOut({ callbackUrl: '/login' })}
+            className="icon-btn"
+            title="Cerrar sesión"
           >
-            {user.username.replace(/[^A-Za-z0-9]/g, '').slice(0, 2).toUpperCase()}
-          </div>
+            <LogOut className="w-4 h-4" />
+          </button>
         </div>
       </div>
 
-      <div className="flex-1 flex items-center justify-center relative overflow-hidden">
-        <div className="aurora a" style={{ opacity: .1, filter: 'hue-rotate(40deg) saturate(1.5)' }} />
-        <div className="aurora b" style={{ opacity: .08, filter: 'hue-rotate(20deg)' }} />
+      {/* ── Content ── */}
+      <div className="flex-1 max-w-4xl mx-auto w-full px-5 py-8 flex flex-col gap-6">
 
-        {/* ── LOADING ── */}
-        <div className={`lstate${state === 'loading' ? ' active' : ''} gap-8 w-full max-w-md px-6 text-center`}>
-          <div className="logo-pulse">
-            <div
-              className="float-y"
-              style={{
-                width: 90, height: 90, borderRadius: 22,
-                background: `linear-gradient(135deg,${AMBER},#D97706)`,
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
-                fontSize: '2.6rem', fontWeight: 800, color: '#0B1322',
-                boxShadow: `0 0 40px rgba(245,158,11,.4), 0 20px 60px rgba(217,119,6,.3)`,
-                animation: 'logoBreathe 2.5s ease-in-out infinite',
-              }}
-            >D</div>
-          </div>
+        {/* Page title */}
+        <div>
+          <h1 className="text-xl font-bold mb-1" style={{ color: '#F8FAFC' }}>
+            Entorno de Desarrollo
+          </h1>
+          <p className="text-sm" style={{ color: '#64748B' }}>
+            Zona privada para pruebas, diagnóstico y entornos experimentales.
+            Acceso exclusivo DEVELOPER (rank&nbsp;9) / FOUNDER (rank&nbsp;10).
+          </p>
+        </div>
 
-          <div>
-            <h1 className="text-2xl font-bold mb-1" style={{ color: '#F8FAFC' }}>
-              Desarrollo, <span style={{ color: AMBER }}>{user.username}</span>
-            </h1>
-            <p className="text-sm" style={{ color: '#64748B' }}>Iniciando entorno Arcturus Dev…</p>
-          </div>
+        {/* Security notice */}
+        <div
+          style={{
+            background:   AMBER_DIM,
+            border:       `1px solid ${AMBER_BORDER}`,
+            borderRadius: 12,
+            padding:      '0.75rem 1rem',
+            display:      'flex', alignItems: 'flex-start', gap: 10,
+          }}
+        >
+          <AlertTriangle className="w-4 h-4 flex-none mt-0.5" style={{ color: AMBER }} />
+          <span className="text-sm" style={{ color: '#94A3B8', lineHeight: 1.55 }}>
+            <strong style={{ color: AMBER }}>Zona de desarrollo</strong> — Los cambios en entornos dev
+            no deben afectar el hotel principal. No mezcles datos entre arcturus_main y arcturus_dev.
+            Verifica siempre en dev antes de aplicar a producción.
+          </span>
+        </div>
 
-          <div className="flex flex-col items-center gap-3 w-full">
-            <div className="progress-track">
-              <div
-                className="progress-fill"
-                style={{ width: `${progress}%`, background: `linear-gradient(90deg,${AMBER},#D97706)` }}
-              />
+        {/* User info strip */}
+        <div
+          style={{
+            background:   'rgba(19,30,54,.6)',
+            border:       '1px solid #1f2b41',
+            borderRadius: 12,
+            padding:      '0.75rem 1rem',
+            display:      'flex', flexWrap: 'wrap', gap: '1.25rem', alignItems: 'center',
+          }}
+        >
+          {[
+            { label: 'Usuario',  value: user.username },
+            { label: 'Email',    value: user.email },
+            { label: 'Rank',     value: `${user.rank} — ${rankLabel}`, color: AMBER },
+            { label: 'Acceso',   value: isFounder ? 'FOUNDER (completo)' : isDeveloper ? 'DEVELOPER' : 'Sin acceso', color: '#10B981' },
+          ].map(item => (
+            <div key={item.label}>
+              <div className="text-xs mb-0.5"  style={{ color: '#475569' }}>{item.label}</div>
+              <div className="text-sm font-medium" style={{ color: item.color ?? '#F8FAFC' }}>{item.value}</div>
             </div>
-            <span className="text-xs font-mono" style={{ color: '#475569' }}>{progress}%</span>
-          </div>
+          ))}
+        </div>
 
-          <div className="flex flex-col gap-2 w-full">
-            {PHASES.map((p, i) => (
-              <div key={p} className={`phase${i < phase ? ' done' : ''}${i === phase ? ' cur' : ''}`}>
-                <span className="phase-dot" />
-                {p}
-                {i < phase && <span className="ml-auto text-[10px] font-mono" style={{ color: '#10B981' }}>✓</span>}
+        {/* Environment cards */}
+        <div
+          className="grid gap-4"
+          style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(270px, 1fr))' }}
+        >
+
+          {/* A — Hotel Principal */}
+          <EnvCard
+            icon={<Server className="w-5 h-5" style={{ color: '#00D4AA' }} />}
+            name="Hotel Principal"
+            engine="arcturus_main · Nitro"
+            status="active"
+            description="Entorno estable de producción con usuarios reales. kodexa_hotel es la fuente de verdad para rangos y sesión. Auth Bridge via /api/sso."
+            note="Entorno estable para usuarios reales. Cambios aquí afectan a todos."
+            accentColor="#00D4AA"
+            action={
+              <Link
+                href="/hotel"
+                className="btn flex items-center gap-2"
+                style={{
+                  fontSize: '0.8rem', borderRadius: 10,
+                  width: '100%', justifyContent: 'center',
+                  padding: '0.5rem 1rem',
+                }}
+              >
+                <ExternalLink className="w-3.5 h-3.5" />
+                Entrar al hotel
+              </Link>
+            }
+          />
+
+          {/* B — Arcturus Dev */}
+          <EnvCard
+            icon={<Cpu className="w-5 h-5" style={{ color: AMBER }} />}
+            name="Arcturus Dev"
+            engine="arcturus_dev · Nitro Dev"
+            status={devEnabled ? 'active' : 'reserved'}
+            description="Laboratorio para pruebas de catálogo, furnis, comandos Arcturus y actualizaciones antes de producción. Bridge separado del hotel principal."
+            note={
+              devEnabled
+                ? 'Infraestructura lista. Requiere bootstrap de arcturus_dev y Nitro Dev corriendo en :8082.'
+                : 'NEXT_PUBLIC_ENABLE_DEV_HOTEL=false — deshabilitado por feature flag.'
+            }
+            accentColor={AMBER}
+            action={
+              devEnabled ? (
+                <Link
+                  href="/hotel-dev"
+                  style={{
+                    display:        'flex',
+                    alignItems:     'center',
+                    justifyContent: 'center',
+                    gap:            8,
+                    width:          '100%',
+                    padding:        '0.5rem 1rem',
+                    borderRadius:   10,
+                    background:     AMBER_DIM,
+                    border:         `1px solid ${AMBER_BORDER}`,
+                    color:          AMBER,
+                    fontSize:       '0.8rem',
+                    textDecoration: 'none',
+                    fontWeight:     600,
+                  }}
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  Entrar a Arcturus Dev
+                </Link>
+              ) : (
+                <button disabled style={disabledBtn}>
+                  <Clock className="w-3.5 h-3.5" />
+                  Deshabilitado por feature flag
+                </button>
+              )
+            }
+          />
+
+          {/* C — Custom Emulator Beta */}
+          <EnvCard
+            icon={<FlaskConical className="w-5 h-5" style={{ color: '#a78bfa' }} />}
+            name="Custom Emulator Beta"
+            engine="kodexa-custom · WS :2097"
+            status="experimental"
+            description="Entorno experimental del emulador propio (Node.js / TypeScript / WebSocket). Para features exclusivas: economy, wired, marketplace."
+            note={isFounder && betaEnabled ? 'Acceso FOUNDER habilitado vía /hotel-beta.' : 'Requiere rank FOUNDER (10) para acceder.'}
+            accentColor="#7C3AED"
+            action={
+              isFounder && betaEnabled ? (
+                <Link
+                  href="/hotel-beta"
+                  style={{
+                    display:        'flex',
+                    alignItems:     'center',
+                    justifyContent: 'center',
+                    gap:            8,
+                    width:          '100%',
+                    padding:        '0.5rem 1rem',
+                    borderRadius:   10,
+                    background:     'rgba(124,58,237,.12)',
+                    border:         '1px solid rgba(124,58,237,.3)',
+                    color:          '#a78bfa',
+                    fontSize:       '0.8rem',
+                    textDecoration: 'none',
+                  }}
+                >
+                  <ExternalLink className="w-3.5 h-3.5" />
+                  Entrar a beta
+                </Link>
+              ) : (
+                <button disabled style={disabledBtn}>
+                  <Lock className="w-3.5 h-3.5" />
+                  {isFounder ? 'Beta deshabilitada (env)' : 'Solo FOUNDER (rank 10)'}
+                </button>
+              )
+            }
+          />
+
+        </div>
+
+        {/* D — Diagnostic section (collapsible) */}
+        <div
+          style={{
+            background:   'rgba(19,30,54,.6)',
+            border:       '1px solid #1f2b41',
+            borderRadius: 12,
+            overflow:     'hidden',
+          }}
+        >
+          <button
+            onClick={() => setDiagOpen(v => !v)}
+            style={{
+              display:        'flex',
+              alignItems:     'center',
+              justifyContent: 'space-between',
+              width:          '100%',
+              padding:        '0.875rem 1rem',
+              background:     'transparent',
+              border:         'none',
+              cursor:         'pointer',
+            }}
+          >
+            <span
+              className="flex items-center gap-2 text-sm font-semibold"
+              style={{ color: '#F8FAFC' }}
+            >
+              <ShieldCheck className="w-4 h-4" style={{ color: '#00D4AA' }} />
+              Diagnóstico de entorno
+            </span>
+            {diagOpen
+              ? <ChevronUp   className="w-4 h-4" style={{ color: '#475569' }} />
+              : <ChevronDown className="w-4 h-4" style={{ color: '#475569' }} />
+            }
+          </button>
+
+          {diagOpen && (
+            <div style={{ borderTop: '1px solid #1f2b41', padding: '1rem' }}>
+              <div
+                className="grid gap-2.5"
+                style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(210px, 1fr))' }}
+              >
+                {[
+                  { label: 'Usuario',           value: user.username },
+                  { label: 'Email',             value: user.email },
+                  { label: 'Rank',              value: `${user.rank} (${rankLabel})` },
+                  { label: 'Acceso /desarrollo',value: isDeveloper ? '✅ Autorizado' : '❌ No autorizado' },
+                  { label: 'Entorno principal', value: 'arcturus_main' },
+                  { label: 'Auth Bridge',       value: 'Configurado (/api/sso)' },
+                  { label: 'Nitro URL',         value: nitroUrl },
+                  { label: 'Wallet endpoint',   value: '/api/hotel/wallet' },
+                  { label: 'Beta hotel flag',   value: betaEnabled ? 'true' : 'false (deshabilitado)' },
+                  { label: 'Dev hotel flag',    value: devEnabled  ? 'true' : 'false (deshabilitado)' },
+                ].map(item => (
+                  <div
+                    key={item.label}
+                    style={{
+                      background:   'rgba(11,19,34,.8)',
+                      border:       '1px solid #1a2540',
+                      borderRadius: 8,
+                      padding:      '0.625rem 0.75rem',
+                    }}
+                  >
+                    <div className="text-xs mb-0.5" style={{ color: '#475569' }}>{item.label}</div>
+                    <div className="text-xs font-mono" style={{ color: '#94A3B8', wordBreak: 'break-all' }}>
+                      {item.value}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Future env architecture — pending variables */}
+        <div
+          style={{
+            background:   'rgba(11,19,34,.4)',
+            border:       '1px dashed #1a2540',
+            borderRadius: 12,
+            padding:      '0.875rem 1rem',
+          }}
+        >
+          <div
+            className="text-xs font-semibold mb-2"
+            style={{ color: '#1e3058', textTransform: 'uppercase', letterSpacing: '0.06em' }}
+          >
+            Variables de entorno pendientes (MP-015)
+          </div>
+          <div
+            className="grid gap-1"
+            style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))' }}
+          >
+            {[
+              'ARCTURUS_DEV_DB_URL',
+              'NEXT_PUBLIC_NITRO_DEV_URL',
+              'NEXT_PUBLIC_CUSTOM_EMULATOR_URL',
+            ].map(v => (
+              <div key={v} className="text-xs font-mono" style={{ color: '#1e3058' }}>
+                {v}=<span style={{ color: '#162540' }}>pendiente</span>
               </div>
             ))}
           </div>
-
-          <div
-            style={{
-              background: AMBER_DIM,
-              border: `1px solid ${AMBER_BORDER}`,
-              borderRadius: 12,
-              padding: '0.75rem 1rem',
-              fontSize: '0.75rem',
-              color: '#94A3B8',
-              textAlign: 'left',
-            }}
-          >
-            <span style={{ color: AMBER, fontWeight: 600 }}>⚙ Entorno de desarrollo</span> — Acceso exclusivo para DEVELOPER / FOUNDER.
-            Aquí se prueban catálogos, tiendas, furnis y actualizaciones antes de pasar a producción.
-          </div>
         </div>
 
-        {/* ── READY ── */}
-        <div className={`lstate${state === 'ready' ? ' active' : ''} gap-8 w-full max-w-lg px-6 text-center items-center`}>
-          <div style={{ position: 'relative', display: 'inline-block' }}>
-            <div style={{
-              width: 120, height: 120, borderRadius: '50%',
-              background: `linear-gradient(135deg, ${AMBER_DIM}, rgba(217,119,6,.15))`,
-              border: `2px solid ${AMBER_BORDER}`,
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              overflow: 'hidden',
-            }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={avatarUrl}
-                alt={user.username}
-                style={{ imageRendering: 'pixelated', transform: 'scale(1.4)', marginTop: 12 }}
-                onError={e => { (e.target as HTMLImageElement).style.display = 'none'; }}
-              />
-            </div>
-            <span
-              className="absolute bottom-1 right-1 w-4 h-4 rounded-full"
-              style={{ background: AMBER, border: '2px solid #0B1322' }}
-            />
-          </div>
-
-          <div>
-            <h1 className="text-3xl font-bold mb-2" style={{ color: '#F8FAFC' }}>
-              Dev listo, <span style={{ color: AMBER }}>{user.username}</span>
-            </h1>
-            <p className="text-sm" style={{ color: '#94A3B8' }}>
-              Conectando a Arcturus Dev · Puerto 2098
-            </p>
-          </div>
-
-          <div
-            style={{
-              background: AMBER_DIM,
-              border: `1px solid ${AMBER_BORDER}`,
-              borderRadius: 12,
-              padding: '0.75rem 1.25rem',
-              fontSize: '0.8rem',
-              color: '#94A3B8',
-              maxWidth: 420,
-              textAlign: 'left',
-            }}
-          >
-            <FlaskConical className="w-4 h-4 inline mr-1.5" style={{ color: AMBER }} />
-            <strong style={{ color: AMBER }}>Entorno de pruebas</strong> — Los cambios aquí no afectan el hotel principal.
-            Usa este espacio para validar catálogo, furnis y configuraciones antes de producción.
-          </div>
-
-          <button
-            onClick={launchGame}
-            className="btn flex items-center gap-2.5 text-base px-8 py-3"
-            style={{
-              fontSize: '1rem', borderRadius: 14,
-              background: `linear-gradient(135deg,${AMBER},#D97706)`,
-              color: '#0B1322',
-              boxShadow: `0 0 40px rgba(245,158,11,.4)`,
-            }}
-          >
-            <Play className="w-5 h-5 fill-current" />
-            Entrar al Entorno de Desarrollo
-          </button>
-
-          <a href="/hotel" style={{ color: '#475569', fontSize: '0.8rem', textDecoration: 'none' }}>
+        {/* Back link */}
+        <div className="text-center pb-2">
+          <Link href="/hotel" style={{ color: '#334155', fontSize: '0.8rem', textDecoration: 'none' }}>
             ← Volver al Hotel Principal
-          </a>
-        </div>
-
-        {/* ── ERROR ── */}
-        <div className={`lstate${state === 'error' ? ' active' : ''} gap-6 px-6`}>
-          <div className="alert-card flex flex-col items-center gap-5 text-center" style={{ maxWidth: 400 }}>
-            <div className="alert-icon"><AlertCircle className="w-7 h-7" /></div>
-            <div>
-              <h2 className="text-xl font-bold mb-2" style={{ color: '#F8FAFC' }}>Error al iniciar Desarrollo</h2>
-              <p className="text-sm leading-relaxed" style={{ color: '#64748B' }}>
-                {errorMsg || 'No fue posible iniciar el cliente. Asegúrate de que Arcturus Dev esté corriendo en el puerto 2098.'}
-              </p>
-            </div>
-            <div className="flex gap-3">
-              <button onClick={runBoot} className="btn flex items-center gap-2">
-                <RefreshCw className="w-4 h-4" />Reintentar
-              </button>
-              <a href="/hotel" className="btn-outline flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-medium"
-                style={{ border: '1px solid #2a3b5b', color: '#94A3B8' }}>
-                Hotel Principal
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* ── DISCONNECTED ── */}
-        <div className={`lstate${state === 'disconnected' ? ' active' : ''} gap-6 px-6`}>
-          <div className="alert-card flex flex-col items-center gap-5 text-center" style={{ maxWidth: 400 }}>
-            <div className="alert-icon" style={{ background: `${AMBER_DIM}`, color: AMBER }}>
-              <WifiOff className="w-7 h-7" />
-            </div>
-            <div>
-              <h2 className="text-xl font-bold mb-2" style={{ color: '#F8FAFC' }}>Conexión dev perdida</h2>
-              <p className="text-sm leading-relaxed" style={{ color: '#64748B' }}>
-                Se perdió la conexión con Arcturus Dev. Verifica que el servidor esté activo en el puerto 2098.
-              </p>
-            </div>
-            <button onClick={runBoot} className="btn flex items-center gap-2">
-              <RefreshCw className="w-4 h-4" />Reconectar
-            </button>
-          </div>
+          </Link>
         </div>
       </div>
 
+      {/* ── Footer ── */}
       <div
         className="px-6 py-3 flex items-center justify-between text-xs font-mono"
-        style={{ borderTop: '1px solid #1f2b41', color: '#334155' }}
+        style={{ borderTop: `1px solid ${AMBER_BORDER}`, color: '#334155' }}
       >
-        <span>© 2025 Kodexa Hotel · arcturus-dev (preparado)</span>
+        <span>© 2025 Kodexa Hotel · /desarrollo gateway v1.0</span>
         <span className="flex items-center gap-1.5">
-          <span className="pulse-dot" style={{ background: AMBER }} />
-          <span style={{ color: AMBER }}>arcturus-dev engine</span>
+          <Globe className="w-3 h-3" style={{ color: AMBER }} />
+          <span style={{ color: AMBER }}>dev zone</span>
         </span>
       </div>
     </div>

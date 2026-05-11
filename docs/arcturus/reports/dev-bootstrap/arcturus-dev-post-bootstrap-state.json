@@ -1,0 +1,83 @@
+{
+  "report": "arcturus-dev post-bootstrap state",
+  "date": "2026-05-11",
+  "mp": "MP-015A",
+  "databases": {
+    "arcturus_dev": {
+      "exists": true,
+      "tables": 122,
+      "status": "bootstrapped — schema + operational data migrated",
+      "safe_to_use": true,
+      "counts": {
+        "items_base": 36269,
+        "catalog_pages": 1358,
+        "catalog_items": 35574,
+        "catalog_clothing": "migrated",
+        "permissions": "migrated",
+        "emulator_settings": "migrated (ws.nitro.port overridden to 2097)",
+        "emulator_texts": "migrated",
+        "navigator_flatcats": "migrated",
+        "navigator_publiccats": "migrated",
+        "gift_wrappers": "migrated",
+        "wordfilter": "migrated",
+        "users": 1,
+        "users_note": "Systemaccount only — no production users copied"
+      }
+    },
+    "arcturus_main": {
+      "exists": true,
+      "tables": 122,
+      "status": "production — untouched",
+      "confirmation": "NOT modified during bootstrap"
+    }
+  },
+  "bootstrap_source": {
+    "primary": "external/arcturus/objectretros/BaseDB MS 3.5.5.sql",
+    "sanitization": "utf8mb4_0900_ai_ci → utf8mb4_general_ci, utf8mb3 → utf8 (MariaDB 10.11 compat)",
+    "schema_drift_fixes": [
+      {
+        "table": "items_base",
+        "issue": "dev had 25 cols, main had 27 cols",
+        "fix": "ALTER TABLE ADD COLUMN page_id VARCHAR(250) NULL, ADD COLUMN rare enum('0','1','2','3','4') NOT NULL DEFAULT '0'"
+      },
+      {
+        "table": "catalog_items",
+        "issue": "dev had 16 cols, main had 18 cols",
+        "fix": "ALTER TABLE ADD COLUMN badge VARCHAR(12) NULL, ADD COLUMN rate VARCHAR(255) NULL"
+      }
+    ]
+  },
+  "emulator_settings_overrides": {
+    "ws.nitro.port": "2097 (was 2096 — dev uses different WS port)"
+  },
+  "explicitly_excluded": [
+    "users (except Systemaccount from BaseDB)",
+    "items (inventory)",
+    "users_currency",
+    "users_badges",
+    "users_achievements",
+    "users_settings",
+    "rooms (personal)",
+    "room_rights",
+    "room_items",
+    "messenger_friendships",
+    "messenger_offline",
+    "chatlogs_private",
+    "chatlogs_room",
+    "bans",
+    "sanctions",
+    "auth_ticket values"
+  ],
+  "dev_runtime_config": {
+    "emulator_config": "external/arcturus/objectretros/emulator/config-dev.ini",
+    "emulator_game_port": 3015,
+    "emulator_rcon_port": 3012,
+    "emulator_ws_port": 2097,
+    "nitro_renderer_config": "external/arcturus/objectretros/nitro/renderer-config.dev.json",
+    "nitro_url": "http://localhost:8082",
+    "nitro_socket": "ws://localhost:2097",
+    "docker_compose": "docker/docker-compose.nitro.yml (service: nitro-dev)"
+  },
+  "isArcturusDevReady": true,
+  "ready": true
+}

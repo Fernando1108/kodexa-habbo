@@ -1,0 +1,52 @@
+# Nitro Renderer — Main (8081) + Dev (8082)
+#
+# Standalone compose file for Nitro instances.
+# Requires kodexa network (created by docker-compose.yml):
+#   docker compose -f docker/docker-compose.yml up -d
+#   docker compose -f docker/docker-compose.nitro.yml up -d
+#
+# Or combined:
+#   docker compose -f docker/docker-compose.yml -f docker/docker-compose.nitro.yml up -d
+#
+# Build on first run:
+#   docker compose -f docker/docker-compose.nitro.yml build nitro
+#
+# Ports:
+#   Main:  http://localhost:8081  → ws://localhost:2096 (Arcturus main)
+#   Dev:   http://localhost:8082  → ws://localhost:2097 (Arcturus dev)
+
+services:
+  nitro:
+    build:
+      context: ../external/arcturus/nitro-docker/nitro
+      dockerfile: Dockerfile
+    image: kodexa-nitro:latest
+    container_name: kodexa-nitro
+    restart: unless-stopped
+    ports:
+      - "8081:80"
+    volumes:
+      - ../external/arcturus/objectretros/nitro/renderer-config.local.json:/usr/share/nginx/html/renderer-config.json:ro
+      - ../external/arcturus/objectretros/nitro/ui-config.local.json:/usr/share/nginx/html/ui-config.json:ro
+      - ../external/arcturus/nitro-docker/nitro/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - kodexa
+
+  nitro-dev:
+    image: kodexa-nitro:latest
+    container_name: kodexa-nitro-dev
+    restart: unless-stopped
+    ports:
+      - "8082:80"
+    volumes:
+      - ../external/arcturus/objectretros/nitro/renderer-config.dev.json:/usr/share/nginx/html/renderer-config.json:ro
+      - ../external/arcturus/objectretros/nitro/ui-config.local.json:/usr/share/nginx/html/ui-config.json:ro
+      - ../external/arcturus/nitro-docker/nitro/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    networks:
+      - kodexa
+    depends_on:
+      - nitro
+
+networks:
+  kodexa:
+    external: true
