@@ -1,0 +1,14 @@
+page_id,page_name,item_name,item_type,has_nitro,has_icon,has_furnidata,render_status,probable_cause,recommended_action
+93,"Bunny - Manic","a0 pet20",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation
+94,"Pigeon - Wise","a0 pet21",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation
+95,"Pigeon - Cunning","a0 pet22",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation
+96,"Monkey - Evil","a0 pet23",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation
+98,"Terrier Puppies","a0 pet25",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation
+99,"Kittens","a0 pet28",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation
+100,"Puppies","a0 pet29",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation
+101,"Piglets","a0 pet30",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation
+1516,"Unused Wired","wf_act_givexp",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation
+952,"Broken/Unused","a0 pet10",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation
+1,"Limited Edition","Black Dino Egg",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation
+952,"Broken/Unused","grunge_wall",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation
+952,"Broken/Unused","Rainbow_fountain",s,0,0,0,broken,no_furnidata_no_nitro,needs_runtime_investigation

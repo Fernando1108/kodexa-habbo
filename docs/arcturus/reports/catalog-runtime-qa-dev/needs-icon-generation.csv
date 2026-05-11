@@ -1,0 +1,39 @@
+page_id,page_name,item_name,item_type,has_nitro,has_icon,has_furnidata,render_status,probable_cause,recommended_action
+442,"AD Furniture","ads_nokiax3_wall",i,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+442,"AD Furniture","ads_nokiax3_wallb",i,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+442,"AD Furniture","brnd_cscape_wall",i,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+914,"Credits","CF_5000_suitcase",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+3028,"Broken Dragons","crystal_dragon",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+522,"Dessert Cafe","dessertcafe_c17_coffeetable",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+23,"Pixel Rentals","fx_bubble",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+23,"Pixel Rentals","fx_explosion",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+23,"Pixel Rentals","fx_flare",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+1352,"University","habbopage_wall",S,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+600,"Pinatas Crackables","hblooza_pinata1",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+243,"Dyes","horse_hairdye_04_horsesho",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+455,"2014 - White Bling","js_bling11_seat1",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+455,"2014 - White Bling","js_bling11_seat2",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+455,"2014 - White Bling","js_bling_chair_w",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+369,"Lido","lidotower",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+24,"Base","pixel_couch_black",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+24,"Base","pixel_couch_green",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+24,"Base","pixel_couch_pink",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+24,"Base","pixel_couch_red",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+274,"Camera Wall Photo","poster",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+337,"Maroon Rares","rare_parasol*4",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+421,"Sound FX","sfx_taperec",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+421,"Sound FX","sfx_taperec_bassline",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+421,"Sound FX","sfx_taperec_breakbeat",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+1258,"Trax Machines","sound_machine",S,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+1234568,"Plasto","table_plasto_4leg",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+502,"White Plasto","table_plasto_4leg",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+19,"Colourable Plasto","table_plasto_4leg*1",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+349,"HC Classic","table_plasto_4leg*14",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+64,"Effects","wf_act_move_furni_to",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+63,"Triggers","wf_trg_at_time_long",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+109,"Youtube","ytprojector",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+40,"Room Ad's","bg_cloud",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+1,"Limited Edition","crystal_throne",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+1,"Limited Edition","hween_ltd17_dragon",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+663,"Classic Rares","rare_parasol*0",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation
+1,"Limited Edition","white_dino_egg",s,1,0,1,ok_no_icon,missing_icon,needs_icon_generation

@@ -2,7 +2,10 @@
 
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { signOut } from 'next-auth/react';
-import { Play, RefreshCw, LogOut, Maximize2, AlertCircle, WifiOff, RotateCcw, Wifi, Construction, AlertTriangle } from 'lucide-react';
+import {
+  Play, RefreshCw, LogOut, Maximize2, AlertCircle,
+  WifiOff, RotateCcw, Wifi, Construction, AlertTriangle,
+} from 'lucide-react';
 import { getAvatarUrl } from '@kodexa/shared';
 
 interface HotelDevUser {
@@ -11,6 +14,12 @@ interface HotelDevUser {
   credits:  number;
   pixels:   number;
   rank:     number;
+}
+
+interface DevWallet {
+  credits:  number;
+  pixels:   number;
+  diamonds: number;
 }
 
 type LaunchState = 'loading' | 'ready' | 'checking' | 'unavailable' | 'error' | 'disconnected' | 'playing';
@@ -28,23 +37,57 @@ const PHASES = [
 ];
 
 export default function HotelDevClient({ user }: { user: HotelDevUser }) {
-  const [state, setState]       = useState<LaunchState>('loading');
-  const [progress, setProgress] = useState(0);
-  const [phase, setPhase]       = useState(0);
-  const [errorMsg, setErrorMsg] = useState('');
-  const [iframeSrc, setIframeSrc] = useState('');
+  const [state, setState]           = useState<LaunchState>('loading');
+  const [progress, setProgress]     = useState(0);
+  const [phase, setPhase]           = useState(0);
+  const [errorMsg, setErrorMsg]     = useState('');
+  const [iframeSrc, setIframeSrc]   = useState('');
   const [settingsOpen, setSettingsOpen] = useState(false);
-  const settingsRef = useRef<HTMLDivElement>(null);
-  const iframeRef   = useRef<HTMLIFrameElement>(null);
+  const [devWallet, setDevWallet]   = useState<DevWallet | null>(null);
+  const [walletErr, setWalletErr]   = useState(false);
+  // null = unchecked, true = runtime up, false = runtime down
+  const [runtimeReady, setRuntimeReady] = useState<boolean | null>(null);
 
+  const settingsRef   = useRef<HTMLDivElement>(null);
+  const iframeRef     = useRef<HTMLIFrameElement>(null);
+  const walletTimerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  // ── Wallet fetch ──────────────────────────────────────────────────────────
+  const fetchDevWallet = useCallback(async () => {
+    try {
+      const res = await fetch('/api/dev/wallet');
+      if (!res.ok) { setWalletErr(true); return; }
+      const data = await res.json() as { ok: boolean; wallet: DevWallet };
+      if (data.ok) { setDevWallet(data.wallet); setWalletErr(false); }
+    } catch {
+      setWalletErr(true);
+    }
+  }, []);
+
+  // ── Runtime status check ──────────────────────────────────────────────────
+  const checkDevStatus = useCallback(async () => {
+    try {
+      const res = await fetch('/api/dev/status');
+      if (!res.ok) return;
+      const data = await res.json() as { ok: boolean; status: { runtimeReady: boolean } };
+      if (data.ok) setRuntimeReady(data.status.runtimeReady);
+    } catch {
+      // silent — runtimeReady stays null (unchecked)
+    }
+  }, []);
+
+  // ── Boot sequence ─────────────────────────────────────────────────────────
   const runBoot = useCallback(() => {
     setState('loading');
     setProgress(0);
     setPhase(0);
+    setRuntimeReady(null);
+    setDevWallet(null);
+    setWalletErr(false);
 
     const steps = [
       { pct: 20,  ph: 0, delay: 300 },
-      { pct: 45,  ph: 1, delay: 500 },
+      { pct: 45,  ph: 1, delay: 500 },  // after phase 1: check runtime status
       { pct: 68,  ph: 2, delay: 400 },
       { pct: 88,  ph: 3, delay: 350 },
       { pct: 100, ph: 4, delay: 300 },
@@ -56,12 +99,36 @@ export default function HotelDevClient({ user }: { user: HotelDevUser }) {
       setTimeout(() => {
         setProgress(pct);
         setPhase(ph);
+        // Check runtime status during "Comprobando estado de Arcturus Dev"
+        if (ph === 1) void checkDevStatus();
         if (pct === 100) setTimeout(() => setState('ready'), 350);
       }, elapsed);
     });
-  }, []);
+  }, [checkDevStatus]);
 
   useEffect(() => { runBoot(); }, [runBoot]);
+
+  // Fetch wallet when state becomes 'ready' or 'playing'
+  useEffect(() => {
+    if (state === 'ready' || state === 'playing') {
+      void fetchDevWallet();
+    }
+  }, [state, fetchDevWallet]);
+
+  // Refresh wallet every 60s when playing
+  useEffect(() => {
+    if (state === 'playing') {
+      walletTimerRef.current = setInterval(() => { void fetchDevWallet(); }, 60_000);
+    } else {
+      if (walletTimerRef.current) {
+        clearInterval(walletTimerRef.current);
+        walletTimerRef.current = null;
+      }
+    }
+    return () => {
+      if (walletTimerRef.current) clearInterval(walletTimerRef.current);
+    };
+  }, [state, fetchDevWallet]);
 
   // Close settings on outside click
   useEffect(() => {
@@ -74,12 +141,12 @@ export default function HotelDevClient({ user }: { user: HotelDevUser }) {
     return () => document.removeEventListener('mousedown', handler);
   }, [settingsOpen]);
 
+  // ── Game launch ───────────────────────────────────────────────────────────
   async function launchGame() {
     setState('checking');
     try {
       const res = await fetch('/api/dev/sso', { method: 'POST' });
 
-      // 503 = arcturus_dev not bootstrapped
       if (res.status === 503) {
         const data = await res.json() as { error: string };
         setErrorMsg(data.error ?? 'Arcturus Dev no está listo. Requiere bootstrap (ver docs/mp-015).');
@@ -137,7 +204,41 @@ export default function HotelDevClient({ user }: { user: HotelDevUser }) {
 
   const avatarUrl = getAvatarUrl(user.look || 'hd-180-1', { size: 'l', direction: 2, gesture: 'sml' });
 
-  // ── PLAYING ──────────────────────────────────────────────────────────────────
+  // ── Wallet display helper ─────────────────────────────────────────────────
+  function WalletBadge() {
+    if (walletErr) {
+      return (
+        <span
+          className="text-xs font-mono px-1.5 py-0.5 rounded hidden lg:inline"
+          style={{ background: 'rgba(239,68,68,.08)', color: '#f87171', fontSize: '0.6rem', border: '1px solid rgba(239,68,68,.18)' }}
+          title="Wallet dev no disponible"
+        >
+          wallet?
+        </span>
+      );
+    }
+    if (!devWallet) return null;
+    return (
+      <>
+        <span
+          className="text-xs font-mono px-1.5 py-0.5 rounded hidden lg:inline"
+          style={{ background: 'rgba(245,158,11,.08)', color: '#F59E0B', fontSize: '0.6rem', border: '1px solid rgba(245,158,11,.18)' }}
+          title="Créditos arcturus_dev"
+        >
+          {devWallet.credits.toLocaleString()}c
+        </span>
+        <span
+          className="text-xs font-mono px-1.5 py-0.5 rounded hidden lg:inline"
+          style={{ background: 'rgba(16,185,129,.08)', color: '#10B981', fontSize: '0.6rem', border: '1px solid rgba(16,185,129,.18)' }}
+          title="Duckets arcturus_dev"
+        >
+          {devWallet.pixels.toLocaleString()}d
+        </span>
+      </>
+    );
+  }
+
+  // ── PLAYING ───────────────────────────────────────────────────────────────
   if (state === 'playing') {
     return (
       <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', background: '#0B1322' }}>
@@ -172,6 +273,8 @@ export default function HotelDevClient({ user }: { user: HotelDevUser }) {
           >
             ws:2097
           </span>
+          {/* Dev wallet — live from arcturus_dev */}
+          <WalletBadge />
 
           <div className="ml-auto flex items-center gap-2">
             {/* Settings dropdown */}
@@ -190,17 +293,25 @@ export default function HotelDevClient({ user }: { user: HotelDevUser }) {
                 <div style={{
                   position: 'absolute', right: 0, top: 'calc(100% + 6px)', zIndex: 200,
                   background: 'rgba(15,23,42,.97)', border: '1px solid #1f2b41',
-                  borderRadius: 10, padding: '6px 0', minWidth: 180,
+                  borderRadius: 10, padding: '6px 0', minWidth: 200,
                   boxShadow: '0 8px 32px rgba(0,0,0,.5)',
                 }}>
                   <div style={{ padding: '6px 14px 8px', borderBottom: '1px solid #1f2b41' }}>
                     <div style={{ fontSize: '.65rem', color: '#475569', textTransform: 'uppercase', letterSpacing: '.07em', marginBottom: 3 }}>Estado</div>
                     <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '.72rem', color: '#10B981' }}>
-                      <Wifi className="w-3 h-3" /> Conectado (dev)
+                      <Wifi className="w-3 h-3" /> Conectado (arcturus_dev)
                     </div>
+                    {devWallet && (
+                      <div style={{ marginTop: 4, fontSize: '.65rem', color: '#64748B' }}>
+                        Créditos: {devWallet.credits.toLocaleString()} · Duckets: {devWallet.pixels.toLocaleString()}
+                      </div>
+                    )}
                   </div>
                   <button onClick={() => void reloadHotel()} style={menuItemStyle}>
                     <RotateCcw className="w-3.5 h-3.5" /> Recargar entorno dev
+                  </button>
+                  <button onClick={() => { setSettingsOpen(false); void fetchDevWallet(); }} style={menuItemStyle}>
+                    <RefreshCw className="w-3.5 h-3.5" /> Actualizar wallet dev
                   </button>
                   <button onClick={() => { setSettingsOpen(false); toggleFullscreen(); }} style={menuItemStyle}>
                     <Maximize2 className="w-3.5 h-3.5" /> Pantalla completa
@@ -251,9 +362,7 @@ export default function HotelDevClient({ user }: { user: HotelDevUser }) {
           </div>
           <div>
             <h2 className="text-xl font-bold mb-2" style={{ color: '#F8FAFC' }}>Arcturus Dev no está listo</h2>
-            <p className="text-sm leading-relaxed" style={{ color: '#64748B' }}>
-              {errorMsg}
-            </p>
+            <p className="text-sm leading-relaxed" style={{ color: '#64748B' }}>{errorMsg}</p>
           </div>
           <div className="flex flex-col gap-2 w-full text-left" style={{
             background: 'rgba(19,30,54,.6)', border: '1px solid #1f2b41',
@@ -342,7 +451,7 @@ export default function HotelDevClient({ user }: { user: HotelDevUser }) {
         </div>
 
         {/* READY */}
-        <div className={`lstate${(state === 'ready' || state === 'checking') ? ' active' : ''} gap-8 w-full max-w-lg px-6 text-center items-center`}>
+        <div className={`lstate${(state === 'ready' || state === 'checking') ? ' active' : ''} gap-6 w-full max-w-lg px-6 text-center items-center`}>
           <div style={{ position: 'relative', display: 'inline-block' }}>
             <div style={{
               width: 120, height: 120, borderRadius: '50%',
@@ -371,6 +480,47 @@ export default function HotelDevClient({ user }: { user: HotelDevUser }) {
             </h1>
             <p className="text-sm" style={{ color: '#94A3B8' }}>Laboratorio Arcturus Dev · separado del hotel principal</p>
           </div>
+
+          {/* Runtime warning — shown when Arcturus Dev WS is unreachable */}
+          {runtimeReady === false && (
+            <div style={{
+              background: 'rgba(239,68,68,.08)', border: '1px solid rgba(239,68,68,.2)',
+              borderRadius: 10, padding: '0.625rem 1rem',
+              fontSize: '0.78rem', color: '#f87171', maxWidth: 420, textAlign: 'left',
+            }}>
+              <AlertCircle className="w-4 h-4 inline mr-1.5" style={{ color: '#f87171' }} />
+              <strong>Arcturus Dev puede no estar activo.</strong>{' '}
+              Si Nitro no conecta, inicia <code style={{ fontSize: '0.72rem', background: 'rgba(239,68,68,.12)', padding: '1px 4px', borderRadius: 3 }}>start-dev.bat</code>{' '}
+              y espera a que el servidor cargue.
+            </div>
+          )}
+
+          {/* Dev wallet — quick preview before entering */}
+          {devWallet && (
+            <div style={{
+              display: 'flex', gap: 12, justifyContent: 'center', flexWrap: 'wrap',
+              fontSize: '0.78rem',
+            }}>
+              {[
+                { label: 'Créditos dev', value: devWallet.credits.toLocaleString(), color: '#F59E0B' },
+                { label: 'Duckets dev',  value: devWallet.pixels.toLocaleString(),  color: '#10B981' },
+                ...(devWallet.diamonds > 0
+                  ? [{ label: 'Diamantes dev', value: devWallet.diamonds.toLocaleString(), color: '#a78bfa' }]
+                  : []),
+              ].map(item => (
+                <div
+                  key={item.label}
+                  style={{
+                    background: 'rgba(19,30,54,.7)', border: '1px solid #1f2b41',
+                    borderRadius: 8, padding: '0.4rem 0.75rem', textAlign: 'center',
+                  }}
+                >
+                  <div style={{ color: '#475569', fontSize: '0.65rem', marginBottom: 2 }}>{item.label}</div>
+                  <div style={{ color: item.color, fontWeight: 700, fontVariantNumeric: 'tabular-nums' }}>{item.value}</div>
+                </div>
+              ))}
+            </div>
+          )}
 
           <div style={{
             background: AMBER_DIM, border: `1px solid ${AMBER_BORDER}`,
