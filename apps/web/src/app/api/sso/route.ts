@@ -14,7 +14,7 @@ export async function POST() {
   // Fetch full user from kodexa_hotel (source of truth)
   const user = await prisma.user.findUnique({
     where: { id: userId },
-    select: { id: true, username: true, email: true, rank: true, look: true, motto: true, credits: true },
+    select: { id: true, username: true, email: true, rank: true, look: true, motto: true, credits: true, pixels: true },
   });
   if (!user) {
     return NextResponse.json({ error: 'User not found' }, { status: 404 });
@@ -39,6 +39,7 @@ export async function POST() {
     look: user.look ?? '',
     motto: user.motto ?? '',
     credits: user.credits,
+    pixels: user.pixels,
   });
   await writeArcturusTicket(arcturusId, ticket);
 

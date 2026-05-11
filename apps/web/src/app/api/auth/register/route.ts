@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import { z } from 'zod';
 import bcrypt from 'bcryptjs';
+import { Prisma } from '@prisma/client';
 import { prisma } from '@/lib/db';
 
 const schema = z.object({
@@ -62,6 +63,14 @@ export async function POST(req: Request) {
     return NextResponse.json({ success: true, userId: user.id });
   } catch (err) {
     console.error('[register]', err);
+    // Race condition: two concurrent requests passed both findUnique checks
+    // but one won the INSERT. Prisma P2002 = unique constraint violation.
+    if (err instanceof Prisma.PrismaClientKnownRequestError && err.code === 'P2002') {
+      const target = err.meta?.target as string[] | undefined;
+      const field  = target?.includes('email') ? 'email' : 'username';
+      const msg    = field === 'email' ? 'El email ya está registrado' : 'El username ya está en uso';
+      return NextResponse.json({ error: msg, field }, { status: 409 });
+    }
     return NextResponse.json({ error: 'Error interno del servidor' }, { status: 500 });
   }
 }

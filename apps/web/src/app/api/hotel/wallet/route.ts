@@ -51,8 +51,8 @@ export async function GET() {
     });
   }
 
-  const arcturusId = arcturusUsers[0]!.id;
-  const credits    = arcturusUsers[0]!.credits;
+  const arcturusId = Number(arcturusUsers[0]!.id);
+  const credits    = Number(arcturusUsers[0]!.credits);
 
   // Fetch duckets (type 0) and diamonds (type 5) from users_currency
   const currencies = await arcturusDb.$queryRawUnsafe<UserCurrency[]>(
@@ -60,8 +60,10 @@ export async function GET() {
     arcturusId,
   );
 
-  const pixels   = currencies.find(c => c.type === 0)?.amount ?? 0;
-  const diamonds = currencies.find(c => c.type === 5)?.amount ?? 0;
+  // Number() guards: mysql2 may return INT columns as BigInt via $queryRawUnsafe
+  // depending on driver version. Coerce to avoid silent === comparison failures.
+  const pixels   = Number(currencies.find(c => Number(c.type) === 0)?.amount ?? 0);
+  const diamonds = Number(currencies.find(c => Number(c.type) === 5)?.amount ?? 0);
 
   return NextResponse.json({
     ok: true,
