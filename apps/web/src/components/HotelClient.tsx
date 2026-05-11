@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { signOut } from 'next-auth/react';
-import { Zap, AlertCircle, WifiOff, Play, RefreshCw, Users, Home, Star, Cpu, Maximize2, LogOut, Coins, Diamond, FlaskConical, Construction } from 'lucide-react';
+import { Zap, AlertCircle, WifiOff, Play, RefreshCw, Users, Home, Star, Cpu, Maximize2, LogOut, RotateCcw, Wifi, FlaskConical, Construction } from 'lucide-react';
 import { getAvatarUrl } from '@kodexa/shared';
 
 interface HotelUser {
@@ -11,6 +11,12 @@ interface HotelUser {
   credits: number;
   pixels: number;
   rank: number;
+}
+
+interface Wallet {
+  credits: number;
+  pixels: number;
+  diamonds: number;
 }
 
 type LaunchState = 'loading' | 'ready' | 'error' | 'disconnected' | 'playing';
@@ -31,14 +37,18 @@ const TIPS = [
 ];
 
 export default function HotelClient({ user }: { user: HotelUser }) {
-  const [state, setState]       = useState<LaunchState>('loading');
-  const [progress, setProgress] = useState(0);
-  const [phase, setPhase]       = useState(0);
-  const [tipIdx, setTipIdx]     = useState(0);
-  const [errorMsg, setErrorMsg] = useState('');
+  const [state, setState]         = useState<LaunchState>('loading');
+  const [progress, setProgress]   = useState(0);
+  const [phase, setPhase]         = useState(0);
+  const [tipIdx, setTipIdx]       = useState(0);
+  const [errorMsg, setErrorMsg]   = useState('');
   const [ssoTicket, setSsoTicket] = useState<string | null>(null);
+  const [wallet, setWallet]       = useState<Wallet>({ credits: user.credits, pixels: user.pixels, diamonds: 0 });
+  const [settingsOpen, setSettingsOpen] = useState(false);
+  const settingsRef = useRef<HTMLDivElement>(null);
+  const iframeRef   = useRef<HTMLIFrameElement>(null);
 
-  const clientUrl = process.env['NEXT_PUBLIC_CLIENT_URL'] ?? 'http://localhost:3001';
+  const clientUrl = process.env['NEXT_PUBLIC_NITRO_URL'] ?? 'http://localhost:8081';
 
   // Simulate boot sequence
   const runBoot = useCallback(() => {
@@ -76,6 +86,38 @@ export default function HotelClient({ user }: { user: HotelUser }) {
     return () => clearInterval(id);
   }, [state]);
 
+  // Load wallet from arcturus_main when game is playing
+  const fetchWallet = useCallback(async () => {
+    try {
+      const res = await fetch('/api/hotel/wallet');
+      if (!res.ok) return;
+      const data = await res.json() as { ok: boolean; wallet: Wallet };
+      if (data.ok) setWallet(data.wallet);
+    } catch {
+      // silent — keep last known values
+    }
+  }, []);
+
+  useEffect(() => {
+    if (state !== 'playing') return;
+    // Initial fetch after entering the hotel
+    void fetchWallet();
+    // Refresh every 60s to reflect in-game purchases
+    const id = setInterval(() => void fetchWallet(), 60_000);
+    return () => clearInterval(id);
+  }, [state, fetchWallet]);
+
+  // Close settings dropdown when clicking outside
+  useEffect(() => {
+    function handleOutsideClick(e: MouseEvent) {
+      if (settingsRef.current && !settingsRef.current.contains(e.target as Node)) {
+        setSettingsOpen(false);
+      }
+    }
+    if (settingsOpen) document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, [settingsOpen]);
+
   async function launchGame() {
     try {
       const res = await fetch('/api/sso', { method: 'POST' });
@@ -89,6 +131,27 @@ export default function HotelClient({ user }: { user: HotelUser }) {
     }
   }
 
+  async function reloadHotel() {
+    setSettingsOpen(false);
+    try {
+      const res = await fetch('/api/sso', { method: 'POST' });
+      if (!res.ok) throw new Error('SSO failed');
+      const { ticket } = await res.json() as { ticket: string };
+      setSsoTicket(ticket);
+      // Force iframe reload by temporarily clearing src
+      if (iframeRef.current) {
+        iframeRef.current.src = 'about:blank';
+        setTimeout(() => {
+          if (iframeRef.current) {
+            iframeRef.current.src = `${clientUrl}?sso=${encodeURIComponent(ticket)}`;
+          }
+        }, 100);
+      }
+    } catch {
+      // silent — hotel stays loaded
+    }
+  }
+
   function toggleFullscreen() {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen().catch(() => undefined);
@@ -96,6 +159,12 @@ export default function HotelClient({ user }: { user: HotelUser }) {
       document.exitFullscreen().catch(() => undefined);
     }
   }
+
+  const menuItemStyle: React.CSSProperties = {
+    display: 'flex', alignItems: 'center', gap: 8,
+    width: '100%', padding: '7px 14px', background: 'transparent', border: 'none',
+    color: '#94A3B8', fontSize: '.75rem', cursor: 'pointer', textAlign: 'left',
+  };
 
   const tip = TIPS[tipIdx]!;
   const avatarUrl = getAvatarUrl(user.look || 'hd-180-1', { size: 'l', direction: 2, gesture: 'sml' });
@@ -107,19 +176,82 @@ export default function HotelClient({ user }: { user: HotelUser }) {
       : `${clientUrl}`;
     return (
       <div style={{ height: '100vh', display: 'flex', flexDirection: 'column', background: '#0B1322' }}>
-        {/* Minimal game topbar */}
+        {/* Game topbar — MP-012.2: real wallet assets + functional settings */}
         <div className="topbar-game">
+          {/* Left: logo K only */}
           <div className="logo-k" style={{ width: 24, height: 24, fontSize: '.75rem', flexShrink: 0 }}><span>K</span></div>
-          <span className="font-bold text-xs" style={{ color: '#F8FAFC', flexShrink: 0 }}>
-            Kodexa<span style={{ color: '#00D4AA' }}>.</span>Hotel
-          </span>
-          <span className="text-xs font-mono ml-2" style={{ color: '#475569' }}>/sala/lobby</span>
 
+          {/* Right: currencies + controls */}
           <div className="ml-auto flex items-center gap-2">
-            <span className="gpill"><Coins className="w-3 h-3 inline mr-1" />{user.credits.toLocaleString()}</span>
-            <span className="gpill" style={{ background: 'rgba(124,58,237,.12)', color: '#c4b5fd', borderColor: 'rgba(124,58,237,.25)' }}>
-              <Diamond className="w-3 h-3 inline mr-1" />{user.pixels.toLocaleString()}
+            {/* Credits (arcturus type -1) */}
+            <span className="gpill" title="Créditos" style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/hotel/currency/credits.png" alt="" width={15} height={15} style={{ imageRendering: 'pixelated' }} />
+              {wallet.credits.toLocaleString()}
             </span>
+            {/* Duckets (arcturus type 0) */}
+            <span className="gpill" style={{ background: 'rgba(124,58,237,.12)', color: '#c4b5fd', borderColor: 'rgba(124,58,237,.25)', display: 'flex', alignItems: 'center', gap: 5 }} title="Duckets">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/hotel/currency/duckets.png" alt="" width={15} height={15} style={{ imageRendering: 'pixelated' }} />
+              {wallet.pixels.toLocaleString()}
+            </span>
+            {/* Diamonds (arcturus type 5) */}
+            <span className="gpill" style={{ background: 'rgba(59,130,246,.10)', color: '#93c5fd', borderColor: 'rgba(59,130,246,.25)', display: 'flex', alignItems: 'center', gap: 5 }} title="Diamantes">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/hotel/currency/diamonds.png" alt="" width={20} height={20} style={{ imageRendering: 'pixelated' }} />
+              {wallet.diamonds.toLocaleString()}
+            </span>
+
+            {/* Settings dropdown */}
+            <div ref={settingsRef} style={{ position: 'relative' }}>
+              <button
+                className="icon-btn"
+                title="Configuración"
+                onClick={() => setSettingsOpen(o => !o)}
+                style={settingsOpen ? { color: '#00D4AA', background: 'rgba(0,212,170,.1)' } : undefined}
+              >
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" />
+                </svg>
+              </button>
+              {settingsOpen && (
+                <div style={{
+                  position: 'absolute', right: 0, top: 'calc(100% + 6px)', zIndex: 200,
+                  background: 'rgba(15,23,42,.97)', border: '1px solid #1f2b41',
+                  borderRadius: 10, padding: '6px 0', minWidth: 180,
+                  boxShadow: '0 8px 32px rgba(0,0,0,.5)',
+                }}>
+                  {/* Status */}
+                  <div style={{ padding: '6px 14px 8px', borderBottom: '1px solid #1f2b41' }}>
+                    <div style={{ fontSize: '.65rem', color: '#475569', textTransform: 'uppercase', letterSpacing: '.07em', marginBottom: 3 }}>Estado</div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 6, fontSize: '.72rem', color: '#10B981' }}>
+                      <Wifi className="w-3 h-3" /> Conectado
+                    </div>
+                  </div>
+                  {/* Actions */}
+                  <button
+                    onClick={() => void reloadHotel()}
+                    style={menuItemStyle}
+                  >
+                    <RotateCcw className="w-3.5 h-3.5" /> Recargar hotel
+                  </button>
+                  <button
+                    onClick={() => { setSettingsOpen(false); toggleFullscreen(); }}
+                    style={menuItemStyle}
+                  >
+                    <Maximize2 className="w-3.5 h-3.5" /> Pantalla completa
+                  </button>
+                  <div style={{ borderTop: '1px solid #1f2b41', margin: '4px 0' }} />
+                  <button
+                    onClick={() => { setSettingsOpen(false); void signOut({ callbackUrl: '/login' }); }}
+                    style={{ ...menuItemStyle, color: '#f87171' }}
+                  >
+                    <LogOut className="w-3.5 h-3.5" /> Salir del hotel
+                  </button>
+                </div>
+              )}
+            </div>
+
             <button
               onClick={toggleFullscreen}
               className="icon-btn"
@@ -139,6 +271,7 @@ export default function HotelClient({ user }: { user: HotelUser }) {
 
         {/* Game iframe */}
         <iframe
+          ref={iframeRef}
           src={iframeSrc}
           style={{ flex: 1, border: 'none', width: '100%' }}
           allow="fullscreen"
